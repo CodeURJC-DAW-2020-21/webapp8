@@ -1,17 +1,9 @@
 # webapp8
-FUNCIONALITIES:
-- Real time updates for cryptocurrency values.
-- Show graphics regarding information about the price of cryptoccurencies throughout time.
-- Forum creation, where the users can create entries, and the users can comment in said entries. The users will be able to vote them too.
-- Being able to choose x cryptocurrencies so the web warns you when the prices are going up or down, based on a limit the user have decided.
-- Log in.
-- Register.
-- Forgotten password recovery.
-- Section with the most popular cryptocurrencies.
-- Section with news about cryptocurrencies.
-- The registered users will be able to update a profile picture.
-- Possibility to sort the entries based on their puntuation, relevance, publication date, etc.
-- The users will be able to report comments and entries.
+APP NAME: FOROCOIN
+
+TEAM MEMBERS: Marcos Rodríguez García (Correo: m.rodriguezgar.2018@alumnos.urjc.es Github: marcoszas), Ángel Domínguez Figueros (Correo: a.dominguezf.2018@alumnos.urjc.es Github: AngelDomFig97), Adrián Sierra Robles (Correo: a.sierrar.2017@alumnos.urjc.es Github: adrisierra), Óscar Ramadán Pérez (Correo: o.ramadan.2018@alumnos.urjc.es Github: Oscarprezz), Adrián López Couso (Correo: a.lopezco.2018@alumnos.urjc.es Github: Adriton1).
+
+COORDINATION APP: https://trello.com/b/Y1LuXB9J/aplicacion-web
 
 ENTITIES:
 - User: entity made to contain the client data.
@@ -31,3 +23,11 @@ USER PERMISSIONS:
 - Registered user: He will be able to delete or modify an entry or a comment (if there's an edit it will be notified on the web app). Only him will be able to modify his list of
   favourite cryptocurrencies.
 - Admin: He has total control over the web app. 
+
+IMAGES: Registered users will be able to upload a profile image.
+
+GRAPHICS: The web application will have graphics to show the price fluctuation of the cryptocurrencies throughtout the time.
+
+COMPLEMENTARY TECHNOLOGY: The web application will make use of API Rests to get information in real time of prices from the cryptocurrencies.
+
+ALGORITHM OR ADVANCED QUERY: Users will be able to sort the entries based on their relevance, votes or publication date. 
