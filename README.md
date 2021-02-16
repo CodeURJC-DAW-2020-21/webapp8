@@ -2,7 +2,7 @@
 ## FOROCOIN
 
 Team Members | Email | GitHub
------------- | ----- | ------
+:------------: | :-----: | :------:
 Marcos Rodríguez García | m.rodriguezgar.2018@alumnos.urjc.es | marcoszas
 Ángel Domínguez Figueros | a.dominguezf.2018@alumnos.urjc.es | AngelDomFig97
 Adrián Sierra Robles | a.sierrar.2017@alumnos.urjc.es | adrisierra
