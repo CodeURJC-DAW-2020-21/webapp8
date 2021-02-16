@@ -1,8 +1,6 @@
 # webapp8
 ## FOROCOIN
 
-<center>
-  
 Team Members | Email | GitHub
 ------------ | ----- | ------
 Marcos Rodríguez García | m.rodriguezgar.2018@alumnos.urjc.es | marcoszas
@@ -10,8 +8,6 @@ Marcos Rodríguez García | m.rodriguezgar.2018@alumnos.urjc.es | marcoszas
 Adrián Sierra Robles | a.sierrar.2017@alumnos.urjc.es | adrisierra
 Óscar Ramadán Pérez | o.ramadan.2018@alumnos.urjc.es | Oscarprezz
 Adrián López Couso | a.lopezco.2018@alumnos.urjc.es | Adriton1
-
-</center>
 
 ### COORDINATION APP:
 https://trello.com/b/Y1LuXB9J/aplicacion-web
