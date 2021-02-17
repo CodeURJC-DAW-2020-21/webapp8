@@ -6,14 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>ForoCoin</title>
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/forum.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand" href="index.html">ForoCoin</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -45,18 +47,18 @@
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                ForoCoin
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                                Criptomonedas
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    <a class="nav-link" href="charts.html">Todas la criptomonedas</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Criptomonedas favoritas</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -110,556 +112,466 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area mr-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar mr-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
+                        <h1 class="mt-4">ForoCoin</h1>
+                        
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                DataTable Example
+                                FORO PRINCIPAL
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                <td>$170,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                <td>$86,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2012/03/29</td>
-                                                <td>$433,060</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                                <td>2008/11/28</td>
-                                                <td>$162,700</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>2012/12/02</td>
-                                                <td>$372,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Herrod Chandler</td>
-                                                <td>Sales Assistant</td>
-                                                <td>San Francisco</td>
-                                                <td>59</td>
-                                                <td>2012/08/06</td>
-                                                <td>$137,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Rhona Davidson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>Tokyo</td>
-                                                <td>55</td>
-                                                <td>2010/10/14</td>
-                                                <td>$327,900</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Colleen Hurst</td>
-                                                <td>Javascript Developer</td>
-                                                <td>San Francisco</td>
-                                                <td>39</td>
-                                                <td>2009/09/15</td>
-                                                <td>$205,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sonya Frost</td>
-                                                <td>Software Engineer</td>
-                                                <td>Edinburgh</td>
-                                                <td>23</td>
-                                                <td>2008/12/13</td>
-                                                <td>$103,600</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jena Gaines</td>
-                                                <td>Office Manager</td>
-                                                <td>London</td>
-                                                <td>30</td>
-                                                <td>2008/12/19</td>
-                                                <td>$90,560</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Quinn Flynn</td>
-                                                <td>Support Lead</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2013/03/03</td>
-                                                <td>$342,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Charde Marshall</td>
-                                                <td>Regional Director</td>
-                                                <td>San Francisco</td>
-                                                <td>36</td>
-                                                <td>2008/10/16</td>
-                                                <td>$470,600</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Haley Kennedy</td>
-                                                <td>Senior Marketing Designer</td>
-                                                <td>London</td>
-                                                <td>43</td>
-                                                <td>2012/12/18</td>
-                                                <td>$313,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tatyana Fitzpatrick</td>
-                                                <td>Regional Director</td>
-                                                <td>London</td>
-                                                <td>19</td>
-                                                <td>2010/03/17</td>
-                                                <td>$385,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Michael Silva</td>
-                                                <td>Marketing Designer</td>
-                                                <td>London</td>
-                                                <td>66</td>
-                                                <td>2012/11/27</td>
-                                                <td>$198,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Paul Byrd</td>
-                                                <td>Chief Financial Officer (CFO)</td>
-                                                <td>New York</td>
-                                                <td>64</td>
-                                                <td>2010/06/09</td>
-                                                <td>$725,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gloria Little</td>
-                                                <td>Systems Administrator</td>
-                                                <td>New York</td>
-                                                <td>59</td>
-                                                <td>2009/04/10</td>
-                                                <td>$237,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bradley Greer</td>
-                                                <td>Software Engineer</td>
-                                                <td>London</td>
-                                                <td>41</td>
-                                                <td>2012/10/13</td>
-                                                <td>$132,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Dai Rios</td>
-                                                <td>Personnel Lead</td>
-                                                <td>Edinburgh</td>
-                                                <td>35</td>
-                                                <td>2012/09/26</td>
-                                                <td>$217,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jenette Caldwell</td>
-                                                <td>Development Lead</td>
-                                                <td>New York</td>
-                                                <td>30</td>
-                                                <td>2011/09/03</td>
-                                                <td>$345,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Yuri Berry</td>
-                                                <td>Chief Marketing Officer (CMO)</td>
-                                                <td>New York</td>
-                                                <td>40</td>
-                                                <td>2009/06/25</td>
-                                                <td>$675,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Caesar Vance</td>
-                                                <td>Pre-Sales Support</td>
-                                                <td>New York</td>
-                                                <td>21</td>
-                                                <td>2011/12/12</td>
-                                                <td>$106,450</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Doris Wilder</td>
-                                                <td>Sales Assistant</td>
-                                                <td>Sidney</td>
-                                                <td>23</td>
-                                                <td>2010/09/20</td>
-                                                <td>$85,600</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Angelica Ramos</td>
-                                                <td>Chief Executive Officer (CEO)</td>
-                                                <td>London</td>
-                                                <td>47</td>
-                                                <td>2009/10/09</td>
-                                                <td>$1,200,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gavin Joyce</td>
-                                                <td>Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>42</td>
-                                                <td>2010/12/22</td>
-                                                <td>$92,575</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jennifer Chang</td>
-                                                <td>Regional Director</td>
-                                                <td>Singapore</td>
-                                                <td>28</td>
-                                                <td>2010/11/14</td>
-                                                <td>$357,650</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brenden Wagner</td>
-                                                <td>Software Engineer</td>
-                                                <td>San Francisco</td>
-                                                <td>28</td>
-                                                <td>2011/06/07</td>
-                                                <td>$206,850</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Fiona Green</td>
-                                                <td>Chief Operating Officer (COO)</td>
-                                                <td>San Francisco</td>
-                                                <td>48</td>
-                                                <td>2010/03/11</td>
-                                                <td>$850,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Shou Itou</td>
-                                                <td>Regional Marketing</td>
-                                                <td>Tokyo</td>
-                                                <td>20</td>
-                                                <td>2011/08/14</td>
-                                                <td>$163,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Michelle House</td>
-                                                <td>Integration Specialist</td>
-                                                <td>Sidney</td>
-                                                <td>37</td>
-                                                <td>2011/06/02</td>
-                                                <td>$95,400</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Suki Burks</td>
-                                                <td>Developer</td>
-                                                <td>London</td>
-                                                <td>53</td>
-                                                <td>2009/10/22</td>
-                                                <td>$114,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Prescott Bartlett</td>
-                                                <td>Technical Author</td>
-                                                <td>London</td>
-                                                <td>27</td>
-                                                <td>2011/05/07</td>
-                                                <td>$145,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gavin Cortez</td>
-                                                <td>Team Leader</td>
-                                                <td>San Francisco</td>
-                                                <td>22</td>
-                                                <td>2008/10/26</td>
-                                                <td>$235,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Martena Mccray</td>
-                                                <td>Post-Sales support</td>
-                                                <td>Edinburgh</td>
-                                                <td>46</td>
-                                                <td>2011/03/09</td>
-                                                <td>$324,050</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Unity Butler</td>
-                                                <td>Marketing Designer</td>
-                                                <td>San Francisco</td>
-                                                <td>47</td>
-                                                <td>2009/12/09</td>
-                                                <td>$85,675</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Howard Hatfield</td>
-                                                <td>Office Manager</td>
-                                                <td>San Francisco</td>
-                                                <td>51</td>
-                                                <td>2008/12/16</td>
-                                                <td>$164,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hope Fuentes</td>
-                                                <td>Secretary</td>
-                                                <td>San Francisco</td>
-                                                <td>41</td>
-                                                <td>2010/02/12</td>
-                                                <td>$109,850</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Vivian Harrell</td>
-                                                <td>Financial Controller</td>
-                                                <td>San Francisco</td>
-                                                <td>62</td>
-                                                <td>2009/02/14</td>
-                                                <td>$452,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Timothy Mooney</td>
-                                                <td>Office Manager</td>
-                                                <td>London</td>
-                                                <td>37</td>
-                                                <td>2008/12/11</td>
-                                                <td>$136,200</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jackson Bradshaw</td>
-                                                <td>Director</td>
-                                                <td>New York</td>
-                                                <td>65</td>
-                                                <td>2008/09/26</td>
-                                                <td>$645,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Olivia Liang</td>
-                                                <td>Support Engineer</td>
-                                                <td>Singapore</td>
-                                                <td>64</td>
-                                                <td>2011/02/03</td>
-                                                <td>$234,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bruno Nash</td>
-                                                <td>Software Engineer</td>
-                                                <td>London</td>
-                                                <td>38</td>
-                                                <td>2011/05/03</td>
-                                                <td>$163,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sakura Yamamoto</td>
-                                                <td>Support Engineer</td>
-                                                <td>Tokyo</td>
-                                                <td>37</td>
-                                                <td>2009/08/19</td>
-                                                <td>$139,575</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Thor Walton</td>
-                                                <td>Developer</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>2013/08/11</td>
-                                                <td>$98,540</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Finn Camacho</td>
-                                                <td>Support Engineer</td>
-                                                <td>San Francisco</td>
-                                                <td>47</td>
-                                                <td>2009/07/07</td>
-                                                <td>$87,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Serge Baldwin</td>
-                                                <td>Data Coordinator</td>
-                                                <td>Singapore</td>
-                                                <td>64</td>
-                                                <td>2012/04/09</td>
-                                                <td>$138,575</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Zenaida Frank</td>
-                                                <td>Software Engineer</td>
-                                                <td>New York</td>
-                                                <td>63</td>
-                                                <td>2010/01/04</td>
-                                                <td>$125,250</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Zorita Serrano</td>
-                                                <td>Software Engineer</td>
-                                                <td>San Francisco</td>
-                                                <td>56</td>
-                                                <td>2012/06/01</td>
-                                                <td>$115,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jennifer Acosta</td>
-                                                <td>Junior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>43</td>
-                                                <td>2013/02/01</td>
-                                                <td>$75,650</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cara Stevens</td>
-                                                <td>Sales Assistant</td>
-                                                <td>New York</td>
-                                                <td>46</td>
-                                                <td>2011/12/06</td>
-                                                <td>$145,600</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hermione Butler</td>
-                                                <td>Regional Director</td>
-                                                <td>London</td>
-                                                <td>47</td>
-                                                <td>2011/03/21</td>
-                                                <td>$356,250</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lael Greer</td>
-                                                <td>Systems Administrator</td>
-                                                <td>London</td>
-                                                <td>21</td>
-                                                <td>2009/02/27</td>
-                                                <td>$103,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jonas Alexander</td>
-                                                <td>Developer</td>
-                                                <td>San Francisco</td>
-                                                <td>30</td>
-                                                <td>2010/07/14</td>
-                                                <td>$86,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Shad Decker</td>
-                                                <td>Regional Director</td>
-                                                <td>Edinburgh</td>
-                                                <td>51</td>
-                                                <td>2008/11/13</td>
-                                                <td>$183,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Michael Bruce</td>
-                                                <td>Javascript Developer</td>
-                                                <td>Singapore</td>
-                                                <td>29</td>
-                                                <td>2011/06/27</td>
-                                                <td>$183,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Donna Snider</td>
-                                                <td>Customer Support</td>
-                                                <td>New York</td>
-                                                <td>27</td>
-                                                <td>2011/01/25</td>
-                                                <td>$112,000</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <!-- <div class="container"> -->
+                            <div class="main-body p-0">
+                                <div class="inner-wrapper">
+                                    <!-- Inner sidebar -->
+                                    <div class="inner-sidebar">
+                                        <!-- Inner sidebar header -->
+                                        <div class="inner-sidebar-header justify-content-center">
+                                            <button class="btn btn-primary has-icon btn-block" type="button" data-toggle="modal" data-target="#threadModal">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus mr-2">
+                                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                </svg>
+                                                NUEVA ENTRADA
+                                            </button>
+                                        </div>
+                                        <!-- /Inner sidebar header -->
+
+                                        <!-- Inner sidebar body -->
+                                        <div class="inner-sidebar-body p-0">
+                                            <div class="p-3 h-100" data-simplebar="init">
+                                                <div class="simplebar-wrapper" style="margin: -16px;">
+                                                    <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div>
+                                                    <div class="simplebar-mask">
+                                                        <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                            <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+                                                                <div class="simplebar-content" style="padding: 16px;">
+                                                                    <nav class="nav nav-pills nav-gap-y-1 flex-column">
+                                                                        <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon active">All Threads</a>
+                                                                        <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">Popular this week</a>
+                                                                        <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">Popular all time</a>
+                                                                        <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">Solved</a>
+                                                                        <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">Unsolved</a>
+                                                                        <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">No replies yet</a>
+                                                                    </nav>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="simplebar-placeholder" style="width: 234px; height: 292px;"></div>
+                                                </div>
+                                                <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div>
+                                                <div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 151px; display: block; transform: translate3d(0px, 0px, 0px);"></div></div>
+                                            </div>
+                                        </div>
+                                        <!-- /Inner sidebar body -->
+                                    </div>
+                                    <!-- /Inner sidebar -->
+
+                                    <!-- Inner main -->
+                                    <div class="inner-main">
+                                        <!-- Inner main header -->
+                                        <div class="inner-main-header">
+                                            <a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none" href="#" data-toggle="inner-sidebar"><i class="material-icons">arrow_forward_ios</i></a>
+                                            <select class="custom-select custom-select-sm w-auto mr-1">
+                                                <option selected="">Latest</option>
+                                                <option value="1">Popular</option>
+                                                <option value="3">Solved</option>
+                                                <option value="3">Unsolved</option>
+                                                <option value="3">No Replies Yet</option>
+                                            </select>
+                                            <span class="input-icon input-icon-sm ml-auto w-auto">
+                                                <input type="text" class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4" placeholder="Search forum" />
+                                            </span>
+                                        </div>
+                                        <!-- /Inner main header -->
+
+                                        <!-- Inner main body -->
+
+                                        <!-- Forum List -->
+                                        <!-- Entrada 1 -->
+                                        <div class="inner-main-body p-2 p-sm-3 ">
+                                            <div class="card mb-2 collapse forum-content show">
+                                                <div class="card-body p-2 p-sm-3">
+                                                    <div class="media forum-item">
+                                                        <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                                        <div class="media-body">
+                                                            <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">Los buenos doges</a></h6>
+                                                            <p class="text-secondary">
+                                                                lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                                            </p>
+                                                            <p class="text-muted"><a href="javascript:void(0)">drewdan</a> replied <span class="text-secondary font-weight-bold">13 minutes ago</span></p>
+                                                        </div>
+                                                        <div class="text-muted small text-center align-self-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <!-- Entrada 2 -->
+                                            <div class="card mb-2">
+                                                <div class="card-body p-2 p-sm-3">
+                                                    <div class="media forum-item">
+                                                        <a href="#" data-toggle="collapse" data-target=".forum-content2"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                                        <div class="media-body">
+                                                            <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">Cuales son la mejores monedas para invertir ahora mismo?</a></h6>
+                                                            <p class="text-secondary">
+                                                                lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                                            </p>
+                                                            <p class="text-muted"><a href="javascript:void(0)">jlrdw</a> replied <span class="text-secondary font-weight-bold">3 hours ago</span></p>
+                                                        </div>
+                                                        <div class="text-muted small text-center align-self-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 18</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 1</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Entrada 3 -->
+                                            <div class="card mb-2">
+                                                <div class="card-body p-2 p-sm-3">
+                                                    <div class="media forum-item">
+                                                        <a href="#" data-toggle="collapse" data-target=".forum-content3"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                                        <div class="media-body">
+                                                            <h6><a href="#" data-toggle="collapse" data-target=".forum-content3" class="text-body">Por que hay criptomonedas que no paran de subir y bajar?</a></h6>
+                                                            <p class="text-secondary">
+                                                                lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                                            </p>
+                                                            <p class="text-muted"><a href="javascript:void(0)">ciungulete</a> replied <span class="text-secondary font-weight-bold">7 hours ago</span></p>
+                                                        </div>
+                                                        <div class="text-muted small text-center align-self-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 32</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 2</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Entrada 4 -->
+                                            <div class="card mb-2">
+                                                <div class="card-body p-2 p-sm-3">
+                                                    <div class="media forum-item">
+                                                        <a href="#" data-toggle="collapse" data-target=".forum-content4"><img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                                        <div class="media-body">
+                                                            <h6><a href="#" data-toggle="collapse" data-target=".forum-content4" class="text-body">Top rated filter not working</a></h6>
+                                                            <p class="text-secondary">
+                                                                lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                                            </p>
+                                                            <p class="text-muted"><a href="javascript:void(0)">bugsysha</a> replied <span class="text-secondary font-weight-bold">11 hours ago</span></p>
+                                                        </div>
+                                                        <div class="text-muted small text-center align-self-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 49</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 9</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Entrada 5 -->
+                                            <div class="card mb-2">
+                                                <div class="card-body p-2 p-sm-3">
+                                                    <div class="media forum-item">
+                                                        <a href="#" data-toggle="collapse" data-target=".forum-content5"><img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                                        <div class="media-body">
+                                                            <h6><a href="#" data-toggle="collapse" data-target=".forum-content5" class="text-body">Create a delimiter field</a></h6>
+                                                            <p class="text-secondary">
+                                                                lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                                            </p>
+                                                            <p class="text-muted"><a href="javascript:void(0)">jackalds</a> replied <span class="text-secondary font-weight-bold">12 hours ago</span></p>
+                                                        </div>
+                                                        <div class="text-muted small text-center align-self-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 65</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 10</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Entrada 6 -->
+                                            <div class="card mb-2">
+                                                <div class="card-body p-2 p-sm-3">
+                                                    <div class="media forum-item">
+                                                        <a href="#" data-toggle="collapse" data-target=".forum-content6"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                                        <div class="media-body">
+                                                            <h6><a href="#" data-toggle="collapse" data-target=".forum-content6" class="text-body">One model 4 tables</a></h6>
+                                                            <p class="text-secondary">
+                                                                lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                                            </p>
+                                                            <p class="text-muted"><a href="javascript:void(0)">bugsysha</a> replied <span class="text-secondary font-weight-bold">14 hours ago</span></p>
+                                                        </div>
+                                                        <div class="text-muted small text-center align-self-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 45</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 4</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Entrada 7 -->
+                                            <div class="card mb-2">
+                                                <div class="card-body p-2 p-sm-3">
+                                                    <div class="media forum-item">
+                                                        <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                                        <div class="media-body">
+                                                            <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">Auth attempt returns false</a></h6>
+                                                            <p class="text-secondary">
+                                                                lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                                            </p>
+                                                            <p class="text-muted"><a href="javascript:void(0)">michaeloravec</a> replied <span class="text-secondary font-weight-bold">18 hours ago</span></p>
+                                                        </div>
+                                                        <div class="text-muted small text-center align-self-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 70</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="pagination pagination-sm pagination-circle justify-content-center mb-0">
+                                                <li class="page-item disabled">
+                                                    <span class="page-link has-icon"><i class="material-icons">chevron_left</i></span>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+                                                <li class="page-item active"><span class="page-link">2</span></li>
+                                                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link has-icon" href="javascript:void(0)"><i class="material-icons">chevron_right</i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- /Forum List -->
+
+                                        <!-- Comentario 1 -->
+                                        <!-- <div class="inner-main-body p-2 p-sm-3 "> -->
+                                            <!-- <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse" data-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a> -->
+                                            <div class="card mb-2 collapse forum-content">
+                                                <div class="card-body">
+                                                    <div class="media forum-item">
+                                                        <a href="javascript:void(0)" class="card-link">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                                                            <small class="d-block text-center text-muted">Newbie</small>
+                                                        </a>
+                                                        <div class="media-body ml-3">
+                                                            <a href="javascript:void(0)" class="text-secondary">Mokrani</a>
+                                                            <small class="text-muted ml-2">1 hour ago</small>
+                                                            <h5 class="mt-1">Los buenos doges</h5>
+                                                            <div class="mt-3 font-size-sm">
+                                                                <p>Hola :)</p>
+                                                                <p>
+                                                                    Soy nuevo en esto de las criptomonedas y en el foro. Me gustaria aprender mucho en especial sobre dogecoin.
+                                                                </p>
+                                                                <p>Graciasss</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-muted small text-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card mb-2">
+                                                <div class="card-body">
+                                                    <div class="media forum-item">
+                                                        <a href="javascript:void(0)" class="card-link">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle" width="50" alt="User" />
+                                                            <small class="d-block text-center text-muted">Pro</small>
+                                                        </a>
+                                                        <div class="media-body ml-3">
+                                                            <a href="javascript:void(0)" class="text-secondary">drewdan</a>
+                                                            <small class="text-muted ml-2">1 hour ago</small>
+                                                            <div class="mt-3 font-size-sm">
+                                                                <p>Que es lo que quieres aprender exactamente?</p>
+                                                                <p>Hay muchisima informacion en Internet acerca de toda clase de criptomonedas.</p>
+                                                            </div>
+                                                            <button class="btn btn-xs text-muted has-icon"><i class="fa fa-heart" aria-hidden="true"></i>1</button>
+                                                            <a href="javascript:void(0)" class="text-muted small">Reply</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Comentario 1 -->
+                                        <!-- Comentario 2 -->
+                                        <div class="inner-main-body p-2 p-sm-3 collapse forum-content">
+                                            <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse" data-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a>
+                                            <div class="card mb-2">
+                                                <div class="card-body">
+                                                    <div class="media forum-item2">
+                                                        <a href="javascript:void(0)" class="card-link">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                                                            <small class="d-block text-center text-muted">pro</small>
+                                                        </a>
+                                                        <div class="media-body ml-3">
+                                                            <a href="javascript:void(0)" class="text-secondary">drewdan</a>
+                                                            <small class="text-muted ml-2">1 hour ago</small>
+                                                            <h5 class="mt-1">Bitcoin y ethereum</h5>
+                                                            <div class="mt-3 font-size-sm">
+                                                                <p>Te diria que las mejores monedas del momento son bitcoin y ethereum. Sin duda son las mejores monedas en mi opinion.</p>
+                                                                <p>Espero haberte sido de ayuda.</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-muted small text-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card mb-2">
+                                                <div class="card-body">
+                                                    <div class="media forum-item">
+                                                        <a href="javascript:void(0)" class="card-link">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle" width="50" alt="User" />
+                                                            <small class="d-block text-center text-muted">Pro</small>
+                                                        </a>
+                                                        <div class="media-body ml-3">
+                                                            <a href="javascript:void(0)" class="text-secondary">alberto02</a>
+                                                            <small class="text-muted ml-2">1 hour ago</small>
+                                                            <div class="mt-3 font-size-sm">
+                                                                <p>Creo que deberias estudiarlo</p>
+                                                                <p>Hay miles de criptomonedas con opciones distintas para cada uno por lo tanto te recomiendo hacer un pequeño estudio por tu cuenta.</p>
+                                                            </div>
+                                                            <button class="btn btn-xs text-muted has-icon"><i class="fa fa-heart" aria-hidden="true"></i>1</button>
+                                                            <a href="javascript:void(0)" class="text-muted small">Reply</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Comentario 2 -->
+                                        <!-- Comentario 3 -->
+                                        <div class="inner-main-body p-2 p-sm-3 collapse forum-content3">
+                                            <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse" data-target=".forum-content3"><i class="fa fa-arrow-left mr-2"></i>Back</a>
+                                            <div class="card mb-2">
+                                                <div class="card-body">
+                                                    <div class="media forum-item3">
+                                                        <a href="javascript:void(0)" class="card-link">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                                                            <small class="d-block text-center text-muted">pro</small>
+                                                        </a>
+                                                        <div class="media-body ml-3">
+                                                            <a href="javascript:void(0)" class="text-secondary">jonathan</a>
+                                                            <small class="text-muted ml-2">1 hour ago</small>
+                                                            <h5 class="mt-1">El mercado</h5>
+                                                            <div class="mt-3 font-size-sm">
+                                                                <p>
+                                                                    Amigo yo tengo entendido que es a causa de que la gente hace trading con esas monedas.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-muted small text-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card mb-2">
+                                                <div class="card-body">
+                                                    <div class="media forum-item">
+                                                        <a href="javascript:void(0)" class="card-link">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle" width="50" alt="User" />
+                                                            <small class="d-block text-center text-muted">Pro</small>
+                                                        </a>
+                                                        <div class="media-body ml-3">
+                                                            <a href="javascript:void(0)" class="text-secondary">drewdan</a>
+                                                            <small class="text-muted ml-2">1 hour ago</small>
+                                                            <div class="mt-3 font-size-sm">
+                                                                <p>Estoy de acuerdo con lo que dice jonathan.</p>
+                                                            </div>
+                                                            <button class="btn btn-xs text-muted has-icon"><i class="fa fa-heart" aria-hidden="true"></i>1</button>
+                                                            <a href="javascript:void(0)" class="text-muted small">Reply</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Comentario 3 -->
+                                        <!-- Comentario 4 -->
+                                        <div class="inner-main-body p-2 p-sm-3 collapse forum-content4">
+                                            <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse" data-target=".forum-content4"><i class="fa fa-arrow-left mr-2"></i>Back</a>
+                                            <div class="card mb-2">
+                                                <div class="card-body">
+                                                    <div class="media forum-item4">
+                                                        <a href="javascript:void(0)" class="card-link">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                                                            <small class="d-block text-center text-muted">Newbie</small>
+                                                        </a>
+                                                        <div class="media-body ml-3">
+                                                            <a href="javascript:void(0)" class="text-secondary">Mokrani</a>
+                                                            <small class="text-muted ml-2">1 hour ago</small>
+                                                            <h5 class="mt-1">Los buenos doges</h5>
+                                                            <div class="mt-3 font-size-sm">
+                                                                <p>Hola :)</p>
+                                                                <p>
+                                                                    Soy nuevo en esto de las criptomonedas y en el foro. Me gustaria aprender mucho en especial sobre dogecoin.
+                                                                </p>
+                                                                <p>Graciasss</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-muted small text-center">
+                                                            <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
+                                                            <span><i class="far fa-comment ml-2"></i> 3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card mb-2">
+                                                <div class="card-body">
+                                                    <div class="media forum-item">
+                                                        <a href="javascript:void(0)" class="card-link">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle" width="50" alt="User" />
+                                                            <small class="d-block text-center text-muted">Pro</small>
+                                                        </a>
+                                                        <div class="media-body ml-3">
+                                                            <a href="javascript:void(0)" class="text-secondary">drewdan</a>
+                                                            <small class="text-muted ml-2">1 hour ago</small>
+                                                            <div class="mt-3 font-size-sm">
+                                                                <p>Que es lo que quieres aprender exactamente?</p>
+                                                                <p>Hay muchisima informacion en Internet acerca de toda clase de criptomonedas.</p>
+                                                            </div>
+                                                            <button class="btn btn-xs text-muted has-icon"><i class="fa fa-heart" aria-hidden="true"></i>1</button>
+                                                            <a href="javascript:void(0)" class="text-muted small">Reply</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Comentario 4 -->
+                                        <!-- /Inner main body -->
+                                    </div>
+                                    <!-- /Inner main -->
                                 </div>
+
+                                <!-- New Thread Modal -->
+                                <div class="modal fade" id="threadModal" tabindex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <form>
+                                                <div class="modal-header d-flex align-items-center bg-primary text-white">
+                                                    <h6 class="modal-title mb-0" id="threadModalLabel">Nueva Entrada</h6>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label for="threadTitle">Title</label>
+                                                        <input type="text" class="form-control" id="threadTitle" placeholder="Enter title" autofocus="" />
+                                                    </div>
+                                                    <textarea class="form-control summernote" style="display: none;"></textarea>
+
+                                                    <div class="custom-file form-control-sm mt-3" style="max-width: 300px;">
+                                                        <input type="file" class="custom-file-input" id="customFile" multiple="" />
+                                                        <label class="custom-file-label" for="customFile">Attachment</label>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                                                    <button type="button" class="btn btn-primary">Post</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
