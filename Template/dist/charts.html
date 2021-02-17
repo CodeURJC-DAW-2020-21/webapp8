@@ -12,7 +12,7 @@
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand" href="index.html">ForoCoin</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -44,18 +44,18 @@
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                ForoCoin
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                                Criptomonedas
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    <a class="nav-link" href="layout-static.html">Todas las criptomonedas</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Criptomonedas favoritas</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -109,49 +109,83 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Charts</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Charts</li>
-                        </ol>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                Chart.js is a third party plugin that is used to generate the charts in this template. The charts below have been customized - for further customization options, please visit the official
-                                <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a>
-                                .
+                    <h1 class="mt-4">Criptomonedas</h1>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                    Bitcoin</a>
+                                </h4>
                             </div>
-                        </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-area mr-1"></i>
-                                Area Chart Example
-                            </div>
-                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
-                            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
+                            <div id="collapse1" class="panel-collapse collapse">
                                 <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar mr-1"></i>
-                                        Bar Chart Example
+                                    <div class="card-body">
+                                        Bitcoin​ es un protocolo, proyecto de código abierto y red entre iguales que se utiliza como criptomoneda, sistema de pago​ y mercancía.​​ Fue concebida en 2008​ por una entidad conocida bajo el seudónimo de Satoshi Nakamoto, cuya identidad concreta se desconoce.
                                     </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
-                                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <i class="fas fa-chart-pie mr-1"></i>
+                                                Bitcoin
+                                            </div>
+                                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="50"></canvas></div>
+                                            <div class="card-footer small text-muted">Updated now</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <i class="fas fa-chart-bar mr-1"></i>
+                                                Bitcoin
+                                            </div>
+                                            <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
+                                            <div class="card-footer small text-muted">Updated now</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                        </div>  
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                    Dogecoin</a>
+                                </h4>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse">
                                 <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-pie mr-1"></i>
-                                        Pie Chart Example
+                                    <div class="card-body">
+                                        El Dogecoin es una criptodivisa​ derivada de Litecoin​ que usa como mascota un perro Shiba Inu del meme de Internet «Doge».​​​​ La segunda quincena de junio de 2014, se había minado más de 100 mil millones de Dogecoins.
                                     </div>
-                                    <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
-                                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <i class="fas fa-chart-pie mr-1"></i>
+                                                Dogecoin
+                                            </div>
+                                            <div class="card-body"><canvas id="chartdoge" width="100%" height="50"></canvas></div>
+                                            <div class="card-footer small text-muted">Updated now</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <i class="fas fa-chart-bar mr-1"></i>
+                                                Dogecoin
+                                            </div>
+                                            <div class="card-body"><canvas id="dogebarchart" width="100%" height="50"></canvas></div>
+                                            <div class="card-footer small text-muted">Updated now</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
@@ -173,6 +207,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="assets/demo/chart-pie-demo.js"></script>
     </body>
 </html>
