@@ -10250,3 +10250,12 @@ body {
 .tituloPrincipal {
   font-family: 'Lexend Mega', sans-serif;
 }
+#contenedor {
+  display:table;
+}
+#contenidos {
+  display: table-row;
+}
+#columna1, #columna2, #columna3 {
+  display:table-cell;
+}

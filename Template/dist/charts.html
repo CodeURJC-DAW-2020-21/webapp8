@@ -1,211 +1,137 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Charts - SB Admin</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">ForoCoin</a>
-            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                ForoCoin
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Criptomonedas
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Todas las criptomonedas</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Criptomonedas favoritas</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
-                </nav>
-            </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid">
-                    <h1 class="mt-4">Criptomonedas</h1>
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                                    Bitcoin</a>
-                                </h4>
-                            </div>
-                            <div id="collapse1" class="panel-collapse collapse">
-                                <div class="card mb-4">
-                                    <div class="card-body">
-                                        Bitcoin​ es un protocolo, proyecto de código abierto y red entre iguales que se utiliza como criptomoneda, sistema de pago​ y mercancía.​​ Fue concebida en 2008​ por una entidad conocida bajo el seudónimo de Satoshi Nakamoto, cuya identidad concreta se desconoce.
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="card mb-4">
-                                            <div class="card-header">
-                                                <i class="fas fa-chart-pie mr-1"></i>
-                                                Bitcoin
-                                            </div>
-                                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="50"></canvas></div>
-                                            <div class="card-footer small text-muted">Updated now</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card mb-4">
-                                            <div class="card-header">
-                                                <i class="fas fa-chart-bar mr-1"></i>
-                                                Bitcoin
-                                            </div>
-                                            <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
-                                            <div class="card-footer small text-muted">Updated now</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>  
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                                    Dogecoin</a>
-                                </h4>
-                            </div>
-                            <div id="collapse2" class="panel-collapse collapse">
-                                <div class="card mb-4">
-                                    <div class="card-body">
-                                        El Dogecoin es una criptodivisa​ derivada de Litecoin​ que usa como mascota un perro Shiba Inu del meme de Internet «Doge».​​​​ La segunda quincena de junio de 2014, se había minado más de 100 mil millones de Dogecoins.
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="card mb-4">
-                                            <div class="card-header">
-                                                <i class="fas fa-chart-pie mr-1"></i>
-                                                Dogecoin
-                                            </div>
-                                            <div class="card-body"><canvas id="chartdoge" width="100%" height="50"></canvas></div>
-                                            <div class="card-footer small text-muted">Updated now</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card mb-4">
-                                            <div class="card-header">
-                                                <i class="fas fa-chart-bar mr-1"></i>
-                                                Dogecoin
-                                            </div>
-                                            <div class="card-body"><canvas id="dogebarchart" width="100%" height="50"></canvas></div>
-                                            <div class="card-footer small text-muted">Updated now</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Charts - SB Admin</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body class="sb-nav-fixed">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <img src="assets/img/blockchain.svg" alt="Logo" width="25" class="float-left" style="margin-left: 10px;">
+        <a class="navbar-brand tituloPrincipal" href="index.html" style="width: 165px;">ForoCoin</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
+            class="fas fa-bars"></i></button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-    </body>
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="#">Activity Log</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="login.html">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <a class="nav-link" href="index.html">
+                        <div class="sb-nav-link-icon"><img src="assets/img/blockchainB-W.svg" alt="LogoB-W"
+                                width="25"></div>
+                        ForoCoin
+                    </a>
+                    <a class="nav-link" href="charts.html">
+                        <div class="sb-nav-link-icon">
+                            <img src="assets/img/cryptocurrencyB-W.svg" alt="CryptoB-W" width="25">
+                        </div>
+                        Todas la criptomonedas
+                    </a>
+                    <a class="nav-link" href="layout-sidenav-light.html">
+                        <div class="sb-nav-link-icon">
+                            <img src="assets/img/favoriteB-W.svg" alt="CryptoB-W" width="25">
+                        </div>
+                        Criptomonedas favoritas
+                    </a>
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+                Grupo-8
+            </div>
+        </nav>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4 tituloPrincipal">Criptomonedas</h1>
+                <div class="panel-group" id="accordion">
+                    <!--Tablas-->
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Gráfica</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-toggle="collapse"  aria-expanded="false" aria-controls="collapseExample">
+                            <th scope="row">1</th>
+                            <td><a href="Bitcoin.html" class="text-decoration-none text-dark" >Bitcoin</a></td>
+                            <td>50k</td>
+                            <td>grafica</td>
+                        </tr>
+                        <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample1">
+                            <th scope="row">2</th>
+                            <td><a href="Dogecoin.html" class="text-decoration-none text-dark" >Dogecoin</a></td>
+                            <td>Lo que Elon quiera</td>
+                            <td>grafica</td>
+                        </tr>
+                        <tr data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                            <th scope="row">3</th>
+                            <td><a href="Badger.html" class="text-decoration-none text-dark" >Badger</a></td>
+                            <td>-80</td>
+                            <td>grafica</td>
+                        </tr>
+                        </tbody>
+                    </table>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+</body>
 </html>
+
