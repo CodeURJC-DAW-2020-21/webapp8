@@ -60,7 +60,7 @@ This modal allows the users to comment on entries as well as on commentaries. Th
 ![Cryptocurrencies page](/Phase1Images/AllCryptocurrencies.png "Cryptocurrencies Page")
 This page displays a list of cryptocurrencies, showing their price in real time, a little graph of their price changes and a button to add the cryptocurrencies to a favorites list.
 
-![Favourite cryptocurrencies page](/Phase1Images/FavoriteCryptoccurrencies.png "Favourite Cryptocurrencies Page")
+![Favourite cryptocurrencies page](/Phase1Images/FavoriteCryptocurrencies.png "Favourite Cryptocurrencies Page")
 This page display a list of the users favorite cryptocurrencies. The user can add new favourite cryptocurrencies through the main cryptocurrencies page and through recommendations. 
 
 ![Login page](/Phase1Images/Login.png "Login Page")
