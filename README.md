@@ -83,3 +83,6 @@ If the url requested by the user is not found in the server they will be redirec
 
 ![Error 500 page](/Phase1Images/500Error.png "500 Error Page")
 If there is a server error the user will be redirected to this page.
+
+## Navigation Diagram
+![Navigation Diagram Image](/Phase1Images/Diagrama de navegacion.png "Navigation Diagram")
