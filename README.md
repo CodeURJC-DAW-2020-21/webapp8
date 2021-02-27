@@ -85,4 +85,4 @@ If the url requested by the user is not found in the server they will be redirec
 If there is a server error the user will be redirected to this page.
 
 ## Navigation Diagram
-![Navigation Diagram Image](/Phase1Images/Diagrama de navegacion.png "Navigation Diagram")
+![Navigation Diagram Image](/Phase1Images/NavigationDiagram.png "Navigation Diagram")
