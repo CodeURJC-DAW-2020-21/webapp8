@@ -66,6 +66,9 @@ When the users click on one of the cryptocurrencies listed they will be redirect
 ![Favourite cryptocurrencies page](/Phase1Images/FavoriteCryptocurrencies.png "Favourite Cryptocurrencies Page")
 This page display a list of the users favorite cryptocurrencies. The user can add new favourite cryptocurrencies through the main cryptocurrencies page and through recommendations. 
 
+![User Settings page](/Phase1Images/Settings.png "User Settings Page")
+This page allows the user to edit their profile image, nickname, name, forename etc.
+
 ![Login page](/Phase1Images/Login.png "Login Page")
 This is the login where user will be able to log in to the web application if they have an existing account.
 
