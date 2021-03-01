@@ -2,602 +2,614 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
     <title>ForoCoin</title>
-    <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/forum.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet"/>
+    <link href="css/forum.css" rel="stylesheet"/>
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
-        crossorigin="anonymous" />
+          crossorigin="anonymous"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet"
-        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+          integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
-        crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <img src="assets/img/blockchain.svg" alt="Logo" width="25" class="float-left" style="margin-left: 10px;">
-        <a class="navbar-brand tituloPrincipal" href="index.html" style="width: 165px;">ForoCoin</a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
-                class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search"
-                    aria-describedby="basic-addon2" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <img src="assets/img/blockchain.svg" alt="Logo" width="25" class="float-left" style="margin-left: 10px;">
+    <a class="navbar-brand tituloPrincipal" href="index.html" style="width: 165px;">ForoCoin</a>
+    <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
+            class="fas fa-bars"></i></button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search"
+                   aria-describedby="basic-addon2"/>
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="settings.html">Mi cuenta</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="login.html">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu mx-2">
+                <div class="nav mt-4 mx-2">
+                    <a class="nav-link" href="index.html">
+                        <div class="sb-nav-link-icon mr-3"><img src="assets/img/blockchainB-W.svg" alt="LogoB-W"
+                                                                width="22"></div>
+                        ForoCoin
+                    </a>
+                    <a class="nav-link" href="criptomonedas.html">
+                        <div class="sb-nav-link-icon mr-3">
+                            <img src="assets/img/cryptocurrencyB-W.svg" alt="CryptoB-W" width="22">
+                        </div>
+                        Todas las criptomonedas
+                    </a>
+                    <a class="nav-link" href="cript_favoritas.html">
+                        <div class="sb-nav-link-icon mr-3">
+                            <img src="assets/img/favoriteB-W.svg" alt="CryptoB-W" width="22">
+                        </div>
+                        Criptomonedas favoritas
+                    </a>
                 </div>
             </div>
-        </form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ml-auto ml-md-0">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="settings.html">Mi cuenta</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Logout</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu mx-2">
-                    <div class="nav mt-4 mx-2">
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon mr-3"><img src="assets/img/blockchainB-W.svg" alt="LogoB-W"
-                                    width="22"></div>
-                            ForoCoin
-                        </a>
-                        <a class="nav-link" href="criptomonedas.html">
-                            <div class="sb-nav-link-icon mr-3">
-                                <img src="assets/img/cryptocurrencyB-W.svg" alt="CryptoB-W" width="22">
-                            </div>
-                            Todas las criptomonedas
-                        </a>
-                        <a class="nav-link" href="cript_favoritas.html">
-                            <div class="sb-nav-link-icon mr-3">
-                                <img src="assets/img/favoriteB-W.svg" alt="CryptoB-W" width="22">
-                            </div>
-                            Criptomonedas favoritas
-                        </a>
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+                Grupo-8
+            </div>
+        </nav>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid" style="margin-top: -20px">
+                <h1 class="mt-4 tituloPrincipal text-center">ForoCoin</h1>
+                <div class="card mb-4" style="margin-top: 20px">
+                    <div class="card-header text-center align-middle">
+                        <img src="assets/img/foroB-W.svg" alt="Logo" width="22" class="float-none"
+                             style="margin-right: 10px;">
+                        <h5>FORO PRINCIPAL</h5>
                     </div>
-                </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Grupo-8
-                </div>
-            </nav>
-        </div>
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid" style="margin-top: -20px">
-                    <h1 class="mt-4 tituloPrincipal text-center">ForoCoin</h1>
-                    <div class="card mb-4" style="margin-top: 20px">
-                        <div class="card-header text-center align-middle">
-                            <img src="assets/img/foroB-W.svg" alt="Logo" width="22" class="float-none" style="margin-right: 10px;">
-                            <h5>FORO PRINCIPAL</h5>
-                        </div>
-                        <link rel="stylesheet"
-                            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
-                            integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
-                        <div class="main-body p-0">
-                            <div class="inner">
-                                <div class="container-fluid">
-                                    <!-- Inner main header -->
-                                    <div class="inner-sidebar-header"
-                                        style="border-bottom: 1px solid #0000;">
+                    <link rel="stylesheet"
+                          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+                          integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous"/>
+                    <div class="main-body p-0">
+                        <div class="inner">
+                            <div class="container-fluid">
+                                <!-- Inner main header -->
+                                <div class="inner-sidebar-header"
+                                     style="border-bottom: 1px solid #0000;">
                                         <span class="input-icon input-icon-sm ml-auto w-auto col-3">
                                             <input type="text"
-                                                class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4"
-                                                placeholder="Search forum" />
+                                                   class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4"
+                                                   placeholder="Search forum"/>
                                         </span>
-                                        <div class="col-4"></div>
-                                        <button class="btn btn-info col-5 btn-sm align-right" type="button"
+                                    <div class="col-4"></div>
+                                    <button class="btn btn-info col-5 btn-sm align-right" type="button"
                                             data-toggle="modal" data-target="#threadModal" text>
-                                            NEW DISCUSSION 
-                                        </button>                                       
-                                    </div>
-                                    <div class="inner-main-header" style="border-bottom: 1px solid #0000;">
-                                        <ul class="nav nav-tabs nav-fill flex-fill d-flex flex-nowrap">
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-                                                    role="button" aria-haspopup="true" aria-expanded="true">Order By</a>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Latest</a>
-                                                    <a class="dropdown-item" href="#">Popular</a>
-                                                    <a class="dropdown-item" href="#">Solved</a>
-                                                    <a class="dropdown-item" href="#">Unsolved</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#">No replies yet</a>
-                                                </div>
-                                            </li>
-                                            <li class="nav-item">
-                                                <b><a class="nav-link" href="#">Popular this week</a></b>
-                                            </li>
-                                            <li class="nav-item">
-                                                <b><a class="nav-link" href="#">Popular this month</a></b>
-                                            </li>
-                                        </ul>
-                                        <!--<a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none"
-                                       href="#" data-toggle="inner-sidebar"><i
-                                            class="material-icons">arrow_forward_ios</i></a>-->
-                                    </div>
-                                    <div class="container-fluid">
-                                        
-                                    </div>
-                                    <!-- /Inner main header -->
-                                    <!-- Forum List -->
-                                    <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
-                                        <div class="card mb-2">
-                                            <div class="card-body p-2 p-sm-3">
-                                                <div class="media forum-item">
-                                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                                                            src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                            class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                                                    <div class="media-body">
-                                                        <h6><a href="#" data-toggle="collapse"
-                                                                data-target=".forum-content" class="text-body">Los
-                                                                buenos Doges</a></h6>
-                                                        <p class="text-secondary">
-                                                            lorem ipsum dolor sit amet lorem ipsum dolor sit
-                                                            amet
-                                                            lorem ipsum dolor sit amet
-                                                        </p>
-                                                        <p class="text-muted"><a href="javascript:void(0)">drewdan</a>
-                                                            replied <span class="text-secondary font-weight-bold">13
+                                        NEW DISCUSSION
+                                    </button>
+                                </div>
+                                <div class="inner-main-header" style="border-bottom: 1px solid #0000;">
+                                    <ul class="nav nav-tabs nav-fill flex-fill d-flex flex-nowrap">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                                               role="button" aria-haspopup="true" aria-expanded="true">Order By</a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">Latest</a>
+                                                <a class="dropdown-item" href="#">Popular</a>
+                                                <a class="dropdown-item" href="#">Solved</a>
+                                                <a class="dropdown-item" href="#">Unsolved</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">No replies yet</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b><a class="nav-link" href="#">Popular this week</a></b>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b><a class="nav-link" href="#">Popular this month</a></b>
+                                        </li>
+                                    </ul>
+                                    <!--<a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none"
+                                   href="#" data-toggle="inner-sidebar"><i
+                                        class="material-icons">arrow_forward_ios</i></a>-->
+                                </div>
+                                <div class="container-fluid">
+
+                                </div>
+                                <!-- /Inner main header -->
+                                <!-- Forum List -->
+                                <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
+                                    <div class="card mb-2">
+                                        <div class="card-body p-2 p-sm-3">
+                                            <div class="media forum-item">
+                                                <a href="#" data-toggle="collapse" data-target=".forum-content"><img
+                                                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                        class="mr-3 rounded-circle" width="50" alt="User"/></a>
+                                                <div class="media-body">
+                                                    <h6><a href="#" data-toggle="collapse"
+                                                           data-target=".forum-content" class="text-body">Los
+                                                        buenos Doges</a></h6>
+                                                    <p class="text-secondary">
+                                                        lorem ipsum dolor sit amet lorem ipsum dolor sit
+                                                        amet
+                                                        lorem ipsum dolor sit amet
+                                                    </p>
+                                                    <p class="text-muted"><a href="javascript:void(0)">drewdan</a>
+                                                        replied <span class="text-secondary font-weight-bold">13
                                                                 minutes
                                                                 ago</span>
-                                                        </p>
-                                                        <span><a href="javascript:void(0)" class="text-muted small" 
-                                                            data-toggle="modal" data-target="#commentModal" text>Reply</a></span>
-                                                    </div>
-                                                    <div class="text-muted small text-center align-self-center">
+                                                    </p>
+                                                    <span><a href="javascript:void(0)" class="text-muted small"
+                                                             data-toggle="modal" data-target="#commentModal"
+                                                             text>Reply</a></span>
+                                                </div>
+                                                <div class="text-muted small text-center align-self-center">
                                                         <span class="d-none d-sm-inline-block"><i
                                                                 class="far fa-eye"></i> 19</span>
-                                                        <span><i class="far fa-comment ml-2"></i> 3</span>
-                                                        <button class="btn btn-xs text-muted has-icon">
-                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                            5
-                                                        </button>
-                                                    </div>
+                                                    <span><i class="far fa-comment ml-2"></i> 3</span>
+                                                    <button class="btn btn-xs text-muted has-icon">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        5
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2">
-                                            <div class="card-body p-2 p-sm-3">
-                                                <div class="media forum-item">
-                                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                                                            src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                                            class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                                                    <div class="media-body">
-                                                        <h6><a href="#" data-toggle="collapse"
-                                                                data-target=".forum-content" class="text-body">Cuales
-                                                                son la mejores monedas para invertir ahora
-                                                                mismo?</a>
-                                                        </h6>
-                                                        <p class="text-secondary">
-                                                            lorem ipsum dolor sit amet lorem ipsum dolor sit
-                                                            amet
-                                                            lorem ipsum dolor sit amet
-                                                        </p>
-                                                        <p class="text-muted"><a href="javascript:void(0)">jlrdw</a>
-                                                            replied <span class="text-secondary font-weight-bold">3
+                                    </div>
+                                    <div class="card mb-2">
+                                        <div class="card-body p-2 p-sm-3">
+                                            <div class="media forum-item">
+                                                <a href="#" data-toggle="collapse" data-target=".forum-content"><img
+                                                        src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                                                        class="mr-3 rounded-circle" width="50" alt="User"/></a>
+                                                <div class="media-body">
+                                                    <h6><a href="#" data-toggle="collapse"
+                                                           data-target=".forum-content" class="text-body">Cuales
+                                                        son la mejores monedas para invertir ahora
+                                                        mismo?</a>
+                                                    </h6>
+                                                    <p class="text-secondary">
+                                                        lorem ipsum dolor sit amet lorem ipsum dolor sit
+                                                        amet
+                                                        lorem ipsum dolor sit amet
+                                                    </p>
+                                                    <p class="text-muted"><a href="javascript:void(0)">jlrdw</a>
+                                                        replied <span class="text-secondary font-weight-bold">3
                                                                 hours ago</span>
-                                                        </p>
-                                                        <span><a href="javascript:void(0)" class="text-muted small" 
-                                                            data-toggle="modal" data-target="#commentModal" text>Reply</a></span>
-                                                    </div>
-                                                    <div class="text-muted small text-center align-self-center">
+                                                    </p>
+                                                    <span><a href="javascript:void(0)" class="text-muted small"
+                                                             data-toggle="modal" data-target="#commentModal"
+                                                             text>Reply</a></span>
+                                                </div>
+                                                <div class="text-muted small text-center align-self-center">
                                                         <span class="d-none d-sm-inline-block"><i
                                                                 class="far fa-eye"></i> 18</span>
-                                                        <span><i class="far fa-comment ml-2"></i> 1</span>
-                                                        <button class="btn btn-xs text-muted has-icon">
-                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                            3
-                                                        </button>
-                                                    </div>
+                                                    <span><i class="far fa-comment ml-2"></i> 1</span>
+                                                    <button class="btn btn-xs text-muted has-icon">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        3
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2">
-                                            <div class="card-body p-2 p-sm-3">
-                                                <div class="media forum-item">
-                                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                                                            src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                                                            class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                                                    <div class="media-body">
-                                                        <h6><a href="#" data-toggle="collapse"
-                                                                data-target=".forum-content" class="text-body">Por
-                                                                que
-                                                                hay criptomonedas que no paran de subir y
-                                                                bajar?</a>
-                                                        </h6>
-                                                        <p class="text-secondary">
-                                                            lorem ipsum dolor sit amet lorem ipsum dolor sit
-                                                            amet
-                                                            lorem ipsum dolor sit amet
-                                                        </p>
-                                                        <p class="text-muted"><a
-                                                                href="javascript:void(0)">ciungulete</a> replied
-                                                            <span class="text-secondary font-weight-bold">7
+                                    </div>
+                                    <div class="card mb-2">
+                                        <div class="card-body p-2 p-sm-3">
+                                            <div class="media forum-item">
+                                                <a href="#" data-toggle="collapse" data-target=".forum-content"><img
+                                                        src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                                                        class="mr-3 rounded-circle" width="50" alt="User"/></a>
+                                                <div class="media-body">
+                                                    <h6><a href="#" data-toggle="collapse"
+                                                           data-target=".forum-content" class="text-body">Por
+                                                        que
+                                                        hay criptomonedas que no paran de subir y
+                                                        bajar?</a>
+                                                    </h6>
+                                                    <p class="text-secondary">
+                                                        lorem ipsum dolor sit amet lorem ipsum dolor sit
+                                                        amet
+                                                        lorem ipsum dolor sit amet
+                                                    </p>
+                                                    <p class="text-muted"><a
+                                                            href="javascript:void(0)">ciungulete</a> replied
+                                                        <span class="text-secondary font-weight-bold">7
                                                                 hours
                                                                 ago</span>
-                                                        </p>
-                                                        <span><a href="javascript:void(0)" class="text-muted small" 
-                                                            data-toggle="modal" data-target="#commentModal" text>Reply</a></span>
-                                                    </div>
-                                                    <div class="text-muted small text-center align-self-center">
+                                                    </p>
+                                                    <span><a href="javascript:void(0)" class="text-muted small"
+                                                             data-toggle="modal" data-target="#commentModal"
+                                                             text>Reply</a></span>
+                                                </div>
+                                                <div class="text-muted small text-center align-self-center">
                                                         <span class="d-none d-sm-inline-block"><i
                                                                 class="far fa-eye"></i> 32</span>
-                                                        <span><i class="far fa-comment ml-2"></i> 2</span>
-                                                        <button class="btn btn-xs text-muted has-icon">
-                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                            2
-                                                        </button>
-                                                    </div>
+                                                    <span><i class="far fa-comment ml-2"></i> 2</span>
+                                                    <button class="btn btn-xs text-muted has-icon">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        2
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2">
-                                            <div class="card-body p-2 p-sm-3">
-                                                <div class="media forum-item">
-                                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                                                            src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                                                            class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                                                    <div class="media-body">
-                                                        <h6><a href="#" data-toggle="collapse"
-                                                                data-target=".forum-content" class="text-body">Top
-                                                                rated filter not working</a></h6>
-                                                        <p class="text-secondary">
-                                                            lorem ipsum dolor sit amet lorem ipsum dolor sit
-                                                            amet
-                                                            lorem ipsum dolor sit amet
-                                                        </p>
-                                                        <p class="text-muted"><a href="javascript:void(0)">bugsysha</a>
-                                                            replied <span class="text-secondary font-weight-bold">11
+                                    </div>
+                                    <div class="card mb-2">
+                                        <div class="card-body p-2 p-sm-3">
+                                            <div class="media forum-item">
+                                                <a href="#" data-toggle="collapse" data-target=".forum-content"><img
+                                                        src="https://bootdey.com/img/Content/avatar/avatar4.png"
+                                                        class="mr-3 rounded-circle" width="50" alt="User"/></a>
+                                                <div class="media-body">
+                                                    <h6><a href="#" data-toggle="collapse"
+                                                           data-target=".forum-content" class="text-body">Top
+                                                        rated filter not working</a></h6>
+                                                    <p class="text-secondary">
+                                                        lorem ipsum dolor sit amet lorem ipsum dolor sit
+                                                        amet
+                                                        lorem ipsum dolor sit amet
+                                                    </p>
+                                                    <p class="text-muted"><a href="javascript:void(0)">bugsysha</a>
+                                                        replied <span class="text-secondary font-weight-bold">11
                                                                 hours
                                                                 ago</span>
-                                                        </p>
-                                                        <span><a href="javascript:void(0)" class="text-muted small" 
-                                                            data-toggle="modal" data-target="#commentModal" text>Reply</a></span>
+                                                    </p>
+                                                    <span><a href="javascript:void(0)" class="text-muted small"
+                                                             data-toggle="modal" data-target="#commentModal"
+                                                             text>Reply</a></span>
 
-                                                    </div>
-                                                    <div class="text-muted small text-center align-self-center">
+                                                </div>
+                                                <div class="text-muted small text-center align-self-center">
                                                         <span class="d-none d-sm-inline-block"><i
                                                                 class="far fa-eye"></i> 49</span>
-                                                        <span><i class="far fa-comment ml-2"></i> 9</span>
-                                                        <button class="btn btn-xs text-muted has-icon">
-                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                            10
-                                                        </button>
-                                                    </div>
+                                                    <span><i class="far fa-comment ml-2"></i> 9</span>
+                                                    <button class="btn btn-xs text-muted has-icon">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        10
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2">
-                                            <div class="card-body p-2 p-sm-3">
-                                                <div class="media forum-item">
-                                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                                                            src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                                                            class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                                                    <div class="media-body">
-                                                        <h6><a href="#" data-toggle="collapse"
-                                                                data-target=".forum-content" class="text-body">Create a
-                                                                delimiter field</a></h6>
-                                                        <p class="text-secondary">
-                                                            lorem ipsum dolor sit amet lorem ipsum dolor sit
-                                                            amet
-                                                            lorem ipsum dolor sit amet
-                                                        </p>
-                                                        <p class="text-muted"><a href="javascript:void(0)">jackalds</a>
-                                                            replied <span class="text-secondary font-weight-bold">12
+                                    </div>
+                                    <div class="card mb-2">
+                                        <div class="card-body p-2 p-sm-3">
+                                            <div class="media forum-item">
+                                                <a href="#" data-toggle="collapse" data-target=".forum-content"><img
+                                                        src="https://bootdey.com/img/Content/avatar/avatar5.png"
+                                                        class="mr-3 rounded-circle" width="50" alt="User"/></a>
+                                                <div class="media-body">
+                                                    <h6><a href="#" data-toggle="collapse"
+                                                           data-target=".forum-content" class="text-body">Create a
+                                                        delimiter field</a></h6>
+                                                    <p class="text-secondary">
+                                                        lorem ipsum dolor sit amet lorem ipsum dolor sit
+                                                        amet
+                                                        lorem ipsum dolor sit amet
+                                                    </p>
+                                                    <p class="text-muted"><a href="javascript:void(0)">jackalds</a>
+                                                        replied <span class="text-secondary font-weight-bold">12
                                                                 hours
                                                                 ago</span>
-                                                        </p>
-                                                        <span><a href="javascript:void(0)" class="text-muted small" 
-                                                            data-toggle="modal" data-target="#commentModal" text>Reply</a></span>
-                                                    </div>
-                                                    <div class="text-muted small text-center align-self-center">
+                                                    </p>
+                                                    <span><a href="javascript:void(0)" class="text-muted small"
+                                                             data-toggle="modal" data-target="#commentModal"
+                                                             text>Reply</a></span>
+                                                </div>
+                                                <div class="text-muted small text-center align-self-center">
                                                         <span class="d-none d-sm-inline-block"><i
                                                                 class="far fa-eye"></i> 65</span>
-                                                        <span><i class="far fa-comment ml-2"></i> 10</span>
-                                                        <button class="btn btn-xs text-muted has-icon">
-                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                            9
-                                                        </button>
-                                                    </div>
+                                                    <span><i class="far fa-comment ml-2"></i> 10</span>
+                                                    <button class="btn btn-xs text-muted has-icon">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        9
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2">
-                                            <div class="card-body p-2 p-sm-3">
-                                                <div class="media forum-item">
-                                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                                                            src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                            class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                                                    <div class="media-body">
-                                                        <h6><a href="#" data-toggle="collapse"
-                                                                data-target=".forum-content" class="text-body">One
-                                                                model 4 tables</a></h6>
-                                                        <p class="text-secondary">
-                                                            lorem ipsum dolor sit amet lorem ipsum dolor sit
-                                                            amet
-                                                            lorem ipsum dolor sit amet
-                                                        </p>
-                                                        <p class="text-muted"><a href="javascript:void(0)">bugsysha</a>
-                                                            replied <span class="text-secondary font-weight-bold">14
+                                    </div>
+                                    <div class="card mb-2">
+                                        <div class="card-body p-2 p-sm-3">
+                                            <div class="media forum-item">
+                                                <a href="#" data-toggle="collapse" data-target=".forum-content"><img
+                                                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                        class="mr-3 rounded-circle" width="50" alt="User"/></a>
+                                                <div class="media-body">
+                                                    <h6><a href="#" data-toggle="collapse"
+                                                           data-target=".forum-content" class="text-body">One
+                                                        model 4 tables</a></h6>
+                                                    <p class="text-secondary">
+                                                        lorem ipsum dolor sit amet lorem ipsum dolor sit
+                                                        amet
+                                                        lorem ipsum dolor sit amet
+                                                    </p>
+                                                    <p class="text-muted"><a href="javascript:void(0)">bugsysha</a>
+                                                        replied <span class="text-secondary font-weight-bold">14
                                                                 hours
                                                                 ago
                                                             </span>
-                                                        </p>
-                                                        <span><a href="javascript:void(0)" class="text-muted small" 
-                                                            data-toggle="modal" data-target="#commentModal" text>Reply</a></span>
-                                                    </div>
-                                                    <div class="text-muted small text-center align-self-center">
+                                                    </p>
+                                                    <span><a href="javascript:void(0)" class="text-muted small"
+                                                             data-toggle="modal" data-target="#commentModal"
+                                                             text>Reply</a></span>
+                                                </div>
+                                                <div class="text-muted small text-center align-self-center">
                                                         <span class="d-none d-sm-inline-block"><i
                                                                 class="far fa-eye"></i> 45</span>
-                                                        <span><i class="far fa-comment ml-2"></i> 4</span>
-                                                        <button class="btn btn-xs text-muted has-icon">
-                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                            5
-                                                        </button>
-                                                    </div>
+                                                    <span><i class="far fa-comment ml-2"></i> 4</span>
+                                                    <button class="btn btn-xs text-muted has-icon">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        5
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2">
-                                            <div class="card-body p-2 p-sm-3">
-                                                <div class="media forum-item">
-                                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img
-                                                            src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                            class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                                                    <div class="media-body">
-                                                        <h6><a href="#" data-toggle="collapse"
-                                                                data-target=".forum-content" class="text-body">Auth
-                                                                attempt returns false</a></h6>
-                                                        <p class="text-secondary">
-                                                            lorem ipsum dolor sit amet lorem ipsum dolor sit
-                                                            amet
-                                                            lorem ipsum dolor sit amet
-                                                        </p>
-                                                        <p class="text-muted"><a
-                                                                href="javascript:void(0)">michaeloravec</a>
-                                                            replied
-                                                            <span class="text-secondary font-weight-bold">18
+                                    </div>
+                                    <div class="card mb-2">
+                                        <div class="card-body p-2 p-sm-3">
+                                            <div class="media forum-item">
+                                                <a href="#" data-toggle="collapse" data-target=".forum-content"><img
+                                                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                        class="mr-3 rounded-circle" width="50" alt="User"/></a>
+                                                <div class="media-body">
+                                                    <h6><a href="#" data-toggle="collapse"
+                                                           data-target=".forum-content" class="text-body">Auth
+                                                        attempt returns false</a></h6>
+                                                    <p class="text-secondary">
+                                                        lorem ipsum dolor sit amet lorem ipsum dolor sit
+                                                        amet
+                                                        lorem ipsum dolor sit amet
+                                                    </p>
+                                                    <p class="text-muted"><a
+                                                            href="javascript:void(0)">michaeloravec</a>
+                                                        replied
+                                                        <span class="text-secondary font-weight-bold">18
                                                                 hours
                                                                 ago
                                                             </span>
-                                                        </p>
-                                                        <span><a href="javascript:void(0)" class="text-muted small" 
-                                                            data-toggle="modal" data-target="#commentModal" text>Reply</a></span>
-                                                    </div>
-                                                    <div class="text-muted small text-center align-self-center">
+                                                    </p>
+                                                    <span><a href="javascript:void(0)" class="text-muted small"
+                                                             data-toggle="modal" data-target="#commentModal"
+                                                             text>Reply</a></span>
+                                                </div>
+                                                <div class="text-muted small text-center align-self-center">
                                                         <span class="d-none d-sm-inline-block"><i
                                                                 class="far fa-eye"></i> 70</span>
-                                                        <span><i class="far fa-comment ml-2"></i> 3</span>
-                                                        <button class="btn btn-xs text-muted has-icon">
-                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                            6
-                                                        </button>
-                                                    </div>
+                                                    <span><i class="far fa-comment ml-2"></i> 3</span>
+                                                    <button class="btn btn-xs text-muted has-icon">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        6
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <ul
+                                    </div>
+                                    <ul
                                             class="pagination pagination-sm pagination-circle justify-content-center mb-0">
-                                            <li class="page-item disabled">
+                                        <li class="page-item disabled">
                                                 <span class="page-link has-icon"><i
                                                         class="material-icons">Previous</i></span>
-                                            </li>
-                                            <li class="page-item active"><span class="page-link"
-                                                    href="javascript:void(0)">1</span></li>
-                                            <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link has-icon" href="javascript:void(0)"><i
-                                                        class="material-icons">Next</i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- /Forum List -->
+                                        </li>
+                                        <li class="page-item active"><span class="page-link"
+                                                                           href="javascript:void(0)">1</span></li>
+                                        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link has-icon" href="javascript:void(0)"><i
+                                                    class="material-icons">Next</i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /Forum List -->
 
-                                    <!-- Forum Detail -->
-                                    <div class="inner-main-body p-2 p-sm-3 collapse forum-content">
-                                        <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse"
-                                            data-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a>
-                                        <div class="card mb-2">
-                                            <div class="card-body">
-                                                <div class="media forum-item">
-                                                    <a href="javascript:void(0)" class="card-link">
-                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                            class="rounded-circle" width="50" alt="User" />
-                                                        <small class="d-block text-center text-muted">Newbie</small>
-                                                    </a>
-                                                    <div class="media-body ml-3">
-                                                        <a href="javascript:void(0)" class="text-secondary">Mokrani</a>
-                                                        <small class="text-muted ml-2">1 hour ago</small>
-                                                        <h5 class="mt-1">Los buenos Doges</h5>
-                                                        <div class="mt-3 font-size-sm">
-                                                            <p>Hellooo :)</p>
-                                                            <p>
-                                                                Holaaa soy nuevo en este foro y me gustaria que alguien me echara una mano.
-                                                                Estaria interesado en comprar Dogecoins viendo que se habla mucho de ellos.
-                                                                Ya puestos me gustaria que alguien me explicara un poco como va esto de las criptomoendas.
-                                                            </p>
-                                                            <p>Thanksss</p>
-                                                        </div>
+                                <!-- Forum Detail -->
+                                <div class="inner-main-body p-2 p-sm-3 collapse forum-content">
+                                    <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse"
+                                       data-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a>
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <div class="media forum-item">
+                                                <a href="javascript:void(0)" class="card-link">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                         class="rounded-circle" width="50" alt="User"/>
+                                                    <small class="d-block text-center text-muted">Newbie</small>
+                                                </a>
+                                                <div class="media-body ml-3">
+                                                    <a href="javascript:void(0)" class="text-secondary">Mokrani</a>
+                                                    <small class="text-muted ml-2">1 hour ago</small>
+                                                    <h5 class="mt-1">Los buenos Doges</h5>
+                                                    <div class="mt-3 font-size-sm">
+                                                        <p>Hellooo :)</p>
+                                                        <p>
+                                                            Holaaa soy nuevo en este foro y me gustaria que alguien me
+                                                            echara una mano.
+                                                            Estaria interesado en comprar Dogecoins viendo que se habla
+                                                            mucho de ellos.
+                                                            Ya puestos me gustaria que alguien me explicara un poco como
+                                                            va esto de las criptomoendas.
+                                                        </p>
+                                                        <p>Thanksss</p>
                                                     </div>
-                                                    <div class="text-muted small text-center">
+                                                </div>
+                                                <div class="text-muted small text-center">
                                                         <span class="d-none d-sm-inline-block"><i
                                                                 class="far fa-eye"></i> 19</span>
-                                                        <span><i class="far fa-comment ml-2"></i> 3</span>
-                                                        <button class="btn btn-xs text-muted has-icon">
-                                                            <i class="fa fa-heart" aria-hidden="true"></i>
-                                                            5
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-2">
-                                            <div class="card-body">
-                                                <div class="media forum-item">
-                                                    <a href="javascript:void(0)" class="card-link">
-                                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                                            class="rounded-circle" width="50" alt="User" />
-                                                        <small class="d-block text-center text-muted">Pro</small>
-                                                    </a>
-                                                    <div class="media-body ml-3">
-                                                        <a href="javascript:void(0)" class="text-secondary">drewdan</a>
-                                                        <small class="text-muted ml-2">1 hour ago</small>
-                                                        <div class="mt-3 font-size-sm">
-                                                            <p>Sobre que mas criptomonedas te gustaria aprender?
-                                                            </p>
-                                                            <p>Bueno pues para empezar ya sabras que en este foro se habla
-                                                                principalmente sobre criptomonedas. Creo que deberias documentarte bien 
-                                                                antes de empezar a invertir mucho dinero en los doges.
-                                                                Espero haberte sido de ayuda, un saludo.
-                                                            </p>
-                                                        </div>
-                                                        <button class="btn btn-xs text-muted has-icon"><i
-                                                                class="fa fa-heart" aria-hidden="true"></i>1
-                                                        </button>
-                                                        <a href="javascript:void(0)" class="text-muted small" 
-                                                            data-toggle="modal" data-target="#commentModal" text>Reply</a>
-                                                    </div>
+                                                    <span><i class="far fa-comment ml-2"></i> 3</span>
+                                                    <button class="btn btn-xs text-muted has-icon">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        5
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- /Forum Detail -->
-                                </div>
-                                <!-- New Thread Modal -->
-                                <div class="modal fade" id="threadModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="threadModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <form>
-                                                <div
-                                                    class="modal-header d-flex align-items-center bg-primary text-white">
-                                                    <h6 class="modal-title mb-0" id="threadModalLabel">New Discussion
-                                                    </h6>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">×</span>
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <div class="media forum-item">
+                                                <a href="javascript:void(0)" class="card-link">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                                                         class="rounded-circle" width="50" alt="User"/>
+                                                    <small class="d-block text-center text-muted">Pro</small>
+                                                </a>
+                                                <div class="media-body ml-3">
+                                                    <a href="javascript:void(0)" class="text-secondary">drewdan</a>
+                                                    <small class="text-muted ml-2">1 hour ago</small>
+                                                    <div class="mt-3 font-size-sm">
+                                                        <p>Sobre que mas criptomonedas te gustaria aprender?
+                                                        </p>
+                                                        <p>Bueno pues para empezar ya sabras que en este foro se habla
+                                                            principalmente sobre criptomonedas. Creo que deberias
+                                                            documentarte bien
+                                                            antes de empezar a invertir mucho dinero en los doges.
+                                                            Espero haberte sido de ayuda, un saludo.
+                                                        </p>
+                                                    </div>
+                                                    <button class="btn btn-xs text-muted has-icon"><i
+                                                            class="fa fa-heart" aria-hidden="true"></i>1
                                                     </button>
+                                                    <a href="javascript:void(0)" class="text-muted small"
+                                                       data-toggle="modal" data-target="#commentModal" text>Reply</a>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label for="threadTitle">Title</label>
-                                                        <input type="text" class="form-control" id="threadTitle"
-                                                            placeholder="Enter title" autofocus="" />
-                                                    </div>
-                                                    <textarea class="form-control summernote"
-                                                        style="display: none;"></textarea>
-                                                    <div class="form-group">
-                                                        <label for="threadTitle">Description</label>
-                                                        <textarea class="form-control" id="threadDescription"
-                                                            placeholder="Enter description" rows="3"></textarea>
-                                                    </div>
-                                                    <div class="custom-file form-control-sm mt-3"
-                                                        style="max-width: 300px;">
-                                                        <input type="file" class="custom-file-input" id="customFile"
-                                                            multiple="" />
-                                                        <label class="custom-file-label"
-                                                            for="customFile">Attachment</label>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light"
-                                                        data-dismiss="modal">Cancel
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary">Post</button>
-                                                </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Commentary modal -->
-                                <div class="modal fade" id="commentModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="commentModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <form>
-                                                <div
+                                <!-- /Forum Detail -->
+                            </div>
+                            <!-- New Thread Modal -->
+                            <div class="modal fade" id="threadModal" tabindex="-1" role="dialog"
+                                 aria-labelledby="threadModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <form>
+                                            <div
                                                     class="modal-header d-flex align-items-center bg-primary text-white">
-                                                    <h6 class="modal-title mb-0" id="commentModalLabel">New Comment
-                                                    </h6>
-                                                    <button type="button" class="close" data-dismiss="modal"
+                                                <h6 class="modal-title mb-0" id="threadModalLabel">New Discussion
+                                                </h6>
+                                                <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
-                                                        <span aria-hidden="true">×</span>
-                                                    </button>
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label for="threadTitle">Title</label>
+                                                    <input type="text" class="form-control" id="threadTitle"
+                                                           placeholder="Enter title" autofocus=""/>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label for="commentTitle">Description</label>
-                                                        <textarea class="form-control" id="threadDescription"
-                                                            placeholder="Enter description" rows="3"></textarea>
-                                                    </div>
-                                                    <div class="custom-file form-control-sm mt-3"
-                                                        style="max-width: 300px;">
-                                                        <input type="file" class="custom-file-input" id="customFile"
-                                                            multiple="" />
-                                                        <label class="custom-file-label"
-                                                            for="customFile">Attachment</label>
-                                                    </div>
+                                                <textarea class="form-control summernote"
+                                                          style="display: none;"></textarea>
+                                                <div class="form-group">
+                                                    <label for="threadTitle">Description</label>
+                                                    <textarea class="form-control" id="threadDescription"
+                                                              placeholder="Enter description" rows="3"></textarea>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light"
+                                                <div class="custom-file form-control-sm mt-3"
+                                                     style="max-width: 300px;">
+                                                    <input type="file" class="custom-file-input" id="customFile"
+                                                           multiple=""/>
+                                                    <label class="custom-file-label"
+                                                           for="customFile">Attachment</label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light"
                                                         data-dismiss="modal">Cancel
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary">Post</button>
+                                                </button>
+                                                <button type="button" class="btn btn-primary">Post</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Commentary modal -->
+                            <div class="modal fade" id="commentModal" tabindex="-1" role="dialog"
+                                 aria-labelledby="commentModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <form>
+                                            <div
+                                                    class="modal-header d-flex align-items-center bg-primary text-white">
+                                                <h6 class="modal-title mb-0" id="commentModalLabel">New Comment
+                                                </h6>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label for="commentTitle">Description</label>
+                                                    <textarea class="form-control" id="threadDescription"
+                                                              placeholder="Enter description" rows="3"></textarea>
                                                 </div>
-                                            </form>
-                                        </div>
+                                                <div class="custom-file form-control-sm mt-3"
+                                                     style="max-width: 300px;">
+                                                    <input type="file" class="custom-file-input" id="customFile"
+                                                           multiple=""/>
+                                                    <label class="custom-file-label"
+                                                           for="customFile">Attachment</label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light"
+                                                        data-dismiss="modal">Cancel
+                                                </button>
+                                                <button type="button" class="btn btn-primary">Post</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Grupo-8 DAW 2021</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
+            </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Grupo-8 DAW 2021</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
                     </div>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/datatables-demo.js"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/datatables-demo.js"></script>
 </body>
 
 </html>
