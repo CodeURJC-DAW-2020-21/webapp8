@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>ForoCoin</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/forum.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <img src="images/blockchain.svg" alt="Logo" width="25" class="float-left" style="margin-left: 10px;">
+        <a class="navbar-brand tituloPrincipal" href="../static/index.html" style="width: 165px;">ForoCoin</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search"
+                    aria-describedby="basic-addon2" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="settings.html">Mi cuenta</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu mx-2">
+                    <div class="nav mt-4 mx-2">
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon mr-3"><img src="images/blockchainB-W.svg" alt="LogoB-W"
+                                    width="22"></div>
+                            ForoCoin
+                        </a>
+                        <a class="nav-link" href="/criptomonedas">
+                            <div class="sb-nav-link-icon mr-3">
+                                <img src="images/cryptocurrencyB-W.svg" alt="CryptoB-W" width="22">
+                            </div>
+                            Todas las criptomonedas
+                        </a>
+                        <a class="nav-link" href="/favorite_cryptocurrencies">
+                            <div class="sb-nav-link-icon mr-3">
+                                <img src="images/favoriteB-W.svg" alt="CryptoB-W" width="22">
+                            </div>
+                            Criptomonedas favoritas
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Grupo-8
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="card container-fluid" style="width: 70rem;">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col">
+                                <img class="rounded-circle mx-auto d-block" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="bitcoin profile image" width="200">
+                                <a href=""><p class="text-center pt-3">Editar imagen de perfil</p></a>
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-2 col-form-label">
+                                <p><b>NOMBRE:</b></p>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" id=""
+                                value="Marcos" maxlength="100" autofocus="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 col-form-label">
+                                <p><b>APELLIDO:</b></p>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" id=""
+                                value="Rodriguez" maxlength="100" autofocus="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 col-form-label">
+                                <p><b>ALIAS:</b></p>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" id=""
+                                value="AliasbitCoin" maxlength="100" autofocus="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 col-form-label">
+                                <p><b>CORREO:</b></p>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" id=""
+                                value="correo@gmail.com" maxlength="100" autofocus="" />
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col">
+                                <button class="float-right btn btn-primary">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Grupo-8 DAW 2021</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="javascript/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/datatables-demo.js"></script>
+</body>
+
+</html>
