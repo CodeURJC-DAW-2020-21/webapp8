@@ -23,32 +23,17 @@ public class PostController {
         return "settings";
     }
 
-    @GetMapping("/login")
-    public String login(Model model) {
-        return "login";
-    }
-
-    @GetMapping("/register")
-    public String register(Model model) {
-        return "register";
-    }
-
-    @GetMapping("/recover_password")
-    public String recoverPassword(Model model) {
-        return "password";
-    }
-
-    @GetMapping("/Bitcoin.html")
+    @GetMapping("/Bitcoin")
     public String bitcoin(Model model) {
         return "Bitcoin";
     }
 
-    @GetMapping("/Dogecoin.html")
+    @GetMapping("/Dogecoin")
     public String doge(Model model) {
         return "Dogecoin";
     }
 
-    @GetMapping("/Badger.html")
+    @GetMapping("/Badger")
     public String badger(Model model) {
         return "Badger";
     }
