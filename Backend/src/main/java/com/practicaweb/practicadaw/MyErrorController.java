@@ -24,7 +24,9 @@ public class MyErrorController implements ErrorController {
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
                 return "404";
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
-                return "error";
+                return "500";
+            } else if (statusCode == HttpStatus.UNAUTHORIZED.value()) {
+                return "401";
             }
         }
         return "error";
