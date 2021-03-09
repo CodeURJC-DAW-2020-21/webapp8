@@ -10118,15 +10118,16 @@ body {
 }
 
 .img-error {
-  max-width: 50rem;
-  margin-top: 100px;
-  margin-bottom: 40px;
+  max-width: 30rem;
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 .img-error-404 {
   max-width: 20rem;
-  margin-top: 100px;
-  margin-bottom: 40px;
+  max-height: 15rem;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .nav .nav-link .sb-nav-link-icon,
