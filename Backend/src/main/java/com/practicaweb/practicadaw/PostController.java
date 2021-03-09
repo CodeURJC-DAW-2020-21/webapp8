@@ -13,11 +13,6 @@ public class PostController {
         return "criptomonedas";
     }
 
-    @GetMapping("/error")
-    public String error(Model model) {
-        return "404";
-    }
-
     @GetMapping("/favorite_cryptocurrencies")
     public String favorites(Model model) {
         return "cript_favoritas";
@@ -41,6 +36,21 @@ public class PostController {
     @GetMapping("/recover_password")
     public String recoverPassword(Model model) {
         return "password";
+    }
+
+    @GetMapping("/Bitcoin.html")
+    public String bitcoin(Model model) {
+        return "Bitcoin";
+    }
+
+    @GetMapping("/Dogecoin.html")
+    public String doge(Model model) {
+        return "Dogecoin";
+    }
+
+    @GetMapping("/Badger.html")
+    public String badger(Model model) {
+        return "Badger";
     }
 }
 
