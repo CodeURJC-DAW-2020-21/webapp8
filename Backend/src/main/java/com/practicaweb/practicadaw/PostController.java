@@ -36,20 +36,7 @@ public class PostController {
         return "settings";
     }
 
-    @GetMapping("/login")
-    public String login(Model model){
-        return "login";
-    }
 
-    @GetMapping("/register")
-    public String register(Model model){
-        return "register";
-    }
-
-    @GetMapping("/recover_password")
-    public String recoverPassword(Model model){
-        return "password";
-    }
 
 //    @RequestMapping("/error")
 //    public String handleError(HttpServletRequest request) {
