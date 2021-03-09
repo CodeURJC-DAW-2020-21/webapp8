@@ -1,11 +1,6 @@
 package com.practicaweb.practicadaw;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class User {
 
     private Long id;
@@ -23,7 +18,6 @@ public class User {
         this.username = username;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
