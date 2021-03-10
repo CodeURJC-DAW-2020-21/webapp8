@@ -1,4 +1,4 @@
-package com.practicaweb.practicadaw;
+package com.practicaweb.practicadaw.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PostController {
 
+
+    @GetMapping("/")
+    public String index(Model model){
+        return "index";
+    }
 
     @GetMapping("/criptomonedas")
     public String criptomonedas(Model model) {
