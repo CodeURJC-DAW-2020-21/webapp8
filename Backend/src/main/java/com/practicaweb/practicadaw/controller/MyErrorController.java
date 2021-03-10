@@ -1,4 +1,4 @@
-package com.practicaweb.practicadaw;
+package com.practicaweb.practicadaw.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.boot.web.servlet.error.ErrorController;
