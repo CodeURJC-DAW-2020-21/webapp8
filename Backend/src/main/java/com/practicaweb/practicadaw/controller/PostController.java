@@ -13,6 +13,26 @@ public class PostController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String login(Model model){
+        return "login";
+    }
+
+    @GetMapping("/admin")
+    public String admin(Model model){
+        return "adminPage";
+    }
+
+    @GetMapping("/register")
+    public String register(Model model){
+        return "register";
+    }
+
+    @GetMapping("/forgot_password")
+    public String passwordReset(Model model){
+        return "password";
+    }
+
     @GetMapping("/criptomonedas")
     public String criptomonedas(Model model) {
         return "criptomonedas";
