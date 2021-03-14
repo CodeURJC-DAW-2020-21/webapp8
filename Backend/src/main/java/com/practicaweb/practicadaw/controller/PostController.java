@@ -10,6 +10,8 @@ public class PostController {
 
     @GetMapping("/")
     public String index(Model model){
+        model.addAttribute("name", "Marcos");
+        model.addAttribute("logged", false);
         return "index";
     }
 

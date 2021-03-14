@@ -44,7 +44,12 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="/settings">Mi cuenta</a>
                 <div class="dropdown-divider"></div>
+                {{#logged}}
                 <a class="dropdown-item" href="/login">Logout</a>
+                {{/logged}}
+                {{^logged}}
+                <a class="dropdown-item" href="/login">Log In</a>
+                {{/logged}}
             </div>
         </li>
     </ul>
@@ -74,7 +79,12 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                Grupo-8
+                {{#logged}}
+                {{name}}
+                {{/logged}}
+                {{^logged}}
+                Invitado
+                {{/logged}}
             </div>
         </nav>
     </div>
