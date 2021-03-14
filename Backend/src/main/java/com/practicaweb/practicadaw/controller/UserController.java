@@ -10,23 +10,12 @@ import java.util.List;
 
 @Controller
 public class UserController {
-
-    private List<User> userList = new ArrayList();
-
-    @GetMapping("/login")
-    public String login(Model model){
-        return "login";
-    }
-
-    @GetMapping("/register")
-    public String register(Model model){
-        return "register";
-    }
-
-    @GetMapping("/forgot_password")
-    public String passwordReset(Model model){
-        return "password";
-    }
+//
+//    private List<User> userList = new ArrayList();
+//
+//    userList<>.add(new User("marcos", ))
+//
+//
 
 
 
