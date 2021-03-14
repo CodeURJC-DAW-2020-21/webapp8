@@ -42,8 +42,10 @@
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                {{#logged}}
                 <a class="dropdown-item" href="/settings">Mi cuenta</a>
                 <div class="dropdown-divider"></div>
+                {{/logged}}
                 {{#logged}}
                 <a class="dropdown-item" href="/login">Logout</a>
                 {{/logged}}
@@ -69,12 +71,14 @@
                         </div>
                         Todas las criptomonedas
                     </a>
+                    {{#logged}}
                     <a class="nav-link" href="/favorite_cryptocurrencies">
                         <div class="sb-nav-link-icon mr-3">
                             <img src="images/favoriteB-W.svg" alt="CryptoB-W" width="22">
                         </div>
                         Criptomonedas favoritas
                     </a>
+                    {{/logged}}
                 </div>
             </div>
             <div class="sb-sidenav-footer">
