@@ -1,24 +1,37 @@
 package com.practicaweb.practicadaw.model;
 
-
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
-public class User {
+@Entity
+public class User{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idUser;
+    @Column(length = 135, nullable = false)
     private String name;
+    @Column(length = 135, nullable = false)
     private String surname;
+    @Column(length = 45, nullable = false, unique = true)
     private String nickname;
+    @Column(length = 135, nullable = false, unique = true)
     private String email;
+    @Column(length = 45, nullable = false)
     private String password;
     private Date registrationDate;
+    @OneToMany
+    private List<Comment> comments;
 
-    public User(String name, String surname, String nickname, String email, String password, Date registrationDate) {
-        this.name = name;
-        this.surname = surname;
-        this.nickname = nickname;
-        this.email = email;
-        this.password = password;
-        this.registrationDate = registrationDate;
+    public User() { }
+
+    public long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
     }
 
     public String getName() {
@@ -67,5 +80,13 @@ public class User {
 
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
