@@ -38,14 +38,14 @@ public class PostController {
     @GetMapping("/criptomonedas")
     public String criptomonedas(Model model) {
         model.addAttribute("name", "Marcos");
-        model.addAttribute("logged", false);
+        model.addAttribute("logged", true);
         return "criptomonedas";
     }
 
     @GetMapping("/favorite_cryptocurrencies")
     public String favorites(Model model) {
         model.addAttribute("name", "Marcos");
-        model.addAttribute("logged", false);
+        model.addAttribute("logged", true);
         return "cript_favoritas";
     }
 
