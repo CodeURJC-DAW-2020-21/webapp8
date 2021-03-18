@@ -51,6 +51,8 @@ public class PostController {
 
     @GetMapping("/settings")
     public String settings(Model model) {
+        model.addAttribute("name", "Marcos");
+        model.addAttribute("logged", true);
         return "settings";
     }
 
