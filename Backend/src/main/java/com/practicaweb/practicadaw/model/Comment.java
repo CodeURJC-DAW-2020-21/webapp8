@@ -10,11 +10,17 @@ public class Comment {
     private long idComment;
     @Column(length = 45, nullable = false)
     private String description;
+    private String title;
     private Date registrationDate;
     @OneToOne
     private User user;
 
-    public Comment() {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public long getIdComment() {
