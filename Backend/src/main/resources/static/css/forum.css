@@ -125,3 +125,30 @@ body{
     min-height: 1px;
     padding: 1rem;
 }
+
+.div_dinamico {
+    float:left;
+    width:100%;
+    padding:0px;
+    margin:0px;
+    min-height:20px;
+    border:1px solid #999;
+}
+
+.div_dinamico_anim {
+    float:left;
+    width:100%;
+    padding:0px;
+    margin:0px;
+    min-height:20px;
+    border:1px solid #999;
+}
+
+.espacio20 {
+    height:20px;
+    clear:both;
+}
+
+.clear {
+    clear:both;
+}

@@ -320,14 +320,17 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div  id="loadMore"></div>
+                                        <div id="loadMore"></div>
                                     </div>
                                 </div>
                             </div>
                             <!-- /Forum List -->
                             <div class="text-center mb-4" id="loadMore">
-                                <button class="btn btn-primary" >Cargar más</button>
+                                <button class="btn btn-primary">Cargar más</button>
                             </div>
+                            <a class="btn btn-success" id="btn1">Ver el archivo que contiene hola</a>
+                            <a class="btn btn-danger" id="btn2">Ver el archivo que contiene adios</a>
+                            <div id="div-results"></div>
                             <!-- Forum Detail -->
                             <div class="inner-main-body p-2 p-sm-3 collapse forum-content">
                                 <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse"
@@ -421,14 +424,16 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="threadTitle">Title</label>
-                                                <input type="text" class="form-control" id="threadTitle" name="testTitle"
+                                                <input type="text" class="form-control" id="threadTitle"
+                                                       name="testTitle"
                                                        placeholder="Enter title" autofocus=""/>
                                             </div>
                                             <textarea class="form-control summernote"
                                                       style="display: none;"></textarea>
                                             <div class="form-group">
                                                 <label for="threadTitle">Description</label>
-                                                <textarea class="form-control" id="threadDescription" name="testDescription"
+                                                <textarea class="form-control" id="threadDescription"
+                                                          name="testDescription"
                                                           placeholder="Enter description" rows="3"></textarea>
                                             </div>
                                             <div class="custom-file form-control-sm mt-3"
@@ -524,11 +529,4 @@
             </div>
         </div>
     </main>
-    <script type="text/javascript">
-        $(function(){
-            $('button').click(function(){
-                $('#loadMore').load("index.html #loading")
-            });
-        });
-    </script>
     {{>footer}}
