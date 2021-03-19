@@ -16,8 +16,8 @@ public class CommentController {
         //comment.setRegistrationDate();
         return "pruebaComentario";
 
-//    public String guardarComentario(Model model, Comment comentario){
-//        model.addAttribute("comentario", comentario);
+//    public String guardarComentario(Model entity, Comment comentario){
+//        entity.addAttribute("comentario", comentario);
 //
 //        return "pruebaComentario";
 //    }
