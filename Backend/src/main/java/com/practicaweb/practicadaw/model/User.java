@@ -20,12 +20,25 @@ public class User{
     private String email;
     @Column(length = 45, nullable = false)
     private String password;
+    @Column(length = 45, nullable = false)
+    private String role;
     private Date registrationDate;
     @OneToMany
     private List<Comment> comments;
 
-    public User() { }
+    public User() {}
 
+    public User(long idUser, String name, String surname, String nickname, String email, String password, String role, Date registrationDate, List<Comment> comments) {
+        this.idUser = idUser;
+        this.name = name;
+        this.surname = surname;
+        this.nickname = nickname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.registrationDate = registrationDate;
+        this.comments = comments;
+    }
     public long getIdUser() {
         return idUser;
     }
@@ -72,6 +85,14 @@ public class User{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Date getRegistrationDate() {
