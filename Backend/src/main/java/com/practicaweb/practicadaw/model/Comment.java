@@ -15,6 +15,16 @@ public class Comment {
     @OneToOne
     private User user;
 
+
+    public Comment(){}
+
+    public Comment(String title, String description, Date registrationDate, User user){
+        this.user = user;
+        this.title = title;
+        this.description = description;
+        this.registrationDate = registrationDate;
+    }
+
     public String getTitle() {
         return title;
     }
