@@ -17,9 +17,9 @@ public class RegisterController {
     // New user
     @PostMapping("/createUser")
     public String createUser (@ModelAttribute User user){
-            user.setNickname("Gelote97");
             user.setRegistrationDate(auxiliar.getActualDate());
             user.setRole("User");
+            userService.save(user);
             return "/login";
     }
 }
