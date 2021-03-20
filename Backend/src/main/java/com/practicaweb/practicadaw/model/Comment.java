@@ -17,14 +17,6 @@ public class Comment {
 
     public Comment(){}
 
-    public Comment(String descriptionComment, Date registrationDate, User user){
-        this.user = user;
-        this.descriptionComment = descriptionComment;
-        this.registrationDate = registrationDate;
-    }
-
-
-
     public long getIdComment() {
         return idComment;
     }
