@@ -27,4 +27,15 @@ public class RegisterController {
             return "redirect:/register";
         }
     }
+    @PostMapping("/forgotPassword")
+    public String forgotPassword (@ModelAttribute User user){
+        if (user.verification(user.getPassword(), user.getConfirmPassword())){
+            user.setPassword(user.getPassword());
+            return "redirect:/index";
+        }
+        else {
+            return "redirect:/password";
+        }
+    }
+
 }

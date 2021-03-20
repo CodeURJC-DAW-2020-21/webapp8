@@ -34,6 +34,10 @@ public class UserService implements UserServiceInterface {
 //    }
 
 
+    public boolean existsByEmail(String email){
+
+        return true;
+    }
 
 
 }
