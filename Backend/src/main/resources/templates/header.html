@@ -20,29 +20,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
             crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#btn1').on('click', function(){
-                $.ajax({
-                    type: "POST",
-                    url: "hola.php",
-                    success: function(response) {
-                        $('#div-results').html(response);
-                    }
-                });
-            });
-
-            $('#btn2').on('click', function(){
-                $.ajax({
-                    type: "POST",
-                    url: "adios.php",
-                    success: function(response) {
-                        $('#div-results').html(response);
-                    }
-                });
-            });
-        });
-    </script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -109,7 +86,7 @@
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
                 {{#logged}}
-                {{name}}
+                {{userName}}
                 {{/logged}}
                 {{^logged}}
                 Invitado
