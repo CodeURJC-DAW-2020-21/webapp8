@@ -20,15 +20,15 @@
         $("body").toggleClass("sb-sidenav-toggled");
     });
 
-    $(document).ready(function () {
-
-        // Efecto hover sobre la barra de herramientas
-        $('#name').empty(function () {
-                $(this).addClass('form-control is-invalid');
-            });//,
-            // function () {
-            //     $(this).removeClass('form-control is-invalid');
-            // });
-    });
+    // $(document).ready(function () {
+    //
+    //     // Efecto hover sobre la barra de herramientas
+    //     $('#name').empty(function () {
+    //             $(this).addClass('form-control is-invalid');
+    //         });//,
+    //         // function () {
+    //         //     $(this).removeClass('form-control is-invalid');
+    //         // });
+    // });
 
 })(jQuery);

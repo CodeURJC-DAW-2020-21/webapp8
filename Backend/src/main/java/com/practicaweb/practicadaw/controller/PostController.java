@@ -30,7 +30,7 @@ public class PostController {
         return "register";
     }
 
-    @GetMapping("/forgot_password")
+    @GetMapping("/password")
     public String passwordReset(Model model){
         return "password";
     }
