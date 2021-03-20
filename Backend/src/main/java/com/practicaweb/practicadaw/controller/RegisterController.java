@@ -17,9 +17,14 @@ public class RegisterController {
     // New user
     @PostMapping("/createUser")
     public String createUser (@ModelAttribute User user){
+        if (user.verification(user.getPassword(), user.getConfirmPassword())){
             user.setRegistrationDate(auxiliar.getActualDate());
             user.setRole("User");
             userService.save(user);
             return "/login";
+        }
+        else {
+            return "/register";
+        }
     }
 }
