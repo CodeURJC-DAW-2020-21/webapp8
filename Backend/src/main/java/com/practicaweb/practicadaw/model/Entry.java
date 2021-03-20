@@ -10,8 +10,6 @@ public class Entry {
     private long idEntry;
     @Column(length = 135, nullable = false)
     private String title;
-    @Column(length = 135, nullable = false, unique = true)
-    private String subtitle;
     @Column(length = 45, nullable = false)
     private String description;
     private Date registrationDate;
@@ -34,14 +32,6 @@ public class Entry {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
     }
 
     public String getDescription() {
