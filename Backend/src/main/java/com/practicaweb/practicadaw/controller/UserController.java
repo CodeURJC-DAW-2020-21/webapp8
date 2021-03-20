@@ -26,6 +26,7 @@ public class UserController {
         String userActual = (String)misession.getAttribute("email");
         User user = userService.selectByEmail(userActual);
         user.setImagen(image);
+        userService.save(user);
         return "redirect:/settings";
     }
 
