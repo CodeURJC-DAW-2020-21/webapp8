@@ -8,9 +8,8 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idComment;
-    @Column(length = 45, nullable = false)
-    private String description;
-    private String title;
+    @Column(length = 145, nullable = false)
+    private String descriptionComment;
     private Date registrationDate;
     @OneToOne
     private User user;
@@ -18,20 +17,13 @@ public class Comment {
 
     public Comment(){}
 
-    public Comment(String title, String description, Date registrationDate, User user){
+    public Comment(String descriptionComment, Date registrationDate, User user){
         this.user = user;
-        this.title = title;
-        this.description = description;
+        this.descriptionComment = descriptionComment;
         this.registrationDate = registrationDate;
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public long getIdComment() {
         return idComment;
@@ -41,12 +33,12 @@ public class Comment {
         this.idComment = idComment;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptionComment() {
+        return descriptionComment;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionComment(String descriptionComment) {
+        this.descriptionComment = descriptionComment;
     }
 
     public Date getRegistrationDate() {

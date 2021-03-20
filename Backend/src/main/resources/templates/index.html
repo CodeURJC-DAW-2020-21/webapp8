@@ -117,7 +117,7 @@
                                                                 ago</span>
                                                 </p>
                                                 <span><a href="javascript:void(0)" class="text-muted small"
-                                                         data-toggle="modal" data-target="#commentModal"
+                                                         data-toggle="modal" type="submit" data-target="#commentModal"
                                                          text>Reply</a></span>
                                             </div>
                                             <div class="text-muted small text-center align-self-center">
@@ -511,7 +511,7 @@
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                     {{#logged}}
-                                    <form>
+                                    <form method="post" action="newComment" modelAttribute="comment">
                                         <div
                                                 class="modal-header d-flex align-items-center bg-primary text-white">
                                             <h6 class="modal-title mb-0" id="commentModalLabel">New Comment
@@ -523,8 +523,8 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <label for="commentTitle">Description</label>
-                                                <textarea class="form-control" id="threadDescription"
+                                                <label for="descriptionComment">Description</label>
+                                                <textarea class="form-control" id="descriptionComment" name="descriptionComment"
                                                           placeholder="Enter description" rows="3"></textarea>
                                             </div>
                                             <div class="custom-file form-control-sm mt-3"
@@ -539,7 +539,7 @@
                                             <button type="button" class="btn btn-light"
                                                     data-dismiss="modal">Cancel
                                             </button>
-                                            <button type="button" class="btn btn-primary">Post</button>
+                                            <div><input type="submit" class="btn-primary btn-block" value="Post"></div>
                                         </div>
                                     </form>
                                     {{/logged}}
