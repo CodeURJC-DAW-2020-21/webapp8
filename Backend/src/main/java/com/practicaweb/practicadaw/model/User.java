@@ -25,7 +25,6 @@ public class User{
     private Date registrationDate;
     @OneToMany
     private List<Comment> comments;
-    private String confirmPassword;
 
     public User() {}
 
@@ -39,26 +38,6 @@ public class User{
         this.role = role;
         this.registrationDate = registrationDate;
         this.comments = comments;
-    }
-
-    public boolean passwordExists(String password){
-        return this.password.equals(password);
-    }
-
-    public boolean emailExists(String email){
-        return this.email.equals(email);
-    }
-
-    public boolean verification (String password, String confirmPassword){
-        return password.equals(confirmPassword);
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 
     public long getIdUser() {

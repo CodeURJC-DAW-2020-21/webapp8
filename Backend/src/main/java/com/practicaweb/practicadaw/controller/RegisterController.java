@@ -1,6 +1,7 @@
 package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.UserService;
+import com.practicaweb.practicadaw.auxClasses.AuxUser;
 import com.practicaweb.practicadaw.auxClasses.auxiliar;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
@@ -16,8 +17,8 @@ public class RegisterController {
 
     // New user
     @PostMapping("/createUser")
-    public String createUser (@ModelAttribute User user){
-        if (user.verification(user.getPassword(), user.getConfirmPassword())){
+    public String createUser (@ModelAttribute User user, @RequestParam("confirmPassword") String confirmPassword){
+        if (AuxUser.verificationPassword(user.getPassword(), confirmPassword)){
             user.setRegistrationDate(auxiliar.getActualDate());
             user.setRole("User");
             userService.save(user);
@@ -27,15 +28,4 @@ public class RegisterController {
             return "redirect:/register";
         }
     }
-    @PostMapping("/forgotPassword")
-    public String forgotPassword (@ModelAttribute User user){
-        if (user.verification(user.getPassword(), user.getConfirmPassword())){
-            user.setPassword(user.getPassword());
-            return "redirect:/index";
-        }
-        else {
-            return "redirect:/password";
-        }
-    }
-
 }
