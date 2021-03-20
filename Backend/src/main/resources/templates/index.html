@@ -242,7 +242,7 @@
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                     {{#logged}}
-                                    <form method="post" action="newComment" modelAttribute="comment">
+                                    <form method="post" action="/newComment" modelAttribute="comment">
                                         <div
                                                 class="modal-header d-flex align-items-center bg-primary text-white">
                                             <h6 class="modal-title mb-0" id="commentModalLabel">New Comment
@@ -255,8 +255,8 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="descriptionComment">Description</label>
-                                                <textarea class="form-control" id="descriptionComment" name="descriptionComment"
-                                                          placeholder="Enter description" rows="3"></textarea>
+                                                <input class="form-control" id="descriptionComment" name="descriptionComment"
+                                                          placeholder="Enter description" rows="3"/>
                                             </div>
                                             <div class="custom-file form-control-sm mt-3"
                                                  style="max-width: 300px;">

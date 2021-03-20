@@ -12,7 +12,7 @@ public class SessionController {
     @GetMapping("/clearSession")
     public String clearSession(Model model, HttpServletRequest request){
         HttpSession mysession = (HttpSession) request.getSession();
-        mysession.setAttribute("user", null);
+        mysession.setAttribute("actualUser", null);
         return "redirect:/";
     }
 }

@@ -27,7 +27,7 @@ public class EntryController {
     @PostMapping("/newEntry")
     public String createEntry(@ModelAttribute Entry entry, HttpServletRequest request){
         HttpSession misession = (HttpSession) request.getSession();
-        User userActual = (User)misession.getAttribute("user");
+        User userActual = (User)misession.getAttribute("actualUser");
         entry.setUser(userActual);
         entryService.save(entry);
         return "redirect:/";
