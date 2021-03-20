@@ -21,10 +21,10 @@ public class RegisterController {
             user.setRegistrationDate(auxiliar.getActualDate());
             user.setRole("User");
             userService.save(user);
-            return "/login";
+            return "redirect:/login";
         }
         else {
-            return "/register";
+            return "redirect:/register";
         }
     }
 }
