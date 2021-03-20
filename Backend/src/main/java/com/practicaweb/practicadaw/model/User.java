@@ -25,6 +25,7 @@ public class User{
     private Date registrationDate;
     @OneToMany
     private List<Comment> comments;
+    private String image;
 
     public User() {}
 
@@ -110,5 +111,13 @@ public class User{
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImagen(String imagen) {
+        this.image = imagen;
     }
 }
