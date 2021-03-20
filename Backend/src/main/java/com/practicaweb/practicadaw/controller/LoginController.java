@@ -27,7 +27,7 @@ public class LoginController {
             return "loginError";
         if (AuxUser.verificationEmail(actualUser.getEmail(), email) && AuxUser.verificationPassword(actualUser.getPassword(), password)){
             HttpSession mysession= request.getSession(true);
-            mysession.setAttribute("user",actualUser);
+            mysession.setAttribute("actualUser",actualUser);
             return "redirect:/";
         } else {
             return "loginError";

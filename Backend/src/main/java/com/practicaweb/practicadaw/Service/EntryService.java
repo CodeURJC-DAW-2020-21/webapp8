@@ -6,14 +6,17 @@ import com.practicaweb.practicadaw.repository.EntryRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class EntryService implements EntryServiceInterface {
 
     private final EntryRepository entryRepository;
+    private final UserService userService;
 
-    public EntryService(EntryRepository entryRepository) {
+    public EntryService(EntryRepository entryRepository, UserService userService) {
         this.entryRepository = entryRepository;
+        this.userService = userService;
     }
 
     @Override
@@ -21,5 +24,11 @@ public class EntryService implements EntryServiceInterface {
     public Entry save(Entry entry) {
         return entryRepository.save(entry);
     }
+
+    @Override
+    public List<Entry> selectAll() {
+        return entryRepository.findAll();
+    }
+
 
 }

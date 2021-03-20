@@ -1,5 +1,7 @@
 package com.practicaweb.practicadaw.controller;
 
+import com.practicaweb.practicadaw.Service.EntryService;
+import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,15 +9,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class PostController {
 
+    private final EntryService entryService;
+
+    public PostController(EntryService entryService) {
+        this.entryService = entryService;
+    }
 
     @GetMapping("/")
     public String index(Model model, HttpServletRequest request){
         HttpSession misession = (HttpSession) request.getSession();
-        User  userActual = (User)misession.getAttribute("user");
+        User  userActual = (User)misession.getAttribute("actualUser");
+        List<Entry> entries = entryService.selectAll();
+        model.addAttribute("entries", entryService.selectAll());
         if (userActual == null){
             model.addAttribute("logged", false);
             return "index";
@@ -62,7 +72,7 @@ public class PostController {
     @GetMapping("/settings")
     public String settings(Model model, HttpServletRequest request) {
         HttpSession misession = (HttpSession) request.getSession();
-        User  userActual = (User)misession.getAttribute("user");
+        User  userActual = (User)misession.getAttribute("actualUser");
         model.addAttribute("name", userActual.getName());
         model.addAttribute("surname", userActual.getSurname());
         model.addAttribute("userName", userActual.getNickname());
