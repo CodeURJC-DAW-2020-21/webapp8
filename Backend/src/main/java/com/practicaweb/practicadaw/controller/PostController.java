@@ -22,7 +22,7 @@ public class PostController {
 
     @GetMapping("/")
     public String index(Model model, HttpServletRequest request){
-        HttpSession mysession = (HttpSession) request.getSession();
+        HttpSession mysession = request.getSession();
         User  actualUser = (User)mysession.getAttribute("actualUser");
         List<Entry> entries = entryService.selectAll();
         model.addAttribute("entries", entryService.selectAll());
@@ -57,7 +57,7 @@ public class PostController {
 
     @GetMapping("/criptomonedas")
     public String criptomonedas(Model model, HttpServletRequest request) {
-        HttpSession mysession = (HttpSession) request.getSession();
+        HttpSession mysession = request.getSession();
         User  actualUser = (User)mysession.getAttribute("actualUser");
         if (actualUser == null){
             model.addAttribute("logged", false);
@@ -70,7 +70,7 @@ public class PostController {
 
     @GetMapping("/favorite_cryptocurrencies")
     public String favorites(Model model, HttpServletRequest request) {
-        HttpSession mysession = (HttpSession) request.getSession();
+        HttpSession mysession = request.getSession();
         User  actualUser = (User)mysession.getAttribute("actualUser");
         if (actualUser == null){
             model.addAttribute("logged", false);
@@ -83,7 +83,7 @@ public class PostController {
 
     @GetMapping("/settings")
     public String settings(Model model, HttpServletRequest request) {
-        HttpSession mysession = (HttpSession) request.getSession();
+        HttpSession mysession = request.getSession();
         User  actualUser = (User)mysession.getAttribute("actualUser");
         model.addAttribute("name", actualUser.getName());
         model.addAttribute("surname", actualUser.getSurname());

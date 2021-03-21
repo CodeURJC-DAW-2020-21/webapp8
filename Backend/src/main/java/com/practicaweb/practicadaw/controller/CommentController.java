@@ -29,7 +29,7 @@ public class CommentController {
 
     @PostMapping("/newComment")
     public String createComment(@ModelAttribute Comment comment, HttpServletRequest request){
-        HttpSession mysession = (HttpSession) request.getSession();
+        HttpSession mysession = request.getSession();
         User actualUser = (User)mysession.getAttribute("actualUser");
         comment.setUser(actualUser);
         commentService.save(comment);
