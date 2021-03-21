@@ -1,8 +1,10 @@
 package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.CommentService;
+import com.practicaweb.practicadaw.Service.EntryService;
 import com.practicaweb.practicadaw.Service.UserService;
 import com.practicaweb.practicadaw.model.Comment;
+import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,10 +19,12 @@ public class CommentController {
 
     private final CommentService commentService;
     private final UserService userService;
+    private final EntryService entryService;
 
-    public CommentController(CommentService commentService, UserService userService) {
+    public CommentController(CommentService commentService, UserService userService, EntryService entryService) {
         this.userService = userService;
         this.commentService = commentService;
+        this.entryService = entryService;
     }
 
     @PostMapping("/newComment")
@@ -28,6 +32,8 @@ public class CommentController {
         HttpSession misession = (HttpSession) request.getSession();
         User userActual = (User)misession.getAttribute("actualUser");
         comment.setUser(userActual);
+//        Entry entry = ;
+
         commentService.save(comment);
         return "redirect:/";
     }

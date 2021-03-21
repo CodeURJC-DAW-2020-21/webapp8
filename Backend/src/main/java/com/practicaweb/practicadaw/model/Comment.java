@@ -13,6 +13,8 @@ public class Comment {
     private Date registrationDate;
     @OneToOne
     private User user;
+    @OneToOne
+    private Entry entry;
 
 
     public Comment(){}
@@ -47,5 +49,13 @@ public class Comment {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Entry getEntry() {
+        return entry;
+    }
+
+    public void setEntry(Entry entry) {
+        this.entry = entry;
     }
 }
