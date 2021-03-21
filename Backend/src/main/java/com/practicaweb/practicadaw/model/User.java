@@ -72,6 +72,10 @@ public class User{
         this.nickname = nickname;
     }
 
+    public String getEncodedPassword() {
+        return encodedPassword;
+    }
+
     public String getEmail() {
         return email;
     }
