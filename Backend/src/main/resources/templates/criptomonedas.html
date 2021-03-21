@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <h1 class="mt-4 tituloPrincipal text-center">Criptomonedas</h1>
                 <div class="panel-group" style="margin-top: 20px" id="accordion">
-                    <!--Tablas-->
+                    <!--Charts-->
                     <div class="card">
                         <table class="table table-striped text-center">
                             <thead>
@@ -41,7 +41,7 @@
                                 </td>
                                 <td class="align-middle">
                                     <button type="button" class="btn">
-                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20">
+                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">
                                     </button>
                                 </td>
                             </tr>
@@ -143,11 +143,11 @@
                 src = "images/starEmpty.svg";
                 cuantosClicks++;
 
-                if(cuantosClicks % 2 == 0){
+                if(cuantosClicks % 2 === 0){
                     return src;
                 }else{
                     return 'images/star.svg';
                 }
             }
         </script>
-{{>footer}}}
+{{>footer}}
