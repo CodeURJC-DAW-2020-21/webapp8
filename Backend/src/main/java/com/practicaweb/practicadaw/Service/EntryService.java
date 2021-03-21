@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EntryService implements EntryServiceInterface {
@@ -28,6 +29,11 @@ public class EntryService implements EntryServiceInterface {
     @Override
     public List<Entry> selectAll() {
         return entryRepository.findAll();
+    }
+
+    @Override
+    public Optional<Entry> selectById(long id) {
+        return Optional.empty();
     }
 
 

@@ -2,6 +2,7 @@ package com.practicaweb.practicadaw.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Entry {
@@ -17,8 +18,8 @@ public class Entry {
     private Date registrationDate;
     @OneToOne
     private User user;
-
-    public Entry() { }
+    @OneToMany
+    private List<Comment> comment;
 
     public int getNumber_of_visits() {
         return number_of_visits;
@@ -66,5 +67,13 @@ public class Entry {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<Comment> comment) {
+        this.comment = comment;
     }
 }
