@@ -1,7 +1,6 @@
 package com.practicaweb.practicadaw.ServiceInterfaces;
 
 import com.practicaweb.practicadaw.model.User;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 

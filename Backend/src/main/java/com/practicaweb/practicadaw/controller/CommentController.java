@@ -25,9 +25,9 @@ public class CommentController {
 
     @PostMapping("/newComment")
     public String createComment(@ModelAttribute Comment comment, HttpServletRequest request){
-        HttpSession misession = (HttpSession) request.getSession();
-        User userActual = (User)misession.getAttribute("actualUser");
-        comment.setUser(userActual);
+        HttpSession mysession = (HttpSession) request.getSession();
+        User actualUser = (User)mysession.getAttribute("actualUser");
+        comment.setUser(actualUser);
         commentService.save(comment);
         return "redirect:/";
     }

@@ -22,15 +22,15 @@ public class PostController {
 
     @GetMapping("/")
     public String index(Model model, HttpServletRequest request){
-        HttpSession misession = (HttpSession) request.getSession();
-        User  userActual = (User)misession.getAttribute("actualUser");
+        HttpSession mysession = (HttpSession) request.getSession();
+        User  actualUser = (User)mysession.getAttribute("actualUser");
         List<Entry> entries = entryService.selectAll();
         model.addAttribute("entries", entryService.selectAll());
-        if (userActual == null){
+        if (actualUser == null){
             model.addAttribute("logged", false);
             return "index";
         }
-        model.addAttribute("userName", userActual.getNickname());
+        model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "index";
     }
@@ -71,12 +71,12 @@ public class PostController {
 
     @GetMapping("/settings")
     public String settings(Model model, HttpServletRequest request) {
-        HttpSession misession = (HttpSession) request.getSession();
-        User  userActual = (User)misession.getAttribute("actualUser");
-        model.addAttribute("name", userActual.getName());
-        model.addAttribute("surname", userActual.getSurname());
-        model.addAttribute("userName", userActual.getNickname());
-        model.addAttribute("email", userActual.getEmail());
+        HttpSession mysession = (HttpSession) request.getSession();
+        User  actualUser = (User)mysession.getAttribute("actualUser");
+        model.addAttribute("name", actualUser.getName());
+        model.addAttribute("surname", actualUser.getSurname());
+        model.addAttribute("userName", actualUser.getNickname());
+        model.addAttribute("email", actualUser.getEmail());
         model.addAttribute("logged", true);
         return "settings";
     }

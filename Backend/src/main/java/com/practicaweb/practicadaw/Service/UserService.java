@@ -3,7 +3,6 @@ package com.practicaweb.practicadaw.Service;
 import com.practicaweb.practicadaw.ServiceInterfaces.UserServiceInterface;
 import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.UserRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -31,8 +30,7 @@ public class UserService implements UserServiceInterface {
 
     @Override
     public User selectByEmail(String email) {
-        User u = userRepository.selectByEmail(email);
-        return u;
+        return userRepository.selectByEmail(email);
     }
 
 
