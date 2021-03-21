@@ -56,15 +56,27 @@ public class PostController {
     }
 
     @GetMapping("/criptomonedas")
-    public String criptomonedas(Model model) {
-        model.addAttribute("userName", "Marcos");
+    public String criptomonedas(Model model, HttpServletRequest request) {
+        HttpSession mysession = (HttpSession) request.getSession();
+        User  actualUser = (User)mysession.getAttribute("actualUser");
+        if (actualUser == null){
+            model.addAttribute("logged", false);
+            return "criptomonedas";
+        }
+        model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "criptomonedas";
     }
 
     @GetMapping("/favorite_cryptocurrencies")
-    public String favorites(Model model) {
-        model.addAttribute("userName", "Marcos");
+    public String favorites(Model model, HttpServletRequest request) {
+        HttpSession mysession = (HttpSession) request.getSession();
+        User  actualUser = (User)mysession.getAttribute("actualUser");
+        if (actualUser == null){
+            model.addAttribute("logged", false);
+            return "cript_favoritas";
+        }
+        model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "cript_favoritas";
     }
