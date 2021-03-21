@@ -1,6 +1,7 @@
 package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.EntryService;
+import com.practicaweb.practicadaw.Service.UserService;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,11 @@ import java.util.List;
 public class PostController {
 
     private final EntryService entryService;
+    private final UserService userService;
 
-    public PostController(EntryService entryService) {
+    public PostController(EntryService entryService, UserService userService) {
         this.entryService = entryService;
+        this.userService = userService;
     }
 
     @GetMapping("/")
@@ -30,6 +33,8 @@ public class PostController {
             model.addAttribute("logged", false);
             return "index";
         }
+        if (actualUser.getRole().equals("admin"))
+            model.addAttribute("isAdmin", true);
         model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "index";
@@ -63,6 +68,8 @@ public class PostController {
             model.addAttribute("logged", false);
             return "criptomonedas";
         }
+        if (actualUser.getRole().equals("admin"))
+            model.addAttribute("isAdmin", true);
         model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "criptomonedas";
@@ -76,6 +83,8 @@ public class PostController {
             model.addAttribute("logged", false);
             return "cript_favoritas";
         }
+        if (actualUser.getRole().equals("admin"))
+            model.addAttribute("isAdmin", true);
         model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "cript_favoritas";
@@ -85,12 +94,27 @@ public class PostController {
     public String settings(Model model, HttpServletRequest request) {
         HttpSession mysession = request.getSession();
         User  actualUser = (User)mysession.getAttribute("actualUser");
+        if (actualUser.getRole().equals("admin"))
+            model.addAttribute("isAdmin", true);
         model.addAttribute("name", actualUser.getName());
         model.addAttribute("surname", actualUser.getSurname());
         model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("email", actualUser.getEmail());
         model.addAttribute("logged", true);
         return "settings";
+    }
+
+    @GetMapping("/users")
+    public String users(Model model, HttpServletRequest request){
+        HttpSession mysession = request.getSession();
+        User  actualUser = (User)mysession.getAttribute("actualUser");
+        if (actualUser.getRole().equals("admin"))
+            model.addAttribute("isAdmin", true);
+        model.addAttribute("userName", actualUser.getNickname());
+        model.addAttribute("logged", true);
+        List<User> users = userService.selectAll();
+        model.addAttribute("users", users);
+        return "userList";
     }
 
     @GetMapping("/Bitcoin")
