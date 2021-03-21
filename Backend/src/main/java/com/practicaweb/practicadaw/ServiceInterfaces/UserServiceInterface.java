@@ -10,4 +10,5 @@ public interface UserServiceInterface {
     Optional<User> selectById (long id);
     User selectByEmail(String email);
     List<User> selectAll();
+    void deleteUserById(long IdUser);
 }

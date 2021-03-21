@@ -18,7 +18,7 @@
                                 <th>Nickname</th>
                                 <th>Email</th>
                                 <th>Fecha de registro</th>
-                                <th>Salary</th>
+                                <th>Control Usuario</th>
                             </tr>
                             </thead>
                             <tfoot>
@@ -28,18 +28,23 @@
                                 <th>Nickname</th>
                                 <th>Email</th>
                                 <th>Fecha de registro</th>
-                                <th>Salary</th>
+                                <th>Control Usuario</th>
                             </tr>
                             </tfoot>
                             <tbody>
                             {{#users}}
                             <tr>
-                                <td>{{name}}</td>
-                                <td>{{surname}}</td>
-                                <td>{{nickname}}</td>
-                                <td>{{email}}</td>
-                                <td>{{registrationDate}}</td>
-                                <td>$320,800</td>
+                                <form method="post" action="/delete_user">
+                                    <input type="hidden" value="{{idUser}}" id="idUser" name="idUser">
+                                        <td>{{name}}</td>
+                                        <td>{{surname}}</td>
+                                        <td>{{nickname}}</td>
+                                        <td>{{email}}</td>
+                                        <td>{{registrationDate}}</td>
+                                        <td>
+                                            <input type="submit" class="btn btn-danger" value="ELIMINAR">
+                                        </td>
+                                </form>
                             </tr>
                             {{/users}}
                             </tbody>

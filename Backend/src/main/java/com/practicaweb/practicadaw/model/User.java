@@ -22,6 +22,7 @@ public class User{
     private String password;
     @Column(length = 45, nullable = false)
     private String role;
+    @Column(length = 45, nullable = false)
     private Date registrationDate;
     @OneToMany
     private List<Comment> comments;
