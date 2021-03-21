@@ -2,6 +2,7 @@ package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.EntryService;
 import com.practicaweb.practicadaw.Service.UserService;
+import com.practicaweb.practicadaw.auxClasses.auxiliar;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
@@ -26,9 +27,11 @@ public class EntryController {
     // New entry
     @PostMapping("/newEntry")
     public String createEntry(@ModelAttribute Entry entry, HttpServletRequest request){
+        auxiliar aux = new auxiliar();
         HttpSession mysession = request.getSession();
         User actualUser = (User)mysession.getAttribute("actualUser");
         entry.setUser(actualUser);
+        entry.setRegistrationDate(aux.getActualDate());
         entryService.save(entry);
         return "redirect:/";
     }

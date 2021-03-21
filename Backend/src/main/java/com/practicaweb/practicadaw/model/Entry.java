@@ -15,6 +15,7 @@ public class Entry {
     private String description;
     @Column(length = 45, nullable = false)
     private int number_of_visits;
+    @Column(length = 45, nullable = false)
     private Date registrationDate;
     @OneToOne
     private User user;
