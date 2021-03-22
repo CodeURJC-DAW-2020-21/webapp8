@@ -89,3 +89,29 @@ If there is a server error the user will be redirected to this page.
 
 ## Navigation Diagram
 ![Navigation Diagram Image](/Phase1Images/NavigationDiagram.png "Navigation Diagram")
+
+
+
+## PHASE 2
+
+## Navigation Diagram
+![Navigation Diagram Image](/Phase2Images/NavigationDiagram.png "Navigation Diagram")
+Admin diagram added to Navigation Diagram
+![Admin User List](/Phase2Images/UserList.png "Admin User List")
+
+##Execution Instruction
+You can download the complete code in our github link <link> , build it and run it with IntelliJIdea 2020.
+You will need at least Java 11, MySQL 8.0
+##DataBase Entities Diagram
+![Navigation Diagram Image](/Phase2Images/DatabaseDiagram.png "Database Diagram")
+
+##Classes and templates Diagrams
+
+##Participation
+Team Members | Commits | GitHubLink
+:------------: | :-----: | :------:
+Marcos Rodríguez García | |
+Ángel Domínguez Figueros |  |
+Adrián Sierra Robles |  |
+Óscar Ramadán Pérez |  |
+Adrián López Couso |  | 
