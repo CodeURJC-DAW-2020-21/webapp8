@@ -22,7 +22,6 @@ public class User{
     private String password;
     @Column(length = 45, nullable = false)
     private String role;
-    @Column(length = 45, nullable = false)
     private Date registrationDate;
     @Column(length = 45, nullable = false)
     private String image;

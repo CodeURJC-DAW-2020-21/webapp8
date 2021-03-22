@@ -18,13 +18,13 @@ public class LoginController {
         this.userService = userService;
     }
 
-    @GetMapping ("/checkLogin")
+    @GetMapping("/checkLogin")
     public String loginUser (@RequestParam("email") String email, @RequestParam("password") String password, HttpServletRequest request){
         User actualUser = userService.selectByEmail(email);
         if (actualUser == null)
             return "loginError";
         if (AuxUser.verificationEmail(actualUser.getEmail(), email) && AuxUser.verificationPassword(actualUser.getPassword(), password)){
-            HttpSession mysession = request.getSession(true);
+            HttpSession mysession= request.getSession(true);
             mysession.setAttribute("actualUser",actualUser);
             return "redirect:/";
         } else {
