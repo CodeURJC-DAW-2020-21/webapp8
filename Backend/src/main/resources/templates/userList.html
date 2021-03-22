@@ -1,0 +1,57 @@
+{{>header}}
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Listado de Usuarios</h1>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Usuarios
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Nickname</th>
+                                <th>Email</th>
+                                <th>Fecha de registro</th>
+                                <th>Control Usuario</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Nickname</th>
+                                <th>Email</th>
+                                <th>Fecha de registro</th>
+                                <th>Control Usuario</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            {{#users}}
+                            <tr>
+                                <form method="post" action="/delete_user">
+                                    <input type="hidden" value="{{idUser}}" id="idUser" name="idUser">
+                                    <td>{{name}}</td>
+                                    <td>{{surname}}</td>
+                                    <td>{{nickname}}</td>
+                                    <td>{{email}}</td>
+                                    <td>{{registrationDate}}</td>
+                                    <td>
+                                        <input type="submit" class="btn btn-danger" value="ELIMINAR">
+                                    </td>
+                                </form>
+                            </tr>
+                            {{/users}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {{>footer}}

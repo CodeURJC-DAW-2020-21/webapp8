@@ -37,10 +37,10 @@ public class UserController {
 
     @PostMapping("/delete_user")
     public String deleteUser(Model model, @RequestParam long idUser){
-        commentService.deleteCommentByIdUser(idUser);
-        Entry entryToDelete = entryService.selectById(idUser);
-        commentService.deleteCommentByIdeEntry(entryToDelete.getIdEntry());
-        entryService.deleteEntryByIdUser(idUser);
+//        commentService.deleteCommentByIdUser(idUser);
+//        Entry entryToDelete = entryService.selectById(idUser);
+//        commentService.deleteCommentByIdeEntry(entryToDelete.getIdEntry());
+//        entryService.deleteEntryByIdUser(idUser);
         userService.deleteUserById(idUser);
         return "redirect:/users";
     }

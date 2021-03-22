@@ -38,8 +38,14 @@ public class EntryService implements EntryServiceInterface {
     }
 
     @Override
-    public Optional<Entry> selectById(long id) {
-        return Optional.empty();
+    public Entry selectById(long id) {
+        return entryRepository.getOne(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteEntryByIdUser(long idUser) {
+        entryRepository.deleteEntryByIdUser(idUser);
     }
 
 
