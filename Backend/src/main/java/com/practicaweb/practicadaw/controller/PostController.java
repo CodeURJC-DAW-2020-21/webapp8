@@ -63,6 +63,11 @@ public class PostController {
         return "password";
     }
 
+    @GetMapping("/passwordEmail")
+    public String passwordEmail(Model model){
+        return "passwordEmail";
+    }
+
     @GetMapping("/criptomonedas")
     public String criptomonedas(Model model, HttpServletRequest request) {
         HttpSession mysession = request.getSession();
