@@ -50,8 +50,8 @@ public class UserService implements UserServiceInterface {
 
 //    @PostConstruct
 //    public void examples() {
-//        save(new User(10, "Marcos", "Rodriguez", "marcoszas", "marquitos@gmail.com", "hola", "User", aux.getActualDate(), null));
-//        save(new User(22, "Angel", "Fideos", "angel_Fideos", "angel@gmail.com", "hola", "User", aux.getActualDate(), null));
-//        save(new User(1, "admin", "admin", "admin", "admin@admin.com", "admin", "admin", aux.getActualDate(), null));
+//        save(new User(10, "Marcos", "Rodriguez", "marcoszas", "marquitos@gmail.com", "hola", "User", aux.getActualDate(), "defaultimage.jpg", null));
+//        save(new User(22, "Angel", "Fideos", "angel_Fideos", "angel@gmail.com", "hola", "User", aux.getActualDate(), "defaultimage.jpg", null));
+//        save(new User(1, "admin", "admin", "admin", "admin@admin.com", "admin", "admin", aux.getActualDate(), "defaultimage.jpg", null));
 //    }
 }

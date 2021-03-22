@@ -22,6 +22,7 @@ public class User{
     private String password;
     @Column(length = 45, nullable = false)
     private String role;
+    @Column(length = 45, nullable = false)
     private Date registrationDate;
     @Column(length = 45, nullable = false)
     private String image;
@@ -29,6 +30,19 @@ public class User{
     private List<Comment> comments;
 
     public User() {}
+
+    public User(long idUser, String name, String surname, String nickname, String email, String password, String role, Date registrationDate, String image,List<Comment> comments) {
+        this.idUser = idUser;
+        this.name = name;
+        this.surname = surname;
+        this.nickname = nickname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.registrationDate = registrationDate;
+        this.image = image;
+        this.comments = comments;
+    }
 
     public long getIdUser() {
         return idUser;
