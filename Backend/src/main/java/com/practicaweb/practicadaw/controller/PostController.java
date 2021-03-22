@@ -1,7 +1,6 @@
 package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.EntryService;
-import com.practicaweb.practicadaw.auxClasses.auxiliar;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
@@ -10,16 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 @Controller
 public class PostController {
 
     private final EntryService entryService;
-    private static final Path IMAGES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 
     public PostController(EntryService entryService) {
         this.entryService = entryService;
@@ -35,7 +30,7 @@ public class PostController {
             model.addAttribute("logged", false);
             return "index";
         }
-        model.addAttribute("nickName", actualUser.getNickname());
+        model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "index";
     }
@@ -68,7 +63,7 @@ public class PostController {
             model.addAttribute("logged", false);
             return "criptomonedas";
         }
-        model.addAttribute("nickName", actualUser.getNickname());
+        model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "criptomonedas";
     }
@@ -81,21 +76,20 @@ public class PostController {
             model.addAttribute("logged", false);
             return "cript_favoritas";
         }
-        model.addAttribute("nickName", actualUser.getNickname());
+        model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "cript_favoritas";
     }
 
     @GetMapping("/settings")
-    public String settings(Model model, HttpServletRequest request) throws IOException {
+    public String settings(Model model, HttpServletRequest request) {
         HttpSession mysession = request.getSession();
         User  actualUser = (User)mysession.getAttribute("actualUser");
         model.addAttribute("name", actualUser.getName());
         model.addAttribute("surname", actualUser.getSurname());
-        model.addAttribute("nickName", actualUser.getNickname());
+        model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("email", actualUser.getEmail());
         model.addAttribute("logged", true);
-        model.addAttribute("imageFile", auxiliar.getPathImage(actualUser.getImage()));
         return "settings";
     }
 

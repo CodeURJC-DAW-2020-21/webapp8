@@ -20,8 +20,7 @@ public class RegisterController {
     public String createUser (@ModelAttribute User user, @RequestParam("confirmPassword") String confirmPassword){
         if (AuxUser.verificationPassword(user.getPassword(), confirmPassword)){
             user.setRegistrationDate(auxiliar.getActualDate());
-            user.setRole("admin");
-            user.setImage("defaultImage");
+            user.setRole("User");
             userService.save(user);
             return "redirect:/login";
         }
