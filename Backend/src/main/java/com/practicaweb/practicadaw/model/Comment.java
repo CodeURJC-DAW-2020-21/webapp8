@@ -10,7 +10,6 @@ public class Comment {
     private long idComment;
     @Column(length = 145, nullable = false)
     private String descriptionComment;
-    @Column(length = 45, nullable = false)
     private Date registrationDate;
     @OneToOne
     private User user;

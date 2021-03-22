@@ -9,7 +9,6 @@ import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,11 +28,9 @@ public class CommentController {
     }
 
     @PostMapping("/newComment")
-    public String createComment(@ModelAttribute Comment comment, HttpServletRequest request, @RequestParam("idEntry") long idEntry){
+    public String createComment(@ModelAttribute Comment comment, HttpServletRequest request){
         HttpSession mysession = request.getSession();
         User actualUser = (User)mysession.getAttribute("actualUser");
-//        comment.setIdEntry(idEntry);
-
         comment.setUser(actualUser);
         commentService.save(comment);
         return "redirect:/";

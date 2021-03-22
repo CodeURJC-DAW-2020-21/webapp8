@@ -9,13 +9,12 @@ public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEntry;
-    @Column(length = 200, nullable = false)
+    @Column(length = 135, nullable = false)
     private String title;
-    @Column(length = 500, nullable = false)
+    @Column(length = 45, nullable = false)
     private String description;
     @Column(length = 45, nullable = false)
     private int number_of_visits;
-    @Column(length = 45, nullable = false)
     private Date registrationDate;
     @OneToOne
     private User user;

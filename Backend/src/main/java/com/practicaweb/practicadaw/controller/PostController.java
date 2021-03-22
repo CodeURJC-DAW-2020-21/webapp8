@@ -1,7 +1,7 @@
 package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.EntryService;
-import com.practicaweb.practicadaw.Service.UserService;
+import com.practicaweb.practicadaw.auxClasses.auxiliar;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
@@ -19,11 +19,10 @@ import java.util.List;
 public class PostController {
 
     private final EntryService entryService;
-    private final UserService userService;
+    private static final Path IMAGES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 
-    public PostController(EntryService entryService, UserService userService) {
+    public PostController(EntryService entryService) {
         this.entryService = entryService;
-        this.userService = userService;
     }
 
     @GetMapping("/")
@@ -36,9 +35,7 @@ public class PostController {
             model.addAttribute("logged", false);
             return "index";
         }
-        if (actualUser.getRole().equals("admin"))
-            model.addAttribute("isAdmin", true);
-        model.addAttribute("userName", actualUser.getNickname());
+        model.addAttribute("nickName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "index";
     }
@@ -71,9 +68,7 @@ public class PostController {
             model.addAttribute("logged", false);
             return "criptomonedas";
         }
-        if (actualUser.getRole().equals("admin"))
-            model.addAttribute("isAdmin", true);
-        model.addAttribute("userName", actualUser.getNickname());
+        model.addAttribute("nickName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "criptomonedas";
     }
@@ -86,9 +81,7 @@ public class PostController {
             model.addAttribute("logged", false);
             return "cript_favoritas";
         }
-        if (actualUser.getRole().equals("admin"))
-            model.addAttribute("isAdmin", true);
-        model.addAttribute("userName", actualUser.getNickname());
+        model.addAttribute("nickName", actualUser.getNickname());
         model.addAttribute("logged", true);
         return "cript_favoritas";
     }
@@ -97,8 +90,6 @@ public class PostController {
     public String settings(Model model, HttpServletRequest request) throws IOException {
         HttpSession mysession = request.getSession();
         User  actualUser = (User)mysession.getAttribute("actualUser");
-        if (actualUser.getRole().equals("admin"))
-            model.addAttribute("isAdmin", true);
         model.addAttribute("name", actualUser.getName());
         model.addAttribute("surname", actualUser.getSurname());
         model.addAttribute("nickName", actualUser.getNickname());
@@ -106,19 +97,6 @@ public class PostController {
         model.addAttribute("logged", true);
         model.addAttribute("imageFile", auxiliar.getPathImage(actualUser.getImage()));
         return "settings";
-    }
-
-    @GetMapping("/users")
-    public String users(Model model, HttpServletRequest request){
-        HttpSession mysession = request.getSession();
-        User  actualUser = (User)mysession.getAttribute("actualUser");
-        if (actualUser.getRole().equals("admin"))
-            model.addAttribute("isAdmin", true);
-        model.addAttribute("userName", actualUser.getNickname());
-        model.addAttribute("logged", true);
-        List<User> users = userService.selectAll();
-        model.addAttribute("users", users);
-        return "userList";
     }
 
     @GetMapping("/Bitcoin")
@@ -136,3 +114,4 @@ public class PostController {
         return "Badger";
     }
 }
+

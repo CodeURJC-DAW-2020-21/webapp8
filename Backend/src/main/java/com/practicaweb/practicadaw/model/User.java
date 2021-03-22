@@ -23,6 +23,7 @@ public class User{
     @Column(length = 45, nullable = false)
     private String role;
     @Column(length = 45, nullable = false)
+    private String image;
     private Date registrationDate;
     @OneToMany
     private List<Comment> comments;
