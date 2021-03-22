@@ -2,14 +2,17 @@ package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.EntryService;
 import com.practicaweb.practicadaw.Service.UserService;
+import com.practicaweb.practicadaw.auxClasses.auxiliar;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -91,7 +94,7 @@ public class PostController {
     }
 
     @GetMapping("/settings")
-    public String settings(Model model, HttpServletRequest request) {
+    public String settings(Model model, HttpServletRequest request) throws IOException {
         HttpSession mysession = request.getSession();
         User  actualUser = (User)mysession.getAttribute("actualUser");
         if (actualUser.getRole().equals("admin"))
@@ -101,6 +104,7 @@ public class PostController {
         model.addAttribute("userName", actualUser.getNickname());
         model.addAttribute("email", actualUser.getEmail());
         model.addAttribute("logged", true);
+        model.addAttribute("imageFile", auxiliar.getPathImage(actualUser.getImage()));
         return "settings";
     }
 
@@ -132,4 +136,3 @@ public class PostController {
         return "Badger";
     }
 }
-
