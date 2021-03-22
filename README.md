@@ -98,7 +98,7 @@ If there is a server error the user will be redirected to this page.
 
 ![Navigation Diagram Image](/Phase2Images/NavigationDiagram.png "Navigation Diagram")
 Admin diagram added to Navigation Diagram
-![Admin User List](/Phase2Images/UserList.png "Admin User List")
+![Admin User List](/Phase2Images/Archivo.png "Admin User List")
 
 ### Execution Instruction
 You can download the complete code in our github link https://github.com/CodeURJC-DAW-2020-21/webapp8, build it and run it with IntelliJIdea 2020.
