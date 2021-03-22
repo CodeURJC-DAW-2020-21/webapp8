@@ -92,12 +92,68 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Commentary modal -->
+                                <div class="modal fade" id="commentModal" tabindex="-1" role="dialog"
+                                     aria-labelledby="commentModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            {{#logged}}
+                                            <form method="post" action="/newComment" modelAttribute="comment">
+<!--                                                <input type="hidden" value="" name="idEntry" id="idEntry">-->
+                                                <div
+                                                        class="modal-header d-flex align-items-center bg-primary text-white">
+                                                    <h6 class="modal-title mb-0">New Comment
+                                                    </h6>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label for="descriptionComment">Description</label>
+                                                        <input class="form-control" id="descriptionComment" name="descriptionComment"
+                                                               placeholder="Enter description"/>
+                                                    </div>
+                                                    <div class="custom-file form-control-sm mt-3"
+                                                         style="max-width: 300px;">
+                                                        <input type="file" class="custom-file-input" id="customFile"
+                                                               multiple=""/>
+                                                        <label class="custom-file-label"
+                                                               for="customFile">Attachment</label>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light"
+                                                            data-dismiss="modal">Cancel
+                                                    </button>
+                                                    <div><input type="submit" class="btn-primary btn-block" value="Post"></div>
+                                                </div>
+                                            </form>
+                                            {{/logged}}
+                                            {{^logged}}
+                                            <div
+                                                    class="modal-header d-flex align-items-center bg-primary text-white">
+                                                <h6 class="modal-title mb-0" id="commentModalLabel">New Comment
+                                                </h6>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p class="text-center">Please sign in to reply this entry.</p>
+                                            </div>
+                                            {{/logged}}
+                                        </div>
+                                    </div>
+                                </div>
                                 {{/entries}}
                             </div>
                             <!-- /Forum List -->
-                            <div class="text-center mb-4" id="loadMore">
-                                <button class="btn btn-primary">Cargar más</button>
-                            </div>
+<!--                            <div class="text-center mb-4" id="loadMore">-->
+<!--                                <button class="btn btn-primary">Cargar más</button>-->
+<!--                            </div>-->
                             <!-- Forum Detail -->
                             {{#comments}}
                             <div class="card mb-2">
@@ -270,61 +326,6 @@
                                     </div>
                                     <div class="modal-body">
                                         <p class="text-center">Please sign in to create a new entry.</p>
-                                    </div>
-                                    {{/logged}}
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Commentary modal -->
-                        <div class="modal fade" id="commentModal" tabindex="-1" role="dialog"
-                             aria-labelledby="commentModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    {{#logged}}
-                                    <form method="post" action="/newComment" modelAttribute="comment">
-                                        <div
-                                                class="modal-header d-flex align-items-center bg-primary text-white">
-                                            <h6 class="modal-title mb-0">New Comment
-                                            </h6>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                                <label for="descriptionComment">Description</label>
-                                                <input class="form-control" id="descriptionComment" name="descriptionComment"
-                                                          placeholder="Enter description"/>
-                                            </div>
-                                            <div class="custom-file form-control-sm mt-3"
-                                                 style="max-width: 300px;">
-                                                <input type="file" class="custom-file-input" id="customFile"
-                                                       multiple=""/>
-                                                <label class="custom-file-label"
-                                                       for="customFile">Attachment</label>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light"
-                                                    data-dismiss="modal">Cancel
-                                            </button>
-                                            <div><input type="submit" class="btn-primary btn-block" value="Post"></div>
-                                        </div>
-                                    </form>
-                                    {{/logged}}
-                                    {{^logged}}
-                                    <div
-                                            class="modal-header d-flex align-items-center bg-primary text-white">
-                                        <h6 class="modal-title mb-0" id="commentModalLabel">New Comment
-                                        </h6>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p class="text-center">Please sign in to reply this entry.</p>
                                     </div>
                                     {{/logged}}
                                 </div>

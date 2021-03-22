@@ -21,6 +21,19 @@ public class Entry {
     @OneToMany
     private List<Comment> comment;
 
+    public Entry() {
+    }
+
+    public Entry(long idEntry, String title, String description, int number_of_visits, Date registrationDate, User user, List<Comment> comment) {
+        this.idEntry = idEntry;
+        this.title = title;
+        this.description = description;
+//        this.number_of_visits = number_of_visits;
+        this.registrationDate = registrationDate;
+        this.user = user;
+        this.comment = comment;
+    }
+
     public int getNumber_of_visits() {
         return number_of_visits;
     }

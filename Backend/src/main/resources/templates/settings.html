@@ -3,53 +3,57 @@
         <main>
             <div class="card container-fluid" style="width: 70rem;">
                 <div class="card-body ">
-                    <div class="row">
-                        <div class="col">
-                            <img class="rounded-circle mx-auto d-block" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="bitcoin profile image" width="200">
-                            <a href=""><p class="text-center pt-3">Editar imagen de perfil</p></a>
+                    <form action="updateUser" method="post" modelAttribute="user" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-12">
+                                <img class="rounded-circle mx-auto d-block" src="{{imageFile}}" alt="Profile Image" width="200">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row pt-3">
-                        <div class="col-2 col-form-label">
-                            <p><b>NOMBRE:</b></p>
+                        <div class="row">
+                            <div class="col-2">
+                                <p><b>IMAGEN:</b></p>
+                            </div>
+                            <div class="col-10">
+                                <input type="file" id="imageFile" name='imageFile' accept=".jpg, .jpeg, .jfif"/>
+                            </div>
                         </div>
-                        <div class="col-10">
-                            <input type="text" class="form-control"
-                            value={{name}} maxlength="100" autofocus="" />
+                        <div class="row">
+                            <div class="col-2 col-form-label">
+                                <p><b>NOMBRE:</b></p>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" value={{name}} id="name" name="name" autofocus="" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2 col-form-label">
-                            <p><b>APELLIDO:</b></p>
+                        <div class="row">
+                            <div class="col-2 col-form-label">
+                                <p><b>APELLIDO:</b></p>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" value={{surname}} id="surname" name="surname" autofocus="" />
+                            </div>
                         </div>
-                        <div class="col-10">
-                            <input type="text" class="form-control"
-                            value={{surname}} maxlength="100" autofocus="" />
+                        <div class="row">
+                            <div class="col-2 col-form-label">
+                                <p><b>ALIAS:</b></p>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" value={{userName}} id="nickname" name="nickname" maxlength="100" readonly/>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2 col-form-label">
-                            <p><b>ALIAS:</b></p>
+                        <div class="row">
+                            <div class="col-2 col-form-label">
+                                <p><b>CORREO:</b></p>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" id="email" value={{email}} name="email" maxlength="100" autofocus="" readonly/>
+                            </div>
                         </div>
-                        <div class="col-10">
-                            <input type="text" class="form-control"
-                            value={{userName}} maxlength="100" autofocus="" />
+                        <div class="row pt-3">
+                            <div class="col"> <input type="submit" class="float-right btn btn-primary" value="Guardar cambios"></input>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2 col-form-label">
-                            <p><b>CORREO:</b></p>
-                        </div>
-                        <div class="col-10">
-                            <input type="text" class="form-control" id=""
-                            value={{email}} maxlength="100" autofocus="" />
-                        </div>
-                    </div>
-                    <div class="row pt-3">
-                        <div class="col">
-                            <button class="float-right btn btn-primary">Guardar</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </main>

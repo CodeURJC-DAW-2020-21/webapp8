@@ -22,13 +22,16 @@ public class User{
     private String password;
     @Column(length = 45, nullable = false)
     private String role;
+    @Column(length = 45, nullable = false)
     private Date registrationDate;
+    @Column(length = 45, nullable = false)
+    private String image;
     @OneToMany
     private List<Comment> comments;
 
     public User() {}
 
-    public User(long idUser, String name, String surname, String nickname, String email, String password, String role, Date registrationDate, List<Comment> comments) {
+    public User(long idUser, String name, String surname, String nickname, String email, String password, String role, Date registrationDate, String image,List<Comment> comments) {
         this.idUser = idUser;
         this.name = name;
         this.surname = surname;
@@ -37,6 +40,7 @@ public class User{
         this.password = password;
         this.role = role;
         this.registrationDate = registrationDate;
+        this.image = image;
         this.comments = comments;
     }
 
@@ -112,4 +116,11 @@ public class User{
         this.comments = comments;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
