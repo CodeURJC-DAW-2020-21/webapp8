@@ -102,7 +102,11 @@ Admin diagram added to Navigation Diagram
 
 ### Execution Instruction
 You can download the complete code in our github link https://github.com/CodeURJC-DAW-2020-21/webapp8, build it and run it with IntelliJIdea 2020.
-You will need at least Java 11, MySQL 8.0
+You will need at least Java 11, MySQL 8.0 and Docker.
+To create the MySQL server you have to run the following command: sudo docker run --rm -e MYSQL_ROOT_PASSWORD=DawWebApp8 -e MYSQL_DATABASE=webapp8_bbdd -p 3306:3306 -d mysql:8.0.22
+After the MySQL server has been created, the application can be runned from you IDE of choice.
+To see the web app you must copy this link in to your browser: https://localhost:8443/
+
 
 ### DataBase Entities Diagram
 ![Navigation Diagram Image](/Phase2Images/DatabaseDiagram.png "Database Diagram")
