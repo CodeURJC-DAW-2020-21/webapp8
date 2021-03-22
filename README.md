@@ -97,7 +97,9 @@ If there is a server error the user will be redirected to this page.
 ### Navigation Diagram
 
 ![Navigation Diagram Image](/Phase2Images/NavigationDiagram.png "Navigation Diagram")
+
 Admin diagram added to Navigation Diagram
+
 ![Admin User List](/Phase2Images/UserList "Admin User List")
 
 ### Execution Instruction
@@ -116,7 +118,7 @@ To see the web app you must copy this link in to your browser: https://localhost
 In this phase we perform the application using Spring Boot. The most important upgrades that we have made are: a MySql Database for the web, a registration and login system, a user permission system and the possibility to upload images, create entries and comments.
 The administrator can also delete users using a new user list and delete also their own comments. We have also implemented the possible different error pages.
 
-| Marcos Rodríguez                                                                                           | Adrián López                                                                                               | Adrián Sierra                                                                                              | Ángel Domínguez                                                                                            |Óscar Ramadán
+| Marcos Rodríguez                                                                                           | Adrián López                                                                                               | Adrián Sierra                                                                                              | Ángel Domínguez                                                                                            | Óscar Ramadán
 |:-----------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------:|
 | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/d9f9538feb6a295faa3c79631783b8194d69690d) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7b465060d2dbdb364b2c96e1d6e89588ac510d74) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/2d9556ea84e21ff5d0c76e82166835e7cb25bef3) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/6a88ba0958a9593ef043e5c98a7838726fcb9316) |[Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/35c200c3d23dfcee4b03c79662893178de8e51ee)  |
 | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/a84aa13a65502664f89a2a2721201a2da86cd5d6) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ca003c95d2f860b42b8cc0d1eeb104d8af5ed49e) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ff86c605f1e940f646c52e26264e81295befad17) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) |[Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/636e85dd3a326b72f36ca9165a29eb7e75c7decb)  |
