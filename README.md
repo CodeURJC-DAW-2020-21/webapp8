@@ -94,24 +94,26 @@ If there is a server error the user will be redirected to this page.
 
 ## PHASE 2
 
-## Navigation Diagram
+### Navigation Diagram
+
 ![Navigation Diagram Image](/Phase2Images/NavigationDiagram.png "Navigation Diagram")
 Admin diagram added to Navigation Diagram
 ![Admin User List](/Phase2Images/UserList.png "Admin User List")
 
-##Execution Instruction
-You can download the complete code in our github link https://github.com/CodeURJC-DAW-2020-21/webapp8 , build it and run it with IntelliJIdea 2020.
+### Execution Instruction
+You can download the complete code in our github link https://github.com/CodeURJC-DAW-2020-21/webapp8, build it and run it with IntelliJIdea 2020.
 You will need at least Java 11, MySQL 8.0
-##DataBase Entities Diagram
+
+### DataBase Entities Diagram
 ![Navigation Diagram Image](/Phase2Images/DatabaseDiagram.png "Database Diagram")
 
-##Classes and templates Diagrams
+### Classes and templates Diagrams
 
-##Participation
-| Marcos Rodríguez                                                                                                | Adrián López                                                                                                     | Adrián Sierra                                                                                                      | Ángel Domínguez                                                                         |Oscar Ramadan
+### Participation
+| Marcos Rodríguez                                                                                           | Adrián López                                                                                               | Adrián Sierra                                                                                              | Ángel Domínguez                                                                                            |Oscar Ramadan
 |------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| [Commit1]() | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7b465060d2dbdb364b2c96e1d6e89588ac510d74) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/2d9556ea84e21ff5d0c76e82166835e7cb25bef3) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/6a88ba0958a9593ef043e5c98a7838726fcb9316) |[Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/35c200c3d23dfcee4b03c79662893178de8e51ee)  |
-| [Commit2]() | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ca003c95d2f860b42b8cc0d1eeb104d8af5ed49e) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ff86c605f1e940f646c52e26264e81295befad17) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) |[Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/636e85dd3a326b72f36ca9165a29eb7e75c7decb)  |
-| [Commit3]() | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7b9a13407812a9d91bd5de955dbd705d6146f405) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/24d574cb605ba854b32f4a93c99a542d651d10a6) | [Commit3]() |[Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/de2e5d3e716e5133de2a490e2d94f1bb937bcc23)  |
-| [Commit4]() | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/df110b555994d5cc1b0fa96bb7554cf16eea9e2f) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/b4f034f15d27c56035e835d1397b4a131e53e14c) | [Commit4]() |[Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/8a13d8c7a39543010641aca5c193cdb13edf61dc)  |
-| [Commit5]() | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) | [Commit5]()                                                                                                | [Commit5]() |[Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/87829b14ac04e4475577aac2c4e70f30c33d4150)  |
+| [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/d9f9538feb6a295faa3c79631783b8194d69690d) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7b465060d2dbdb364b2c96e1d6e89588ac510d74) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/2d9556ea84e21ff5d0c76e82166835e7cb25bef3) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/6a88ba0958a9593ef043e5c98a7838726fcb9316) |[Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/35c200c3d23dfcee4b03c79662893178de8e51ee)  |
+| [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/a84aa13a65502664f89a2a2721201a2da86cd5d6) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ca003c95d2f860b42b8cc0d1eeb104d8af5ed49e) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ff86c605f1e940f646c52e26264e81295befad17) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) |[Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/636e85dd3a326b72f36ca9165a29eb7e75c7decb)  |
+| [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/c7c56a3427da9bce0c1a074cfa7e9092bef5d8d0) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7b9a13407812a9d91bd5de955dbd705d6146f405) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/24d574cb605ba854b32f4a93c99a542d651d10a6) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/f6188599e0a2a18e2e01ef7647d2d8b5a0a6acb2) |[Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/de2e5d3e716e5133de2a490e2d94f1bb937bcc23)  |
+| [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/792f17a1c946534850bfbdaa15b26385813f25fe) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/df110b555994d5cc1b0fa96bb7554cf16eea9e2f) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/b4f034f15d27c56035e835d1397b4a131e53e14c) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/f0c06823870e4f0f1ebff09edcda06c640f233b7) |[Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/8a13d8c7a39543010641aca5c193cdb13edf61dc)  |
+| [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/5433c1cfad3831b0129808d9b0610dc914c6292d) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) | [Commit5]()                                                                                                | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) |[Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/87829b14ac04e4475577aac2c4e70f30c33d4150)  |
