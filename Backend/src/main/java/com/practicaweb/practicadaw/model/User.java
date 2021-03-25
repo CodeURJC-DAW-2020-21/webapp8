@@ -28,6 +28,10 @@ public class User{
     private String image;
     @OneToMany
     private List<Comment> comments;
+    @OneToMany
+    private List<Criptocurrency> cryptocurrencies;
+    @OneToMany
+    private List<User> friends;
 
     public User() {}
 
@@ -42,6 +46,22 @@ public class User{
         this.registrationDate = registrationDate;
         this.image = image;
         this.comments = comments;
+    }
+
+    public List<Criptocurrency> getCryptocurrencies() {
+        return cryptocurrencies;
+    }
+
+    public void setCryptocurrencies(List<Criptocurrency> cryptocurrencies) {
+        this.cryptocurrencies = cryptocurrencies;
+    }
+
+    public List<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<User> friends) {
+        this.friends = friends;
     }
 
     public long getIdUser() {
@@ -122,5 +142,13 @@ public class User{
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void addFriend(User user){
+        friends.add(user);
+    }
+
+    public void addCript(Criptocurrency criptocurrency){
+        cryptocurrencies.add(criptocurrency);
     }
 }
