@@ -3,12 +3,6 @@ package com.practicaweb.practicadaw.model;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class User {
@@ -26,11 +20,19 @@ public class User {
     @Column(length = 135, unique = true)
     private String email;
     @Column(length = 45, nullable = false)
+    private String password;
+    @Column(length = 45, nullable = false)
+    private String role;
+    @Column(length = 45, nullable = false)
     private Date registrationDate;
     @Column(length = 45, nullable = false)
     private String image;
     @OneToMany
     private List<Comment> comments;
+    @OneToMany
+    private List<Criptocurrency> cryptocurrencies;
+    @OneToMany
+    private List<User> friends;
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
@@ -42,6 +44,8 @@ public class User {
         this.surname = surname;
         this.userName = userName;
         this.email = email;
+        this.password = password;
+        this.role = role;
         this.registrationDate = registrationDate;
         this.image = image;
         this.comments = comments;
@@ -50,6 +54,22 @@ public class User {
     }
 
     public User() {
+    }
+
+    public List<Criptocurrency> getCryptocurrencies() {
+        return cryptocurrencies;
+    }
+
+    public void setCryptocurrencies(List<Criptocurrency> cryptocurrencies) {
+        this.cryptocurrencies = cryptocurrencies;
+    }
+
+    public List<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<User> friends) {
+        this.friends = friends;
     }
 
     public long getIdUser() {
@@ -130,4 +150,12 @@ public class User {
         this.roles = roles;
     }
 
+
+    public void addFriend(User user){
+        friends.add(user);
+    }
+
+    public void addCript(Criptocurrency criptocurrency){
+        cryptocurrencies.add(criptocurrency);
+    }
 }
