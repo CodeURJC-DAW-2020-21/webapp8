@@ -20,10 +20,6 @@ public class User {
     @Column(length = 135, unique = true)
     private String email;
     @Column(length = 45, nullable = false)
-    private String password;
-    @Column(length = 45, nullable = false)
-    private String role;
-    @Column(length = 45, nullable = false)
     private Date registrationDate;
     @Column(length = 45, nullable = false)
     private String image;
@@ -44,8 +40,6 @@ public class User {
         this.surname = surname;
         this.userName = userName;
         this.email = email;
-        this.password = password;
-        this.role = role;
         this.registrationDate = registrationDate;
         this.image = image;
         this.comments = comments;

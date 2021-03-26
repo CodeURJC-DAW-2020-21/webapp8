@@ -31,11 +31,6 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
-    public User selectByEmail(String email) {
-        return userRepository.selectByEmail(email);
-    }
-
-    @Override
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
