@@ -3,25 +3,28 @@ package com.practicaweb.practicadaw.model;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class User{
+public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idUser;
+    private String encodedPassword;
     @Column(length = 135, nullable = false)
     private String name;
     @Column(length = 135, nullable = false)
     private String surname;
     @Column(length = 45, nullable = false, unique = true)
-    private String nickname;
+    private String userName;
     @Column(length = 135, unique = true)
     private String email;
-    @Column(length = 45, nullable = false)
-    private String password;
-    @Column(length = 45, nullable = false)
-    private String role;
     @Column(length = 45, nullable = false)
     private Date registrationDate;
     @Column(length = 45, nullable = false)
@@ -29,19 +32,24 @@ public class User{
     @OneToMany
     private List<Comment> comments;
 
-    public User() {}
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles;
 
-    public User(long idUser, String name, String surname, String nickname, String email, String password, String role, Date registrationDate, String image,List<Comment> comments) {
+
+    public User(long idUser, String name, String surname, String userName, String email, Date registrationDate, String image, List<Comment> comments, String encodedPassword, String... roles) {
         this.idUser = idUser;
         this.name = name;
         this.surname = surname;
-        this.nickname = nickname;
+        this.userName = userName;
         this.email = email;
-        this.password = password;
-        this.role = role;
         this.registrationDate = registrationDate;
         this.image = image;
         this.comments = comments;
+        this.encodedPassword = encodedPassword;
+        this.roles = List.of(roles);
+    }
+
+    public User() {
     }
 
     public long getIdUser() {
@@ -68,12 +76,10 @@ public class User{
         this.surname = surname;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
+    public String getUserName() { return userName; }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
@@ -82,22 +88,6 @@ public class User{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public Date getRegistrationDate() {
@@ -123,4 +113,21 @@ public class User{
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getEncodedPassword() {
+        return encodedPassword;
+    }
+
+    public void setEncodedPassword(String encodedPassword) {
+        this.encodedPassword = encodedPassword;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
 }
