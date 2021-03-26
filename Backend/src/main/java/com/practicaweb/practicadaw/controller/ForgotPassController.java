@@ -1,3 +1,4 @@
+/*
 package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.UserService;
@@ -63,3 +64,4 @@ public class ForgotPassController {
         return "redirect:/login";
     }
 }
+*/

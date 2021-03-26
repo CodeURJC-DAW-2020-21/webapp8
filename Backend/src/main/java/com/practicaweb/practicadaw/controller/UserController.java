@@ -45,7 +45,7 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @PostMapping("/updateUser")
+    /*@PostMapping("/updateUser")
     public String updateUser(@ModelAttribute User userUpdate, @RequestParam("imageFile") MultipartFile imageFile, HttpServletRequest request) throws IOException {
         User oldUser = userService.selectByEmail(userUpdate.getEmail());
         if (!imageFile.getOriginalFilename().equals("")) {
@@ -56,16 +56,16 @@ public class UserController {
             userUpdate.setImage(oldUser.getImage());
         }
         userUpdate.setIdUser(oldUser.getIdUser());
-        userUpdate.setPassword(oldUser.getPassword());
+        //userUpdate.setPassword(oldUser.getPassword());
         userUpdate.setEmail(oldUser.getEmail());
-        userUpdate.setRole(oldUser.getRole());
+        //userUpdate.setRole(oldUser.getRole());
         userUpdate.setRegistrationDate(oldUser.getRegistrationDate());
         userService.save(userUpdate);
         HttpSession mysession = request.getSession(true);
         mysession.removeAttribute("actualUser");
         mysession.setAttribute("actualUser",userUpdate);
         return "redirect:/settings";
-    }
+    }*/
 
 
 }
