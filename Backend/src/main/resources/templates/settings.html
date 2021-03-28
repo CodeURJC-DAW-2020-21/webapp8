@@ -6,7 +6,6 @@
                     <form action="updateUser" method="post" modelAttribute="user" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-12">
-                                <img class="rounded-circle mx-auto d-block" src="{{imageFile}}" alt="Profile Image" width="200">
                             </div>
                         </div>
                         <div class="row">
@@ -14,7 +13,7 @@
                                 <p><b>IMAGEN:</b></p>
                             </div>
                             <div class="col-10">
-                                <input type="file" id="imageFile" name='imageFile' accept=".jpg, .jpeg, .jfif"/>
+
                             </div>
                         </div>
                         <div class="row">
@@ -22,7 +21,6 @@
                                 <p><b>NOMBRE:</b></p>
                             </div>
                             <div class="col-10">
-                                <input type="text" class="form-control" value={{name}} id="name" name="name" autofocus="" />
                             </div>
                         </div>
                         <div class="row">
@@ -30,7 +28,6 @@
                                 <p><b>APELLIDO:</b></p>
                             </div>
                             <div class="col-10">
-                                <input type="text" class="form-control" value={{surname}} id="surname" name="surname" autofocus="" />
                             </div>
                         </div>
                         <div class="row">
@@ -38,7 +35,7 @@
                                 <p><b>ALIAS:</b></p>
                             </div>
                             <div class="col-10">
-                                <input type="text" class="form-control" value={{userName}} id="nickname" name="nickname" maxlength="100" readonly/>
+                                <input type="text" class="form-control" value={{userName}} id="userName" name="userName" maxlength="100" readonly/>
                             </div>
                         </div>
                         <div class="row">
@@ -46,7 +43,6 @@
                                 <p><b>CORREO:</b></p>
                             </div>
                             <div class="col-10">
-                                <input type="text" class="form-control" id="email" value={{email}} name="email" maxlength="100" autofocus="" readonly/>
                             </div>
                         </div>
                         <div class="row pt-3">

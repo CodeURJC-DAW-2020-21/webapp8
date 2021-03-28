@@ -5,8 +5,6 @@ import com.practicaweb.practicadaw.auxClasses.auxiliar;
 import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.UserRepository;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -33,8 +31,8 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
-    public User selectByEmail(String email) {
-        return userRepository.selectByEmail(email);
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     @Override
@@ -48,10 +46,8 @@ public class UserService implements UserServiceInterface {
         userRepository.deleteById(IdUser);
     }
 
-//    @PostConstruct
-//    public void examples() {
-//        save(new User(10, "Marcos", "Rodriguez", "marcoszas", "marquitos@gmail.com", "hola", "User", aux.getActualDate(), "defaultimage.jpg", null));
-//        save(new User(22, "Angel", "Fideos", "angel_Fideos", "angel@gmail.com", "hola", "User", aux.getActualDate(), "defaultimage.jpg", null));
-//        save(new User(1, "admin", "admin", "admin", "admin@admin.com", "admin", "admin", aux.getActualDate(), "defaultimage.jpg", null));
-//    }
+    @Override
+    public Optional<User> findByName(String name) {
+        return userRepository.findByName(name);
+    }
 }

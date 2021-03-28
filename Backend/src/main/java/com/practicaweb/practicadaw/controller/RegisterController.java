@@ -1,3 +1,4 @@
+/*
 package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.UserService;
@@ -29,4 +30,4 @@ public class RegisterController {
             return "redirect:/register";
         }
     }
-}
+}*/
