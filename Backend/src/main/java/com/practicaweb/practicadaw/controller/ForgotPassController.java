@@ -1,9 +1,10 @@
-/*
 package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.UserService;
 import com.practicaweb.practicadaw.auxClasses.AuxUser;
 import com.practicaweb.practicadaw.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,19 +23,21 @@ public class ForgotPassController {
         this.userService = userService;
     }
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
-    @PostMapping("/forgotPassword")
-    public String forgotPassword ( @RequestParam ("email") String email, @RequestParam ("password") String password, @RequestParam ("confirmPassword") String confirmPassword){
-        User userNewPassword = userService.selectByEmail(email);
-        if (AuxUser.verificationPassword(password, confirmPassword)){
-            userNewPassword.setPassword(confirmPassword);
-            userService.save(userNewPassword);
-            return "redirect:/login";
-        }
-        else{
-            return "loginError";
-        }
-    }
+//    @PostMapping("/forgotPassword")
+//    public String forgotPassword ( @RequestParam ("email") String email, @RequestParam ("password") String password, @RequestParam ("confirmPassword") String confirmPassword){
+//        User userNewPassword = userService.findByEmail(email);
+//        if (AuxUser.verificationPassword(password, confirmPassword)){
+//            userNewPassword.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
+//            userService.save(userNewPassword);
+//            return "redirect:/login";
+//        }
+//        else{
+//            return "loginError";
+//        }
+//    }
 
     @PostMapping("/sendEmail")
     public String sendEmail (@RequestParam ("email") String email){
@@ -64,4 +67,4 @@ public class ForgotPassController {
         return "redirect:/login";
     }
 }
-*/
+

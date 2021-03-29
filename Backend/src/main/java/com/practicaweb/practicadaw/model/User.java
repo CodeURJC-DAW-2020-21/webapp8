@@ -11,13 +11,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idUser;
     private String encodedPassword;
-    @Column(length = 135, nullable = false)
+    @Column(length = 135, nullable = false, unique = true)
     private String name;
     @Column(length = 135, nullable = false)
     private String surname;
-    @Column(length = 45, nullable = false, unique = true)
-    private String userName;
-    @Column(length = 135, unique = true)
+    @Column(length = 45, nullable = false)
+    private String firstname;
+    @Column(length = 135, nullable = false)
     private String email;
     @Column(length = 45, nullable = false)
     private Date registrationDate;
@@ -34,16 +34,15 @@ public class User {
     private List<String> roles;
 
 
-    public User(long idUser, String name, String surname, String userName, String email, Date registrationDate, String image, List<Comment> comments, String encodedPassword, String... roles) {
+    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, Date registrationDate, String image, String... roles) {
         this.idUser = idUser;
+        this.encodedPassword = encodedPassword;
         this.name = name;
         this.surname = surname;
-        this.userName = userName;
+        this.firstname = firstname;
         this.email = email;
         this.registrationDate = registrationDate;
         this.image = image;
-        this.comments = comments;
-        this.encodedPassword = encodedPassword;
         this.roles = List.of(roles);
     }
 
@@ -90,10 +89,10 @@ public class User {
         this.surname = surname;
     }
 
-    public String getUserName() { return userName; }
+    public String getFirstname() { return firstname; }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getEmail() {
@@ -140,8 +139,8 @@ public class User {
         return roles;
     }
 
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
+    public void setRoles(String... roles) {
+        this.roles = List.of(roles);
     }
 
 

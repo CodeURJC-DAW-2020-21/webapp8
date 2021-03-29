@@ -33,6 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
+        http.authorizeRequests().antMatchers("/create_user").permitAll();
         http.authorizeRequests().antMatchers("/criptomonedas").permitAll();
 
         // Error pages
@@ -42,14 +43,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // Private pages (all other pages)
         http.authorizeRequests().antMatchers("/private").hasAnyRole("USER", "ADMIN");
         http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers("/settings").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/settings").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers("/newEntry").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers("/newComment").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers("/update_user").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers("/favorite_cryptocurrencies").hasAnyRole("USER", "ADMIN");
         http.authorizeRequests().antMatchers("/users").hasAnyRole("ADMIN");
 
         // Login
         http.formLogin().loginPage("/login");
         http.formLogin().usernameParameter("username");
         http.formLogin().passwordParameter("password");
-        http.formLogin().defaultSuccessUrl("/private");
+        http.formLogin().defaultSuccessUrl("/");
         http.formLogin().failureUrl("/loginError");
 
         // Logout
