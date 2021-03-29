@@ -69,7 +69,7 @@
                                                 <a href="#" class="card-link" data-toggle="collapse" data-target=".forum-content"><img
                                                         src="https://bootdey.com/img/Content/avatar/avatar1.png"
                                                         class="rounded-circle" width="50" alt="User"/>
-                                                    <small class="d-block text-center text-muted">{{user.nickname}}</small></a>
+                                                    <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
                                             <div class="media-body ml-3">
                                                 <h6><a href="#" data-toggle="collapse"
                                                        data-target=".forum-content" class="text-body">{{title}}</a></h6>
@@ -276,7 +276,7 @@
                                     <form method="post" action="/newEntry" modelAttribute="entry">
                                         <div
                                                 class="modal-header d-flex align-items-center bg-primary text-white">
-                                            <h6 class="modal-title mb-0">New Discussion
+                                            <h6 class="modal-title mb-0">Nueva Entrada
                                             </h6>
                                             <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -285,39 +285,39 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <label for="title">Title</label>
+                                                <label for="title">Título</label>
                                                 <input type="text" class="form-control" id="title"
                                                        name="title"
-                                                       placeholder="Enter title" autofocus=""/>
+                                                       placeholder="Introduzca un título" autofocus=""/>
                                             </div>
                                             <textarea class="form-control summernote"
                                                       style="display: none;"></textarea>
                                             <div class="form-group">
-                                                <label for="description">Description</label>
+                                                <label for="description">Descripción</label>
                                                 <textarea class="form-control" id="description"
                                                           name="description"
-                                                          placeholder="Enter description" rows="3"></textarea>
+                                                          placeholder="Introduzca una descripción" rows="3"></textarea>
                                             </div>
                                             <div class="custom-file form-control-sm mt-3"
                                                  style="max-width: 300px;">
                                                 <input type="file" class="custom-file-input"
                                                        multiple=""/>
                                                 <label class="custom-file-label"
-                                                       for="customFile">Attachment</label>
+                                                       for="customFile">Archivos</label>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light"
-                                                    data-dismiss="modal">Cancel
+                                                    data-dismiss="modal">Cancelar
                                             </button>
-                                            <input type="submit" class="btn btn-primary" value="Post"/>
+                                            <input type="submit" class="btn btn-primary" value="Publicar"/>
                                         </div>
                                     </form>
                                     {{/logged}}
                                     {{^logged}}
                                     <div
                                             class="modal-header d-flex align-items-center bg-primary text-white">
-                                        <h6 class="modal-title mb-0" id="threadModalLabel">New Discussion
+                                        <h6 class="modal-title mb-0" id="threadModalLabel">Nueva Entrada
                                         </h6>
                                         <button type="button" class="close" data-dismiss="modal"
                                                 aria-label="Close">
@@ -325,7 +325,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p class="text-center">Please sign in to create a new entry.</p>
+                                        <p class="text-center">Por favor identifícate para crear una nueva entrada.</p>
                                     </div>
                                     {{/logged}}
                                 </div>

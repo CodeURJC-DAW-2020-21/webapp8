@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 public class EntryController {
@@ -28,9 +30,9 @@ public class EntryController {
     @PostMapping("/newEntry")
     public String createEntry(@ModelAttribute Entry entry, HttpServletRequest request){
         auxiliar aux = new auxiliar();
-        HttpSession mysession = request.getSession();
-        User actualUser = (User)mysession.getAttribute("actualUser");
-        entry.setUser(actualUser);
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findByName(principal.getName());
+        entry.setUser(user);
         entry.setRegistrationDate(aux.getActualDate());
         entryService.save(entry);
         return "redirect:/";

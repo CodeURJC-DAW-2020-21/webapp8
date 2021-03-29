@@ -44,10 +44,7 @@ public class PostController {
         }
     }
 
-    @GetMapping("/register")
-    public String register(Model model){
-        return "register";
-    }
+
 
     @GetMapping("/password")
     public String passwordReset(Model model){
