@@ -3,7 +3,7 @@
         <main>
             <div class="card container-fluid" style="width: 70rem;">
                 <div class="card-body ">
-                    <form action="updateUser" method="post" modelAttribute="user" enctype="multipart/form-data">
+                    <form action="update_user" method="post" modelAttribute="user" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-12">
                             </div>
@@ -13,7 +13,7 @@
                                 <p><b>IMAGEN:</b></p>
                             </div>
                             <div class="col-10">
-
+                                <input type="file" id="imageFile" name='imageFile' accept=".jpg, .jpeg, .jfif"/>
                             </div>
                         </div>
                         <div class="row">
@@ -21,6 +21,7 @@
                                 <p><b>NOMBRE:</b></p>
                             </div>
                             <div class="col-10">
+                                <input type="text" class="form-control" value={{firstname}} id="firstname" name="firsname" autofocus="" />
                             </div>
                         </div>
                         <div class="row">
@@ -28,6 +29,7 @@
                                 <p><b>APELLIDO:</b></p>
                             </div>
                             <div class="col-10">
+                                <input type="text" class="form-control" value={{surname}} id="surname" name="surname" autofocus="" />
                             </div>
                         </div>
                         <div class="row">
@@ -43,6 +45,7 @@
                                 <p><b>CORREO:</b></p>
                             </div>
                             <div class="col-10">
+                                <input type="text" class="form-control" id="email" value={{email}} name="email" maxlength="100" autofocus="" readonly/>
                             </div>
                         </div>
                         <div class="row pt-3">
