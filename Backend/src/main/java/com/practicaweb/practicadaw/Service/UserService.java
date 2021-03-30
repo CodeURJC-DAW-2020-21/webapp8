@@ -1,13 +1,12 @@
 package com.practicaweb.practicadaw.Service;
 
 import com.practicaweb.practicadaw.ServiceInterfaces.UserServiceInterface;
-import com.practicaweb.practicadaw.auxClasses.auxiliar;
+import com.practicaweb.practicadaw.auxClasses.Auxiliar;
 import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.UserDataHandler;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.Optional;
 public class UserService implements UserServiceInterface {
 
     private final UserRepository userRepository;
-    private auxiliar aux;
+    private Auxiliar aux;
 
     @Autowired
     PasswordEncoder passwordEncoder;
