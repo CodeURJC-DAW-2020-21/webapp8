@@ -17,92 +17,105 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
-                                <th class="align-middle" scope="row">1</th>
-                                <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">Bitcoin</a>
-                                </td>
-                                <td class="align-middle">57.219,08 US$</td>
-                                <td class="align-middle">
-                                    <img src="images/miniBitcoinChart.svg" alt="grafico">
-                                </td>
-                                <td class="align-middle">
-                                    <button type="button" class="btn">
-                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample1">
-                                <th class="align-middle" scope="row">2</th>
-                                <td class="align-middle"><a href="/Dogecoin" class="text-decoration-none text-dark">Dogecoin</a>
-                                </td>
-                                <td class="align-middle">0,0557 US$</td>
-                                <td class="align-middle">
-                                    <img src="images/miniDogeChart.svg" alt="">
-                                </td>
-                                <td class="align-middle">
-                                    <button type="button" class="btn">
-                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr data-toggle="collapse" href="#collapseExample2" aria-expanded="false"
-                                aria-controls="collapseExample2">
-                                <th class="align-middle" scope="row">3</th>
-                                <td class="align-middle"><a href="/Badger" class="text-decoration-none text-dark">Badger</a>
-                                </td>
-                                <td class="align-middle">66,34 US$</td>
-                                <td class="align-middle">
-                                    <img src="images/miniBadgerChart.svg" alt="">
-                                </td>
-                                <td class="align-middle">
-                                    <button type="button" class="btn">
-                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
-                                <th class="align-middle" scope="row">4</th>
-                                <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">Ethereum</a>
-                                </td>
-                                <td class="align-middle">1670,08 US$</td>
-                                <td class="align-middle">
-                                    <img src="images/miniEthereumChart.svg" onclick="this.src = cambia(this.src);" alt="grafico">
-                                </td>
-                                <td class="align-middle">
-                                    <button type="button" class="btn">
-                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
-                                <th class="align-middle" scope="row">5</th>
-                                <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">Litecoin</a>
-                                </td>
-                                <td class="align-middle">173,34 US$</td>
-                                <td class="align-middle">
-                                    <img src="images/miniLitecoinChart.svg" alt="grafico">
-                                </td>
-                                <td class="align-middle">
-                                    <button type="button" class="btn">
-                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
-                                <th class="align-middle" scope="row">6</th>
-                                <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">Cosmos</a>
-                                </td>
-                                <td class="align-middle">20,04 US$</td>
-                                <td class="align-middle">
-                                    <img src="images/miniCosmosChart.svg" alt="grafico">
-                                </td>
-                                <td class="align-middle">
-                                    <button type="button" class="btn">
-                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">
-                                    </button>
-                                </td>
-                            </tr>
+                            <div>
+                                {{#criptocurrencies}}
+                                <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+                                    <th class="align-middle" scope="row">{{idCripto}}</th>
+                                    <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">{{nameCripto}}</a>
+                                    </td>
+                                    <td class="align-middle">{{priceCripto}}US$</td>
+                                    <td class="align-middle">
+                                        <img src="images/miniBitcoinChart.svg" alt="grafico">
+                                    </td>
+                                </tr>
+                                {{/criptocurrencies}}
+                            </div>
+<!--                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">-->
+<!--                                <th class="align-middle" scope="row">1</th>-->
+<!--                                <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">Bitcoin</a>-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">57.219,08 US$</td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <img src="images/miniBitcoinChart.svg" alt="grafico">-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <button type="button" class="btn">-->
+<!--                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">-->
+<!--                                    </button>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample1">-->
+<!--                                <th class="align-middle" scope="row">2</th>-->
+<!--                                <td class="align-middle"><a href="/Dogecoin" class="text-decoration-none text-dark">Dogecoin</a>-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">0,0557 US$</td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <img src="images/miniDogeChart.svg" alt="">-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <button type="button" class="btn">-->
+<!--                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">-->
+<!--                                    </button>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                            <tr data-toggle="collapse" href="#collapseExample2" aria-expanded="false"-->
+<!--                                aria-controls="collapseExample2">-->
+<!--                                <th class="align-middle" scope="row">3</th>-->
+<!--                                <td class="align-middle"><a href="/Badger" class="text-decoration-none text-dark">Badger</a>-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">66,34 US$</td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <img src="images/miniBadgerChart.svg" alt="">-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <button type="button" class="btn">-->
+<!--                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">-->
+<!--                                    </button>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">-->
+<!--                                <th class="align-middle" scope="row">4</th>-->
+<!--                                <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">Ethereum</a>-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">1670,08 US$</td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <img src="images/miniEthereumChart.svg" onclick="this.src = cambia(this.src);" alt="grafico">-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <button type="button" class="btn">-->
+<!--                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">-->
+<!--                                    </button>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                            </tbody>-->
+<!--                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">-->
+<!--                                <th class="align-middle" scope="row">5</th>-->
+<!--                                <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">Litecoin</a>-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">173,34 US$</td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <img src="images/miniLitecoinChart.svg" alt="grafico">-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <button type="button" class="btn">-->
+<!--                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">-->
+<!--                                    </button>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                            <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">-->
+<!--                                <th class="align-middle" scope="row">6</th>-->
+<!--                                <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">Cosmos</a>-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">20,04 US$</td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <img src="images/miniCosmosChart.svg" alt="grafico">-->
+<!--                                </td>-->
+<!--                                <td class="align-middle">-->
+<!--                                    <button type="button" class="btn">-->
+<!--                                        <img src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20" alt="">-->
+<!--                                    </button>-->
+<!--                                </td>-->
+<!--                            </tr>-->
                         </table>
                     </div>
                 </div>

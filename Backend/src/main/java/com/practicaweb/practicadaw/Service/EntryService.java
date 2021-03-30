@@ -1,7 +1,6 @@
 package com.practicaweb.practicadaw.Service;
 
 import com.practicaweb.practicadaw.ServiceInterfaces.EntryServiceInterface;
-import com.practicaweb.practicadaw.auxClasses.auxiliar;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.EntryRepository;
@@ -18,7 +17,6 @@ public class EntryService implements EntryServiceInterface {
 
     private final EntryRepository entryRepository;
     private final UserRepository userRepository;
-    private auxiliar aux;
     private User user1;
 
     public EntryService(EntryRepository entryRepository, UserRepository userRepository) {

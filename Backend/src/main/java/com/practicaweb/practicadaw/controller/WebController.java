@@ -1,6 +1,8 @@
 package com.practicaweb.practicadaw.controller;
 
+import com.practicaweb.practicadaw.Service.CriptocurrencyService;
 import com.practicaweb.practicadaw.Service.EntryService;
+import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.EntryRepository;
@@ -24,6 +26,7 @@ public class WebController {
     @Autowired
     EntryService entryService;
 
+
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {
 
@@ -38,7 +41,6 @@ public class WebController {
             List<Entry> entries = entryService.selectAll();
             Collections.reverse(entries);
             model.addAttribute("entries", entries);
-
         } else {
             model.addAttribute("logged", false);
         }

@@ -26,7 +26,7 @@ public class User {
     @OneToMany
     private List<Comment> comments;
     @OneToMany
-    private List<Criptocurrency> cryptocurrencies;
+    private List<Criptocurrency> criptocurrencies;
     @OneToMany
     private List<User> friends;
 
@@ -34,7 +34,7 @@ public class User {
     private List<String> roles;
 
 
-    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, Date registrationDate, String image, String... roles) {
+    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, Date registrationDate, String image, List<Criptocurrency> criptocurrencies, String... roles) {
         this.idUser = idUser;
         this.encodedPassword = encodedPassword;
         this.name = name;
@@ -44,25 +44,10 @@ public class User {
         this.registrationDate = registrationDate;
         this.image = image;
         this.roles = List.of(roles);
+        this.criptocurrencies = criptocurrencies;
     }
 
     public User() {
-    }
-
-    public List<Criptocurrency> getCryptocurrencies() {
-        return cryptocurrencies;
-    }
-
-    public void setCryptocurrencies(List<Criptocurrency> cryptocurrencies) {
-        this.cryptocurrencies = cryptocurrencies;
-    }
-
-    public List<User> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(List<User> friends) {
-        this.friends = friends;
     }
 
     public long getIdUser() {
@@ -143,12 +128,27 @@ public class User {
         this.roles = List.of(roles);
     }
 
+    public List<Criptocurrency> getCriptocurrencies() {
+        return criptocurrencies;
+    }
 
-    public void addFriend(User user){
-        friends.add(user);
+    public void setCriptocurrencies(List<Criptocurrency> cryptocurrencies) {
+        this.criptocurrencies = cryptocurrencies;
+    }
+
+    public List<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<User> friends) {
+        this.friends = friends;
     }
 
     public void addCript(Criptocurrency criptocurrency){
-        cryptocurrencies.add(criptocurrency);
+        criptocurrencies.add(criptocurrency);
+    }
+
+    public void removeCript(Criptocurrency criptocurrency){
+        criptocurrencies.remove(criptocurrency);
     }
 }

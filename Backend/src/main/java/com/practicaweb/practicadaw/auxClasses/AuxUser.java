@@ -8,4 +8,6 @@ public class AuxUser {
     public static boolean verificationPassword (String password, String confirmPassword){
         return password.equals(confirmPassword);
     }
+
+
 }

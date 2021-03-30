@@ -1,8 +1,11 @@
 package com.practicaweb.practicadaw.controller;
 
+import com.practicaweb.practicadaw.Service.CriptocurrencyService;
 import com.practicaweb.practicadaw.Service.EntryService;
 import com.practicaweb.practicadaw.Service.UserService;
+import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -17,10 +21,13 @@ public class PostController {
 
     private final EntryService entryService;
     private final UserService userService;
+    @Autowired
+    CriptocurrencyService criptocurrencyService;
 
-    public PostController(EntryService entryService, UserService userService) {
+    public PostController(EntryService entryService, UserService userService, CriptocurrencyService criptocurrencyService) {
         this.entryService = entryService;
         this.userService = userService;
+        this.criptocurrencyService = criptocurrencyService;
     }
 
     @ModelAttribute
@@ -53,6 +60,8 @@ public class PostController {
 
     @GetMapping("/criptomonedas")
     public String criptomonedas(Model model, HttpServletRequest request) {
+        List<Criptocurrency> criptocurrencies = criptocurrencyService.selectAll();
+        model.addAttribute("criptocurrencies", criptocurrencies);
         return "criptomonedas";
     }
 
