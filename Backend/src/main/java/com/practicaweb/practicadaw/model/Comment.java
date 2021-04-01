@@ -11,9 +11,9 @@ public class Comment {
     @Column(length = 145, nullable = false)
     private String descriptionComment;
     private Date registrationDate;
-    @OneToOne
+    @ManyToOne
     private User user;
-    @OneToOne
+    @ManyToOne
     private Entry entry;
 
 

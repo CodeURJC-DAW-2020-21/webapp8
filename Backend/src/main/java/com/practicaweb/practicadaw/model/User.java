@@ -23,12 +23,14 @@ public class User {
     private Date registrationDate;
     @Column(length = 45, nullable = false)
     private String image;
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Comment> comments;
     @OneToMany
     private List<Criptocurrency> criptocurrencies;
     @OneToMany
     private List<User> friends;
+    @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Entry> entries;
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
@@ -150,5 +152,13 @@ public class User {
 
     public void removeCript(Criptocurrency criptocurrency){
         criptocurrencies.remove(criptocurrency);
+    }
+
+    public List<Entry> getEntries() {
+        return entries;
+    }
+
+    public void setEntries(List<Entry> entries) {
+        this.entries = entries;
     }
 }

@@ -7,10 +7,7 @@ import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,10 +34,6 @@ public class UserController {
 
     @PostMapping("/delete_user")
     public String deleteUser(Model model, @RequestParam long idUser){
-//        commentService.deleteCommentByIdUser(idUser);
-//        Entry entryToDelete = entryService.selectById(idUser);
-//        commentService.deleteCommentByIdeEntry(entryToDelete.getIdEntry());
-//        entryService.deleteEntryByIdUser(idUser);
         userService.deleteUserById(idUser);
         return "redirect:/users";
     }

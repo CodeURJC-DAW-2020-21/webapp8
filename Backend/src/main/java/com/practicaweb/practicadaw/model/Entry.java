@@ -16,7 +16,7 @@ public class Entry {
     @Column(length = 45, nullable = false)
     private int number_of_visits;
     private Date registrationDate;
-    @OneToOne
+    @ManyToOne
     private User user;
     @OneToMany
     private List<Comment> comment;
