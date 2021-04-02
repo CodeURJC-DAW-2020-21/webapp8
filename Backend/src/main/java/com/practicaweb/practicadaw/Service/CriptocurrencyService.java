@@ -3,6 +3,7 @@ package com.practicaweb.practicadaw.Service;
 import com.practicaweb.practicadaw.ServiceInterfaces.CriptocurrencyServiceInterface;
 import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.Entry;
+import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.CriptocurrencyRepository;
 import com.practicaweb.practicadaw.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,10 @@ import java.util.List;
 public class CriptocurrencyService implements CriptocurrencyServiceInterface {
 
     private final CriptocurrencyRepository criptocurrencyRepository;
-    private final UserRepository userRepository;
 
 
-    public CriptocurrencyService(CriptocurrencyRepository criptocurrencyRepository, UserRepository userRepository) {
+    public CriptocurrencyService(CriptocurrencyRepository criptocurrencyRepository) {
         this.criptocurrencyRepository = criptocurrencyRepository;
-        this.userRepository = userRepository;
     }
 
     @Override
@@ -29,6 +28,11 @@ public class CriptocurrencyService implements CriptocurrencyServiceInterface {
     @Override
     public List<Criptocurrency> selectAll() {
         return criptocurrencyRepository.findAll();
+    }
+
+    @Override
+    public Criptocurrency findByNameCripto(String nameCripto) {
+        return criptocurrencyRepository.findByNameCripto(nameCripto);
     }
 
     @Override

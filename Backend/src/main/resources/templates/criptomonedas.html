@@ -20,13 +20,19 @@
                             <div>
                                 {{#criptocurrencies}}
                                 <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
-                                    <th class="align-middle" scope="row">{{idCripto}}</th>
-                                    <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">{{nameCripto}}</a>
-                                    </td>
-                                    <td class="align-middle">{{priceCripto}}US$</td>
-                                    <td class="align-middle">
-                                        <img src="images/miniBitcoinChart.svg" alt="grafico">
-                                    </td>
+                                    <form method="post" action="/add_cripto">
+                                        <input type="hidden" value="{{nameCripto}}" id="nameCripto" name="nameCripto">
+                                        <th class="align-middle" scope="row">{{idCripto}}</th>
+                                        <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">{{nameCripto}}</a>
+                                        </td>
+                                        <td class="align-middle">{{priceCripto}}US$</td>
+                                        <td class="align-middle">
+                                            <img src="images/miniBitcoinChart.svg" alt="grafico">
+                                        </td>
+                                        <td>
+                                            <input type="submit" class="btn btn-danger" value="AÑADIR">
+                                        </td>
+                                    </form>
                                 </tr>
                                 {{/criptocurrencies}}
                             </div>

@@ -1,6 +1,7 @@
 package com.practicaweb.practicadaw.repository;
 
 import com.practicaweb.practicadaw.model.Comment;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
+@Qualifier("entries")
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 

@@ -1,16 +1,15 @@
 package com.practicaweb.practicadaw.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Criptocurrency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idCripto;
+    @Column(length = 135, nullable = false)
     private String nameCripto;
+    @Column(length = 135, nullable = false)
     private double priceCripto;
 
     public Criptocurrency() {
