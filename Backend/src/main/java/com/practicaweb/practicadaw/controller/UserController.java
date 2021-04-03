@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.Principal;
 import java.util.Optional;
 
 
@@ -38,27 +39,30 @@ public class UserController {
         return "redirect:/users";
     }
 
-    /*@PostMapping("/updateUser")
-    public String updateUser(@ModelAttribute User userUpdate, @RequestParam("imageFile") MultipartFile imageFile, HttpServletRequest request) throws IOException {
-        User oldUser = userService.selectByEmail(userUpdate.getEmail());
-        if (!imageFile.getOriginalFilename().equals("")) {
-            Path imagePath = IMAGES_FOLDER.resolve(imageFile.getOriginalFilename());
-            imageFile.transferTo(imagePath);
-            userUpdate.setImage(imageFile.getOriginalFilename());
-        } else {
-            userUpdate.setImage(oldUser.getImage());
-        }
-        userUpdate.setIdUser(oldUser.getIdUser());
-        //userUpdate.setPassword(oldUser.getPassword());
-        userUpdate.setEmail(oldUser.getEmail());
-        //userUpdate.setRole(oldUser.getRole());
-        userUpdate.setRegistrationDate(oldUser.getRegistrationDate());
-        userService.save(userUpdate);
-        HttpSession mysession = request.getSession(true);
-        mysession.removeAttribute("actualUser");
-        mysession.setAttribute("actualUser",userUpdate);
-        return "redirect:/settings";
-    }*/
+
+
+//    @PostMapping("/update_user")
+//    public String updateUser(@ModelAttribute User userUpdate, @RequestParam("imageFile") MultipartFile imageFile, HttpServletRequest request) throws IOException {
+//        Principal principal = request.getUserPrincipal();
+//        User oldUser = userService.findByName(principal.getName());
+//        if (!imageFile.getOriginalFilename().equals("")) {
+//            Path imagePath = IMAGES_FOLDER.resolve(imageFile.getOriginalFilename());
+//            imageFile.transferTo(imagePath);
+//            userUpdate.setImage(imageFile.getOriginalFilename());
+//        } else {
+//            userUpdate.setImage(oldUser.getImage());
+//        }
+//        userUpdate.setIdUser(oldUser.getIdUser());
+//        //userUpdate.setPassword(oldUser.getPassword());
+//        userUpdate.setEmail(oldUser.getEmail());
+//        //userUpdate.setRole(oldUser.getRole());
+//        userUpdate.setRegistrationDate(oldUser.getRegistrationDate());
+//        userService.save(userUpdate);
+//        HttpSession mysession = request.getSession(true);
+//        mysession.removeAttribute("actualUser");
+//        mysession.setAttribute("actualUser",userUpdate);
+//        return "redirect:/settings";
+//    }
 
 
 }

@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.Principal;
@@ -56,19 +58,50 @@ public class SettingsController {
     }
 
     @PostMapping("/update_user")
-    public String updateUser(@ModelAttribute User userUpdate, @RequestParam("imageFile") MultipartFile imageFile, @RequestParam("firtsname") String firstname, @RequestParam("surname") String surname, HttpServletRequest request) throws IOException {
+    public String updateUser(@ModelAttribute User userUpdate, @RequestParam("imageFile") MultipartFile imageFile, HttpServletRequest request) throws IOException {
         Principal principal = request.getUserPrincipal();
-        User user = userService.findByName(principal.getName());
+        User oldUser = userService.findByName(principal.getName());
         if (!imageFile.getOriginalFilename().equals("")) {
             Path imagePath = IMAGES_FOLDER.resolve(imageFile.getOriginalFilename());
             imageFile.transferTo(imagePath);
             userUpdate.setImage(imageFile.getOriginalFilename());
         } else {
-            userUpdate.setImage(user.getImage());
+            userUpdate.setImage(oldUser.getImage());
         }
-        user.setFirstname(firstname);
-        user.setSurname(surname);
-        userService.save(user);
+        userUpdate.setIdUser(oldUser.getIdUser());
+        //userUpdate.setPassword(oldUser.getPassword());
+        userUpdate.setEmail(oldUser.getEmail());
+        //userUpdate.setRole(oldUser.getRole());
+        userUpdate.setRegistrationDate(oldUser.getRegistrationDate());
+        userService.save(userUpdate);
+        HttpSession mysession = request.getSession(true);
+        mysession.removeAttribute("actualUser");
+        mysession.setAttribute("actualUser",userUpdate);
+        return "redirect:/settings";
+//        Principal principal = request.getUserPrincipal();
+//        User user = userService.findByName(principal.getName());
+//        if (!imageFile.getOriginalFilename().equals("")) {
+//            Path imagePath = IMAGES_FOLDER.resolve(imageFile.getOriginalFilename());
+//            imageFile.transferTo(imagePath);
+//            userUpdate.setImage(imageFile.getOriginalFilename());
+//        } else {
+//            userUpdate.setImage(user.getImage());
+//        }
+//        user.setFirstname(firstname);
+//        user.setSurname(surname);
+//        userService.save(user);
+//        return "redirect:/settings";
+    }
+
+    @PostMapping("/upload_image")
+    public String uploadImage(@RequestParam String imageName, @RequestParam MultipartFile image) throws IOException {
+
+        Files.createDirectories(IMAGES_FOLDER);
+
+        Path imagePath = IMAGES_FOLDER.resolve("image.jpg");
+
+        image.transferTo(imagePath);
+
         return "redirect:/settings";
     }
 }

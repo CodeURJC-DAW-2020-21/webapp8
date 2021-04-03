@@ -18,7 +18,7 @@ public class Entry {
     private Date registrationDate;
     @ManyToOne
     private User user;
-    @OneToMany
+    @OneToMany(mappedBy = "entry", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Comment> comment;
 
     public Entry() {
