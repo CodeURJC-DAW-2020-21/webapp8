@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 
 @Controller
@@ -30,11 +31,10 @@ public class CommentController {
 
     @PostMapping("/newComment")
     public String createComment(@ModelAttribute Comment comment, HttpServletRequest request, @RequestParam("idEntry") long idEntry){
-        HttpSession mysession = request.getSession();
-        User actualUser = (User)mysession.getAttribute("actualUser");
-//        comment.setIdEntry(idEntry);
-
-        comment.setUser(actualUser);
+        Principal principal = request.getUserPrincipal();
+        User user = userService.findByName(principal.getName());
+        comment.setUser(user);
+        comment.setEntry(entryService.selectById(idEntry));
         commentService.save(comment);
         return "redirect:/";
     }
