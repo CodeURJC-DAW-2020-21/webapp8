@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.time.LocalDateTime;
 
 @Controller
 public class EntryController {
@@ -31,7 +32,7 @@ public class EntryController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findByName(principal.getName());
         entry.setUser(user);
-        entry.setRegistrationDate(aux.getActualDate());
+        entry.setRegistrationDate(LocalDateTime.now());
         entryService.save(entry);
         return "redirect:/";
     }

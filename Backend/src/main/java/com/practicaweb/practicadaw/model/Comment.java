@@ -1,6 +1,7 @@
 package com.practicaweb.practicadaw.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -10,7 +11,7 @@ public class Comment {
     private long idComment;
     @Column(length = 145, nullable = false)
     private String descriptionComment;
-    private Date registrationDate;
+    private LocalDateTime registrationDate;
     @ManyToOne
     private User user;
     @ManyToOne
@@ -35,11 +36,11 @@ public class Comment {
         this.descriptionComment = descriptionComment;
     }
 
-    public Date getRegistrationDate() {
+    public LocalDateTime getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(LocalDateTime registrationDate) {
         this.registrationDate = registrationDate;
     }
 

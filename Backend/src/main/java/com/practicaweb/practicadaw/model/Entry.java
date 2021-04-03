@@ -1,6 +1,7 @@
 package com.practicaweb.practicadaw.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class Entry {
     private String description;
     @Column(length = 45, nullable = false)
     private int number_of_visits;
-    private Date registrationDate;
+    private LocalDateTime registrationDate;
     @ManyToOne
     private User user;
     @OneToMany(mappedBy = "entry", cascade=CascadeType.ALL, orphanRemoval=true)
@@ -24,7 +25,7 @@ public class Entry {
     public Entry() {
     }
 
-    public Entry(long idEntry, String title, String description, Date registrationDate, User user) {
+    public Entry(long idEntry, String title, String description, LocalDateTime registrationDate, User user) {
         this.idEntry = idEntry;
         this.title = title;
         this.description = description;
@@ -66,11 +67,11 @@ public class Entry {
         this.description = description;
     }
 
-    public Date getRegistrationDate() {
+    public LocalDateTime getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(LocalDateTime registrationDate) {
         this.registrationDate = registrationDate;
     }
 

@@ -1,6 +1,8 @@
 package com.practicaweb.practicadaw.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -20,9 +22,11 @@ public class User {
     @Column(length = 135, nullable = false)
     private String email;
     @Column(length = 45, nullable = false)
-    private Date registrationDate;
+    private LocalDateTime registrationDate;
     @Column(length = 45, nullable = false)
     private String image;
+    private String token;
+    private LocalDateTime tokenCreationDate;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Comment> comments;
     @OneToMany
@@ -31,12 +35,11 @@ public class User {
     private List<User> friends;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Entry> entries;
-
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
 
 
-    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, Date registrationDate, String image, List<Criptocurrency> criptocurrencies, String... roles) {
+    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, LocalDateTime registrationDate, String image, List<Criptocurrency> criptocurrencies, String... roles) {
         this.idUser = idUser;
         this.encodedPassword = encodedPassword;
         this.name = name;
@@ -90,11 +93,11 @@ public class User {
         this.email = email;
     }
 
-    public Date getRegistrationDate() {
+    public LocalDateTime getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(LocalDateTime registrationDate) {
         this.registrationDate = registrationDate;
     }
 
@@ -160,5 +163,21 @@ public class User {
 
     public void setEntries(List<Entry> entries) {
         this.entries = entries;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public void setTokenCreationDate(LocalDateTime tokenCreationDate) {
+        this.tokenCreationDate = tokenCreationDate;
+    }
+
+    public LocalDateTime getTokenCreationDate() {
+        return tokenCreationDate;
     }
 }

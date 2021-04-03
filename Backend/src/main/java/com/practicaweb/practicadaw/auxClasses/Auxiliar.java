@@ -12,18 +12,6 @@ public class Auxiliar {
 
     private static final Path IMAGES_FOLDER = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/profileImages");
 
-    public static java.util.Date getActualDate(){
-        try{
-            Calendar auxDate = new GregorianCalendar();
-            DateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            java.util.Date actualDate = ft.parse("2014-10-25 20:00:00");
-            return actualDate;
-        }
-        catch (ParseException exc){
-            return null;
-        }
-    }
-
     public static String getPathImage (String fileName){
         return "profileImages/" + fileName;
     }

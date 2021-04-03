@@ -9,6 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @Controller
 public class RegisterController {
     private final UserService userService;
@@ -24,7 +26,7 @@ public class RegisterController {
     @PostMapping("/create_user")
     public String createUser (@ModelAttribute User user, @RequestParam("confirmPassword") String confirmPassword){
         if (AuxUser.verificationPassword(user.getEncodedPassword(), confirmPassword)){
-            user.setRegistrationDate(Auxiliar.getActualDate());
+            user.setRegistrationDate(LocalDateTime.now());
             user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
             user.setRoles("USER");
             user.setImage("defaultImage.jpg");
