@@ -67,6 +67,12 @@ public class PostController {
 
     @GetMapping("/favorite_cryptocurrencies")
     public String favorites(Model model, HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        if(principal != null) {
+            User user = userService.findByName(principal.getName());
+            List<Criptocurrency> criptocurrenciesFav = user.getCriptocurrencies();
+            model.addAttribute("criptocurrenciesFav", criptocurrenciesFav);
+        }
         return "cript_favoritas";
     }
 
