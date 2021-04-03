@@ -1,18 +1,16 @@
 package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.UserService;
-import com.practicaweb.practicadaw.auxClasses.AuxUser;
-import com.practicaweb.practicadaw.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+
 
 @Controller
 public class ForgotPassController {
@@ -26,24 +24,24 @@ public class ForgotPassController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-//    @PostMapping("/forgotPassword")
-//    public String forgotPassword ( @RequestParam ("email") String email, @RequestParam ("password") String password, @RequestParam ("confirmPassword") String confirmPassword){
-//        User userNewPassword = userService.findByEmail(email);
-//        if (AuxUser.verificationPassword(password, confirmPassword)){
-//            userNewPassword.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
-//            userService.save(userNewPassword);
-//            return "redirect:/login";
-//        }
-//        else{
-//            return "loginError";
-//        }
-//    }
+    private String tokenPass;
 
-    @PostMapping("/sendEmail")
+    @PostMapping("/forgot_password")
+    public String forgotPassword (@RequestParam ("password") String password, @RequestParam ("confirmPassword") String confirmPassword){
+        userService.resetPassword(tokenPass, password);
+        return "redirect:/login";
+    }
+
+    @PostMapping("/send_email")
     public String sendEmail (@RequestParam ("email") String email){
         String sender = "forocoin.soporteoficial@gmail.com";
         String emailPass = "forocoin1";
         String destinatary = email;
+        String response = userService.forgotPassword(email);
+        if (!response.startsWith("Invalid")){
+            tokenPass = response;
+            response = "https://localhost:8443/password?tokenPass=" + response;
+        }
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
@@ -56,7 +54,7 @@ public class ForgotPassController {
         try{
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatary));
             message.setSubject("Reestablecer contraseña de foroCoin");
-            message.setText("Pinche aqui para reestablecer su contraseña:" + "https://localhost:8443/password)");
+            message.setText("Pinche aqui para reestablecer su contraseña:" + response);
             Transport transport = session.getTransport("smtp");
             transport.connect("smtp.gmail.com", sender, emailPass);
             transport.sendMessage(message, message.getAllRecipients());
