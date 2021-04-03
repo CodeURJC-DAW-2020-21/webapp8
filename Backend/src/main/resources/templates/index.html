@@ -99,7 +99,7 @@
                                         <div class="modal-content">
                                             {{#logged}}
                                             <form method="post" action="/newComment" modelAttribute="comment">
-<!--                                                <input type="hidden" value="" name="idEntry" id="idEntry">-->
+                                                <input type="hidden" value="{{idEntry}}" name="idEntry" id="idEntry">
                                                 <div
                                                         class="modal-header d-flex align-items-center bg-primary text-white">
                                                     <h6 class="modal-title mb-0">New Comment

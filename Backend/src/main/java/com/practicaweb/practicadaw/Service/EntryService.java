@@ -46,12 +46,4 @@ public class EntryService implements EntryServiceInterface {
         entryRepository.deleteEntryByIdUser(idUser);
     }
 
-
-    @PostConstruct
-    public void examples() {
-//        save(new Entry(1, "Cuales son las mejores criptomonedas para invertir", "Me gustaria que me pudieran decir cuales son algunas de las mejores criptomonedas del mercado.", aux.getActualDate(), userRepository., null));
-//        save(new Entry(2, "Angel", "Fideos", "angel_Fideos", "angel@gmail.com", "hola", "User", aux.getActualDate(), null));
-//        save(new Entry(3, "admin", "admin", "admin", "admin@admin.com", "admin", "admin", aux.getActualDate(), null));
-    }
-
 }

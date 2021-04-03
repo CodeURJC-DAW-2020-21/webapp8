@@ -66,10 +66,6 @@ public class WebController {
         return "register";
     }
 
-    @GetMapping("/private")
-    public String privatePage(Model model, HttpServletRequest request) { return "cript_favoritas";
-    }
-
     @GetMapping("/admin")
     public String admin() {
         return "admin";
