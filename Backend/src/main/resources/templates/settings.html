@@ -1,59 +1,68 @@
 {{>header}}
-    <div id="layoutSidenav_content">
-        <main>
-            <div class="card container-fluid" style="width: 70rem;">
-                <div class="card-body ">
-                    <form action="update_user" method="post" modelAttribute="user" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-12">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <p><b>IMAGEN:</b></p>
-                            </div>
-                            <div class="col-10">
-                                <input type="file" id="imageFile" name='imageFile' accept=".jpg, .jpeg, .jfif"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2 col-form-label">
-                                <p><b>NOMBRE:</b></p>
-                            </div>
-                            <div class="col-10">
-                                <input type="text" class="form-control" value={{firstname}} id="firstname" name="firsname" autofocus="" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2 col-form-label">
-                                <p><b>APELLIDO:</b></p>
-                            </div>
-                            <div class="col-10">
-                                <input type="text" class="form-control" value={{surname}} id="surname" name="surname" autofocus="" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2 col-form-label">
-                                <p><b>ALIAS:</b></p>
-                            </div>
-                            <div class="col-10">
-                                <input type="text" class="form-control" value={{userName}} id="userName" name="userName" maxlength="100" readonly/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2 col-form-label">
-                                <p><b>CORREO:</b></p>
-                            </div>
-                            <div class="col-10">
-                                <input type="text" class="form-control" id="email" value={{email}} name="email" maxlength="100" autofocus="" readonly/>
-                            </div>
-                        </div>
-                        <div class="row pt-3">
-                            <div class="col"> <input type="submit" class="float-right btn btn-primary" value="Guardar cambios"></input>
-                            </div>
-                        </div>
-                    </form>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="card container-fluid" style="width: 70rem;">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-12">
+                    </div>
                 </div>
+                <form action="/upload_image" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-2">
+                            <p><b>IMAGEN:</b></p>
+                        </div>
+                        <div class="col-10">
+                            <input type="file" id="imageFile" name='imageFile' accept=".jpg, .jpeg, .jfif"/>
+                            <input type="submit" value="Guardar">
+                        </div>
+                    </div>
+                </form>
+                <form action="/update_user" method="post" modelAttribute="user" >
+                    <div class="row">
+                        <div class="col-2 col-form-label">
+                            <p><b>NOMBRE:</b></p>
+                        </div>
+                        <div class="col-10">
+                            <input type="text" class="form-control" value={{firstname}} id="firstname" name="firsname"
+                                   autofocus=""/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 col-form-label">
+                            <p><b>APELLIDO:</b></p>
+                        </div>
+                        <div class="col-10">
+                            <input type="text" class="form-control" value={{surname}} id="surname" name="surname"
+                                   autofocus=""/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 col-form-label">
+                            <p><b>ALIAS:</b></p>
+                        </div>
+                        <div class="col-10">
+                            <input type="text" class="form-control" value={{userName}} id="userName" name="userName"
+                                   maxlength="100" readonly/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 col-form-label">
+                            <p><b>CORREO:</b></p>
+                        </div>
+                        <div class="col-10">
+                            <input type="text" class="form-control" id="email" value={{email}} name="email"
+                                   maxlength="100" autofocus="" readonly/>
+                        </div>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col">
+                            <input type="submit" class="float-right btn btn-primary" value="Guardar cambios"/>
+                            <input type="hidden" name="_csrf" value="{{token}}"/>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </main>
-{{>footer}}
+        </div>
+    </main>
+    {{>footer}}

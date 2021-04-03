@@ -127,7 +127,10 @@
                                                     <button type="button" class="btn btn-light"
                                                             data-dismiss="modal">Cancel
                                                     </button>
-                                                    <div><input type="submit" class="btn-primary btn-block" value="Post"></div>
+                                                    <div>
+                                                        <input type="submit" class="btn-primary btn-block" value="Post">
+                                                        <input type="hidden" name="_csrf" value="{{token}}"/>
+                                                    </div>
                                                 </div>
                                             </form>
                                             {{/logged}}
@@ -311,6 +314,7 @@
                                                     data-dismiss="modal">Cancelar
                                             </button>
                                             <input type="submit" class="btn btn-primary" value="Publicar"/>
+                                            <input type="hidden" name="_csrf" value="{{token}}"/>
                                         </div>
                                     </form>
                                     {{/logged}}
