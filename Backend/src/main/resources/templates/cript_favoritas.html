@@ -12,55 +12,18 @@
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Precio</th>
-                            <th scope="col">Gráfica</th>
                             <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
+                        {{#criptocurrenciesFav}}
                         <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
-                            <th class="align-middle" scope="row">1</th>
+                            <th class="align-middle" scope="row">{{idCripto}}</th>
                             <td class="align-middle"><a href="/Bitcoin"
-                                                        class="text-decoration-none text-dark">Bitcoin</a>
+                                                        class="text-decoration-none text-dark">{{nameCripto}}</a>
                             </td>
-                            <td class="align-middle">57.219,08 US$</td>
-                            <td class="align-middle">
-                                <img src="images/miniBitcoinChart.svg" alt="grafico">
-                            </td>
-                            <td class="align-middle">
-                                <button type="button" class="btn">
-                                    <img src="images/star.svg" width="20" alt="">
-                                </button>
-                            </td>
-                        </tr>
-                        <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample1">
-                            <th class="align-middle" scope="row">2</th>
-                            <td class="align-middle"><a href="/Dogecoin"
-                                                        class="text-decoration-none text-dark">Dogecoin</a>
-                            </td>
-                            <td class="align-middle">0,0557 US$</td>
-                            <td class="align-middle">
-                                <img src="images/miniDogeChart.svg" alt="">
-                            </td>
-                            <td class="align-middle">
-                                <button type="button" class="btn">
-                                    <img src="images/star.svg" width="20" alt="">
-                                </button>
-                            </td>
-                        </tr>
-                        <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
-                            <th class="align-middle" scope="row">3</th>
-                            <td class="align-middle"><a href="/Bitcoin"
-                                                        class="text-decoration-none text-dark">Ethereum</a>
-                            </td>
-                            <td class="align-middle">1670,08 US$</td>
-                            <td class="align-middle">
-                                <img src="images/miniEthereumChart.svg" alt="grafico">
-                            </td>
-                            <td class="align-middle">
-                                <button type="button" class="btn">
-                                    <img src="images/star.svg" width="20" alt="">
-                                </button>
-                            </td>
+                            <td class="align-middle">{{priceCripto}} $</td>
+                        {{/criptocurrenciesFav}}
                         </tr>
                         </tbody>
                     </table>

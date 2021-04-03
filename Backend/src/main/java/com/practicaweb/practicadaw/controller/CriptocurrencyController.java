@@ -39,7 +39,7 @@ public class CriptocurrencyController {
             }
             userService.save(user);
         }
-        return "redirect:/";
+        return "redirect:/criptomonedas";
     }
 
 }
