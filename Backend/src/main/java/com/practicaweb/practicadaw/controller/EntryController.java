@@ -2,7 +2,6 @@ package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.EntryService;
 import com.practicaweb.practicadaw.Service.UserService;
-import com.practicaweb.practicadaw.auxClasses.Auxiliar;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.stereotype.Controller;
@@ -28,7 +27,6 @@ public class EntryController {
     // New entry
     @PostMapping("/newEntry")
     public String createEntry(@ModelAttribute Entry entry, HttpServletRequest request){
-        Auxiliar aux = new Auxiliar();
         Principal principal = request.getUserPrincipal();
         User user = userService.findByName(principal.getName());
         entry.setUser(user);

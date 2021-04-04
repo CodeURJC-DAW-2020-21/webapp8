@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -36,8 +37,8 @@ public class EntryService implements EntryServiceInterface {
     }
 
     @Override
-    public Entry selectById(long id) {
-        return entryRepository.getOne(id);
+    public Optional<Entry> findById(long idEntry) {
+        return entryRepository.findById(idEntry);
     }
 
     @Override

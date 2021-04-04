@@ -63,96 +63,39 @@
                             <!-- Forum List -->
                             <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
                                 {{#entries}}
-                                <div class="card mb-2">
-                                    <div class="card-body p-2 p-sm-3">
-                                        <div class="media forum-item">
-                                                <a href="#" class="card-link" data-toggle="collapse" data-target=".forum-content"><img
-                                                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                        class="rounded-circle" width="50" alt="User"/>
-                                                    <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
-                                            <div class="media-body ml-3">
-                                                <h6><a href="#" data-toggle="collapse"
-                                                       data-target=".forum-content" class="text-body">{{title}}</a></h6>
-                                                <p class="text-secondary">
-                                                    {{description}}
-                                                </p>
-                                                <span><a href="javascript:void(0)" class="text-muted small"
-                                                         data-toggle="modal" data-target="#commentModal"
-                                                         >Reply</a></span>
-                                            </div>
-                                            <div class="text-muted small text-center align-self-center">
-                                                        <span class="d-none d-sm-inline-block"><i
-                                                                class="far fa-eye"></i> 19</span>
-                                                <span><i class="far fa-comment ml-2"></i> 3</span>
-                                                <button class="btn btn-xs text-muted has-icon">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                    5
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Commentary modal -->
-                                <div class="modal fade" id="commentModal" tabindex="-1" role="dialog"
-                                     aria-labelledby="commentModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            {{#logged}}
-                                            <form method="post" action="/newComment" modelAttribute="comment">
+                                <form method="post" action="/newComment" modelAttribute="comment">
+                                    <div class="card mb-2">
+                                        <div class="card-body p-2 p-sm-3">
+                                            <div class="media forum-item">
                                                 <input type="hidden" value="{{idEntry}}" name="idEntry" id="idEntry">
-                                                <div
-                                                        class="modal-header d-flex align-items-center bg-primary text-white">
-                                                    <h6 class="modal-title mb-0">New Comment
-                                                    </h6>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span aria-hidden="true">×</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label for="descriptionComment">Description</label>
-                                                        <input class="form-control" id="descriptionComment" name="descriptionComment"
-                                                               placeholder="Enter description"/>
-                                                    </div>
-                                                    <div class="custom-file form-control-sm mt-3"
-                                                         style="max-width: 300px;">
-                                                        <input type="file" class="custom-file-input" id="customFile"
-                                                               multiple=""/>
-                                                        <label class="custom-file-label"
-                                                               for="customFile">Attachment</label>
+                                                    <a href="#" class="card-link" data-toggle="collapse" data-target=".forum-content"><img
+                                                            src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                            class="rounded-circle" width="50" alt="User"/>
+                                                        <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
+                                                <div class="media-body ml-3">
+                                                    <h6><a href="#" data-toggle="collapse"
+                                                           data-target=".forum-content" class="text-body">{{title}}</a></h6>
+                                                    <p class="text-secondary">
+                                                        {{description}}
+                                                    </p>
+                                                    <div class="row">
+                                                        <div class="col-9">
+                                                            <input type="text" class="form-control" name="descriptionComment" placeholder="Responder">
+                                                        </div>
+                                                        <div class="col-3">
+                                                        <input type="submit" class="btn-primary" value="Publicar">
+
+                                                        </div>
+                                                    <input type="hidden" name="_csrf" value="{{token}}"/>
                                                     </div>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light"
-                                                            data-dismiss="modal">Cancel
-                                                    </button>
-                                                    <div>
-                                                        <input type="submit" class="btn-primary btn-block" value="Post">
-                                                        <input type="hidden" name="_csrf" value="{{token}}"/>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            {{/logged}}
-                                            {{^logged}}
-                                            <div
-                                                    class="modal-header d-flex align-items-center bg-primary text-white">
-                                                <h6 class="modal-title mb-0" id="commentModalLabel">New Comment
-                                                </h6>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
                                             </div>
-                                            <div class="modal-body">
-                                                <p class="text-center">Please sign in to reply this entry.</p>
-                                            </div>
-                                            {{/logged}}
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                                 {{/entries}}
-                            </div>
+                                <!-- Commentary modal -->
+
                             <!-- /Forum List -->
 <!--                            <div class="text-center mb-4" id="loadMore">-->
 <!--                                <button class="btn btn-primary">Cargar más</button>-->

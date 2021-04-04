@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface EntryServiceInterface {
     Entry save (Entry entry);
     List<Entry> selectAll ();
-    Entry selectById(long id);
+    Optional<Entry> findById(long id);
     void deleteEntryByIdUser(long idUser);
 
 }

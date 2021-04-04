@@ -34,7 +34,8 @@ public class CommentController {
         Principal principal = request.getUserPrincipal();
         User user = userService.findByName(principal.getName());
         comment.setUser(user);
-        comment.setEntry(entryService.selectById(idEntry));
+        Entry entry = entryService.findById(idEntry).orElseThrow();
+        comment.setEntry(entry);
         commentService.save(comment);
         return "redirect:/";
     }
