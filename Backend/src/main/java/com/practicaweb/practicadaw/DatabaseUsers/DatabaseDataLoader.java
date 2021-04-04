@@ -47,7 +47,6 @@ public class DatabaseDataLoader {
     @PostConstruct
     private void initDatabase() {
         User user1 = userRepository.save(new User(1, passwordEncoder.encode("adminpass"), "admin", "admin", "admin", "admin@admin.com", LocalDateTime.now(), "defaultImage", new ArrayList<Criptocurrency>(), "USER", "ADMIN"));
-        user1.addCript(null);
         User user2 = userRepository.save(new User(2, passwordEncoder.encode("pass"), "marcoszas", "Rodriguez", "Marcos", "marcos@gmail.com", LocalDateTime.now(), "defaultImage", new ArrayList<Criptocurrency>(), "USER"));
         User user3 = userRepository.save(new User(3, passwordEncoder.encode("pass"), "angelote", "Dominguez", "Angel", "angel@gmail.com", LocalDateTime.now(), "defaultImage", new ArrayList<Criptocurrency>(), "USER"));
         Criptocurrency cripto1 = criptocurrencyRepository.save(new Criptocurrency(1, "Bitcoin", 40453.67));
