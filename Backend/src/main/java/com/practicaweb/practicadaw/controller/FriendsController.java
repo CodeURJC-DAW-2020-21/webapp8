@@ -29,12 +29,14 @@ public class FriendsController {
         if (principal != null) {
             User user = userService.findByName(principal.getName());
             User friend = userService.findById(idUser).orElseThrow();
-            if (user.getFriends().contains(friend)) {
-                user.removeFriend(friend);
-            } else {
-                user.addFriend(friend);
+            if(!friend.equals(user)){
+                if (user.getFriends().contains(friend)) {
+                    user.removeFriend(friend);
+                } else {
+                    user.addFriend(friend);
+                }
+                userService.save(user);
             }
-            userService.save(user);
         }
         return "redirect:/";
     }
