@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -63,28 +64,34 @@ public class PostController {
         List<Criptocurrency> criptocurrencies = criptocurrencyService.selectAll();
         model.addAttribute("criptocurrencies", criptocurrencies);
 
-//        Principal principal = request.getUserPrincipal();
-//        if(principal != null) {
-//            User user = userService.findByName(principal.getName());
-//            List<Criptocurrency> usercriptocurrencies = user.getCriptocurrencies();
-//            int i = 0; //counter size user's friends list
-//            int j = 0; //counter size friend's cryptocurrency list
-//            List<User> friendList = user.getFriends();
-//
-//            while (i<friendList.size()){
-//                User friend = friendList.get(i);
-//                List<Criptocurrency> listFriendCripto = friend.getCriptocurrencies();
-//                while (j<listFriendCripto.size()){
-//                    if (usercriptocurrencies.get(j).equals(listFriendCripto.get(j))){
-//                        listFriendCripto.remove(listFriendCripto.get(j));
-//                    }
-//                    j++;
-//                }
-//            i ++;
-//            model.addAttribute("recommendedCripto", listFriendCripto);
-//            }
-//            model.addAttribute("friends", friendList);
-//        }
+        Principal principal = request.getUserPrincipal();
+        if(principal != null) {
+            User user = userService.findByName(principal.getName());
+            List<Criptocurrency> usercriptocurrencies = user.getCriptocurrencies();
+            int i = 0; //counter size user's friends list
+            int j = 0; //counter size friend's cryptocurrency list
+            int cont = 0;
+            List<User> friendListFinal = new ArrayList<User>();
+            List<User> friendList = user.getFriends();
+
+            while (i<friendList.size()){
+                User friend = friendList.get(i);
+                List<Criptocurrency> listFriendCripto = friend.getCriptocurrencies();
+                while (j<listFriendCripto.size()){
+                    if (usercriptocurrencies.get(j).equals(listFriendCripto.get(j))){
+                        listFriendCripto.remove(listFriendCripto.get(j));
+                        cont++;
+                    }
+                    j++;
+                }
+            i ++;
+                if (cont>=2){
+                    model.addAttribute("recommendedCripto", listFriendCripto);
+                    friendListFinal.add(friend);
+                }
+            }
+            model.addAttribute("friends", friendListFinal);
+        }
         return "criptomonedas";
     }
 
