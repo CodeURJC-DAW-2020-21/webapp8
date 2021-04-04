@@ -63,11 +63,9 @@
                             <!-- Forum List -->
                             <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
                                 {{#entries}}
-                                <form method="post" action="/newComment" modelAttribute="comment">
                                     <div class="card mb-2">
                                         <div class="card-body p-2 p-sm-3">
                                             <div class="media forum-item">
-                                                <input type="hidden" value="{{idEntry}}" name="idEntry" id="idEntry">
                                                     <a href="#" class="card-link" data-toggle="collapse" data-target=".forum-content"><img
                                                             src="https://bootdey.com/img/Content/avatar/avatar1.png"
                                                             class="rounded-circle" width="50" alt="User"/>
@@ -75,24 +73,44 @@
                                                 <div class="media-body ml-3">
                                                     <h6><a href="#" data-toggle="collapse"
                                                            data-target=".forum-content" class="text-body">{{title}}</a></h6>
-                                                    <p class="text-secondary">
-                                                        {{description}}
-                                                    </p>
-                                                    <div class="row">
-                                                        <div class="col-9">
-                                                            <input type="text" class="form-control" name="descriptionComment" placeholder="Responder">
+                                                    <form method="post" action="/newComment" modelAttribute="comment">
+                                                        <input type="hidden" value="{{idEntry}}" name="idEntry" id="idEntry">
+                                                        <p class="text-secondary">
+                                                            {{description}}
+                                                        </p>
+                                                        <div class="row">
+                                                            <div class="col-9">
+                                                                <input type="text" class="form-control" name="descriptionComment" placeholder="Responder">
+                                                            </div>
+                                                            <div class="col-3">
+                                                                <input type="submit" class="btn-primary" value="Publicar">
+                                                            </div>
+                                                        <input type="hidden" name="_csrf" value="{{token}}"/>
                                                         </div>
-                                                        <div class="col-3">
-                                                        <input type="submit" class="btn-primary" value="Publicar">
-
+                                                    </form>
+                                                    <a class="small text-muted" data-toggle="collapse" href="#commentsBox">Comentarios</a>
+                                                    <div class="collapse" id="commentsBox">
+                                                        <div class="card card-body">
+                                                            {{#comment}}
+                                                            <div class="media forum-item">
+                                                                <a href="#" class="card-link"><img
+                                                                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                                        class="rounded-circle" width="50" alt="User"/>
+                                                                    <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
+                                                                <div class="media-body ml-3">
+                                                                    <p class="text-secondary">
+                                                                        {{descriptionComment}}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            {{/comment}}
                                                         </div>
-                                                    <input type="hidden" name="_csrf" value="{{token}}"/>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+
                                 {{/entries}}
                                 <!-- Commentary modal -->
 
@@ -100,118 +118,6 @@
 <!--                            <div class="text-center mb-4" id="loadMore">-->
 <!--                                <button class="btn btn-primary">Cargar más</button>-->
 <!--                            </div>-->
-                            <!-- Forum Detail -->
-                            {{#comments}}
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="media forum-item">
-                                        <a href="javascript:void(0)" class="card-link">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                 class="rounded-circle" width="50" alt="User"/>
-                                            <small class="d-block text-center text-muted">{{user.nickname}}</small>
-                                        </a>
-                                        <div class="media-body ml-3">
-                                            <a href="javascript:void(0)" class="text-secondary">{{user.nickname}}</a>
-                                            <small class="text-muted ml-2">1 hour ago</small>
-                                            <h5 class="mt-1">{{title}}</h5>
-                                            <div class="mt-3 font-size-sm">
-                                                <p>Hellooo :)</p>
-                                                <p>
-                                                    Holaaa soy nuevo en este foro y me gustaria que alguien me
-                                                    echara una mano.
-                                                    Estaria interesado en comprar Dogecoins viendo que se habla
-                                                    mucho de ellos.
-                                                    Ya puestos me gustaria que alguien me explicara un poco como
-                                                    va esto de las criptomoendas.
-                                                </p>
-                                                <p>Thanksss</p>
-                                            </div>
-                                        </div>
-                                        <div class="text-muted small text-center">
-                                                        <span class="d-none d-sm-inline-block"><i
-                                                                class="far fa-eye"></i> 19</span>
-                                            <span><i class="far fa-comment ml-2"></i> 3</span>
-                                            <button class="btn btn-xs text-muted has-icon">
-                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                5
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{/comments}}
-                            <div class="inner-main-body p-2 p-sm-3 collapse forum-content">
-                                <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse"
-                                   data-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a>
-                                <div class="card mb-2">
-                                    <div class="card-body">
-                                        <div class="media forum-item">
-                                            <a href="javascript:void(0)" class="card-link">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                     class="rounded-circle" width="50" alt="User"/>
-                                                <small class="d-block text-center text-muted">Newbie</small>
-                                            </a>
-                                            <div class="media-body ml-3">
-                                                <a href="javascript:void(0)" class="text-secondary">Mokrani</a>
-                                                <small class="text-muted ml-2">1 hour ago</small>
-                                                <h5 class="mt-1">Los buenos Doges</h5>
-                                                <div class="mt-3 font-size-sm">
-                                                    <p>Hellooo :)</p>
-                                                    <p>
-                                                        Holaaa soy nuevo en este foro y me gustaria que alguien me
-                                                        echara una mano.
-                                                        Estaria interesado en comprar Dogecoins viendo que se habla
-                                                        mucho de ellos.
-                                                        Ya puestos me gustaria que alguien me explicara un poco como
-                                                        va esto de las criptomoendas.
-                                                    </p>
-                                                    <p>Thanksss</p>
-                                                </div>
-                                            </div>
-                                            <div class="text-muted small text-center">
-                                                        <span class="d-none d-sm-inline-block"><i
-                                                                class="far fa-eye"></i> 19</span>
-                                                <span><i class="far fa-comment ml-2"></i> 3</span>
-                                                <button class="btn btn-xs text-muted has-icon">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                                    5
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-2">
-                                    <div class="card-body">
-                                        <div class="media forum-item">
-                                            <a href="javascript:void(0)" class="card-link">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                                     class="rounded-circle" width="50" alt="User"/>
-                                                <small class="d-block text-center text-muted">Pro</small>
-                                            </a>
-                                            <div class="media-body ml-3">
-                                                <a href="javascript:void(0)" class="text-secondary">drewdan</a>
-                                                <small class="text-muted ml-2">1 hour ago</small>
-                                                <div class="mt-3 font-size-sm">
-                                                    <p>Sobre que mas criptomonedas te gustaria aprender?
-                                                    </p>
-                                                    <p>Bueno pues para empezar ya sabras que en este foro se habla
-                                                        principalmente sobre criptomonedas. Creo que deberias
-                                                        documentarte bien
-                                                        antes de empezar a invertir mucho dinero en los doges.
-                                                        Espero haberte sido de ayuda, un saludo.
-                                                    </p>
-                                                </div>
-                                                <button class="btn btn-xs text-muted has-icon"><i
-                                                        class="fa fa-heart" aria-hidden="true"></i>1
-                                                </button>
-                                                <a href="javascript:void(0)" class="text-muted small"
-                                                   data-toggle="modal" data-target="#commentModal">Reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Forum Detail -->
                         </div>
                         <!-- New Thread Modal -->
                         <div class="modal fade" id="threadModal" tabindex="-1" role="dialog"
