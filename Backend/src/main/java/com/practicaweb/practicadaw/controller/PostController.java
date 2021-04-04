@@ -69,23 +69,25 @@ public class PostController {
             User user = userService.findByName(principal.getName());
             List<Criptocurrency> usercriptocurrencies = user.getCriptocurrencies();
             int i = 0; //counter size user's friends list
-            int j = 0; //counter size friend's cryptocurrency list
-            int cont = 0;
             List<User> friendListFinal = new ArrayList<User>();
             List<User> friendList = user.getFriends();
 
             while (i<friendList.size()){
                 User friend = friendList.get(i);
                 List<Criptocurrency> listFriendCripto = friend.getCriptocurrencies();
-                while (j<listFriendCripto.size()){
-                    if (usercriptocurrencies.get(j).equals(listFriendCripto.get(j))){
-                        listFriendCripto.remove(listFriendCripto.get(j));
-                        cont++;
+                int j = 0; //counter size friend's cryptocurrency list
+                int cont = 0;
+                while (j<usercriptocurrencies.size()){
+                    for(int k = 0; k < listFriendCripto.size(); k++) {
+                        if (usercriptocurrencies.get(j).equals(listFriendCripto.get(k))) {
+                            listFriendCripto.remove(listFriendCripto.get(k));
+                            cont++;
+                        }
                     }
-                    j++;
+                j++;
                 }
             i ++;
-                if (cont>=2){
+                if (cont>=2 && !listFriendCripto.isEmpty()){
                     model.addAttribute("recommendedCripto", listFriendCripto);
                     friendListFinal.add(friend);
                 }

@@ -11,6 +11,8 @@ public class Criptocurrency {
     private String nameCripto;
     @Column(length = 135, nullable = false)
     private double priceCripto;
+//    @ManyToMany
+//    private User user;
 
     public Criptocurrency() {
     }
@@ -44,4 +46,5 @@ public class Criptocurrency {
     public void setPriceCripto(double priceCripto) {
         this.priceCripto = priceCripto;
     }
+
 }
