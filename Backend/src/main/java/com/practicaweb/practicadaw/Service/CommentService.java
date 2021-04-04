@@ -2,6 +2,7 @@ package com.practicaweb.practicadaw.Service;
 
 import com.practicaweb.practicadaw.ServiceInterfaces.CommentServiceInterface;
 import com.practicaweb.practicadaw.model.Comment;
+import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.CommentRepository;
 import com.practicaweb.practicadaw.repository.UserRepository;
 import org.springframework.stereotype.Service;

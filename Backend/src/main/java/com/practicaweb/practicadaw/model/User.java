@@ -157,6 +157,14 @@ public class User {
         criptocurrencies.remove(criptocurrency);
     }
 
+    public void addFriend(User user){
+        friends.add(user);
+    }
+
+    public void removeFriend(User user){
+        friends.remove(user);
+    }
+
     public List<Entry> getEntries() {
         return entries;
     }

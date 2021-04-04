@@ -5,7 +5,6 @@ import com.practicaweb.practicadaw.auxClasses.Auxiliar;
 import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -39,10 +38,10 @@ public class UserService implements UserServiceInterface {
         return userRepository.save(user);
     }
 
-    @Override
-    public Optional<User> selectById(long id) {
-        return userRepository.findById(id);
-    }
+//    @Override
+//    public Optional<User> selectById(long idUser) {
+//        return userRepository.selectById(idUser);
+//    }
 
     @Override
     public User findByEmail(String email) {
