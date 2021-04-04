@@ -47,4 +47,10 @@ public class EntryService implements EntryServiceInterface {
         entryRepository.deleteEntryByIdUser(idUser);
     }
 
+    @Override
+    @Transactional
+    public long findByTitle(String title) {
+        return entryRepository.findByTitle(title);
+    }
+
 }

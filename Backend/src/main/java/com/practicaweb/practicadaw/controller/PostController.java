@@ -62,6 +62,29 @@ public class PostController {
     public String criptomonedas(Model model, HttpServletRequest request) {
         List<Criptocurrency> criptocurrencies = criptocurrencyService.selectAll();
         model.addAttribute("criptocurrencies", criptocurrencies);
+
+//        Principal principal = request.getUserPrincipal();
+//        if(principal != null) {
+//            User user = userService.findByName(principal.getName());
+//            List<Criptocurrency> usercriptocurrencies = user.getCriptocurrencies();
+//            int i = 0; //counter size user's friends list
+//            int j = 0; //counter size friend's cryptocurrency list
+//            List<User> friendList = user.getFriends();
+//
+//            while (i<friendList.size()){
+//                User friend = friendList.get(i);
+//                List<Criptocurrency> listFriendCripto = friend.getCriptocurrencies();
+//                while (j<listFriendCripto.size()){
+//                    if (usercriptocurrencies.get(j).equals(listFriendCripto.get(j))){
+//                        listFriendCripto.remove(listFriendCripto.get(j));
+//                    }
+//                    j++;
+//                }
+//            i ++;
+//            model.addAttribute("recommendedCripto", listFriendCripto);
+//            }
+//            model.addAttribute("friends", friendList);
+//        }
         return "criptomonedas";
     }
 
