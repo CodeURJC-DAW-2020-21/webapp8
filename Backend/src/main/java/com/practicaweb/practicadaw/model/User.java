@@ -23,9 +23,9 @@ public class User {
     private String email;
     @Column(length = 45, nullable = false)
     private LocalDateTime registrationDate;
-    @Column(length = 45, nullable = false)
-    private String image;
-    private String token;
+    @Lob
+    private byte[] image;
+    private String tokenPass;
     private LocalDateTime tokenCreationDate;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Comment> comments;
@@ -39,7 +39,7 @@ public class User {
     private List<String> roles;
 
 
-    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, LocalDateTime registrationDate, String image, List<Criptocurrency> criptocurrencies, String... roles) {
+    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, LocalDateTime registrationDate, byte[] image, List<Criptocurrency> criptocurrencies, String... roles) {
         this.idUser = idUser;
         this.encodedPassword = encodedPassword;
         this.name = name;
@@ -109,11 +109,11 @@ public class User {
         this.comments = comments;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -173,12 +173,12 @@ public class User {
         this.entries = entries;
     }
 
-    public String getToken() {
-        return token;
+    public String getTokenPass() {
+        return tokenPass;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setTokenPass(String tokenPass) {
+        this.tokenPass = tokenPass;
     }
 
     public void setTokenCreationDate(LocalDateTime tokenCreationDate) {

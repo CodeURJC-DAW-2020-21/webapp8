@@ -9,7 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
 import javax.transaction.Transactional;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -73,17 +82,17 @@ public class UserService implements UserServiceInterface {
         }
 
         User user = userOptional.get();
-        user.setToken(generateToken());
+        user.setTokenPass(generateToken());
         user.setTokenCreationDate(LocalDateTime.now());
 
         user = userRepository.save(user);
 
-        return user.getToken();
+        return user.getTokenPass();
     }
 
-    public String resetPassword(String token, String password){
+    public String resetPassword(String tokenPass, String password){
 
-        Optional<User> userOptional = Optional.ofNullable(userRepository.findByToken(token));
+        Optional<User> userOptional = Optional.ofNullable(userRepository.findByTokenPass(tokenPass));
 
         if (!userOptional.isPresent()){
             return "Invalid token";
@@ -98,7 +107,7 @@ public class UserService implements UserServiceInterface {
         User user = userOptional.get();
 
         user.setEncodedPassword(passwordEncoder.encode(password));
-        user.setToken(null);
+        user.setTokenPass(null);
         user.setTokenCreationDate(null);
         userService.save(user);
 
@@ -119,4 +128,29 @@ public class UserService implements UserServiceInterface {
 
         return diff.toMinutes() >= EXPIRE_TOKEN_AFTER_MINUTES;
     }
+
+    public byte[] extractBytes (String ImageName) throws IOException {
+        // open image
+        File imgPath = new File(ImageName);
+        BufferedImage bufferedImage = ImageIO.read(imgPath);
+
+        // get DataBufferBytes from Raster
+        WritableRaster raster = bufferedImage .getRaster();
+        DataBufferByte data   = (DataBufferByte) raster.getDataBuffer();
+
+        return ( data.getData() );
+    }
+
+//    public File ByteArrayToFile(byte[] image) throws IOException {
+//        BufferedImage bImage = ImageIO.read(new File("sample.jpg"));
+//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//        ImageIO.write(bImage, "jpg", bos);
+//        byte [] data = bos.toByteArray();
+//        ByteArrayInputStream bis = new ByteArrayInputStream(data);
+//        BufferedImage bImage2 = ImageIO.read(bis);
+//        ImageIO.write(bImage2, "jpg", new File("output.jpg") );
+//        System.out.println("image created");
+//    }
+
+
 }
