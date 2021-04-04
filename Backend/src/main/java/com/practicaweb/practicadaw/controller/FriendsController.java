@@ -23,19 +23,19 @@ public class FriendsController {
     @Autowired
     EntryService entryService;
 
-//    @PostMapping("/add_friend")
-//    public String add_friend(@RequestParam long idUser, HttpServletRequest request) {
-//        Principal principal = request.getUserPrincipal();
-//        if (principal != null) {
-//            User user = userService.findByName(principal.getName());
-//            User friend = userService.selectById(idUser).orElseThrow();
-//            if (user.getFriends().contains(friend)) {
-//                user.removeFriend(friend);
-//            } else {
-//                user.addFriend(friend);
-//            }
-//            userService.save(user);
-//        }
-//        return "redirect:/";
-//    }
+    @PostMapping("/add_friend")
+    public String add_friend(@RequestParam long idUser, HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        if (principal != null) {
+            User user = userService.findByName(principal.getName());
+            User friend = userService.findById(idUser).orElseThrow();
+            if (user.getFriends().contains(friend)) {
+                user.removeFriend(friend);
+            } else {
+                user.addFriend(friend);
+            }
+            userService.save(user);
+        }
+        return "redirect:/";
+    }
 }

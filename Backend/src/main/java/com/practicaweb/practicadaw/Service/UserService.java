@@ -2,6 +2,7 @@ package com.practicaweb.practicadaw.Service;
 
 import com.practicaweb.practicadaw.ServiceInterfaces.UserServiceInterface;
 import com.practicaweb.practicadaw.auxClasses.Auxiliar;
+import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +39,10 @@ public class UserService implements UserServiceInterface {
         return userRepository.save(user);
     }
 
-//    @Override
-//    public Optional<User> selectById(long idUser) {
-//        return userRepository.selectById(idUser);
-//    }
+    @Override
+    public Optional<User> findById(long idUser) {
+        return userRepository.findById(idUser);
+    }
 
     @Override
     public User findByEmail(String email) {

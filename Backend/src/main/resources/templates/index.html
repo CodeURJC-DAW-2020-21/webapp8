@@ -63,10 +63,11 @@
                             <!-- Forum List -->
                             <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
                                 {{#entries}}
-                                <form method="post" action="/newComment" modelAttribute="comment">
+
                                     <div class="card mb-2">
                                         <div class="card-body p-2 p-sm-3">
                                             <div class="media forum-item">
+                                                <form method="post" action="/newComment" modelAttribute="comment">
                                                 <input type="hidden" value="{{idEntry}}" name="idEntry" id="idEntry">
                                                     <a href="#" class="card-link" data-toggle="collapse" data-target=".forum-content"><img
                                                             src="https://bootdey.com/img/Content/avatar/avatar1.png"
@@ -89,10 +90,10 @@
                                                     <input type="hidden" name="_csrf" value="{{token}}"/>
                                                     </div>
                                                 </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
                                 {{/entries}}
                                 <!-- Commentary modal -->
 
