@@ -1,21 +1,24 @@
 package com.practicaweb.practicadaw.controller;
 
+import com.practicaweb.practicadaw.Service.BitcoinService;
 import com.practicaweb.practicadaw.Service.CriptocurrencyService;
 import com.practicaweb.practicadaw.Service.EntryService;
 import com.practicaweb.practicadaw.Service.UserService;
+import com.practicaweb.practicadaw.model.Bitcoin;
 import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.User;
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class PostController {
@@ -24,6 +27,11 @@ public class PostController {
     private final UserService userService;
     @Autowired
     CriptocurrencyService criptocurrencyService;
+
+    @Autowired
+    BitcoinService bitcoinService;
+
+    private RestTemplate restTemplate = new RestTemplate();
 
     public PostController(EntryService entryService, UserService userService, CriptocurrencyService criptocurrencyService) {
         this.entryService = entryService;
@@ -63,10 +71,13 @@ public class PostController {
     public String criptomonedas(Model model, HttpServletRequest request) {
         List<Criptocurrency> criptocurrencies = criptocurrencyService.selectAll();
         model.addAttribute("criptocurrencies", criptocurrencies);
+        for (int i = 0; i < criptocurrencies.toArray().length; i++){
+
+        }
 
         Principal principal = request.getUserPrincipal();
         if(principal != null) {
-            User user = userService.findByName(principal.getName());
+            User user = userService.findByName(principal.getName()).orElseThrow();
             List<Criptocurrency> usercriptocurrencies = user.getCriptocurrencies();
             int i = 0; //counter size user's friends list
             List<User> friendListFinal = new ArrayList<User>();
@@ -101,7 +112,7 @@ public class PostController {
     public String favorites(Model model, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         if(principal != null) {
-            User user = userService.findByName(principal.getName());
+            User user = userService.findByName(principal.getName()).orElseThrow();
             List<Criptocurrency> criptocurrenciesFav = user.getCriptocurrencies();
             model.addAttribute("criptocurrenciesFav", criptocurrenciesFav);
         }
@@ -116,7 +127,11 @@ public class PostController {
     }
 
     @GetMapping("/Bitcoin")
-    public String bitcoin(Model model) {
+    public String bitcoin(Model model) throws Exception{
+        Map<Integer, Integer> graphData = new TreeMap<>();
+        JSONArray data = bitcoinService.fetchCoinPrices("https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=10&interval=daily");
+//        for(int i = 0; i <)
+//        model.addAttribute("amount", coin.getAmount());
         return "Bitcoin";
     }
 

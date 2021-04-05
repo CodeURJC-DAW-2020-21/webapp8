@@ -20,6 +20,14 @@ public class Comment {
 
     public Comment(){}
 
+    public Comment(long idComment, String descriptionComment, LocalDateTime registrationDate, User user, Entry entry) {
+        this.idComment = idComment;
+        this.descriptionComment = descriptionComment;
+        this.registrationDate = registrationDate;
+        this.user = user;
+        this.entry = entry;
+    }
+
     public long getIdComment() {
         return idComment;
     }

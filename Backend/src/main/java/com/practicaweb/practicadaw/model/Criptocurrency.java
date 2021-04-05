@@ -11,6 +11,8 @@ public class Criptocurrency {
     private String nameCripto;
     @Column(length = 135, nullable = false)
     private double priceCripto;
+    @Column(length = 135, nullable = false)
+    private String shortName;
     private String image;
 //    @ManyToMany
 //    private User user;
@@ -18,10 +20,11 @@ public class Criptocurrency {
     public Criptocurrency() {
     }
 
-    public Criptocurrency(long idCripto, String nameCripto, double priceCripto, String image) {
+    public Criptocurrency(long idCripto, String nameCripto, double priceCripto, String shortName, String image) {
         this.idCripto = idCripto;
         this.nameCripto = nameCripto;
         this.priceCripto = priceCripto;
+        this.shortName = shortName;
         this.image = image;
     }
 
