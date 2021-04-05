@@ -99,43 +99,43 @@ If there is a server error the user will be redirected to this page.
 ![Navigation Diagram Image](/Phase2Images/NavigationDiagram.png "Navigation Diagram")
 New Navigation Diagram 
 
-![Admin User List](/Phase2Images/UserList "Admin User List")
+![Admin User List](/Phase2Images/UserList.png "Admin User List")
 Admin diagram added to Navigation Diagram
 
-![CommentUserRegistered](/Phase2Images/CommentUserRegistered "Forum")
+![CommentUserRegistered](/Phase2Images/CommentUserRegistered.png"Forum")
 New index for registered users
 
-![CryptFav](/Phase2Images/CryptFav "CryptFav")
+![CryptFav](/Phase2Images/CryptFav.png "CryptFav")
 Favourite Criptocurrency  
 
-![CryptosUserNotRegistered](/Phase2Images/CryptosUserNotRegistered "CryptosUserNotRegistered")
+![CryptosUserNotRegistered](/Phase2Images/CryptosUserNotRegistered.png "CryptosUserNotRegistered")
 Criptocurrency screen for all users
 
-![CrytosUserNotRegistered](/Phase2Images/CrytosUserNotRegistered "CrytosUserNotRegistered")
+![CrytosUserNotRegistered](/Phase2Images/CrytosUserNotRegistered.png "CrytosUserNotRegistered")
 Criptocurrency screen for registered users
 
-![IndexAdmin](/Phase2Images/IndexAdmin "IndexAdmin")
+![IndexAdmin](/Phase2Images/IndexAdmin.png "IndexAdmin")
 New admin index
 
-![IndexUserNotRegistered](/Phase2Images/IndexUserNotRegistered "IndexUserNotRegistered")
+![IndexUserNotRegistered](/Phase2Images/IndexUserNotRegistered.png "IndexUserNotRegistered")
 Index for all users
 
-![IndexUserRegistered](/Phase2Images/IndexUserRegistered "IndexUserRegistered")
+![IndexUserRegistered](/Phase2Images/IndexUserRegistered.png "IndexUserRegistered")
 Index for registered users
 
-![NewEntryUserNotRegistered](/Phase2Images/NewEntryUserNotRegistered "NewEntryUserNotRegistered")
+![NewEntryUserNotRegistered](/Phase2Images/NewEntryUserNotRegistered.png "NewEntryUserNotRegistered")
 New entry screen for no registered users
 
-![NewEntryUserRegistered](/Phase2Images/NewEntryUserRegistered "NewEntryUserRegistered")
+![NewEntryUserRegistered](/Phase2Images/NewEntryUserRegistered.png "NewEntryUserRegistered")
 New entry screen for registered users
 
-![RecommendationSystem](/Phase2Images/RecommendationSystem "RecommendationSystem")
+![RecommendationSystem](/Phase2Images/RecommendationSystem.png "RecommendationSystem")
 New recommendation system
 
-![UserAdminList](/Phase2Images/UserAdminList "UserAdminList")
+![UserAdminList](/Phase2Images/UserAdminList.png "UserAdminList")
 Admin user administration list
 
-![UserSettings](/Phase2Images/UserSettings "UserSettings")
+![UserSettings](/Phase2Images/UserSettings.png "UserSettings")
 User settings screen
 
 
