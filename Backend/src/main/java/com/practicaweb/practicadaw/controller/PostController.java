@@ -103,6 +103,19 @@ public class PostController {
                     friendListFinal.add(friend);
                 }
             }
+            for (int w = 0; w < user.getCriptocurrencies().size(); w++){
+                for (int z = 0; z < criptocurrencies.size(); z++){
+                    Criptocurrency criptocurrency = user.getCriptocurrencies().get(w);
+                    if (criptocurrency.equals(criptocurrencies.get(z))){
+                        criptocurrencies.get(z).setImage("images/star.svg");
+                    } else {
+                        if(!criptocurrencies.get(z).getImage().equals("images/star.svg")){
+                            criptocurrencies.get(z).setImage("images/starEmpty.svg");
+                        }
+
+                    }
+                }
+            }
             model.addAttribute("friends", friendListFinal);
         }
         return "criptomonedas";

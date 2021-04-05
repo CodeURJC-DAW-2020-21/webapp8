@@ -43,13 +43,10 @@
                                             <div class="row">
                                                 <div class="col-11">
                                                     <div class="media forum-item">
-                                                        <a href="#" class="card-link" data-toggle="collapse" data-target=".forum-content"><img
-                                                                src="user/{{user.idUser}}/view_image"
-                                                                class="rounded-circle" width="50" height="50" alt="User"/>
+                                                        <a><img src="user/{{user.idUser}}/view_image" class="rounded-circle" width="50" height="50" alt="User"/>
                                                             <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
                                                         <div class="media-body ml-3">
-                                                            <h6><a href="#" data-toggle="collapse"
-                                                                   data-target=".forum-content" class="text-body">{{title}}</a></h6>
+                                                            <h6><a href="#" class="text-body">{{title}}</a></h6>
                                                             <form method="post" action="/newComment" modelAttribute="comment">
                                                                 <input type="hidden" value="{{idEntry}}" name="idEntry" id="idEntry">
                                                                 <p class="text-secondary">
@@ -86,6 +83,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                {{#logged}}
                                                 <div class="col-1">
                                                     <form action="/add_friend" method="post">
                                                         <input type="hidden" value="{{user.idUser}}" name="idUser">
@@ -93,6 +91,9 @@
                                                         <input type="hidden" name="_csrf" value="{{token}}"/>
                                                     </form>
                                                 </div>
+                                                {{/logged}}
+                                                {{^logged}}
+                                                {{/logged}}
                                             </div>
 
                                         </div>
