@@ -29,31 +29,7 @@
                                     NEW DISCUSSION
                                 </button>
                             </div>
-                            <div class="inner-main-header" style="border-bottom: 1px solid #0000;">
-                                <ul class="nav nav-tabs nav-fill flex-fill d-flex flex-nowrap">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-                                           role="button" aria-haspopup="true" aria-expanded="true">Order By</a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Latest</a>
-                                            <a class="dropdown-item" href="#">Popular</a>
-                                            <a class="dropdown-item" href="#">Solved</a>
-                                            <a class="dropdown-item" href="#">Unsolved</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">No replies yet</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <b><a class="nav-link" href="#">Popular this week</a></b>
-                                    </li>
-                                    <li class="nav-item">
-                                        <b><a class="nav-link" href="#">Popular this month</a></b>
-                                    </li>
-                                </ul>
-                                <!--<a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none"
-                               href="#" data-toggle="inner-sidebar"><i
-                                    class="material-icons">arrow_forward_ios</i></a>-->
-                            </div>
+
                             <div class="container-fluid">
 
                             </div>
@@ -89,8 +65,8 @@
                                                                     <input type="hidden" name="_csrf" value="{{token}}"/>
                                                                 </div>
                                                             </form>
-                                                            <a class="small text-muted" data-toggle="collapse" href="#commentsBox">Comentarios</a>
-                                                            <div class="collapse" id="commentsBox">
+                                                            <a class="small text-muted" data-toggle="collapse" href="#commentsBox{{idEntry}}">Comentarios</a>
+                                                            <div class="collapse" id="commentsBox{{idEntry}}">
                                                                 <div class="card card-body">
                                                                     {{#comment}}
                                                                     <div class="media forum-item">
