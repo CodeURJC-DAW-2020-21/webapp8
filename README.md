@@ -97,10 +97,48 @@ If there is a server error the user will be redirected to this page.
 ### Navigation Diagram
 
 ![Navigation Diagram Image](/Phase2Images/NavigationDiagram.png "Navigation Diagram")
-
-Admin diagram added to Navigation Diagram
+New Navigation Diagram 
 
 ![Admin User List](/Phase2Images/UserList "Admin User List")
+Admin diagram added to Navigation Diagram
+
+![CommentUserRegistered](/Phase2Images/CommentUserRegistered "Forum")
+New index for registered users
+
+![CryptFav](/Phase2Images/CryptFav "CryptFav")
+Favourite Criptocurrency  
+
+![CryptosUserNotRegistered](/Phase2Images/CryptosUserNotRegistered "CryptosUserNotRegistered")
+Criptocurrency screen for all users
+
+![CrytosUserNotRegistered](/Phase2Images/CrytosUserNotRegistered "CrytosUserNotRegistered")
+Criptocurrency screen for registered users
+
+![IndexAdmin](/Phase2Images/IndexAdmin "IndexAdmin")
+New admin index
+
+![IndexUserNotRegistered](/Phase2Images/IndexUserNotRegistered "IndexUserNotRegistered")
+Index for all users
+
+![IndexUserRegistered](/Phase2Images/IndexUserRegistered "IndexUserRegistered")
+Index for registered users
+
+![NewEntryUserNotRegistered](/Phase2Images/NewEntryUserNotRegistered "NewEntryUserNotRegistered")
+New entry screen for no registered users
+
+![NewEntryUserRegistered](/Phase2Images/NewEntryUserRegistered "NewEntryUserRegistered")
+New entry screen for registered users
+
+![RecommendationSystem](/Phase2Images/RecommendationSystem "RecommendationSystem")
+New recommendation system
+
+![UserAdminList](/Phase2Images/UserAdminList "UserAdminList")
+Admin user administration list
+
+![UserSettings](/Phase2Images/UserSettings "UserSettings")
+User settings screen
+
+
 
 ### Execution Instruction
 You can download the complete code in our github link https://github.com/CodeURJC-DAW-2020-21/webapp8, build it and run it with IntelliJIdea 2020.
@@ -113,6 +151,9 @@ To see the web app you must copy this link in to your browser: https://localhost
 ### DataBase Entities Diagram
 ![Navigation Diagram Image](/Phase2Images/DatabaseDiagram.png "Database Diagram")
 
+### Class and Templates Diagram
+
+
 ### Participation
 
 In this phase we perform the application using Spring Boot. The most important upgrades that we have made are: a MySql Database for the web, a registration and login system, a user permission system and the possibility to upload images, create entries and comments.
@@ -124,13 +165,13 @@ The administrator can also delete users using a new user list and delete also th
 | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/a84aa13a65502664f89a2a2721201a2da86cd5d6) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ca003c95d2f860b42b8cc0d1eeb104d8af5ed49e) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ff86c605f1e940f646c52e26264e81295befad17) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) |[Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/636e85dd3a326b72f36ca9165a29eb7e75c7decb)  |
 | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/c7c56a3427da9bce0c1a074cfa7e9092bef5d8d0) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7b9a13407812a9d91bd5de955dbd705d6146f405) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/24d574cb605ba854b32f4a93c99a542d651d10a6) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/f6188599e0a2a18e2e01ef7647d2d8b5a0a6acb2) |[Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/de2e5d3e716e5133de2a490e2d94f1bb937bcc23)  |
 | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/792f17a1c946534850bfbdaa15b26385813f25fe) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/df110b555994d5cc1b0fa96bb7554cf16eea9e2f) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/b4f034f15d27c56035e835d1397b4a131e53e14c) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/f0c06823870e4f0f1ebff09edcda06c640f233b7) |[Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/8a13d8c7a39543010641aca5c193cdb13edf61dc)  |
-| [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/5433c1cfad3831b0129808d9b0610dc914c6292d) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) | [Commit5]()                                                                                                | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) |[Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/87829b14ac04e4475577aac2c4e70f30c33d4150)  |
+| [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/515d81a835a2d9c39d82c23eadd41ac1b30998df) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/b53ef4d8507a3013016fecf06ee74cb8e4141a55) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/eca332f999c2734897c4925ca50385e78ab6352b) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) |[Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/cf1080e3b2cfa06c70f4be995ffddde1fadb35d1)  |
 
 ### Files
 | Marcos                  | Adrián L.                | Adrián S.                       | Óscar                   | Ángel                    |
 |:-----------------------:|:------------------------:|:-------------------------------:|:-----------------------:|:------------------------:|
 | Header and footer       | RegisterController.java  | README                          | MyErrorController.java  | Models                   |
 | Index.html              | ForgotPassController.java| MyErrorController.java          | PostController.java     | Database                 |
-| UserController.java     | UserController.java      | CommentController.java          | application.properties  | UserController.java      |
-| userList.html           | password.html            | CommentService.java             | Index.html              | RegisterController.java  |
-| PostController.java     | settings.html            | CommentRepository.java          | UserService.java        | loginError.html          |
+| UserController.java     | CriptocurrencyController.java | CommentController.java     | application.properties  | UserController.java      |
+| userList.html           | password.html            | CriptocurrencyController.java   | Security                | RegisterController.java  |
+| PostController.java     | criptomonedas.html       | CommentRepository.java          | UserService.java        | loginError.html          |
