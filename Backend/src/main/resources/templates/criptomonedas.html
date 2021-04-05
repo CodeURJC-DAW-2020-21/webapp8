@@ -30,7 +30,7 @@
                                             <img src="images/miniBitcoinChart.svg" alt="grafico">
                                         </td>
                                         <td>
-                                            <input type="image" src="images/starEmpty.svg" onclick="this.src = cambia(this.src);" width="20">
+                                            <input type="image" src={{image}} onclick="this.src = cambia(this.src);"  width="20">
                                             <input type="hidden" name="_csrf" value="{{token}}"/>
                                         </td>
                                     </form>
@@ -44,10 +44,18 @@
                     <div class="card-header">
                         Recomendaciones
                     </div>
+                    <br>
                     {{#friends}}
                         <p>Porque sigues a {{name}}</p>
                         {{#recommendedCripto}}
-                            {{nameCripto}}
+                            <div>
+                                {{nameCripto}}
+                                <form method="post" action="/add_cripto">
+                                    <input type="hidden" value="{{nameCripto}}" name="nameCripto">
+                                    <input type="image" src={{image}} onclick="this.src = cambia(this.src);" width="20">
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                                </form>
+                            </div>
                                 <br>
                         {{/recommendedCripto}}
                     {{/friends}}
@@ -76,19 +84,19 @@
                 </div>
             </div>
         </main>
-        <script type="text/javascript">
-            var cuantosClicks = 0;
+<!--        <script type="text/javascript">-->
+<!--            var cuantosClicks = 0;-->
 
-            function cambia(src){
-                src = "";
-                src = "images/starEmpty.svg";
-                cuantosClicks++;
+<!--            function cambia(src){-->
+<!--                src = "";-->
+<!--                src = "images/starEmpty.svg";-->
+<!--                cuantosClicks++;-->
 
-                if(cuantosClicks % 2 === 0){
-                    return src;
-                }else{
-                    return 'images/star.svg';
-                }
-            }
-        </script>
+<!--                if(cuantosClicks % 2 === 0){-->
+<!--                    return src;-->
+<!--                }else{-->
+<!--                    return 'images/star.svg';-->
+<!--                }-->
+<!--            }-->
+<!--        </script>-->
 {{>footer}}

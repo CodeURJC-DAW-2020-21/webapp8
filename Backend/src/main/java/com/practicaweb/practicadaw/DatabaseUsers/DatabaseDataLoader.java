@@ -49,9 +49,9 @@ public class DatabaseDataLoader {
         User user1 = userRepository.save(new User(1, passwordEncoder.encode("adminpass"), "admin", "admin", "admin", "admin@admin.com", LocalDateTime.now(), "defaultImage", new ArrayList<Criptocurrency>(), "USER", "ADMIN"));
         User user2 = userRepository.save(new User(2, passwordEncoder.encode("pass"), "marcoszas", "Rodriguez", "Marcos", "marcos@gmail.com", LocalDateTime.now(), "defaultImage", new ArrayList<Criptocurrency>(), "USER"));
         User user3 = userRepository.save(new User(3, passwordEncoder.encode("pass"), "angelote", "Dominguez", "Angel", "angel@gmail.com", LocalDateTime.now(), "defaultImage", new ArrayList<Criptocurrency>(), "USER"));
-        Criptocurrency cripto1 = criptocurrencyRepository.save(new Criptocurrency(1, "Bitcoin", 40453.67));
-        Criptocurrency cripto2 = criptocurrencyRepository.save(new Criptocurrency(2, "Ethereum", 1900.67));
-        Criptocurrency cripto3 = criptocurrencyRepository.save(new Criptocurrency(3, "Badger", 27.67));
+        Criptocurrency cripto1 = criptocurrencyRepository.save(new Criptocurrency(1, "Bitcoin", 40453.67, "images/starEmpty.svg"));
+        Criptocurrency cripto2 = criptocurrencyRepository.save(new Criptocurrency(2, "Ethereum", 1900.67, "images/starEmpty.svg"));
+        Criptocurrency cripto3 = criptocurrencyRepository.save(new Criptocurrency(3, "Badger", 27.67, "images/starEmpty.svg"));
         entryRepository.save(new Entry(1, "Pues esta es la primera entrada", "Esperemos que se muestre", LocalDateTime.now(), user1));
         entryRepository.save(new Entry(2, "Esta es otra de las entradas de prueba", "Pues por lo que parece si que se muestra si jeje", LocalDateTime.now(), user2));
         entryRepository.save(new Entry(3, "Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
