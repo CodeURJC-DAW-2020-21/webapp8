@@ -27,7 +27,7 @@ public class FriendsController {
     public String add_friend(@RequestParam long idUser, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         if (principal != null) {
-            User user = userService.findByName(principal.getName());
+            User user = userService.findByName(principal.getName()).orElseThrow();
             User friend = userService.findById(idUser).orElseThrow();
             if(!friend.equals(user)){
                 if (user.getFriends().contains(friend)) {

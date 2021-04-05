@@ -7,6 +7,7 @@ import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,7 +31,7 @@ public class CriptocurrencyController {
     public String add_criptocurrency(@RequestParam String nameCripto, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         if (principal != null) {
-            User user = userService.findByName(principal.getName());
+            User user = userService.findByName(principal.getName()).orElseThrow();
             Criptocurrency cripto = criptocurrencyService.findByNameCripto(nameCripto); //¿Este serie el id de la persona que queremos seguir?
             if (user.getCriptocurrencies().contains(cripto)) {
                 user.removeCript(cripto);

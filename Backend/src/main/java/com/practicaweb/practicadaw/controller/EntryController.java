@@ -28,7 +28,7 @@ public class EntryController {
     @PostMapping("/newEntry")
     public String createEntry(@ModelAttribute Entry entry, HttpServletRequest request){
         Principal principal = request.getUserPrincipal();
-        User user = userService.findByName(principal.getName());
+        User user = userService.findByName(principal.getName()).orElseThrow();
         entry.setUser(user);
         entry.setRegistrationDate(LocalDateTime.now());
         entryService.save(entry);

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Controller
@@ -32,10 +34,11 @@ public class CommentController {
     @PostMapping("/newComment")
     public String createComment(@ModelAttribute Comment comment, HttpServletRequest request, @RequestParam("idEntry") long idEntry){
         Principal principal = request.getUserPrincipal();
-        User user = userService.findByName(principal.getName());
+        User user = userService.findByName(principal.getName()).orElseThrow();
         comment.setUser(user);
         Entry entry = entryService.findById(idEntry).orElseThrow();
         comment.setEntry(entry);
+        comment.setRegistrationDate(LocalDateTime.now());
         commentService.save(comment);
         return "redirect:/";
     }
