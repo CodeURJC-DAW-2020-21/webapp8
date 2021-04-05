@@ -11,14 +11,18 @@ public class Criptocurrency {
     private String nameCripto;
     @Column(length = 135, nullable = false)
     private double priceCripto;
+    private String image;
+//    @ManyToMany
+//    private User user;
 
     public Criptocurrency() {
     }
 
-    public Criptocurrency(long idCripto, String nameCripto, double priceCripto) {
+    public Criptocurrency(long idCripto, String nameCripto, double priceCripto, String image) {
         this.idCripto = idCripto;
         this.nameCripto = nameCripto;
         this.priceCripto = priceCripto;
+        this.image = image;
     }
 
     public long getIdCripto() {
@@ -43,5 +47,13 @@ public class Criptocurrency {
 
     public void setPriceCripto(double priceCripto) {
         this.priceCripto = priceCripto;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

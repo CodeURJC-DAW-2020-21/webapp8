@@ -23,15 +23,15 @@ public class User {
     private String email;
     @Column(length = 45, nullable = false)
     private LocalDateTime registrationDate;
-    @Lob
-    private byte[] image;
+    @Column(length = 45, nullable = false)
+    private String image;
     private String tokenPass;
     private LocalDateTime tokenCreationDate;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Comment> comments;
-    @OneToMany
+    @ManyToMany
     private List<Criptocurrency> criptocurrencies;
-    @OneToMany
+    @ManyToMany
     private List<User> friends;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Entry> entries;
@@ -39,7 +39,7 @@ public class User {
     private List<String> roles;
 
 
-    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, LocalDateTime registrationDate, byte[] image, List<Criptocurrency> criptocurrencies, String... roles) {
+    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, LocalDateTime registrationDate, String image, List<Criptocurrency> criptocurrencies, String... roles) {
         this.idUser = idUser;
         this.encodedPassword = encodedPassword;
         this.name = name;
@@ -109,11 +109,11 @@ public class User {
         this.comments = comments;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

@@ -34,8 +34,10 @@ public class CriptocurrencyController {
             Criptocurrency cripto = criptocurrencyService.findByNameCripto(nameCripto); //¿Este serie el id de la persona que queremos seguir?
             if (user.getCriptocurrencies().contains(cripto)) {
                 user.removeCript(cripto);
+                cripto.setImage("images/starEmpty.svg");
             } else {
                 user.addCript(cripto);
+                cripto.setImage("images/star.svg");
             }
             userService.save(user);
         }

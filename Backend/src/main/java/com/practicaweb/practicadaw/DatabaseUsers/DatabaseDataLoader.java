@@ -1,11 +1,8 @@
 package com.practicaweb.practicadaw.DatabaseUsers;
 
-import javax.annotation.PostConstruct;
-
-import com.practicaweb.practicadaw.Service.BitcoinService;
+import javax.annotation.PostConstruct;;
 import com.practicaweb.practicadaw.Service.UserService;
 import com.practicaweb.practicadaw.auxClasses.Auxiliar;
-import com.practicaweb.practicadaw.model.Bitcoin;
 import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
@@ -17,9 +14,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -46,13 +45,13 @@ public class DatabaseDataLoader {
     UserService userService;
 
     @PostConstruct
-    private void initDatabase() throws IOException {
-        User user1 = userRepository.save(new User(1, passwordEncoder.encode("adminpass"), "admin", "admin", "admin", "admin@admin.com", LocalDateTime.now(), userService.extractBytes(IMAGES_FOLDER + "/profileImage1.jfif"), null, "USER", "ADMIN"));
-        User user2 = userRepository.save(new User(2, passwordEncoder.encode("pass"), "marcoszas", "Rodriguez", "Marcos", "marcos@gmail.com", LocalDateTime.now(), userService.extractBytes(IMAGES_FOLDER + "/profileImage1.jfif"), null, "USER"));
-        User user3 = userRepository.save(new User(3, passwordEncoder.encode("pass"), "angelote", "Dominguez", "Angel", "angel@gmail.com", LocalDateTime.now(), userService.extractBytes(IMAGES_FOLDER + "/profileImage1.jfif"), null, "USER"));
-        Criptocurrency cripto1 = criptocurrencyRepository.save(new Criptocurrency(1, "Bitcoin", 40453.67, "BTC-USD"));
-        Criptocurrency cripto2 = criptocurrencyRepository.save(new Criptocurrency(2, "Ethereum", 1900.67, "ETH-USD"));
-        Criptocurrency cripto3 = criptocurrencyRepository.save(new Criptocurrency(3, "Badger", 27.67, "BADGER-USD"));
+    private void initDatabase() {
+        User user1 = userRepository.save(new User(1, passwordEncoder.encode("adminpass"), "admin", "admin", "admin", "admin@admin.com", LocalDateTime.now(), "defaultImage", new ArrayList<Criptocurrency>(), "USER", "ADMIN"));
+        User user2 = userRepository.save(new User(2, passwordEncoder.encode("pass"), "marcoszas", "Rodriguez", "Marcos", "marcos@gmail.com", LocalDateTime.now(), "defaultImage", new ArrayList<Criptocurrency>(), "USER"));
+        User user3 = userRepository.save(new User(3, passwordEncoder.encode("pass"), "angelote", "Dominguez", "Angel", "angel@gmail.com", LocalDateTime.now(), "defaultImage", new ArrayList<Criptocurrency>(), "USER"));
+        Criptocurrency cripto1 = criptocurrencyRepository.save(new Criptocurrency(1, "Bitcoin", 40453.67, "images/starEmpty.svg"));
+        Criptocurrency cripto2 = criptocurrencyRepository.save(new Criptocurrency(2, "Ethereum", 1900.67, "images/starEmpty.svg"));
+        Criptocurrency cripto3 = criptocurrencyRepository.save(new Criptocurrency(3, "Badger", 27.67, "images/starEmpty.svg"));
         entryRepository.save(new Entry(1, "Pues esta es la primera entrada", "Esperemos que se muestre", LocalDateTime.now(), user1));
         entryRepository.save(new Entry(2, "Esta es otra de las entradas de prueba", "Pues por lo que parece si que se muestra si jeje", LocalDateTime.now(), user2));
         entryRepository.save(new Entry(3, "Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
