@@ -22,17 +22,29 @@
                                 <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
                                     <form method="post" action="/add_cripto">
                                         <input type="hidden" value="{{nameCripto}}" id="nameCripto" name="nameCripto">
+                                        <input type="hidden" value="{{shortName}}" id="shortName" name="shortName">
                                         <th class="align-middle" scope="row">{{idCripto}}</th>
-                                        <td class="align-middle"><a href="/Bitcoin" class="text-decoration-none text-dark">{{nameCripto}}</a>
+                                        <td class="align-middle"><a href="/{{nameCripto}}" class="text-decoration-none text-dark">{{nameCripto}}</a>
                                         </td>
                                         <td class="align-middle">{{priceCripto}}US$</td>
                                         <td class="align-middle">
                                             <img src="images/miniBitcoinChart.svg" alt="grafico">
                                         </td>
+                                        {{#logged}}
                                         <td>
                                             <input type="image" src={{image}} onclick="this.src = cambia(this.src);"  width="20">
                                             <input type="hidden" name="_csrf" value="{{token}}"/>
                                         </td>
+                                        {{/logged}}
+                                        {{^logged}}
+                                        <td>
+                                            <span>
+                                                <small>
+                                                    Registrate para añadir a criptomonedas favoritas
+                                                </small>
+                                            </span>
+                                        </td>
+                                        {{/logged}}
                                     </form>
                                 </tr>
                                 {{/criptocurrencies}}
