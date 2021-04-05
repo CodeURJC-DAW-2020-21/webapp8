@@ -111,7 +111,7 @@ Favourite Criptocurrency
 ![CryptosUserNotRegistered](/Phase2Images/CryptosUserNotRegistered.png "CryptosUserNotRegistered")
 Criptocurrency screen for all users
 
-![CrytosUserNotRegistered](/Phase2Images/CrytosUserNotRegistered.png "CrytosUserNotRegistered")
+![CrytosUserNotRegistered](/Phase2Images/CrytosUserRegistered.png "CrytosUserNotRegistered")
 Criptocurrency screen for registered users
 
 ![IndexAdmin](/Phase2Images/IndexAdmin.png "IndexAdmin")
@@ -132,7 +132,7 @@ New entry screen for registered users
 ![RecommendationSystem](/Phase2Images/RecommendationSystem.png "RecommendationSystem")
 New recommendation system
 
-![UserAdminList](/Phase2Images/UserAdminList.png "UserAdminList")
+![UserAdminList](/Phase2Images/UserListAdmin.png "UserAdminList")
 Admin user administration list
 
 ![UserSettings](/Phase2Images/UserSettings.png "UserSettings")
