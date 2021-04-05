@@ -5,7 +5,11 @@ import com.practicaweb.practicadaw.auxClasses.Auxiliar;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.UserRepository;
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -70,7 +74,7 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
-    public User findByName(String name) {
+    public Optional<User> findByName(String name) {
         return userRepository.findByName(name);
     }
 
@@ -129,28 +133,11 @@ public class UserService implements UserServiceInterface {
         return diff.toMinutes() >= EXPIRE_TOKEN_AFTER_MINUTES;
     }
 
-    public byte[] extractBytes (String ImageName) throws IOException {
-        // open image
-        File imgPath = new File(ImageName);
-        BufferedImage bufferedImage = ImageIO.read(imgPath);
-
-        // get DataBufferBytes from Raster
-        WritableRaster raster = bufferedImage .getRaster();
-        DataBufferByte data   = (DataBufferByte) raster.getDataBuffer();
-
-        return ( data.getData() );
+    public void setUserImage(User user, String classpathResource) throws IOException{
+        Resource image = new ClassPathResource(classpathResource);
+        user.setImage(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
+//        userRepository.save(user);
     }
-
-//    public File ByteArrayToFile(byte[] image) throws IOException {
-//        BufferedImage bImage = ImageIO.read(new File("sample.jpg"));
-//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//        ImageIO.write(bImage, "jpg", bos);
-//        byte [] data = bos.toByteArray();
-//        ByteArrayInputStream bis = new ByteArrayInputStream(data);
-//        BufferedImage bImage2 = ImageIO.read(bis);
-//        ImageIO.write(bImage2, "jpg", new File("output.jpg") );
-//        System.out.println("image created");
-//    }
 
 
 }

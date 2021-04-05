@@ -9,11 +9,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
 @Controller
 public class RegisterController {
+
     private final UserService userService;
+    private static final Path IMAGES_FOLDER = Paths.get(System.getProperty("user.dir"), "src/main/resources/static/profileImages/");
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -24,12 +29,12 @@ public class RegisterController {
 
     // New user
     @PostMapping("/create_user")
-    public String createUser (@ModelAttribute User user, @RequestParam("confirmPassword") String confirmPassword){
+    public String createUser (@ModelAttribute User user, @RequestParam("confirmPassword") String confirmPassword) throws IOException {
         if (AuxUser.verificationPassword(user.getEncodedPassword(), confirmPassword)){
             user.setRegistrationDate(LocalDateTime.now());
             user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
             user.setRoles("USER");
-            user.setImage("defaultImage.jpg");
+            userService.setUserImage(user, "static/profileImages/defaultImage.jpg");
             userService.save(user);
             return "redirect:/login";
         }

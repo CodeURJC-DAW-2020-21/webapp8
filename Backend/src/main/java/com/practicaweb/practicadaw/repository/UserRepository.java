@@ -12,7 +12,7 @@ import java.util.Optional;
 @Qualifier("users")
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByName(String name);
+    Optional<User> findByName(String name);
     User findByEmail(String email);
     User findByTokenPass(String tokenPass);
 }

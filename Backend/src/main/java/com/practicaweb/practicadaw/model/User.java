@@ -1,6 +1,7 @@
 package com.practicaweb.practicadaw.model;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -23,8 +24,8 @@ public class User {
     private String email;
     @Column(length = 45, nullable = false)
     private LocalDateTime registrationDate;
-    @Column(length = 45, nullable = false)
-    private String image;
+    @Lob
+    private Blob image;
     private String tokenPass;
     private LocalDateTime tokenCreationDate;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
@@ -39,7 +40,7 @@ public class User {
     private List<String> roles;
 
 
-    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, LocalDateTime registrationDate, String image, List<Criptocurrency> criptocurrencies, String... roles) {
+    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, LocalDateTime registrationDate, List<Criptocurrency> criptocurrencies, String... roles) {
         this.idUser = idUser;
         this.encodedPassword = encodedPassword;
         this.name = name;
@@ -47,7 +48,7 @@ public class User {
         this.firstname = firstname;
         this.email = email;
         this.registrationDate = registrationDate;
-        this.image = image;
+//        this.image = image;
         this.roles = List.of(roles);
         this.criptocurrencies = criptocurrencies;
     }
@@ -109,11 +110,11 @@ public class User {
         this.comments = comments;
     }
 
-    public String getImage() {
+    public Blob getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Blob image) {
         this.image = image;
     }
 

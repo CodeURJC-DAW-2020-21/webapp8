@@ -32,15 +32,15 @@ public class WebController {
 
         Principal principal = request.getUserPrincipal();
 
+        List<Entry> entries = entryService.selectAll();
+        Collections.reverse(entries);
+        model.addAttribute("entries", entries);
 
         if (principal != null) {
 
             model.addAttribute("logged", true);
             model.addAttribute("userName", principal.getName());
             model.addAttribute("isAdmin", request.isUserInRole("ADMIN"));
-            List<Entry> entries = entryService.selectAll();
-            Collections.reverse(entries);
-            model.addAttribute("entries", entries);
         } else {
             model.addAttribute("logged", false);
         }
