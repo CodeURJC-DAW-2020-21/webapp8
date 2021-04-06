@@ -149,7 +149,7 @@ To see the web app you must copy this link in to your browser: https://localhost
 
 
 ### DataBase Entities Diagram
-![Navigation Diagram Image](/Phase2Images/DatabaseDiagram.png "Database Diagram")
+![Navigation Diagram Image](/Phase2Images/EntityDiagram.png "Entity Diagram")
 
 ### Class and Templates Diagram
 ![ClassAndTemplatesDiagram](/Phase2Images/ClassAndTemplatesDiagram.png "ClassAndTemplatesDiagram")
