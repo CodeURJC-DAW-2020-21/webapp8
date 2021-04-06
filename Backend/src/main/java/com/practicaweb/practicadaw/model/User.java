@@ -26,6 +26,7 @@ public class User {
     private LocalDateTime registrationDate;
     @Lob
     private Blob image;
+    private String follow;
     private String tokenPass;
     private LocalDateTime tokenCreationDate;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
@@ -40,7 +41,7 @@ public class User {
     private List<String> roles;
 
 
-    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, LocalDateTime registrationDate, List<Criptocurrency> criptocurrencies, String... roles) {
+    public User(long idUser, String encodedPassword, String name, String surname, String firstname, String email, LocalDateTime registrationDate, String follow, List<Criptocurrency> criptocurrencies, String... roles) {
         this.idUser = idUser;
         this.encodedPassword = encodedPassword;
         this.name = name;
@@ -51,6 +52,7 @@ public class User {
 //        this.image = image;
         this.roles = List.of(roles);
         this.criptocurrencies = criptocurrencies;
+        this.follow = follow;
     }
 
     public User() {
@@ -188,5 +190,13 @@ public class User {
 
     public LocalDateTime getTokenCreationDate() {
         return tokenCreationDate;
+    }
+
+    public String getFollow() {
+        return follow;
+    }
+
+    public void setFollow(String follow) {
+        this.follow = follow;
     }
 }

@@ -48,13 +48,13 @@ public class DatabaseDataLoader {
     @PostConstruct
     private void initDatabase() throws IOException {
         //Users
-        User user1 = new User(1, passwordEncoder.encode("adminpass"), "admin", "admin", "admin", "admin@admin.com", LocalDateTime.now(), null, "USER", "ADMIN");
+        User user1 = new User(1, passwordEncoder.encode("adminpass"), "admin", "admin", "admin", "admin@admin.com", LocalDateTime.now(), "images/Seguir.png",null, "USER", "ADMIN");
         userService.setUserImage(user1, "static/profileImages/defaultImage.jpg");
         userRepository.save(user1);
-        User user2 = new User(2, passwordEncoder.encode("pass"), "marcoszas", "Rodriguez", "Marcos", "marcos@gmail.com", LocalDateTime.now(), null, "USER");
+        User user2 = new User(2, passwordEncoder.encode("pass"), "marcoszas", "Rodriguez", "Marcos", "marcos@gmail.com", LocalDateTime.now(), "images/Seguir.png",null, "USER");
         userService.setUserImage(user2, "static/profileImages/profileImage2.jfif");
         userRepository.save(user2);
-        User user3 = new User(3, passwordEncoder.encode("pass"), "angelote", "Dominguez", "Angel", "angel@gmail.com", LocalDateTime.now(), null, "USER");
+        User user3 = new User(3, passwordEncoder.encode("pass"), "angelote", "Dominguez", "Angel", "angel@gmail.com", LocalDateTime.now(), "images/Seguir.png",null, "USER");
         userService.setUserImage(user3, "static/profileImages/profileImage1.jfif");
         userRepository.save(user3);
 

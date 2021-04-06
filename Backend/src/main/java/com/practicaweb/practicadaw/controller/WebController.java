@@ -2,6 +2,7 @@ package com.practicaweb.practicadaw.controller;
 
 import com.practicaweb.practicadaw.Service.CriptocurrencyService;
 import com.practicaweb.practicadaw.Service.EntryService;
+import com.practicaweb.practicadaw.Service.UserService;
 import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
@@ -30,6 +31,9 @@ public class WebController {
     private final int DEFAULT_SIZE_PAGE = 10;
     @Autowired
     EntryService entryService;
+
+    @Autowired
+    UserService userService;
 
 
     @ModelAttribute
@@ -61,7 +65,15 @@ public class WebController {
     }
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        if (principal != null) {
+            User user = userService.findByName(principal.getName()).orElseThrow();
+            for(int i = 0; i< user.getFriends().size();i++){
+                user.getFriends().get(i).setFollow("images/DejarDeSeguir.png");
+            }
+            user.setFollow("images/blank.png");
+        }
         return "index";
     }
 
