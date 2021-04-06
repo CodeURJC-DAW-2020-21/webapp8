@@ -5,6 +5,8 @@ import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
 import com.practicaweb.practicadaw.repository.EntryRepository;
 import com.practicaweb.practicadaw.repository.UserRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -32,8 +34,8 @@ public class EntryService implements EntryServiceInterface {
     }
 
     @Override
-    public List<Entry> selectAll() {
-        return entryRepository.findAll();
+    public Page<Entry> selectAll(Pageable page) {
+        return entryRepository.findAll(page);
     }
 
     @Override

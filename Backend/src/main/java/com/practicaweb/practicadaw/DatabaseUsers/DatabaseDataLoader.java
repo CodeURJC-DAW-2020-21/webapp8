@@ -60,8 +60,17 @@ public class DatabaseDataLoader {
         Criptocurrency cripto1 = criptocurrencyRepository.save(new Criptocurrency(1, "Bitcoin", 40453.67, "BTC-USD", "images/starEmpty.svg"));
         Criptocurrency cripto2 = criptocurrencyRepository.save(new Criptocurrency(2, "Ethereum", 1900.67, "ETH-USD", "images/starEmpty.svg"));
         Criptocurrency cripto3 = criptocurrencyRepository.save(new Criptocurrency(3, "Badger", 27.67, "BADGER-USD", "images/starEmpty.svg"));
-        entryRepository.save(new Entry(1, "Pues esta es la primera entrada", "Esperemos que se muestre", LocalDateTime.now(), user1));
-        entryRepository.save(new Entry(2, "Esta es otra de las entradas de prueba", "Pues por lo que parece si que se muestra si jeje", LocalDateTime.now(), user2));
-        entryRepository.save(new Entry(3, "Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
+        entryRepository.save(new Entry(1, "1 Pues esta es la primera entrada", "Esperemos que se muestre", LocalDateTime.now(), user1));
+        entryRepository.save(new Entry(2, "2 Esta es otra de las entradas de prueba", "Pues por lo que parece si que se muestra si jeje", LocalDateTime.now(), user2));
+        entryRepository.save(new Entry(3, "3 Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
+        entryRepository.save(new Entry(4, "4 Pues esta es la primera entrada", "Esperemos que se muestre", LocalDateTime.now(), user1));
+        entryRepository.save(new Entry(5, "5 Esta es otra de las entradas de prueba", "Pues por lo que parece si que se muestra si jeje", LocalDateTime.now(), user2));
+        entryRepository.save(new Entry(6, "6 Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
+        entryRepository.save(new Entry(7, "7 Pues esta es la primera entrada", "Esperemos que se muestre", LocalDateTime.now(), user1));
+        entryRepository.save(new Entry(8, "8 Esta es otra de las entradas de prueba", "Pues por lo que parece si que se muestra si jeje", LocalDateTime.now(), user2));
+        entryRepository.save(new Entry(9, "9 Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
+        entryRepository.save(new Entry(10, "10 Pues esta es la primera entrada", "Esperemos que se muestre", LocalDateTime.now(), user1));
+        entryRepository.save(new Entry(11, "11 Esta es otra de las entradas de prueba", "Pues por lo que parece si que se muestra si jeje", LocalDateTime.now(), user2));
+        entryRepository.save(new Entry(12, "12 Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
     }
 }

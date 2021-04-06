@@ -38,38 +38,123 @@
                             <!-- Forum List -->
                             <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
                                 {{#entries}}
+                                <div class="card mb-2">
+                                    <div class="card-body p-2 p-sm-3">
+                                        <div class="row">
+                                            <div class="col-11">
+                                                <div class="media forum-item">
+                                                    <a><img src="user/{{user.idUser}}/view_image" class="rounded-circle"
+                                                            width="50" height="50" alt="User"/>
+                                                        <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
+                                                    <div class="media-body ml-3">
+                                                        <h6><a href="#" class="text-body">{{title}}</a></h6>
+                                                        <form method="post" action="/newComment"
+                                                              modelAttribute="comment">
+                                                            <input type="hidden" value="{{idEntry}}" name="idEntry"
+                                                                   id="idEntry">
+                                                            <p class="text-secondary">
+                                                                {{description}}
+                                                            </p>
+                                                            <div class="row">
+                                                                <div class="col-9">
+                                                                    <input type="text" class="form-control"
+                                                                           name="descriptionComment"
+                                                                           placeholder="Responder">
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <input type="submit" class="btn-primary"
+                                                                           value="Publicar">
+                                                                </div>
+                                                                <input type="hidden" name="_csrf" value="{{token}}"/>
+                                                            </div>
+                                                        </form>
+                                                        <a class="small text-muted" data-toggle="collapse"
+                                                           href="#commentsBox{{idEntry}}">Comentarios</a>
+                                                        <div class="collapse" id="commentsBox{{idEntry}}">
+                                                            <div class="card card-body">
+                                                                {{#comment}}
+                                                                <div class="media forum-item">
+                                                                    <a href="#" class="card-link"><img
+                                                                            src="user/{{user.idUser}}/view_image"
+                                                                            class="rounded-circle" width="50"
+                                                                            height="50" alt="User"/>
+                                                                        <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
+                                                                    <div class="media-body ml-3">
+                                                                        <p class="text-secondary">
+                                                                            {{descriptionComment}}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                {{/comment}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{#logged}}
+                                            <div class="col-1">
+                                                <form action="/add_friend" method="post">
+                                                    <input type="hidden" value="{{user.idUser}}" name="idUser">
+                                                    <input type="submit" class="btn-primary" value="Seguir">
+                                                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                                                </form>
+                                            </div>
+                                            {{/logged}}
+                                            {{^logged}}
+                                            {{/logged}}
+                                        </div>
+
+                                    </div>
+                                </div>
+                                {{/entries}}
+                                <!-- Commentary modal -->
+                                <div id="moreEntriesDiv" style="display: none">
+                                    {{#moreEntries}}
                                     <div class="card mb-2">
                                         <div class="card-body p-2 p-sm-3">
                                             <div class="row">
                                                 <div class="col-11">
                                                     <div class="media forum-item">
-                                                        <a><img src="user/{{user.idUser}}/view_image" class="rounded-circle" width="50" height="50" alt="User"/>
+                                                        <a href="#" class="card-link" data-toggle="collapse"
+                                                           data-target=".forum-content"><img
+                                                                src="user/{{user.idUser}}/view_image"
+                                                                class="rounded-circle" width="50" height="50"
+                                                                alt="User"/>
                                                             <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
                                                         <div class="media-body ml-3">
-                                                            <h6><a href="#" class="text-body">{{title}}</a></h6>
-                                                            <form method="post" action="/newComment" modelAttribute="comment">
-                                                                <input type="hidden" value="{{idEntry}}" name="idEntry" id="idEntry">
+                                                            <h6><a href="#" data-toggle="collapse"
+                                                                   data-target=".forum-content"
+                                                                   class="text-body">{{title}}</a></h6>
+                                                            <form method="post" action="/newComment"
+                                                                  modelAttribute="comment">
+                                                                <input type="hidden" value="{{idEntry}}" name="idEntry">
                                                                 <p class="text-secondary">
                                                                     {{description}}
                                                                 </p>
                                                                 <div class="row">
                                                                     <div class="col-9">
-                                                                        <input type="text" class="form-control" name="descriptionComment" placeholder="Responder">
+                                                                        <input type="text" class="form-control"
+                                                                               name="descriptionComment"
+                                                                               placeholder="Responder">
                                                                     </div>
                                                                     <div class="col-3">
-                                                                        <input type="submit" class="btn-primary" value="Publicar">
+                                                                        <input type="submit" class="btn-primary"
+                                                                               value="Publicar">
                                                                     </div>
-                                                                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                                                                    <input type="hidden" name="_csrf"
+                                                                           value="{{token}}"/>
                                                                 </div>
                                                             </form>
-                                                            <a class="small text-muted" data-toggle="collapse" href="#commentsBox{{idEntry}}">Comentarios</a>
-                                                            <div class="collapse" id="commentsBox{{idEntry}}">
+                                                            <a class="small text-muted"
+                                                               data-toggle="collapse">Comentarios</a>
+                                                            <div class="collapse">
                                                                 <div class="card card-body">
                                                                     {{#comment}}
                                                                     <div class="media forum-item">
                                                                         <a href="#" class="card-link"><img
                                                                                 src="user/{{user.idUser}}/view_image"
-                                                                                class="rounded-circle" width="50" height="50" alt="User"/>
+                                                                                class="rounded-circle" width="50"
+                                                                                height="50" alt="User"/>
                                                                             <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
                                                                         <div class="media-body ml-3">
                                                                             <p class="text-secondary">
@@ -83,7 +168,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{#logged}}
                                                 <div class="col-1">
                                                     <form action="/add_friend" method="post">
                                                         <input type="hidden" value="{{user.idUser}}" name="idUser">
@@ -91,31 +175,70 @@
                                                         <input type="hidden" name="_csrf" value="{{token}}"/>
                                                     </form>
                                                 </div>
-                                                {{/logged}}
-                                                {{^logged}}
-                                                {{/logged}}
                                             </div>
 
                                         </div>
                                     </div>
-                                {{/entries}}
-                                <!-- Commentary modal -->
-
-                            <!-- /Forum List -->
-<!--                            <div class="text-center mb-4" id="loadMore">-->
-<!--                                <button class="btn btn-primary">Cargar más</button>-->
-<!--                            </div>-->
-                        </div>
-                        <!-- New Thread Modal -->
-                        <div class="modal fade" id="threadModal" tabindex="-1" role="dialog"
-                             aria-labelledby="threadModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    {{#logged}}
-                                    <form method="post" action="/newEntry" modelAttribute="entry">
+                                    {{/moreEntries}}
+                                </div>
+                                <!-- /Forum List -->
+                                <div class="text-center mb-4">
+                                    <button class="btn btn-primary" id="moreEntriesbtn">Cargar mas</button>
+                                </div>
+                            </div>
+                            <!-- New Thread Modal -->
+                            <div class="modal fade" id="threadModal" tabindex="-1" role="dialog"
+                                 aria-labelledby="threadModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        {{#logged}}
+                                        <form method="post" action="/newEntry" modelAttribute="entry">
+                                            <div
+                                                    class="modal-header d-flex align-items-center bg-primary text-white">
+                                                <h6 class="modal-title mb-0">Nueva Entrada
+                                                </h6>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label for="title">Título</label>
+                                                    <input type="text" class="form-control" id="title"
+                                                           name="title"
+                                                           placeholder="Introduzca un título" autofocus=""/>
+                                                </div>
+                                                <textarea class="form-control summernote"
+                                                          style="display: none;"></textarea>
+                                                <div class="form-group">
+                                                    <label for="description">Descripción</label>
+                                                    <textarea class="form-control" id="description"
+                                                              name="description"
+                                                              placeholder="Introduzca una descripción"
+                                                              rows="3"></textarea>
+                                                </div>
+                                                <div class="custom-file form-control-sm mt-3"
+                                                     style="max-width: 300px;">
+                                                    <input type="file" class="custom-file-input"
+                                                           multiple=""/>
+                                                    <label class="custom-file-label"
+                                                           for="customFile">Archivos</label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light"
+                                                        data-dismiss="modal">Cancelar
+                                                </button>
+                                                <input type="submit" class="btn btn-primary" value="Publicar"/>
+                                                <input type="hidden" name="_csrf" value="{{token}}"/>
+                                            </div>
+                                        </form>
+                                        {{/logged}}
+                                        {{^logged}}
                                         <div
                                                 class="modal-header d-flex align-items-center bg-primary text-white">
-                                            <h6 class="modal-title mb-0">Nueva Entrada
+                                            <h6 class="modal-title mb-0" id="threadModalLabel">Nueva Entrada
                                             </h6>
                                             <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
@@ -123,57 +246,16 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="form-group">
-                                                <label for="title">Título</label>
-                                                <input type="text" class="form-control" id="title"
-                                                       name="title"
-                                                       placeholder="Introduzca un título" autofocus=""/>
-                                            </div>
-                                            <textarea class="form-control summernote"
-                                                      style="display: none;"></textarea>
-                                            <div class="form-group">
-                                                <label for="description">Descripción</label>
-                                                <textarea class="form-control" id="description"
-                                                          name="description"
-                                                          placeholder="Introduzca una descripción" rows="3"></textarea>
-                                            </div>
-                                            <div class="custom-file form-control-sm mt-3"
-                                                 style="max-width: 300px;">
-                                                <input type="file" class="custom-file-input"
-                                                       multiple=""/>
-                                                <label class="custom-file-label"
-                                                       for="customFile">Archivos</label>
-                                            </div>
+                                            <p class="text-center">Por favor identifícate para crear una nueva
+                                                entrada.</p>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light"
-                                                    data-dismiss="modal">Cancelar
-                                            </button>
-                                            <input type="submit" class="btn btn-primary" value="Publicar"/>
-                                            <input type="hidden" name="_csrf" value="{{token}}"/>
-                                        </div>
-                                    </form>
-                                    {{/logged}}
-                                    {{^logged}}
-                                    <div
-                                            class="modal-header d-flex align-items-center bg-primary text-white">
-                                        <h6 class="modal-title mb-0" id="threadModalLabel">Nueva Entrada
-                                        </h6>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
+                                        {{/logged}}
                                     </div>
-                                    <div class="modal-body">
-                                        <p class="text-center">Por favor identifícate para crear una nueva entrada.</p>
-                                    </div>
-                                    {{/logged}}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </main>
     {{>footer}}

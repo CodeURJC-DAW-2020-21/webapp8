@@ -9,6 +9,10 @@ import com.practicaweb.practicadaw.repository.EntryRepository;
 import com.practicaweb.practicadaw.repository.UserRepository;
 import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +27,7 @@ import java.util.List;
 @Controller
 public class WebController {
 
+    private final int DEFAULT_SIZE_PAGE = 10;
     @Autowired
     EntryService entryService;
 
@@ -31,10 +36,14 @@ public class WebController {
     public void addAttributes(Model model, HttpServletRequest request) {
 
         Principal principal = request.getUserPrincipal();
-
-        List<Entry> entries = entryService.selectAll();
-        Collections.reverse(entries);
+        int pageToFind = 0;
+        Pageable page = PageRequest.of(pageToFind, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());
+        Page<Entry> entries = entryService.selectAll(page);
         model.addAttribute("entries", entries);
+        page = PageRequest.of(1, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());
+        entries = entryService.selectAll(page);
+        model.addAttribute("moreEntries", entries);
+        model.addAttribute("pageToFind", pageToFind + 1);
 
         if (principal != null) {
 
