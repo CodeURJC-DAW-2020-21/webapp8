@@ -39,7 +39,12 @@ public class WebController {
         int pageToFind = 0;
         Pageable page = PageRequest.of(pageToFind, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());
         Page<Entry> entries = entryService.selectAll(page);
+        long elements = entries.getTotalElements();
         model.addAttribute("entries", entries);
+        if (elements <= 10)
+            model.addAttribute("showBtn", "display: none");
+        else
+            model.addAttribute("showBtn", "display: block");
         page = PageRequest.of(1, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());
         entries = entryService.selectAll(page);
         model.addAttribute("moreEntries", entries);

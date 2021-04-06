@@ -71,6 +71,6 @@ public class DatabaseDataLoader {
         entryRepository.save(new Entry(9, "9 Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
         entryRepository.save(new Entry(10, "10 Pues esta es la primera entrada", "Esperemos que se muestre", LocalDateTime.now(), user1));
         entryRepository.save(new Entry(11, "11 Esta es otra de las entradas de prueba", "Pues por lo que parece si que se muestra si jeje", LocalDateTime.now(), user2));
-        entryRepository.save(new Entry(12, "12 Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
+//        entryRepository.save(new Entry(12, "12 Esta es la entrada escrita por el usuario de angel", "Asi es soy la entrada escrita por angel", LocalDateTime.now(), user3));
     }
 }

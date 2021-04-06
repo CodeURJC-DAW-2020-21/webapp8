@@ -169,11 +169,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-1">
+                                                    {{#logged}}
                                                     <form action="/add_friend" method="post">
                                                         <input type="hidden" value="{{user.idUser}}" name="idUser">
                                                         <input type="submit" class="btn-primary" value="Seguir">
                                                         <input type="hidden" name="_csrf" value="{{token}}"/>
                                                     </form>
+                                                    {{/logged}}
+                                                    {{^logged}}
+                                                    {{/logged}}
                                                 </div>
                                             </div>
 
@@ -183,7 +187,7 @@
                                 </div>
                                 <!-- /Forum List -->
                                 <div class="text-center mb-4">
-                                    <button class="btn btn-primary" id="moreEntriesbtn">Cargar mas</button>
+                                    <button class="btn btn-primary" id="moreEntriesbtn" style="{{showBtn}}">Cargar mas</button>
                                 </div>
                             </div>
                             <!-- New Thread Modal -->
