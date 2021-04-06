@@ -141,10 +141,15 @@ public class PostController {
 
     @GetMapping("/Bitcoin")
     public String bitcoin(Model model) throws Exception{
-        Map<Integer, Integer> graphData = new TreeMap<>();
+        List<Double> graphData = new ArrayList<>();
         JSONArray data = bitcoinService.fetchCoinPrices("https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=10&interval=daily");
-//        for(int i = 0; i <)
-//        model.addAttribute("amount", coin.getAmount());
+
+        for(int i = 0; i < data.length(); i++){
+            JSONArray dataList = (JSONArray) data.get(i);
+            Double d = (Double) dataList.get(1);
+            graphData.add(d);
+        }
+        model.addAttribute("chartData", graphData);
         return "Bitcoin";
     }
 
