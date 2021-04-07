@@ -1,16 +1,24 @@
 package com.practicaweb.practicadaw.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 public class Comment {
+
+    public interface Basic{}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(Basic.class)
     private long idComment;
     @Column(length = 145, nullable = false)
+    @JsonView(Basic.class)
     private String descriptionComment;
+    @JsonView(Basic.class)
     private LocalDateTime registrationDate;
     @ManyToOne
     private User user;

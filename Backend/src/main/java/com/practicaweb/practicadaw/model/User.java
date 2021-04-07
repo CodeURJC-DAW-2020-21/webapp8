@@ -1,5 +1,9 @@
 package com.practicaweb.practicadaw.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+
 import javax.persistence.*;
 import java.sql.Blob;
 import java.time.LocalDate;
@@ -10,32 +14,46 @@ import java.util.List;
 @Entity
 public class User {
 
+    public interface Basic{}
+    public interface Entries{}
+    public interface Comments{}
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonView(Basic.class)
     private long idUser;
     private String encodedPassword;
     @Column(length = 135, nullable = false, unique = true)
+    @JsonView(Basic.class)
     private String name;
     @Column(length = 135, nullable = false)
+    @JsonView(Basic.class)
     private String surname;
     @Column(length = 45, nullable = false)
+    @JsonView(Basic.class)
     private String firstname;
     @Column(length = 135, nullable = false)
+    @JsonView(Basic.class)
     private String email;
     @Column(length = 45, nullable = false)
+    @JsonView(Basic.class)
     private LocalDateTime registrationDate;
     @Lob
+//    @JsonIgnore
     private Blob image;
+
     private String follow;
     private String tokenPass;
     private LocalDateTime tokenCreationDate;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
+    @JsonView(Comments.class)
     private List<Comment> comments;
     @ManyToMany
     private List<Criptocurrency> criptocurrencies;
     @ManyToMany
     private List<User> friends;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
+    @JsonView(Entries.class)
     private List<Entry> entries;
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;

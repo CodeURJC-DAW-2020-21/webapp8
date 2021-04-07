@@ -1,5 +1,7 @@
 package com.practicaweb.practicadaw.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -7,15 +9,22 @@ import java.util.List;
 
 @Entity
 public class Entry {
+
+    public interface Basic{}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(Basic.class)
     private long idEntry;
     @Column(length = 200, nullable = false)
+    @JsonView(Basic.class)
     private String title;
     @Column(length = 500, nullable = false)
+    @JsonView(Basic.class)
     private String description;
     @Column(length = 45, nullable = false)
     private int number_of_visits;
+    @JsonView(Basic.class)
     private LocalDateTime registrationDate;
     @ManyToOne
     private User user;

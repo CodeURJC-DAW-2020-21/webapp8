@@ -37,6 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/criptomonedas").permitAll();
         http.authorizeRequests().antMatchers("/Bitcoin").permitAll();
         http.authorizeRequests().antMatchers("/getPagedEntries").permitAll();
+        http.authorizeRequests().antMatchers("/api/*").permitAll();
 
         // Error pages
         http.authorizeRequests().antMatchers("/404").permitAll();
