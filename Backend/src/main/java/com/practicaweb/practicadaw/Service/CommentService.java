@@ -8,6 +8,7 @@ import com.practicaweb.practicadaw.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class CommentService implements CommentServiceInterface {
@@ -37,6 +38,11 @@ public class CommentService implements CommentServiceInterface {
     @Transactional
     public void deleteCommentByIdeEntry(long idEntry) {
         commentRepository.deleteCommentByIdEntry(idEntry);
+    }
+
+    @Override
+    public List<Comment> selectAll(){
+        return commentRepository.findAll();
     }
 
 }
