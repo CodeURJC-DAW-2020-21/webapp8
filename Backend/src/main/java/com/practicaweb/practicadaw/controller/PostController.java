@@ -1,12 +1,7 @@
 package com.practicaweb.practicadaw.controller;
 
-import com.practicaweb.practicadaw.Service.BitcoinService;
-import com.practicaweb.practicadaw.Service.CriptocurrencyService;
-import com.practicaweb.practicadaw.Service.EntryService;
-import com.practicaweb.practicadaw.Service.UserService;
-import com.practicaweb.practicadaw.model.Bitcoin;
-import com.practicaweb.practicadaw.model.Criptocurrency;
-import com.practicaweb.practicadaw.model.User;
+import com.practicaweb.practicadaw.Service.*;
+import com.practicaweb.practicadaw.model.*;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +26,9 @@ public class PostController {
 
     @Autowired
     BitcoinService bitcoinService;
+
+    @Autowired
+    CommentService commentService;
 
     private RestTemplate restTemplate = new RestTemplate();
 
