@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class RegisterController {
@@ -33,7 +35,9 @@ public class RegisterController {
         if (AuxUser.verificationPassword(user.getEncodedPassword(), confirmPassword)){
             user.setRegistrationDate(LocalDateTime.now());
             user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
-            user.setRoles("USER");
+            List<String> roles = new ArrayList<>();
+            roles.add("USER");
+            user.setRoles(roles);
             userService.setUserImage(user, "static/profileImages/defaultImage.jpg");
             userService.save(user);
             return "redirect:/login";

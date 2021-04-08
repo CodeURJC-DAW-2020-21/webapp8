@@ -38,8 +38,7 @@ public class User {
     @Column(length = 45, nullable = false)
     @JsonView(Basic.class)
     private LocalDateTime registrationDate;
-    @Lob
-//    @JsonIgnore
+    @Lob @javax.persistence.Basic(fetch = FetchType.LAZY)
     private Blob image;
 
     private String follow;
@@ -150,8 +149,8 @@ public class User {
         return roles;
     }
 
-    public void setRoles(String... roles) {
-        this.roles = List.of(roles);
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 
     public List<Criptocurrency> getCriptocurrencies() {

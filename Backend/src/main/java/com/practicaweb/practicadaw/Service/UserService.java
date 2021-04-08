@@ -1,6 +1,7 @@
 package com.practicaweb.practicadaw.Service;
 
 import com.practicaweb.practicadaw.ServiceInterfaces.UserServiceInterface;
+import com.practicaweb.practicadaw.api.user.UserDTO;
 import com.practicaweb.practicadaw.auxClasses.Auxiliar;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
@@ -12,6 +13,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import javax.transaction.Transactional;
@@ -23,8 +25,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -50,6 +54,11 @@ public class UserService implements UserServiceInterface {
     @Transactional
     public User save(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public void delete(User user){
+        userRepository.delete(user);
     }
 
     @Override
@@ -136,8 +145,40 @@ public class UserService implements UserServiceInterface {
     public void setUserImage(User user, String classpathResource) throws IOException{
         Resource image = new ClassPathResource(classpathResource);
         user.setImage(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
-//        userRepository.save(user);
     }
 
+    public void updateUserImage(User user, MultipartFile image) throws IOException, SQLException {
+        if(!image.isEmpty()){
+            user.setImage(BlobProxy.generateProxy(image.getInputStream(), image.getSize()));
+        } else {
+            User userDB = findById(user.getIdUser()).orElseThrow();
+            if (userDB.getImage().length() == 0){
+                user.setImage(BlobProxy.generateProxy(userDB.getImage().getBinaryStream(), userDB.getImage().length()));
+            }
+        }
+    }
+
+    public void createUser(User user) throws IOException {
+
+        user.setRegistrationDate(LocalDateTime.now());
+
+        user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
+
+        List<String> roles = new ArrayList<>();
+        roles.add("USER");
+        user.setRoles(roles);
+        user.setFollow("/images/Seguir.png");
+
+        Resource image = new ClassPathResource("/static/profileImages/defaultImage.jpg");
+        user.setImage(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
+        userRepository.save(user);
+    }
+
+    public User updateUser(User user, UserDTO userDTO) throws SQLException, IOException {
+        user.setFirstname(userDTO.getFirstname());
+        user.setSurname(userDTO.getSurname());
+        updateUserImage(user, userDTO.getImage());
+        return userRepository.save(user);
+    }
 
 }

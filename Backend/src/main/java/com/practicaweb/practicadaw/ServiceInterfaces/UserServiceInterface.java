@@ -13,4 +13,5 @@ public interface UserServiceInterface {
     List<User> selectAll();
     void deleteUserById(long IdUser);
     Optional<User> findByName (String name);
+    void delete(User user);
 }
