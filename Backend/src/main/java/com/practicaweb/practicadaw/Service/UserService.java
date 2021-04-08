@@ -175,8 +175,16 @@ public class UserService implements UserServiceInterface {
     }
 
     public User updateUser(User user, UserDTO userDTO) throws SQLException, IOException {
-        user.setFirstname(userDTO.getFirstname());
-        user.setSurname(userDTO.getSurname());
+        if (userDTO.getFirstname() != null){
+            user.setFirstname(userDTO.getFirstname());
+        } else {
+            user.setFirstname(user.getFirstname());
+        }
+        if (userDTO.getSurname() != null){
+            user.setSurname(userDTO.getSurname());
+        } else {
+            user.setSurname(user.getSurname());
+        }
         updateUserImage(user, userDTO.getImage());
         return userRepository.save(user);
     }
