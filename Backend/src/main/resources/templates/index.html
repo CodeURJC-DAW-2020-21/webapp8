@@ -37,94 +37,18 @@
                             <!-- Entries with mustache -->
                             <!-- Forum List -->
                             <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
-                                {{#entries}}
-                                <div class="card mb-2">
-                                    <div class="card-body p-2 p-sm-3">
-                                        <div class="row">
-                                            <div class="col-11">
-                                                <div class="media forum-item">
-                                                    <a><img src="user/{{user.idUser}}/view_image" class="rounded-circle"
-                                                            width="50" height="50" alt="User"/>
-                                                        <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
-                                                    <div class="media-body ml-3">
-                                                        <h6><a href="#" class="text-body">{{title}}</a></h6>
-                                                        <form method="post" action="/newComment"
-                                                              modelAttribute="comment">
-                                                            <input type="hidden" value="{{idEntry}}" name="idEntry"
-                                                                   id="idEntry">
-                                                            <p class="text-secondary">
-                                                                {{description}}
-                                                            </p>
-                                                            <div class="row">
-                                                                <div class="col-9">
-                                                                    <input type="text" class="form-control"
-                                                                           name="descriptionComment"
-                                                                           placeholder="Responder">
-                                                                </div>
-                                                                <div class="col-3">
-                                                                    <input type="submit" class="btn-primary"
-                                                                           value="Publicar">
-                                                                </div>
-                                                                <input type="hidden" name="_csrf" value="{{token}}"/>
-                                                            </div>
-                                                        </form>
-                                                        <a class="small text-muted" data-toggle="collapse"
-                                                           href="#commentsBox{{idEntry}}">Comentarios</a>
-                                                        <div class="collapse" id="commentsBox{{idEntry}}">
-                                                            <div class="card card-body">
-                                                                {{#comment}}
-                                                                <div class="media forum-item">
-                                                                    <a href="#" class="card-link"><img
-                                                                            src="user/{{user.idUser}}/view_image"
-                                                                            class="rounded-circle" width="50"
-                                                                            height="50" alt="User"/>
-                                                                        <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
-                                                                    <div class="media-body ml-3">
-                                                                        <p class="text-secondary">
-                                                                            {{descriptionComment}}
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                {{/comment}}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {{#logged}}
-                                            <div class="col-1">
-                                                <form action="/add_friend" method="post">
-                                                    <input type="hidden" value="{{user.idUser}}" name="idUser">
-                                                    <input type="image" src={{user.follow}} width="100">
-                                                    <input type="hidden" name="_csrf" value="{{token}}"/>
-                                                </form>
-                                            </div>
-                                            {{/logged}}
-                                            {{^logged}}
-                                            {{/logged}}
-                                        </div>
-
-                                    </div>
-                                </div>
-                                {{/entries}}
-                                <!-- Commentary modal -->
-                                <div id="moreEntriesDiv" style="display: none">
-                                    {{#moreEntries}}
+                                <div id="entries">
+                                    {{#entries}}
                                     <div class="card mb-2">
                                         <div class="card-body p-2 p-sm-3">
                                             <div class="row">
                                                 <div class="col-11">
                                                     <div class="media forum-item">
-                                                        <a href="#" class="card-link" data-toggle="collapse"
-                                                           data-target=".forum-content"><img
-                                                                src="user/{{user.idUser}}/view_image"
-                                                                class="rounded-circle" width="50" height="50"
-                                                                alt="User"/>
+                                                        <a><img src="user/{{user.idUser}}/view_image" class="rounded-circle"
+                                                                width="50" height="50" alt="User"/>
                                                             <small class="d-block text-center text-muted">{{user.firstname}}</small></a>
                                                         <div class="media-body ml-3">
-                                                            <h6><a href="#" data-toggle="collapse"
-                                                                   data-target=".forum-content"
-                                                                   class="text-body">{{title}}</a></h6>
+                                                            <h6><a href="#" class="text-body">{{title}}</a></h6>
                                                             <form method="post" action="/newComment"
                                                                   modelAttribute="comment">
                                                                 <input type="hidden" value="{{idEntry}}" name="idEntry">
@@ -141,8 +65,7 @@
                                                                         <input type="submit" class="btn-primary"
                                                                                value="Publicar">
                                                                     </div>
-                                                                    <input type="hidden" name="_csrf"
-                                                                           value="{{token}}"/>
+                                                                    <input type="hidden" name="_csrf" value="{{token}}"/>
                                                                 </div>
                                                             </form>
                                                             <a class="small text-muted" data-toggle="collapse"
@@ -168,26 +91,27 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                {{#logged}}
                                                 <div class="col-1">
-                                                    {{#logged}}
                                                     <form action="/add_friend" method="post">
                                                         <input type="hidden" value="{{user.idUser}}" name="idUser">
                                                         <input type="image" src={{user.follow}} width="100">
                                                         <input type="hidden" name="_csrf" value="{{token}}"/>
                                                     </form>
-                                                    {{/logged}}
-                                                    {{^logged}}
-                                                    {{/logged}}
                                                 </div>
+                                                {{/logged}}
+                                                {{^logged}}
+                                                {{/logged}}
                                             </div>
 
                                         </div>
                                     </div>
-                                    {{/moreEntries}}
-                                </div>
-                                <!-- /Forum List -->
-                                <div class="text-center mb-4">
-                                    <button class="btn btn-primary" id="moreEntriesbtn" style="{{showBtn}}">Cargar mas</button>
+                                    {{/entries}}
+                                    <div id="moreEntries">
+                                        <div class="text-center mb-4">
+                                            <button class="btn btn-primary" id="moreEntriesbtn" style="{{showBtn}}" onclick="ajaxGet({{pageToFind}})">Cargar mas {{pageToFind}}</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- New Thread Modal -->

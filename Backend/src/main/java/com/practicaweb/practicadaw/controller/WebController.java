@@ -1,15 +1,9 @@
 package com.practicaweb.practicadaw.controller;
 
-import com.practicaweb.practicadaw.Service.CriptocurrencyService;
 import com.practicaweb.practicadaw.Service.EntryService;
 import com.practicaweb.practicadaw.Service.UserService;
-import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
-import com.practicaweb.practicadaw.repository.EntryRepository;
-import com.practicaweb.practicadaw.repository.UserRepository;
-import org.dom4j.rule.Mode;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,41 +15,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @Controller
 public class WebController {
 
-    private final int DEFAULT_SIZE_PAGE = 10;
-    @Autowired
-    EntryService entryService;
+    private final int DEFAULT_SIZE_PAGE = 5;
+    final EntryService entryService;
+    final UserService userService;
 
-    @Autowired
-    UserService userService;
+    public WebController(EntryService entryService, UserService userService) {
+        this.entryService = entryService;
+        this.userService = userService;
+    }
 
 
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {
-
         Principal principal = request.getUserPrincipal();
-        int pageToFind = 0;
-        Pageable page = PageRequest.of(pageToFind, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());
-        Page<Entry> entries = entryService.selectAll(page);
-        long elements = entries.getTotalElements();
-        model.addAttribute("entries", entries);
-        if (elements <= 10)
-            model.addAttribute("showBtn", "display: none");
-        else
-            model.addAttribute("showBtn", "display: block");
-        page = PageRequest.of(1, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());
-        entries = entryService.selectAll(page);
-        model.addAttribute("moreEntries", entries);
-        model.addAttribute("pageToFind", pageToFind + 1);
-
         if (principal != null) {
-
             model.addAttribute("logged", true);
             model.addAttribute("userName", principal.getName());
             model.addAttribute("isAdmin", request.isUserInRole("ADMIN"));
@@ -65,8 +42,18 @@ public class WebController {
     }
 
     @GetMapping("/")
-    public String index(Model model, HttpServletRequest request) {
+    public String index(Model model, HttpServletRequest request, Pageable page) {
         Principal principal = request.getUserPrincipal();
+        int pageAux = page.getPageNumber();
+        page = PageRequest.of(pageAux, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());
+        Page<Entry> entries = entryService.selectPageable(page);
+        model.addAttribute("entries", entries);
+        model.addAttribute("pageToFind", page.getPageNumber() + 1);
+        long elements = entries.getNumberOfElements();
+        if (elements < DEFAULT_SIZE_PAGE)
+            model.addAttribute("showBtn", "display: none");
+        else
+            model.addAttribute("showBtn", "");
         if (principal != null) {
             User user = userService.findByName(principal.getName()).orElseThrow();
             for(int i = 0; i< user.getFriends().size();i++){
