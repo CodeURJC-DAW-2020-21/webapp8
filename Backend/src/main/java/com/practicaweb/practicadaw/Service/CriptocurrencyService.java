@@ -9,6 +9,7 @@ import com.practicaweb.practicadaw.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CriptocurrencyService implements CriptocurrencyServiceInterface {
@@ -23,6 +24,11 @@ public class CriptocurrencyService implements CriptocurrencyServiceInterface {
     @Override
     public Criptocurrency save(Criptocurrency criptocurrency) {
         return null;
+    }
+
+    @Override
+    public Optional<Criptocurrency> findById(long idCripto) {
+        return criptocurrencyRepository.findById(idCripto);
     }
 
     @Override
