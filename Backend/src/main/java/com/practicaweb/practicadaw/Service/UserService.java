@@ -72,6 +72,11 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
+    public List<User> findByFirstname(String firstname) {
+        return userRepository.findByFirstname(firstname);
+    }
+
+    @Override
     public List<User> selectAll() {
         return userRepository.findAll();
     }

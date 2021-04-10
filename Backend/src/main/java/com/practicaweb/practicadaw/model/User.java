@@ -17,6 +17,8 @@ public class User {
     public interface Basic{}
     public interface Entries{}
     public interface Comments{}
+    public interface Friends{}
+    public interface Cryptocurrencies{}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,8 +50,10 @@ public class User {
     @JsonView(Comments.class)
     private List<Comment> comments;
     @ManyToMany
+    @JsonView(Cryptocurrencies.class)
     private List<Criptocurrency> criptocurrencies;
     @ManyToMany
+    @JsonView(Friends.class)
     private List<User> friends;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
     @JsonView(Entries.class)
