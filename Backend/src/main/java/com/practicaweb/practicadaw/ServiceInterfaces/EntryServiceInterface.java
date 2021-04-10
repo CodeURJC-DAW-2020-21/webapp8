@@ -10,7 +10,8 @@ import java.util.Optional;
 
 public interface EntryServiceInterface {
     Entry save (Entry entry);
-    Page<Entry> selectAll(Pageable page);
+    Page<Entry> selectPageable(Pageable page);
+    List<Entry> selectAll();
     Optional<Entry> findById(long id);
     void deleteEntryByIdUser(long idUser);
     long  findByTitle(String title);
