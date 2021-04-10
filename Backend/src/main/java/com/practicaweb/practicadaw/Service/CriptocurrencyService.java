@@ -32,6 +32,11 @@ public class CriptocurrencyService implements CriptocurrencyServiceInterface {
     }
 
     @Override
+    public void delete(Criptocurrency crypto){
+        criptocurrencyRepository.delete(crypto);
+    }
+
+    @Override
     public List<Criptocurrency> selectAll() {
         return criptocurrencyRepository.findAll();
     }

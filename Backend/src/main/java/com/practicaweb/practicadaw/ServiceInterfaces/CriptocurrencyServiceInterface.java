@@ -13,4 +13,5 @@ public interface CriptocurrencyServiceInterface {
     List<Criptocurrency> selectAll ();
     Optional<Criptocurrency> findById(long idCripto);
     Criptocurrency findByNameCripto (String nameCripto);
+    void delete(Criptocurrency crypto);
 }

@@ -33,8 +33,8 @@ public class CryptocurrencyRestController {
         return criptocurrencyService.selectAll();
     }
 
-
-    @GetMapping("{/id}")
+    //@JsonView(Criptocurrency.Basic.class)
+    @GetMapping("{id}")
     public ResponseEntity<Criptocurrency> getCriptocurrency(@PathVariable long id){
         Optional<Criptocurrency> cripto = criptocurrencyService.findById(id);
 
@@ -80,6 +80,18 @@ public class CryptocurrencyRestController {
             }
         }
         return finalList;
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<User> deleteUser(@PathVariable long id){
+        Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
+        if (cryptoOptional.isPresent()){
+            Criptocurrency crypto = cryptoOptional.get();
+            criptocurrencyService.delete(crypto);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
