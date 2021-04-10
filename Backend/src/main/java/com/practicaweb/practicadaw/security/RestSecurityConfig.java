@@ -49,6 +49,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/cryptocurrencies/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/cryptocurrencies/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/comments/**").permitAll();
 
         http.csrf().disable();
         http.httpBasic().disable();

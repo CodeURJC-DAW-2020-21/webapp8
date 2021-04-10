@@ -19,8 +19,4 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
     @Query(value = "DELETE FROM webapp8_bbdd.comment WHERE entry_id_entry = :idEntry", nativeQuery = true)
     void deleteCommentByIdEntry(@Param("idEntry") long idEntry);
 
-
-
-
-
 }

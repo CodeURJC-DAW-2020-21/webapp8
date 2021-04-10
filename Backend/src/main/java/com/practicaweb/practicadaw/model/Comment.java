@@ -10,6 +10,7 @@ import java.util.Date;
 public class Comment {
 
     public interface Basic{}
+    public interface CommentUser{}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +22,7 @@ public class Comment {
     @JsonView(Basic.class)
     private LocalDateTime registrationDate;
     @ManyToOne
+    @JsonView(CommentUser.class)
     private User user;
     @ManyToOne
     private Entry entry;
