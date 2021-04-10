@@ -42,6 +42,8 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        http.antMatcher("/api/**");
+
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/entries/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/cryptocurrencies/**").permitAll();
@@ -51,6 +53,8 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/cryptocurrencies/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/comments/**").permitAll();
 
+
+        http.authorizeRequests().anyRequest().permitAll();
         http.csrf().disable();
         http.httpBasic().disable();
         http.formLogin().disable();
