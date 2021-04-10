@@ -11,6 +11,8 @@ import java.util.List;
 public class Entry {
 
     public interface Basic{}
+    public interface Comments{}
+    public interface EntryUser{}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,13 +24,13 @@ public class Entry {
     @Column(length = 500, nullable = false)
     @JsonView(Basic.class)
     private String description;
-    @Column(length = 45, nullable = false)
-    private int number_of_visits;
     @JsonView(Basic.class)
     private LocalDateTime registrationDate;
     @ManyToOne
+    @JsonView(EntryUser.class)
     private User user;
     @OneToMany(mappedBy = "entry", cascade=CascadeType.ALL, orphanRemoval=true)
+    @JsonView(Comments.class)
     private List<Comment> comment;
 
     public Entry() {
@@ -42,14 +44,6 @@ public class Entry {
         this.registrationDate = registrationDate;
         this.user = user;
 //        this.comment = comment;
-    }
-
-    public int getNumber_of_visits() {
-        return number_of_visits;
-    }
-
-    public void setNumber_of_visits(int number_of_visits) {
-        this.number_of_visits = number_of_visits;
     }
 
     public long getIdEntry() {
