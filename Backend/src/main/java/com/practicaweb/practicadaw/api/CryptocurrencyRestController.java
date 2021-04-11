@@ -41,7 +41,7 @@ public class CryptocurrencyRestController {
         return cripto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/{id}/{idUser}")
+    @PostMapping("/{id}/cryptocurrencies/{idUser}")
     public ResponseEntity<Criptocurrency> addFavCrypto(@PathVariable long id, @PathVariable long idUser){
         Optional<User> userOptional = userService.findById(idUser);
         Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
@@ -49,11 +49,7 @@ public class CryptocurrencyRestController {
         if (userOptional.isPresent()){
             User user = userOptional.get();
             Criptocurrency crypto = cryptoOptional.get();
-            if(user.getCriptocurrencies().contains(crypto)){
-                user.removeCript(crypto);
-                crypto.setImage("images/starEmpty.svg");
-            }
-            else{
+            if(!user.getCriptocurrencies().contains(crypto)){
                 user.addCript(crypto);
                 crypto.setImage("images/star.svg");
             }
@@ -64,6 +60,26 @@ public class CryptocurrencyRestController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @DeleteMapping("/{id}/deleteCryptocurrencies/{idUser}")
+    public ResponseEntity<Criptocurrency> deleteFavCrypto(@PathVariable long id, @PathVariable long idUser){
+        Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
+        Optional<User> userOptional = userService.findById(idUser);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            Criptocurrency crypto = cryptoOptional.get();
+            if (user.getCriptocurrencies().contains(crypto)){
+                user.removeCript(crypto);
+                crypto.setImage("images/starEmpty.svg");
+            }
+            userService.save(user);
+            return ResponseEntity.ok().build();
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
     @GetMapping("/favCryptocurrency")
     public Collection<Criptocurrency> getFavCryptocurrencies(){
@@ -83,7 +99,7 @@ public class CryptocurrencyRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<User> deleteUser(@PathVariable long id){
+    public ResponseEntity<Criptocurrency> deleteUser(@PathVariable long id){
         Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
         if (cryptoOptional.isPresent()){
             Criptocurrency crypto = cryptoOptional.get();

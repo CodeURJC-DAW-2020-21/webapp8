@@ -144,7 +144,6 @@ public class UserRestController {
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @JsonView(UserCryptocurrencies.class)
     @GetMapping("/{idUser}/favCryptocurrencies")
     public ResponseEntity<Collection<Criptocurrency>> getUserByIdCryptocurrencies(@PathVariable long idUser){
         Optional<User> userOptional = userService.findById(idUser);
