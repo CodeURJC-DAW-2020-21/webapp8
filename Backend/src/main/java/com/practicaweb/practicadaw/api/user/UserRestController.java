@@ -15,15 +15,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.URI;
 import java.security.Principal;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -33,6 +35,7 @@ public class UserRestController {
 
     private final UserService userService;
     private final ModelMapper modelMapper;
+    private String tokenPass;
 
     public UserRestController(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
@@ -50,11 +53,15 @@ public class UserRestController {
     //The method getUsers() returns a list of all the registered users.
     @JsonView(User.Basic.class)
     @GetMapping("")
-    public ResponseEntity<Collection<User>> getUsers(@RequestParam String firstname){
+    public ResponseEntity<Collection<User>> getUsers(@RequestParam(required = false) String firstname, @RequestParam(required = false) String surname){
         List<User> users = userService.selectAll();
         if (firstname != null) {
             List<User> usersByFirstName = userService.findByFirstname(firstname);
             return ResponseEntity.ok(usersByFirstName);
+        }
+        else if (surname != null){
+            List<User> usersBySurname = userService.findBySurname(surname);
+            return ResponseEntity.ok(usersBySurname);
         }
         else if (!users.isEmpty()){
             return ResponseEntity.ok(users);
@@ -165,9 +172,10 @@ public class UserRestController {
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/{id}/friends/{idFriend}")
-    public ResponseEntity<User> addUserFriends(@PathVariable long id, @PathVariable long idFriend){
-        Optional<User> userOptional = userService.findById(id);
+    @PostMapping("/friends/{idFriend}")
+    public ResponseEntity<User> addUserFriends(@PathVariable long idFriend, HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
         Optional<User> userFriendOptional = userService.findById(idFriend);
         if (userOptional.isPresent() && userFriendOptional.isPresent()){
             User user = userOptional.get();
@@ -175,6 +183,26 @@ public class UserRestController {
             List<User> friendsList = new ArrayList<>();
             friendsList.add(userFriend);
             user.setFriends(friendsList);
+            userService.save(user);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/friends/{idFriend}")
+    public ResponseEntity<User> deleteFriend(@PathVariable long idFriend, HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            List<User> userFriends = user.getFriends();
+            for (int i = 0; i < userFriends.size(); i++) {
+                if (userFriends.get(i).getIdUser() == idFriend) {
+                    userFriends.remove(i);
+                }
+            }
+            user.setFriends(userFriends);
             userService.save(user);
             return ResponseEntity.ok().build();
         } else {
@@ -209,6 +237,51 @@ public class UserRestController {
         }
 
     }
+
+    @PostMapping("/password")
+    public ResponseEntity<User> forgotPasswordREST(@RequestBody String email){
+        String sender = "forocoin.soporteoficial@gmail.com";
+        String emailPass = "forocoin1";
+        String destinatary = email;
+        String response = userService.forgotPassword(email);
+        if (!response.startsWith("Invalid email id.")){
+            tokenPass = response;
+            response = "https://localhost:8443/password?tokenPass=" + response;
+            Properties properties = new Properties();
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "587");
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.user", sender);
+            properties.put("mail.smtp.clave", emailPass);
+            Session session = Session.getDefaultInstance(properties);
+            MimeMessage message = new MimeMessage(session);
+            try{
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatary));
+                message.setSubject("Reestablecer contraseña de foroCoin");
+                message.setText("Pinche aqui para reestablecer su contraseña:" + response);
+                Transport transport = session.getTransport("smtp");
+                transport.connect("smtp.gmail.com", sender, emailPass);
+                transport.sendMessage(message, message.getAllRecipients());
+                transport.close();
+            } catch (Exception e){
+
+            }
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+//    @PostMapping("/reset_password")
+//    public ResponseEntity<User> resetPassword(@RequestBody String password, @RequestBody String passwordConfirmation){
+//        if ((password != null && passwordConfirmation != null) && (password.equals(passwordConfirmation))) {
+//            userService.resetPassword(tokenPass, password);
+//            return ResponseEntity.ok().build();
+//        } else {
+//            return ResponseEntity.badRequest().build();
+//        }
+//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable long id){

@@ -15,4 +15,5 @@ public interface UserServiceInterface {
     Optional<User> findByName (String name);
     void delete(User user);
     List<User> findByFirstname(String firstname);
+    List<User> findBySurname(String surname);
 }
