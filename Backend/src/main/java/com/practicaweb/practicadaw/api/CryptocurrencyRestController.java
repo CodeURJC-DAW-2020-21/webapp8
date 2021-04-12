@@ -26,14 +26,11 @@ public class CryptocurrencyRestController {
     @Autowired
     UserService userService;
 
-    interface UserCryptocurrencies  extends User.Cryptocurrencies{}
-
     @GetMapping("/")
     public Collection<Criptocurrency> getCryptocurrencies(){
         return criptocurrencyService.selectAll();
     }
 
-    //@JsonView(Criptocurrency.Basic.class)
     @GetMapping("{id}")
     public ResponseEntity<Criptocurrency> getCriptocurrency(@PathVariable long id){
         Optional<Criptocurrency> cripto = criptocurrencyService.findById(id);
@@ -61,7 +58,7 @@ public class CryptocurrencyRestController {
         }
     }
 
-    @DeleteMapping("/{id}/deleteCryptocurrencies/{idUser}")
+    @DeleteMapping("/{id}/cryptocurrencies/{idUser}")
     public ResponseEntity<Criptocurrency> deleteFavCrypto(@PathVariable long id, @PathVariable long idUser){
         Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
         Optional<User> userOptional = userService.findById(idUser);
