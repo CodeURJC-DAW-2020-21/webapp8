@@ -44,17 +44,18 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.antMatcher("/api/**");
 
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/entries/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/cryptocurrencies/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/cryptocurrencies/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/cryptocurrencies/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/comments/**").permitAll();
-
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.PATCH, "/api/users/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/entries/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/comments/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/cryptocurrencies/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/auth/logout").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/friends/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/cryptocurrencies/**").hasAnyRole("USER");
 
         http.authorizeRequests().anyRequest().permitAll();
+
         http.csrf().disable();
         http.httpBasic().disable();
         http.formLogin().disable();
