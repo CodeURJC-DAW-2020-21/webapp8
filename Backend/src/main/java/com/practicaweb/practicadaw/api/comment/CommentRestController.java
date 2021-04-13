@@ -1,4 +1,4 @@
-package com.practicaweb.practicadaw.api;
+package com.practicaweb.practicadaw.api.comment;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaweb.practicadaw.Service.CommentService;
@@ -68,12 +68,14 @@ public class CommentRestController {
         return comment.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/{idEntry}")
-    public ResponseEntity<Comment> createComment(@ModelAttribute Comment comment, HttpServletRequest request, @PathVariable long idEntry) {
+    @PostMapping("/")
+    public ResponseEntity<Comment> createComment(@RequestBody CommentDTO commentDTO, HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         if (principal != null) {
+            Comment comment = new Comment();
+            comment.setDescriptionComment(commentDTO.getDescriptionComment());
             Optional<User> userOptional = userService.findByName(principal.getName());
-            Optional<Entry> entryOptional = entryService.findById(idEntry);
+            Optional<Entry> entryOptional = entryService.findById(commentDTO.getIdEntry());
             User user = userOptional.get();
             Entry entry = entryOptional.get();
             commentService.createComment(comment, user, entry);
