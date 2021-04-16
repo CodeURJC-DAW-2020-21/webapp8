@@ -7,6 +7,12 @@ import com.practicaweb.practicadaw.model.Comment;
 import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.Entry;
 import com.practicaweb.practicadaw.model.User;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
@@ -51,9 +57,25 @@ public class UserRestController {
     interface UserCryptocurrencies extends User.Cryptocurrencies{}
 
     //The method getUsers() returns a list of all the registered users.
+    @Operation(summary = "Get a list of the web app users.")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "The list of users is displayed correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "List of users not found",
+                    content = @Content
+            )
+    })
     @JsonView(User.Basic.class)
     @GetMapping("")
-    public ResponseEntity<Collection<User>> getUsers(@RequestParam(required = false) String firstname, @RequestParam(required = false) String surname){
+    public ResponseEntity<Collection<User>> getUsers(@Parameter(description = "Use this parameter to filter users by their name.") @RequestParam(required = false) String firstname,@Parameter(description = "Use this parameter to filter users by their surname.") @RequestParam(required = false) String surname){
         List<User> users = userService.selectAll();
         if (firstname != null) {
             List<User> usersByFirstName = userService.findByFirstname(firstname);
@@ -70,6 +92,23 @@ public class UserRestController {
         }
     }
 
+    @Operation(summary = "Get information about the logged user")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "User information displayed correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "User not logged, please log in.",
+                    content = @Content
+            )
+    })
+    @JsonView(User.Basic.class)
     @GetMapping("/me")
     public ResponseEntity<User> me(HttpServletRequest request) {
 
@@ -82,9 +121,30 @@ public class UserRestController {
         }
     }
 
+    @Operation(summary = "Get a user by its id.")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "User found",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid id supplied",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "User not found",
+                    content = @Content
+            )
+    })
     @JsonView(User.Basic.class)
     @GetMapping(value="/{id}")
-    public ResponseEntity<User> getUser(@PathVariable long id) {
+    public ResponseEntity<User> getUser(@Parameter(description = "This is the id of the user you're looking for.") @PathVariable long id) {
         Optional<User> user = userService.findById(id);
 
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -151,7 +211,20 @@ public class UserRestController {
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/{idUser}/favCryptocurrencies")
+    @GetMapping("/cryptocurrencies")
+    public ResponseEntity<Collection<Criptocurrency>> getUserCryptocurrencies(HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            List<Criptocurrency> favCrypto = user.getCriptocurrencies();
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/{idUser}/cryptocurrencies")
     public ResponseEntity<Collection<Criptocurrency>> getUserByIdCryptocurrencies(@PathVariable long idUser){
         Optional<User> userOptional = userService.findById(idUser);
         if(userOptional.isPresent()){
@@ -161,19 +234,85 @@ public class UserRestController {
         }else {
             return ResponseEntity.notFound().build();
         }
-
     }
 
+    @Operation(summary = "Get a list of the logged user friends.")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "The list of friends is displayed correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "List of friends not found",
+                    content = @Content
+            )
+    })
+    @GetMapping("/friends")
+    public ResponseEntity<User> getUserFriends(HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Optional<User> user = userService.findByName(principal.getName());
+
+        return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @Operation(summary = "Get a list of user friends by its id.")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Friends list found",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid id supplied",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "List of user friends not found",
+                    content = @Content
+            )
+    })
     @JsonView(UserFriends.class)
     @GetMapping("/{id}/friends")
-    public ResponseEntity<User> getUserFriends(@PathVariable long id){
+    public ResponseEntity<User> getUserByIdFriends(@Parameter(description = "Id of the user you're looking for.") @PathVariable long id){
         Optional<User> user = userService.findById(id);
 
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @Operation(summary = "Add a friend by its id.")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Friend added correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid id supplied",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Friend id not found",
+                    content = @Content
+            )
+    })
+    @JsonView(UserFriends.class)
     @PostMapping("/friends/{idFriend}")
-    public ResponseEntity<User> addUserFriends(@PathVariable long idFriend, HttpServletRequest request){
+    public ResponseEntity<User> addUserFriends(@Parameter(description = "Id of the friend you want to add") @PathVariable long idFriend, HttpServletRequest request){
         Principal principal = request.getUserPrincipal();
         Optional<User> userOptional = userService.findByName(principal.getName());
         Optional<User> userFriendOptional = userService.findById(idFriend);
@@ -190,8 +329,29 @@ public class UserRestController {
         }
     }
 
+    @Operation(summary = "Delete a friend by its id.")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Friend deleted correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid id supplied",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Friend id not found",
+                    content = @Content
+            )
+    })
     @DeleteMapping("/friends/{idFriend}")
-    public ResponseEntity<User> deleteFriend(@PathVariable long idFriend, HttpServletRequest request){
+    public ResponseEntity<User> deleteFriend(@Parameter(description = "Id of the friend you want to delete") @PathVariable long idFriend, HttpServletRequest request){
         Principal principal = request.getUserPrincipal();
         Optional<User> userOptional = userService.findByName(principal.getName());
         if (userOptional.isPresent()) {
@@ -210,8 +370,19 @@ public class UserRestController {
         }
     }
 
+    @Operation(summary = "Create a new user")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "User created correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            )
+    })
     @PostMapping("/")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<User> createUser(@ModelAttribute UserDTO userDTO) throws IOException, SQLException {
         User user = modelMapper.map(userDTO, User.class);
         userService.createUser(user);
@@ -223,10 +394,26 @@ public class UserRestController {
         return ResponseEntity.created(location).body(user);
     }
 
-    @GetMapping("/{id}/image")
-    public ResponseEntity<Object> getImage(@PathVariable long id) throws SQLException {
-
-        Optional<User> user = userService.findById(id);
+    @Operation(summary = "View your profile image")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Image shown correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Image not found",
+                    content = @Content
+            )
+    })
+    @GetMapping("/image")
+    public ResponseEntity<Object> getImage(HttpServletRequest request) throws SQLException {
+        Principal principal = request.getUserPrincipal();
+        Optional<User> user = userService.findByName(principal.getName());
 
         if (user.isPresent()){
             int profileImageLength = (int) user.get().getImage().length();
@@ -235,9 +422,64 @@ public class UserRestController {
         } else {
             return ResponseEntity.notFound().build();
         }
-
     }
 
+    @Operation(summary = "View a user image by its id")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Image shown correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid id supplied",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "User id not found",
+                    content = @Content
+            )
+    })
+    @GetMapping("/{id}/image")
+    public ResponseEntity<Object> getImageByUserID(@Parameter(description = "Insert the id of the user you're looking for") @PathVariable long id) throws SQLException {
+
+        Optional<User> user = userService.findById(id);
+
+        if (user.isPresent()) {
+            int profileImageLength = (int) user.get().getImage().length();
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                    .body(new ByteArrayResource(user.get().getImage().getBytes(1, profileImageLength)));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(summary = "Send an email to recover your password")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Email sent correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid email supplied",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Account not found",
+                    content = @Content
+            )
+    })
     @PostMapping("/password")
     public ResponseEntity<User> forgotPasswordREST(@RequestBody String email){
         String sender = "forocoin.soporteoficial@gmail.com";
@@ -273,18 +515,29 @@ public class UserRestController {
         }
     }
 
-//    @PostMapping("/reset_password")
-//    public ResponseEntity<User> resetPassword(@RequestBody String password, @RequestBody String passwordConfirmation){
-//        if ((password != null && passwordConfirmation != null) && (password.equals(passwordConfirmation))) {
-//            userService.resetPassword(tokenPass, password);
-//            return ResponseEntity.ok().build();
-//        } else {
-//            return ResponseEntity.badRequest().build();
-//        }
-//    }
-
+    @Operation(summary = "Delete user by its id")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "User deleted correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid id supplied",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "User not found",
+                    content = @Content
+            )
+    })
     @DeleteMapping("/{id}")
-    public ResponseEntity<User> deleteUser(@PathVariable long id){
+    public ResponseEntity<User> deleteUser(@Parameter(description = "Id of the user you want to delete") @PathVariable long id){
         Optional<User> userOptional = userService.findById(id);
         if (userOptional.isPresent()){
             User user = userOptional.get();
@@ -295,10 +548,32 @@ public class UserRestController {
         }
     }
 
+    @Operation(summary = "Update your user account")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "User updated correctly",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = User.Basic.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid user parameters",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Account not found",
+                    content = @Content
+            )
+    })
     @JsonView(UserDTOUpdate.class)
-    @PatchMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable long id, @ModelAttribute UserDTO userDTO) throws SQLException, IOException {
-        Optional<User> userOptional = userService.findById(id);
+    @PatchMapping("/")
+    public ResponseEntity<User> updateUser(HttpServletRequest request, @ModelAttribute UserDTO userDTO) throws SQLException, IOException {
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
