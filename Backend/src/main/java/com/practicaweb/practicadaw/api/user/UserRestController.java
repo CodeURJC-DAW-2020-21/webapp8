@@ -48,7 +48,7 @@ public class UserRestController {
     interface UserEntriesComments extends User.Basic, User.Entries, User.Comments, Entry.Basic, Comment.Basic{}
     interface UserFriends extends User.Basic, User.Friends{}
     interface UserDTOUpdate extends UserDTO.Update{}
-    interface UserCryptocurrencies extends User.Cryptocurrencies{}
+    interface UserCryptocurrencies extends User.Cryptocurrencies, User.Basic{}
 
     //The method getUsers() returns a list of all the registered users.
     @JsonView(User.Basic.class)
@@ -272,16 +272,41 @@ public class UserRestController {
             return ResponseEntity.notFound().build();
         }
     }
-
-//    @PostMapping("/reset_password")
-//    public ResponseEntity<User> resetPassword(@RequestBody String password, @RequestBody String passwordConfirmation){
-//        if ((password != null && passwordConfirmation != null) && (password.equals(passwordConfirmation))) {
-//            userService.resetPassword(tokenPass, password);
-//            return ResponseEntity.ok().build();
-//        } else {
-//            return ResponseEntity.badRequest().build();
-//        }
-//    }
+    @JsonView(UserCryptocurrencies.class)
+    @GetMapping("/recommended")
+    public ResponseEntity<Collection<User>> recommendedCryptos(HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
+        if(userOptional.isPresent()) {
+            User user = userOptional.get();
+            List<Criptocurrency> usercriptocurrencies = user.getCriptocurrencies();
+            int i = 0; //counter size user's friends list
+            List<User> friendListFinal = new ArrayList<User>();
+            List<User> friendList = user.getFriends();
+            while (i<friendList.size()){
+                User friend = friendList.get(i);
+                List<Criptocurrency> listFriendCripto = friend.getCriptocurrencies();
+                int j = 0; //counter size friend's cryptocurrency list
+                int cont = 0;
+                while (j<usercriptocurrencies.size()){
+                    for(int k = 0; k < listFriendCripto.size(); k++) {
+                        if (usercriptocurrencies.get(j).equals(listFriendCripto.get(k))) {
+                            listFriendCripto.remove(listFriendCripto.get(k));
+                            cont++;
+                        }
+                    }
+                    j++;
+                }
+                i ++;
+                if (cont>=2 && !listFriendCripto.isEmpty()){
+                    friendListFinal.add(friend);
+                }
+            }
+            return ResponseEntity.ok(friendListFinal);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable long id){
