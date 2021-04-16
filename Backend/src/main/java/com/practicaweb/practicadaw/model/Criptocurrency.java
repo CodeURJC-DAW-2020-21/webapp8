@@ -1,15 +1,24 @@
 package com.practicaweb.practicadaw.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import javax.persistence.*;
 
 @Entity
 public class Criptocurrency {
+
+    public interface Basic{}
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(User.Basic.class)
     private long idCripto;
     @Column(length = 135, nullable = false)
+    @JsonView(User.Basic.class)
     private String nameCripto;
     @Column(length = 135, nullable = false)
+    @JsonView(User.Basic.class)
     private double priceCripto;
     @Column(length = 135, nullable = false)
     private String shortName;

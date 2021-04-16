@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -38,11 +40,11 @@ public class CryptocurrencyRestController {
         return cripto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/{id}/cryptocurrencies/{idUser}")
-    public ResponseEntity<Criptocurrency> addFavCrypto(@PathVariable long id, @PathVariable long idUser){
-        Optional<User> userOptional = userService.findById(idUser);
+    @PostMapping("/{id}/cryptocurrencies")
+    public ResponseEntity<Criptocurrency> addFavCrypto(@PathVariable long id, HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
         Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
-
         if (userOptional.isPresent()){
             User user = userOptional.get();
             Criptocurrency crypto = cryptoOptional.get();
@@ -58,10 +60,11 @@ public class CryptocurrencyRestController {
         }
     }
 
-    @DeleteMapping("/{id}/cryptocurrencies/{idUser}")
-    public ResponseEntity<Criptocurrency> deleteFavCrypto(@PathVariable long id, @PathVariable long idUser){
+    @DeleteMapping("/{id}/cryptocurrencies")
+    public ResponseEntity<Criptocurrency> deleteFavCrypto(@PathVariable long id, HttpServletRequest request){
         Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
-        Optional<User> userOptional = userService.findById(idUser);
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             Criptocurrency crypto = cryptoOptional.get();
@@ -79,20 +82,11 @@ public class CryptocurrencyRestController {
 
 
     @GetMapping("/favCryptocurrency")
-    public Collection<Criptocurrency> getFavCryptocurrencies(){
-        List<User> allUsers = userService.selectAll();
-        List<Criptocurrency> finalList = new ArrayList<Criptocurrency>();
-        for(int i = 0; i < allUsers.size(); i++){
-            List<Criptocurrency> allCryptos = allUsers.get(i).getCriptocurrencies();
-            for(int j = 0; j < allCryptos.size(); j++){
-                if(allCryptos.get(j).getImage().equals("images/star.svg")){
-                    if(!finalList.contains(allCryptos.get(j))) {
-                        finalList.add(allCryptos.get(j));
-                    }
-                }
-            }
-        }
-        return finalList;
+    public Collection<Criptocurrency> getFavCryptocurrencies(HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
+        User user = userOptional.get();
+        return user.getCriptocurrencies();
     }
 
     @DeleteMapping("/{id}")
