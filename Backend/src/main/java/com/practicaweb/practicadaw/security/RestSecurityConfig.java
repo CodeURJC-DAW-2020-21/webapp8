@@ -44,9 +44,11 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.antMatcher("/api/**");
 
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/friends/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/password").hasAnyRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.PATCH, "/api/users/**").hasAnyRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/entries/**").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/entries/**").hasAnyRole("USER, ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/entries/**").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/comments/**").hasAnyRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/cryptocurrencies/**").hasAnyRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/auth/logout").hasAnyRole("USER");
@@ -54,6 +56,8 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/friends/**").hasAnyRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/cryptocurrencies/**").hasAnyRole("USER");
 
+
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/").permitAll();
         http.authorizeRequests().anyRequest().permitAll();
 
         http.csrf().disable();
