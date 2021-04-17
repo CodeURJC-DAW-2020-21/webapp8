@@ -10,4 +10,4 @@
 FROM openjdk:11-jre
 ADD target/*.jar webapp8.jar
 EXPOSE 8443
-ENTRYPOINT ["java","-jar",""]
+ENTRYPOINT ["java","-jar","webapp8.jar"]
