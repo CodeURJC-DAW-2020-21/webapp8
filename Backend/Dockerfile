@@ -8,6 +8,6 @@
 #CMD [ "java", "-jar", "java-dawebapp8-0.0.1.jar" ]
 
 FROM openjdk:11-jre
-ADD target/*.jar webapp8.jar
+ADD target/*.jar app.jar
 EXPOSE 8443
-ENTRYPOINT ["java","-jar","webapp8.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
