@@ -4,7 +4,7 @@ services:
 
   web:
     build: .
-    image: dawequipo8/webapp8:latest
+    image: marcoszas/webapp8:latest
     ports:
       - "8443:8443"
     container_name: webapp8
