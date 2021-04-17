@@ -6,4 +6,5 @@ cd webapp8
 git switch predevelop2
 cd Backend || exit
 # cd Docker || exit
+sudo docker build -t marcoszas/webapp8 .
 sudo docker-compose up -d
