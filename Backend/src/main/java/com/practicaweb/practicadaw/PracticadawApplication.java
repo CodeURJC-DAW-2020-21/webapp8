@@ -1,4 +1,4 @@
-package com.practicaweb.practicadaw.app;
+package com.practicaweb.practicadaw;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

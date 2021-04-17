@@ -391,7 +391,7 @@ public class UserRestController {
         }
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getIdUser()).toUri();
 
-        return ResponseEntity.created(location).body(user);
+        return ResponseEntity.created(location).build();
     }
 
     @Operation(summary = "View your profile image")

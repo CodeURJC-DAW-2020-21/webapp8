@@ -1,4 +1,4 @@
-package com.practicaweb.practicadaw.app;
+package com.practicaweb.practicadaw;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
