@@ -107,7 +107,7 @@ public class EntryRestController {
         return entry.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @Operation(summary = "Get an user by the id of an entry.")
+    @Operation(summary = "Get a user by the id of an entry.")
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",

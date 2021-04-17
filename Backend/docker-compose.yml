@@ -2,25 +2,25 @@ version: '3'
 
 services:
 
-  web:
-    build: .
-    image: dawequipo8/webapp8:latest
-    ports:
-      - 8443:8443
-    container_name: webapp8
-    restart: always
-    links:
-      - db
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db/webapp8_bbdd
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=DawWebApp8
-
   db:
     image: mysql:8.0.22
-    container_name: webapp8_db
+    container_name: webapp8_bbdd
     restart: always
+
     environment:
       - MYSQL_DATABASE=webapp8_bbdd
       - MYSQL_ROOT_PASSWORD=DawWebApp8
 
+  web:
+    build: .
+    image: dawequipo8/webapp8:latest
+    ports:
+      - "8443:8443"
+    container_name: webapp8
+    restart: always
+    links:
+      - "db"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db/webapp8_bbdd
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=DawWebApp8
