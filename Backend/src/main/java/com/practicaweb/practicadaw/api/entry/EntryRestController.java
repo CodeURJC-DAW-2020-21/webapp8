@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.security.Principal;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -213,6 +214,7 @@ public class EntryRestController {
         User user = userService.findByName(principal.getName()).orElseThrow();
         Entry entry = modelMapper.map(entryDTO, Entry.class);
         entry.setUser(user);
+        entry.setRegistrationDate(LocalDateTime.now());
         entryService.save(entry);
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(entry.getIdEntry()).toUri();
         return ResponseEntity.created(location).body(entry);
