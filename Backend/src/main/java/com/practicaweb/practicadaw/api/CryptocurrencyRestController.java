@@ -198,7 +198,7 @@ public class CryptocurrencyRestController {
                     content = @Content
             )
     })
-    @DeleteMapping("/{id}")
+    /*@DeleteMapping("/{id}")
     public ResponseEntity<Criptocurrency> deleteUser(@PathVariable long id){
         Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
         if (cryptoOptional.isPresent()){
@@ -208,6 +208,6 @@ public class CryptocurrencyRestController {
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
+    }*/
 
 }
