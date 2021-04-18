@@ -188,13 +188,13 @@ We have implemented a API REST for the application and we've also packaged and d
 
 ### Dockerized application execution instructions:
 To run the app follow the next steps:
-- Step 1: install docker desktop and docker compose [click here](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header)
-- Step 2: download project in GitHub [click here](https://github.com/CodeURJC-DAW-2020-21/webapp8/archive/refs/heads/predevelop2.zip)
-- Step 3: Open terminal
-- Step 4: Get into the Backend directory ```cd C:\{your download path}\webapp8\Backend```
-- Step 5: Build image in docker ```sudo docker build -t marcoszas/webapp8 . ```
-- Step 6: ```docker-compose up ```
-- Step 7: Type in the browser https://localhost:8443/ and it will show the application web
+- 1: install docker desktop and docker compose [click here](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header)
+- 2: download project in GitHub [click here](https://github.com/CodeURJC-DAW-2020-21/webapp8/archive/refs/heads/predevelop2.zip)
+- 3: Open terminal
+- 4: Get into the Backend directory ```cd C:\{your download path}\webapp8\Backend```
+- 5: Build image in docker ```sudo docker build -t marcoszas/webapp8 . ```
+- 6: ```docker-compose up ```
+- 7: Type in the browser https://localhost:8443/ and it will show the application web
 
 ### How to build the docker image:
 - Step 1: Install docker desktop and docker compose [click here](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header)  
@@ -203,6 +203,7 @@ To run the app follow the next steps:
 - Step 4: Get into Backend directory ```cd C:\{your download path}\webapp8\Backend```
 - Step 5: Execute ```./docker_image.sh```
 
-
+### Classes and templates Diagram:
+![Navigation Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp8/blob/predevelop2/Phase3Images/ClassesAndTemplatesDiagram.png)
 
 
