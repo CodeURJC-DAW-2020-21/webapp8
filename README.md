@@ -179,7 +179,7 @@ The administrator can also delete users using a new user list and delete also th
 
 ## PHASE 3
 
-We have implemented a REST API for the application and we've also packaged and distributed it using Docker technology. On the other hand, we have tested and included a collection of Postman requests.
+We have implemented a API REST for the application and we've also packaged and distributed it using Docker technology. On the other hand, we have tested and included a collection of Postman requests.
 
 ### API REST documentation:
 - [HTML FILE](https://github.com/CodeURJC-DAW-2020-21/webapp8/blob/predevelop2/api-docs/api-docs.html)
