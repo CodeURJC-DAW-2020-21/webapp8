@@ -178,9 +178,7 @@ public class CryptocurrencyRestController {
         return user.getCriptocurrencies();
     }
 
-
-
-    @Operation(summary = "Delete a cryptocurrency by its id.")
+    /*@Operation(summary = "Delete a cryptocurrency by its id.")
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
@@ -198,7 +196,7 @@ public class CryptocurrencyRestController {
                     content = @Content
             )
     })
-    /*@DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Criptocurrency> deleteUser(@PathVariable long id){
         Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
         if (cryptoOptional.isPresent()){
