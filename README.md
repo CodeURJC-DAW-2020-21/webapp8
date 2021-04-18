@@ -204,6 +204,6 @@ To run the app follow the next steps:
 - Step 5: Execute ```./docker_image.sh```
 
 ### Classes and templates Diagram:
-[Navigation Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp7/blob/main/ReadmePictures/Nav_Diagram_Fase30.png)
+![Navigation Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp8/blob/predevelop2/Phase3Images/ClassesAndTemplatesDiagram.png)
 
 
