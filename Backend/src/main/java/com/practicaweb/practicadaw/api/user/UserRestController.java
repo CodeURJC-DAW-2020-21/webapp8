@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.json.JSONObject;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +21,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.Message;
 import javax.mail.Session;
@@ -27,6 +29,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.Email;
 import java.io.IOException;
 import java.net.URI;
 import java.security.Principal;
@@ -383,7 +386,7 @@ public class UserRestController {
     })
     @PostMapping("/")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<User> createUser(@ModelAttribute UserDTO userDTO) throws IOException, SQLException {
+    public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) throws IOException, SQLException {
         User user = modelMapper.map(userDTO, User.class);
         userService.createUser(user);
         if(userDTO.getImage() != null){
@@ -480,10 +483,12 @@ public class UserRestController {
                     content = @Content
             )
     })
+    @JsonView(UserDTO.ForgottenPassword.class)
     @PostMapping("/password")
-    public ResponseEntity<User> forgotPasswordREST(@RequestBody String email){
+    public ResponseEntity<User> forgotPasswordREST(@RequestBody UserDTO userDTO){
         String sender = "forocoin.soporteoficial@gmail.com";
         String emailPass = "forocoin1";
+        String email = userDTO.getEmail();
         String destinatary = email;
         String response = userService.forgotPassword(email);
         if (!response.startsWith("Invalid email id.")){
@@ -607,13 +612,26 @@ public class UserRestController {
     })
     @JsonView(UserDTOUpdate.class)
     @PatchMapping("/")
-    public ResponseEntity<User> updateUser(HttpServletRequest request, @ModelAttribute UserDTO userDTO) throws SQLException, IOException {
+    public ResponseEntity<User> updateUser(HttpServletRequest request, @RequestBody UserDTO userDTO) throws SQLException, IOException {
         Principal principal = request.getUserPrincipal();
         Optional<User> userOptional = userService.findByName(principal.getName());
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             userService.updateUser(user, userDTO);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @PostMapping("/{id}/image")
+    public ResponseEntity<Object> updateImage(@PathVariable long id,@RequestParam MultipartFile image) throws SQLException, IOException {
+        Optional<User> userOptional = userService.findById(id);
+        if (userOptional.isPresent()){
+            User user = userOptional.get();
+            userService.updateUserImage(user, image);
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();

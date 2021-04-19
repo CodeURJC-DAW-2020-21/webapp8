@@ -157,7 +157,7 @@ public class CommentRestController {
             Entry entry = entryOptional.get();
             commentService.createComment(comment, user, entry);
             URI location = fromCurrentRequest().path("/{id}").buildAndExpand(comment.getIdComment()).toUri();
-            return ResponseEntity.created(location).body(comment);
+            return ResponseEntity.created(location).build();
         }
         else {
             return ResponseEntity.notFound().build();
