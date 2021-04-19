@@ -184,7 +184,7 @@ We have implemented a API REST for the application and we've also packaged and d
 ### API REST documentation:
 - [HTML FILE](https://github.com/CodeURJC-DAW-2020-21/webapp8/blob/predevelop2/api-docs/api-docs.html)
 - [YAML file](https://github.com/CodeURJC-DAW-2020-21/webapp8/blob/predevelop2/api-docs/api-docs.yaml)
-- [Interpreted HTML documentation]()
+- [Interpreted HTML documentation](http://raw.githack.com/CodeURJC-DAW-2020-21/webapp8/predevelop2/api-docs/api-docs.html)
 
 ### Dockerized application execution instructions:
 To run the app follow the next steps:
@@ -197,13 +197,30 @@ To run the app follow the next steps:
 - 7: Type in the browser https://localhost:8443/ and it will show the application web
 
 ### How to build the docker image:
-- Step 1: Install docker desktop and docker compose [click here](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header)  
-- Step 2: Clone project from GitHub [click here](https://github.com/CodeURJC-DAW-2020-21/webapp8.git)
-- Step 3: Open terminal
-- Step 4: Get into Backend directory ```cd C:\{your download path}\webapp8\Backend```
-- Step 5: Execute ```./docker_image.sh```
+- Step 1: execute this command in terminal: ```wget https://raw.githack.com/CodeURJC-DAW-2020-21/webapp8/predevelop2/Backend/docker_image.sh```
+- Step 2: give execution permissions to the downloaded file ```chmod +x docker_image.sh```
+- Step 3: execute ```./docker_image.sh```
 
 ### Classes and templates Diagram:
 ![Navigation Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp8/blob/predevelop2/Phase3Images/ClassesAndTemplatesDiagram.png)
 
+### Participation
+In this third phase we have prepared our application to be used in the REST API format, with the aim of expanding the use of ForoCoin. All this update is properly documented.
+We have also dockerized and published ForoCoin thanks to docker.
 
+| Marcos Rodríguez | Adrián López | Adrián Sierra | Ángel Domínguez | Óscar Ramadán |
+|:----------------:|:------------:|:-------------:|:---------------:|:-------------:|
+| [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/8feb1c29b7da4c7d03ac364c3a029258d6319595) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/9e3a86a3dc3485837a77777758b290bb216fd1bc) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1f06845a201760d145ba9f884c2fee622ec45b79) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/90f286e04f6497e386b07c7d9aef97ed67fa9df5) |[Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/e637b98a8f335f7cda7f7cb806fdc4f6d94ef64b)  |
+| [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/4e8062133857847651b4696f0ee029f04cbc3f7a) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/fbb5f14cf4801712a3ba42fe4c3aa0c9a65c9ca4) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/0552e3e854990584012fee0a673d4985c6b2d9ae) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/3d34b02a64d7f1952078c323668ac1b22c816f06) |[Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/cd70962bf667c99dd2b8017727352d89cd10d4c2)  |
+| [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7ebfb2b92aff2199d4b67b9f7150f0b305716893) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/972dbff88a7595de4576b077071523e6914fc2bb) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/5dde33e8c003444071723761bcccc03fc03a2ddf) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/e01b794e94f499c7ce511b4f1c6cb4c6895862b5) |[Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1f499b3a44b04118418b366fba0860903f363cc5)  |
+| [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/6f245890af05121f5714538f1175a5f36c63601a) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/9c70271873c978aff3b7d66214f9a6d7afe49a66) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/813de37bb3169ca1dd1d6304095b164213a513b6) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/813de37bb3169ca1dd1d6304095b164213a513b6) |[Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/4e8062133857847651b4696f0ee029f04cbc3f7a)  |
+| [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ebd3a0a26a878da5407efcd3f0e7b0d09831bc82) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/a3e98e99976d0ea49a2f054fc42cb10460da91ea) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/2344eaed9b7796448184d4ceebc1a75d2d44fd41) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/b7cf1870576521d86bd19a3fcb2592b197ba1e9b) |[Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/cf1080e3b2cfa06c70f4be995ffddde1fadb35d1)  |
+
+### Files
+| Marcos                  | Adrián L.                         | Adrián S.                           | Óscar                    | Ángel                   |
+|:-----------------------:|:---------------------------------:|:-----------------------------------:|:------------------------:|:-----------------------:|
+| UserDTO.java            | UserRestController.java           | CommentDTO.java                     | GraphRestController.java | EntryDTO.java           |
+| UserRestController.java | CryptocurrencyRestController.java | CommentRestController.java          | docker-compose.yml       | EntryRestController.java|
+| RestSecurityConfig.java | Cryptocurrency.java               | Comment.java                        | Dockerfile               | Entry.java              |
+| docker_image.sh         | User.java                         | UserRestController.java             | RestSecurityConfig.java  | UserRestController.java |
+| User.java               | RestSecurityConfig.java           | Readme                              | EntryRestController.java | RestSecurityConfig.java |
