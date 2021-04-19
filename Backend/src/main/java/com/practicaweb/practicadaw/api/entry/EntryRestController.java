@@ -209,7 +209,7 @@ public class EntryRestController {
             )
     })
     @PostMapping("/")
-    public ResponseEntity<Entry> createEntry(@ModelAttribute EntryDTO entryDTO, HttpServletRequest request){
+    public ResponseEntity<Entry> createEntry(@RequestBody EntryDTO entryDTO, HttpServletRequest request){
         Principal principal = request.getUserPrincipal();
         User user = userService.findByName(principal.getName()).orElseThrow();
         Entry entry = modelMapper.map(entryDTO, Entry.class);
@@ -217,7 +217,7 @@ public class EntryRestController {
         entry.setRegistrationDate(LocalDateTime.now());
         entryService.save(entry);
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(entry.getIdEntry()).toUri();
-        return ResponseEntity.created(location).body(entry);
+        return ResponseEntity.created(location).build();
     }
 
 
