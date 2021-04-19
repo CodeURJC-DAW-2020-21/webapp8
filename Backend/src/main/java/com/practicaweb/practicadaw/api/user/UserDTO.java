@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserDTO {
 
     public interface Update{}
+    public interface ForgottenPassword{}
 
     private String idUser;
     private String encodedPassword;
@@ -14,8 +15,8 @@ public class UserDTO {
     private String surname;
     @JsonView(Update.class)
     private String firstname;
+    @JsonView(ForgottenPassword.class)
     private String email;
-    @JsonView(Update.class)
     private MultipartFile image;
 
 
