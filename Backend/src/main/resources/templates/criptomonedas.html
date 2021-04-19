@@ -1,0 +1,114 @@
+{{>header}}
+<div id="layoutSidenav_content" xmlns="http://www.w3.org/1999/html">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4 tituloPrincipal text-center">Criptomonedas</h1>
+                <div class="panel-group" style="margin-top: 20px" id="accordion">
+                    <!--Charts-->
+                    <div class="card">
+                        <table class="table table-striped text-center">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Gráfica</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <div>
+                                {{#criptocurrencies}}
+                                <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+                                    <form method="post" action="/add_cripto">
+                                        <input type="hidden" value="{{nameCripto}}" id="nameCripto" name="nameCripto">
+                                        <input type="hidden" value="{{shortName}}" id="shortName" name="shortName">
+                                        <th class="align-middle" scope="row">{{idCripto}}</th>
+                                        <td class="align-middle"><a href="/{{nameCripto}}" class="text-decoration-none text-dark">{{nameCripto}}</a>
+                                        </td>
+                                        <td class="align-middle">{{priceCripto}}US$</td>
+                                        <td class="align-middle">
+                                            <img src="images/miniBitcoinChart.svg" alt="grafico">
+                                        </td>
+                                        {{#logged}}
+                                        <td>
+                                            <input type="image" src={{image}} onclick="this.src = cambia(this.src);"  width="20">
+                                            <input type="hidden" name="_csrf" value="{{token}}"/>
+                                        </td>
+                                        {{/logged}}
+                                        {{^logged}}
+                                        <td>
+                                            <span>
+                                                <small>
+                                                    Registrate para añadir a criptomonedas favoritas
+                                                </small>
+                                            </span>
+                                        </td>
+                                        {{/logged}}
+                                    </form>
+                                </tr>
+                                {{/criptocurrencies}}
+                            </div>
+                        </table>
+                    </div>
+                </div>
+                <div class="card text-center mt-3 mb-4">
+                    <div class="card-header">
+                        Recomendaciones
+                    </div>
+                    <br>
+                    {{#friends}}
+                        <p>Porque sigues a {{name}}</p>
+                        {{#recommendedCripto}}
+                            <div>
+                                {{nameCripto}}
+                                <form method="post" action="/add_cripto">
+                                    <input type="hidden" value="{{nameCripto}}" name="nameCripto">
+                                    <input type="image" src={{image}} onclick="this.src = cambia(this.src);" width="20">
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                                </form>
+                            </div>
+                                <br>
+                        {{/recommendedCripto}}
+                    {{/friends}}
+<!--                    <div class="row">-->
+<!--                        <div class="col-6">-->
+<!--                            <div class="card-body">-->
+<!--                                <h5 class="card-title">@Marcoszas</h5>-->
+<!--                                <p class="card-text">Marcos Rodríguez ha empezado a seguir la criptomoneda Bitcoin.</p>-->
+<!--                                <a href="#" class="btn btn-primary">Añadir Bitcoin a mis favoritos</a>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-muted">-->
+<!--                                2 days ago-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-6">-->
+<!--                            <div class="card-body">-->
+<!--                                <h5 class="card-title">@Angel_Fideos</h5>-->
+<!--                                <p class="card-text">Ángel Fideos ha empezado a seguir la criptomoneda Ethereum.</p>-->
+<!--                                <a href="#" class="btn btn-primary">Añadir Ethereum a mis favoritos</a>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-muted">-->
+<!--                                4 days ago-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </main>
+<!--        <script type="text/javascript">-->
+<!--            var cuantosClicks = 0;-->
+
+<!--            function cambia(src){-->
+<!--                src = "";-->
+<!--                src = "images/starEmpty.svg";-->
+<!--                cuantosClicks++;-->
+
+<!--                if(cuantosClicks % 2 === 0){-->
+<!--                    return src;-->
+<!--                }else{-->
+<!--                    return 'images/star.svg';-->
+<!--                }-->
+<!--            }-->
+<!--        </script>-->
+{{>footer}}

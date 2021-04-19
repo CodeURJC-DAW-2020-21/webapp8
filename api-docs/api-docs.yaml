@@ -1,0 +1,1304 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: https://localhost:8443/
+  description: Generated server url
+paths:
+  /api/users/password:
+    post:
+      tags:
+      - user-rest-controller
+      summary: Send an email to recover your password
+      operationId: forgotPasswordREST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "404":
+          description: Account not found
+        "200":
+          description: Email sent correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic'
+        "400":
+          description: Invalid email supplied
+  /api/users/friends/{idFriend}:
+    post:
+      tags:
+      - user-rest-controller
+      summary: Add a friend by its id.
+      operationId: addUserFriends
+      parameters:
+      - name: idFriend
+        in: path
+        description: Id of the friend you want to add
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Friend added correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic_UserFriends'
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Friend id not found
+    delete:
+      tags:
+      - user-rest-controller
+      summary: Delete a friend by its id.
+      operationId: deleteFriend
+      parameters:
+      - name: idFriend
+        in: path
+        description: Id of the friend you want to delete
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Friend deleted correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic'
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: Friend id not found
+  /api/users/:
+    post:
+      tags:
+      - user-rest-controller
+      summary: Create a new user
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        "500":
+          description: User created correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic'
+    patch:
+      tags:
+      - user-rest-controller
+      summary: Update your user account
+      operationId: updateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO_UserDTOUpdate'
+      responses:
+        "200":
+          description: User updated correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic_UserDTOUpdate'
+        "400":
+          description: Invalid user parameters
+        "404":
+          description: Account not found
+  /api/entries/:
+    get:
+      tags:
+      - entry-rest-controller
+      operationId: getEntries
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Entry_Basic'
+    post:
+      tags:
+      - entry-rest-controller
+      operationId: createEntry
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntryDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Entry'
+  /api/cryptocurrencies/{id}/cryptocurrencies/{idUser}:
+    post:
+      tags:
+      - cryptocurrency-rest-controller
+      operationId: addFavCrypto
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: idUser
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Criptocurrency'
+    delete:
+      tags:
+      - cryptocurrency-rest-controller
+      operationId: deleteFavCrypto
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: idUser
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Criptocurrency'
+  /api/comments/:
+    get:
+      tags:
+      - comment-rest-controller
+      operationId: getComments
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment_Comments'
+    post:
+      tags:
+      - comment-rest-controller
+      operationId: createComment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Comment'
+  /api/auth/refresh:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: refreshToken
+      parameters:
+      - name: refreshToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+  /api/auth/logout:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: logOut
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+  /api/auth/login:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: login
+      parameters:
+      - name: accessToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      - name: refreshToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+  /api/users:
+    get:
+      tags:
+      - user-rest-controller
+      summary: Get a list of the web app users.
+      operationId: getUsers
+      parameters:
+      - name: firstname
+        in: query
+        description: Use this parameter to filter users by their name.
+        required: false
+        schema:
+          type: string
+      - name: surname
+        in: query
+        description: Use this parameter to filter users by their surname.
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: The list of users is displayed correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic_Basic'
+        "404":
+          description: List of users not found
+  /api/users/{id}:
+    get:
+      tags:
+      - user-rest-controller
+      summary: Get a user by its id.
+      operationId: getUser
+      parameters:
+      - name: id
+        in: path
+        description: This is the id of the user you're looking for.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: User found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic_Basic'
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: User not found
+    delete:
+      tags:
+      - user-rest-controller
+      summary: Delete user by its id
+      operationId: deleteUser
+      parameters:
+      - name: id
+        in: path
+        description: Id of the user you want to delete
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: User deleted correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic'
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: User not found
+  /api/users/{id}/image:
+    get:
+      tags:
+      - user-rest-controller
+      summary: View a user image by its id
+      operationId: getImageByUserID
+      parameters:
+      - name: id
+        in: path
+        description: Insert the id of the user you're looking for
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: User id not found
+        "200":
+          description: Image shown correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic'
+        "400":
+          description: Invalid id supplied
+  /api/users/{id}/friends:
+    get:
+      tags:
+      - user-rest-controller
+      summary: Get a list of user friends by its id.
+      operationId: getUserByIdFriends
+      parameters:
+      - name: id
+        in: path
+        description: Id of the user you're looking for.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Friends list found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic_UserFriends'
+        "400":
+          description: Invalid id supplied
+        "404":
+          description: List of user friends not found
+  /api/users/{id}/entries:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUserByIdEntries
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User_UserEntries'
+  /api/users/{id}/entries/comments:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUserByIdEntriesAndComments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User_UserEntriesComments'
+  /api/users/{id}/comments:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUserByIdComments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User_UserComments'
+  /api/users/{idUser}/cryptocurrencies:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUserByIdCryptocurrencies
+      parameters:
+      - name: idUser
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Criptocurrency'
+  /api/users/me:
+    get:
+      tags:
+      - user-rest-controller
+      summary: Get information about the logged user
+      operationId: me
+      responses:
+        "404":
+          description: "User not logged, please log in."
+        "200":
+          description: User information displayed correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic_Basic'
+  /api/users/image:
+    get:
+      tags:
+      - user-rest-controller
+      summary: View your profile image
+      operationId: getImage
+      responses:
+        "200":
+          description: Image shown correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic'
+        "404":
+          description: Image not found
+  /api/users/friends:
+    get:
+      tags:
+      - user-rest-controller
+      summary: Get a list of the logged user friends.
+      operationId: getUserFriends
+      responses:
+        "200":
+          description: The list of friends is displayed correctly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Basic'
+        "404":
+          description: List of friends not found
+  /api/users/entries:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUserEntries
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User_UserEntries'
+  /api/users/entries/comments:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUserEntriesAndComments
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User_UserEntriesComments'
+  /api/users/cryptocurrencies:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUserCryptocurrencies
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Criptocurrency'
+  /api/users/comments:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUserComments
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User_UserComments'
+  /api/graphs/:
+    get:
+      tags:
+      - graph-rest-controller
+      operationId: getGraph
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: number
+                  format: double
+  /api/entries/{id}/comments:
+    get:
+      tags:
+      - entry-rest-controller
+      operationId: getCommentsByIdEntry
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Entry_EntryComments'
+  /api/entries/{idEntry}:
+    get:
+      tags:
+      - entry-rest-controller
+      operationId: getEntry
+      parameters:
+      - name: idEntry
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Entry_Basic'
+  /api/entries/{idEntry}/user:
+    get:
+      tags:
+      - entry-rest-controller
+      operationId: getUserByIdEntry
+      parameters:
+      - name: idEntry
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Entry_UserEntry'
+  /api/entries/comments:
+    get:
+      tags:
+      - entry-rest-controller
+      operationId: getEntryComments
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Entry_EntryComments'
+  /api/cryptocurrencies/{id}:
+    get:
+      tags:
+      - cryptocurrency-rest-controller
+      operationId: getCriptocurrency
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Criptocurrency'
+    delete:
+      tags:
+      - cryptocurrency-rest-controller
+      operationId: deleteUser_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Criptocurrency'
+  /api/cryptocurrencies/favCryptocurrency:
+    get:
+      tags:
+      - cryptocurrency-rest-controller
+      operationId: getFavCryptocurrencies
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Criptocurrency'
+  /api/cryptocurrencies/:
+    get:
+      tags:
+      - cryptocurrency-rest-controller
+      operationId: getCryptocurrencies
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Criptocurrency'
+  /api/comments/{id}:
+    get:
+      tags:
+      - comment-rest-controller
+      operationId: getComment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Comment_Comments'
+  /api/comments/{id}/comment:
+    get:
+      tags:
+      - comment-rest-controller
+      operationId: getUserComment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Comment_CommentsUser'
+components:
+  schemas:
+    Basic:
+      type: object
+    Basic_UserFriends:
+      type: object
+    UserDTO:
+      type: object
+      properties:
+        idUser:
+          type: string
+        encodedPassword:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        firstname:
+          type: string
+        email:
+          type: string
+        image:
+          type: string
+          format: binary
+    Comment:
+      type: object
+      properties:
+        idComment:
+          type: integer
+          format: int64
+        descriptionComment:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
+        entry:
+          $ref: '#/components/schemas/Entry'
+    Criptocurrency:
+      type: object
+      properties:
+        idCripto:
+          type: integer
+          format: int64
+        nameCripto:
+          type: string
+        priceCripto:
+          type: number
+          format: double
+        image:
+          type: string
+    Entry:
+      type: object
+      properties:
+        idEntry:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
+        comment:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+    EntryDTO:
+      type: object
+      properties:
+        idEntry:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
+    User:
+      type: object
+      properties:
+        idUser:
+          type: integer
+          format: int64
+        encodedPassword:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        firstname:
+          type: string
+        email:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        image:
+          type: object
+          properties:
+            binaryStream:
+              type: object
+        follow:
+          type: string
+        tokenPass:
+          type: string
+        tokenCreationDate:
+          type: string
+          format: date-time
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+        criptocurrencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Criptocurrency'
+        friends:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entry'
+        roles:
+          type: array
+          items:
+            type: string
+    CommentDTO:
+      type: object
+      properties:
+        idEntry:
+          type: integer
+          format: int64
+        descriptionComment:
+          type: string
+    AuthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - SUCCESS
+          - FAILURE
+        message:
+          type: string
+        error:
+          type: string
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    UserDTO_UserDTOUpdate:
+      type: object
+      properties:
+        idUser:
+          type: string
+        encodedPassword:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        firstname:
+          type: string
+        email:
+          type: string
+        image:
+          type: string
+          format: binary
+    Basic_UserDTOUpdate:
+      type: object
+    Basic_Basic:
+      type: object
+    Entry_UserEntries:
+      type: object
+      properties:
+        idEntry:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+    User_UserEntries:
+      type: object
+      properties:
+        idUser:
+          type: integer
+          format: int64
+        encodedPassword:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        firstname:
+          type: string
+        email:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        image:
+          type: object
+          properties:
+            binaryStream:
+              type: object
+        follow:
+          type: string
+        tokenPass:
+          type: string
+        tokenCreationDate:
+          type: string
+          format: date-time
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entry_UserEntries'
+        roles:
+          type: array
+          items:
+            type: string
+    Comment_UserEntriesComments:
+      type: object
+      properties:
+        idComment:
+          type: integer
+          format: int64
+        descriptionComment:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        entry:
+          $ref: '#/components/schemas/Entry_UserEntriesComments'
+    Entry_UserEntriesComments:
+      type: object
+      properties:
+        idEntry:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+    User_UserEntriesComments:
+      type: object
+      properties:
+        idUser:
+          type: integer
+          format: int64
+        encodedPassword:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        firstname:
+          type: string
+        email:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        image:
+          type: object
+          properties:
+            binaryStream:
+              type: object
+        follow:
+          type: string
+        tokenPass:
+          type: string
+        tokenCreationDate:
+          type: string
+          format: date-time
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment_UserEntriesComments'
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entry_UserEntriesComments'
+        roles:
+          type: array
+          items:
+            type: string
+    Comment_UserComments:
+      type: object
+      properties:
+        idComment:
+          type: integer
+          format: int64
+        descriptionComment:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        entry:
+          $ref: '#/components/schemas/Entry_UserComments'
+    Entry_UserComments:
+      type: object
+    User_UserComments:
+      type: object
+      properties:
+        idUser:
+          type: integer
+          format: int64
+        encodedPassword:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        firstname:
+          type: string
+        email:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        image:
+          type: object
+          properties:
+            binaryStream:
+              type: object
+        follow:
+          type: string
+        tokenPass:
+          type: string
+        tokenCreationDate:
+          type: string
+          format: date-time
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment_UserComments'
+        roles:
+          type: array
+          items:
+            type: string
+    Comment_EntryComments:
+      type: object
+      properties:
+        idComment:
+          type: integer
+          format: int64
+        descriptionComment:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        entry:
+          $ref: '#/components/schemas/Entry_EntryComments'
+    Entry_EntryComments:
+      type: object
+      properties:
+        idEntry:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        comment:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment_EntryComments'
+    Entry_Basic:
+      type: object
+      properties:
+        idEntry:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+    Entry_UserEntry:
+      type: object
+      properties:
+        idEntry:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User_UserEntry'
+    User_UserEntry:
+      type: object
+      properties:
+        idUser:
+          type: integer
+          format: int64
+        encodedPassword:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        firstname:
+          type: string
+        email:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        image:
+          type: object
+          properties:
+            binaryStream:
+              type: object
+        follow:
+          type: string
+        tokenPass:
+          type: string
+        tokenCreationDate:
+          type: string
+          format: date-time
+        roles:
+          type: array
+          items:
+            type: string
+    Comment_Comments:
+      type: object
+      properties:
+        idComment:
+          type: integer
+          format: int64
+        descriptionComment:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        entry:
+          $ref: '#/components/schemas/Entry_Comments'
+    Entry_Comments:
+      type: object
+    Comment_CommentsUser:
+      type: object
+      properties:
+        idComment:
+          type: integer
+          format: int64
+        descriptionComment:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User_CommentsUser'
+        entry:
+          $ref: '#/components/schemas/Entry_CommentsUser'
+    Entry_CommentsUser:
+      type: object
+    User_CommentsUser:
+      type: object
+      properties:
+        idUser:
+          type: integer
+          format: int64
+        encodedPassword:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        firstname:
+          type: string
+        email:
+          type: string
+        registrationDate:
+          type: string
+          format: date-time
+        image:
+          type: object
+          properties:
+            binaryStream:
+              type: object
+        follow:
+          type: string
+        tokenPass:
+          type: string
+        tokenCreationDate:
+          type: string
+          format: date-time
+        roles:
+          type: array
+          items:
+            type: string

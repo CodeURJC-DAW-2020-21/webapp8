@@ -1,0 +1,36 @@
+{{>header}}
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4 tituloPrincipal text-center">Criptomonedas favoritas</h1>
+            <div class="panel-group" style="margin-top: 20px" id="accordion">
+                <!--Charts-->
+                <div class="card">
+                    <table class="table table-striped text-center">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#criptocurrenciesFav}}
+                        <tr data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+                            <th class="align-middle" scope="row">{{idCripto}}</th>
+                            <td class="align-middle"><a href="/Bitcoin"
+                                                        class="text-decoration-none text-dark">{{nameCripto}}</a>
+                            </td>
+                            <td class="align-middle">{{priceCripto}} $</td>
+                        {{/criptocurrenciesFav}}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    {{>footer}}
+
+

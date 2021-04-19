@@ -89,3 +89,138 @@ If there is a server error the user will be redirected to this page.
 
 ## Navigation Diagram
 ![Navigation Diagram Image](/Phase1Images/NavigationDiagram.png "Navigation Diagram")
+
+
+
+## PHASE 2
+
+### Navigation Diagram
+
+![Navigation Diagram Image](/Phase2Images/NavigationDiagram.png "Navigation Diagram")
+New Navigation Diagram 
+
+![Admin User List](/Phase2Images/UserList.png "Admin User List")
+Admin diagram added to Navigation Diagram
+
+![CommentUserRegistered](/Phase2Images/CommentUserRegistered.png"Forum")
+New index for registered users
+
+![CryptFav](/Phase2Images/CryptFav.png "CryptFav")
+Favourite Criptocurrency  
+
+![CryptosUserNotRegistered](/Phase2Images/CryptosUserNotRegistered.png "CryptosUserNotRegistered")
+Criptocurrency screen for all users
+
+![CrytosUserNotRegistered](/Phase2Images/CrytosUserRegistered.png "CrytosUserNotRegistered")
+Criptocurrency screen for registered users
+
+![IndexAdmin](/Phase2Images/IndexAdmin.png "IndexAdmin")
+New admin index
+
+![IndexUserNotRegistered](/Phase2Images/IndexUserNotRegistered.png "IndexUserNotRegistered")
+Index for all users
+
+![IndexUserRegistered](/Phase2Images/IndexUserRegistered.png "IndexUserRegistered")
+Index for registered users
+
+![NewEntryUserNotRegistered](/Phase2Images/NewEntryUserNotRegistered.png "NewEntryUserNotRegistered")
+New entry screen for no registered users
+
+![NewEntryUserRegistered](/Phase2Images/NewEntryUserRegistered.png "NewEntryUserRegistered")
+New entry screen for registered users
+
+![RecommendationSystem](/Phase2Images/RecommendationSystem.png "RecommendationSystem")
+New recommendation system
+
+![UserAdminList](/Phase2Images/UserListAdmin.png "UserAdminList")
+Admin user administration list
+
+![UserSettings](/Phase2Images/UserSettings.png "UserSettings")
+User settings screen
+
+
+
+### Execution Instruction
+You can download the complete code in our github link https://github.com/CodeURJC-DAW-2020-21/webapp8, build it and run it with IntelliJIdea 2020.
+You will need at least Java 11, MySQL 8.0 and Docker.
+To create the MySQL server you have to run the following command: sudo docker run --rm -e MYSQL_ROOT_PASSWORD=DawWebApp8 -e MYSQL_DATABASE=webapp8_bbdd -p 3306:3306 -d mysql:8.0.22
+After the MySQL server has been created, the application can be runned from you IDE of choice.
+To see the web app you must copy this link in to your browser: https://localhost:8443/
+
+
+### DataBase Entities Diagram
+![Navigation Diagram Image](/Phase2Images/EntityDiagram.png "Entity Diagram")
+
+### Class and Templates Diagram
+![ClassAndTemplatesDiagram](/Phase2Images/ClassAndTemplatesDiagram.png "ClassAndTemplatesDiagram")
+
+### Participation
+
+In this phase we perform the application using Spring Boot. The most important upgrades that we have made are: a MySql Database for the web, a registration and login system, a user permission system and the possibility to upload images, create entries and comments.
+The administrator can also delete users using a new user list and delete also their own comments. We have also implemented the possible different error pages.
+
+| Marcos Rodríguez                                                                                           | Adrián López                                                                                               | Adrián Sierra                                                                                              | Ángel Domínguez                                                                                            | Óscar Ramadán
+|:-----------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------:|
+| [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/d9f9538feb6a295faa3c79631783b8194d69690d) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7b465060d2dbdb364b2c96e1d6e89588ac510d74) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/2d9556ea84e21ff5d0c76e82166835e7cb25bef3) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/6a88ba0958a9593ef043e5c98a7838726fcb9316) |[Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/35c200c3d23dfcee4b03c79662893178de8e51ee)  |
+| [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/a84aa13a65502664f89a2a2721201a2da86cd5d6) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ca003c95d2f860b42b8cc0d1eeb104d8af5ed49e) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ff86c605f1e940f646c52e26264e81295befad17) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) |[Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/636e85dd3a326b72f36ca9165a29eb7e75c7decb)  |
+| [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/c7c56a3427da9bce0c1a074cfa7e9092bef5d8d0) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7b9a13407812a9d91bd5de955dbd705d6146f405) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/24d574cb605ba854b32f4a93c99a542d651d10a6) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/f6188599e0a2a18e2e01ef7647d2d8b5a0a6acb2) |[Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/de2e5d3e716e5133de2a490e2d94f1bb937bcc23)  |
+| [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/792f17a1c946534850bfbdaa15b26385813f25fe) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/df110b555994d5cc1b0fa96bb7554cf16eea9e2f) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/b4f034f15d27c56035e835d1397b4a131e53e14c) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/f0c06823870e4f0f1ebff09edcda06c640f233b7) |[Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/8a13d8c7a39543010641aca5c193cdb13edf61dc)  |
+| [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/515d81a835a2d9c39d82c23eadd41ac1b30998df) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/b53ef4d8507a3013016fecf06ee74cb8e4141a55) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/eca332f999c2734897c4925ca50385e78ab6352b) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1261c301f5252017d109575bf2dab595fd802f95) |[Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/cf1080e3b2cfa06c70f4be995ffddde1fadb35d1)  |
+
+### Files
+| Marcos                  | Adrián L.                | Adrián S.                       | Óscar                   | Ángel                    |
+|:-----------------------:|:------------------------:|:-------------------------------:|:-----------------------:|:------------------------:|
+| Header and footer       | RegisterController.java  | README                          | MyErrorController.java  | Models                   |
+| Index.html              | ForgotPassController.java| MyErrorController.java          | PostController.java     | Database                 |
+| UserController.java     | CriptocurrencyController.java | CommentController.java     | application.properties  | UserController.java      |
+| userList.html           | password.html            | CriptocurrencyController.java   | Security                | RegisterController.java  |
+| PostController.java     | criptomonedas.html       | CommentRepository.java          | UserService.java        | loginError.html          |
+
+
+## PHASE 3
+
+We have implemented a API REST for the application and we've also packaged and distributed it using Docker technology. On the other hand, we have tested and included a collection of Postman requests.
+
+### API REST documentation:
+- [HTML FILE](https://github.com/CodeURJC-DAW-2020-21/webapp8/blob/predevelop2/api-docs/api-docs.html)
+- [YAML file](https://github.com/CodeURJC-DAW-2020-21/webapp8/blob/predevelop2/api-docs/api-docs.yaml)
+- [Interpreted HTML documentation](http://raw.githack.com/CodeURJC-DAW-2020-21/webapp8/predevelop2/api-docs/api-docs.html)
+
+### Dockerized application execution instructions:
+To run the app follow the next steps:
+- 1: install docker desktop and docker compose [click here](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=header)
+- 2: download project in GitHub [click here](https://github.com/CodeURJC-DAW-2020-21/webapp8/archive/refs/heads/predevelop2.zip)
+- 3: Open terminal
+- 4: Get into the Backend directory ```cd C:\{your download path}\webapp8\Backend```
+- 5: Build image in docker ```sudo docker build -t marcoszas/webapp8 . ```
+- 6: ```docker-compose up ```
+- 7: Type in the browser https://localhost:8443/ and it will show the application web
+
+### How to build the docker image:
+- Step 1: execute this command in terminal: ```wget https://raw.githack.com/CodeURJC-DAW-2020-21/webapp8/predevelop2/Backend/docker_image.sh```
+- Step 2: give execution permissions to the downloaded file ```chmod +x docker_image.sh```
+- Step 3: execute ```./docker_image.sh```
+
+### Classes and templates Diagram:
+![Navigation Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp8/blob/predevelop2/Phase3Images/ClassesAndTemplatesDiagram.png)
+
+### Participation
+In this third phase we have prepared our application to be used in the REST API format, with the aim of expanding the use of ForoCoin. All this update is properly documented.
+We have also dockerized and published ForoCoin thanks to docker.
+
+| Marcos Rodríguez | Adrián López | Adrián Sierra | Ángel Domínguez | Óscar Ramadán |
+|:----------------:|:------------:|:-------------:|:---------------:|:-------------:|
+| [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/8feb1c29b7da4c7d03ac364c3a029258d6319595) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/9e3a86a3dc3485837a77777758b290bb216fd1bc) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1f06845a201760d145ba9f884c2fee622ec45b79) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/90f286e04f6497e386b07c7d9aef97ed67fa9df5) |[Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/e637b98a8f335f7cda7f7cb806fdc4f6d94ef64b)  |
+| [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/4e8062133857847651b4696f0ee029f04cbc3f7a) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/fbb5f14cf4801712a3ba42fe4c3aa0c9a65c9ca4) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/0552e3e854990584012fee0a673d4985c6b2d9ae) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/3d34b02a64d7f1952078c323668ac1b22c816f06) |[Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/cd70962bf667c99dd2b8017727352d89cd10d4c2)  |
+| [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/7ebfb2b92aff2199d4b67b9f7150f0b305716893) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/972dbff88a7595de4576b077071523e6914fc2bb) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/5dde33e8c003444071723761bcccc03fc03a2ddf) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/e01b794e94f499c7ce511b4f1c6cb4c6895862b5) |[Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1f499b3a44b04118418b366fba0860903f363cc5)  |
+| [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/6f245890af05121f5714538f1175a5f36c63601a) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/9c70271873c978aff3b7d66214f9a6d7afe49a66) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/813de37bb3169ca1dd1d6304095b164213a513b6) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/813de37bb3169ca1dd1d6304095b164213a513b6) |[Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/4e8062133857847651b4696f0ee029f04cbc3f7a)  |
+| [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/ebd3a0a26a878da5407efcd3f0e7b0d09831bc82) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/a3e98e99976d0ea49a2f054fc42cb10460da91ea) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/2344eaed9b7796448184d4ceebc1a75d2d44fd41) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/b7cf1870576521d86bd19a3fcb2592b197ba1e9b) |[Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/cf1080e3b2cfa06c70f4be995ffddde1fadb35d1)  |
+
+### Files
+| Marcos                  | Adrián L.                         | Adrián S.                           | Óscar                    | Ángel                   |
+|:-----------------------:|:---------------------------------:|:-----------------------------------:|:------------------------:|:-----------------------:|
+| UserDTO.java            | UserRestController.java           | CommentDTO.java                     | GraphRestController.java | EntryDTO.java           |
+| UserRestController.java | CryptocurrencyRestController.java | CommentRestController.java          | docker-compose.yml       | EntryRestController.java|
+| RestSecurityConfig.java | Cryptocurrency.java               | Comment.java                        | Dockerfile               | Entry.java              |
+| docker_image.sh         | User.java                         | UserRestController.java             | RestSecurityConfig.java  | UserRestController.java |
+| User.java               | RestSecurityConfig.java           | Readme                              | EntryRestController.java | RestSecurityConfig.java |
