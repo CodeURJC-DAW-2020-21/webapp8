@@ -16,7 +16,7 @@
 #git switch predevelop2
 cd ../Backend
 sudo docker run --rm -v "$PWD":/data -w /data maven mvn package
-cp /target/*.jar ../Docker
+cp target/*.jar ../../Docker
 cd ../Docker
 sudo docker build -t marcoszas/webapp8 .
 sudo rm -rf *.jar
