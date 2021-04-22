@@ -195,6 +195,11 @@ public class UserService implements UserServiceInterface {
         } else {
             user.setSurname(user.getSurname());
         }
+        if (userDTO.getImage() != null){
+            updateUserImage(user, userDTO.getImage());
+        } else {
+            user.setImage(user.getImage());
+        }
         return userRepository.save(user);
     }
 
