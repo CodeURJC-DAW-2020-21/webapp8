@@ -68,7 +68,7 @@ public class EntryRestController {
                     content = @Content
             )
     })
-    @JsonView(Entry.Basic.class)
+    @JsonView(UserEntry.class)
     @GetMapping("/")
     public ResponseEntity<Collection<Entry>> getEntries(@Parameter(description = "number of the page you want to get") @RequestParam(defaultValue = "0") int numOfPage){
         page = PageRequest.of(numOfPage, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());

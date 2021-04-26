@@ -4,15 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
-import { EntryComponent } from './entry/entry.component';
-import { CommentComponent } from './comment/comment.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { CryptocurrencyComponent } from './cryptocurrency/cryptocurrency.component';
-import { SettingsComponent } from './settings/settings.component';
-import { NewEntryComponent } from './new-entry/new-entry.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { NewEntryComponent } from './components/new-entry/new-entry.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { CryptocurrencyComponent } from './components/cryptocurrency/cryptocurrency.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { EntryComponent } from './components/entry/entry.component';
 
 @NgModule({
   declarations: [
