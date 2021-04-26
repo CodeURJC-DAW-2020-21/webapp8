@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CryptocurrencyComponent } from './cryptocurrency/cryptocurrency.component';
 import { SettingsComponent } from './settings/settings.component';
 import { NewEntryComponent } from './new-entry/new-entry.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { NewEntryComponent } from './new-entry/new-entry.component';
     FooterComponent,
     CryptocurrencyComponent,
     SettingsComponent,
-    NewEntryComponent
+    NewEntryComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
