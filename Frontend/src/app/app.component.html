@@ -1,4 +1,11 @@
-<h1>Lista de entradas</h1>
-<input #pageNumber type="text">
-<button (click)="getEntries(pageNumber.value)">Obtener entradas</button>
-<li *ngFor="let entry of entries">{{entry}}</li>
+<app-header></app-header>
+<div id="layoutSidenav">
+  <app-sidenav></app-sidenav>
+  <div id="layoutSidenav_content">
+    <div>
+
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
+
