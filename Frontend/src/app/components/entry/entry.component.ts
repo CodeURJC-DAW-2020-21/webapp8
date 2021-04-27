@@ -25,11 +25,11 @@ export class EntryComponent implements OnInit {
 
   getEntries(page: number) {
     this.entries = [];
-    this.entriesService.getEntries(0).subscribe(
+    this.entriesService.getEntries(page).subscribe(
       entries => this.entries = entries
     );
   }
-  
+
   getUserByIdEntry(idEntry: number) {
     this.user = null;
     this.entriesService.getUserByIdEntry(idEntry).subscribe(

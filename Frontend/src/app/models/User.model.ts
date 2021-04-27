@@ -9,5 +9,5 @@ export class UserModel {
     email: string;
     image?: any;
     roles: string[];
-    resgistrationDate: Date;
+    registrationDate: Date;
 }
