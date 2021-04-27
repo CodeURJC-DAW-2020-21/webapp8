@@ -4,18 +4,16 @@
   <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle"><i
     class="fas fa-bars"></i></button>
   <!-- Navbar-->
-  <ul class="d-flex pull-right justify-content-between">
+  <ul class="navbar-nav ml-auto">
     <app-login></app-login>
-    <li ngbDropdown class="d-inline-block">
-      <a class="btn btn-outline-secondary ml-2 " id="dropdownBasic1" role="button" data-toggle="dropdown"
-         aria-haspopup="true" aria-expanded="false" ngbDropdownToggle><i class="fas fa-user fa-fw"></i></a>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu dropdown-menu-right">
-        <a ngbDropdownItem routerLink="/settings">Mi cuenta</a>
-        <form action="/logout" method="post">
-          <input ngbDropdownItem type="submit" value="Cerrar sesión"/>
-          <input type="hidden" name="_csrf" value=""/>
-        </form>
-      </div>
-    </li>
+    <div *ngIf="loginService.isLogged()">
+      <li ngbDropdown class="d-inline-block">
+        <a class="btn btn-light btn-outline-secondary ml-2" id="dropdownBasic1" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle><i class="fas fa-user fa-fw"></i></a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu dropdown-menu-right">
+          <a ngbDropdownItem routerLink="/settings">Mi cuenta</a>
+        </div>
+      </li>
+    </div>
   </ul>
 </nav>
