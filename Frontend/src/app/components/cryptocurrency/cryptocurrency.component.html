@@ -1,1 +1,19 @@
-<p>cryptocurrency works!</p>
+<div>
+    <ul>
+        <li *ngFor = "let cryptocurrency of cryptocurrencies">
+            <span>
+                <a>{{cryptocurrency.nameCripto}}</a>
+                <a>{{cryptocurrency.priceCripto}}</a>
+                <img [src] = "getUrlImage(cryptocurrency.image)" width="20" height="20"> 
+            </span>
+                <!-- <button (click) = "addCryptocurrency({{cryptocurrency}}, 1)">Add cryptocurrency to favCryptocurrency</button> -->
+                <!-- <button (click) = "removeCryptocurrency({{cryptocurrency}}, 1)">Remove cryptocurrency of favCryptocurrency</button> -->
+        </li>
+    </ul>
+
+    <!-- <ul>
+        <li *ngFor = "let favCryptocurrency of favCryptocurrencies">
+            {{favCryptocurrency}}
+        </li>
+    </ul> -->
+</div>
