@@ -16,7 +16,6 @@ export class EntryComponent implements OnInit {
   user: UserModel;
   image: Blob;
   isImageLoading: boolean;
-  imageToShow: any;
 
   constructor(private entriesService: EntriesService, private usersService: UsersService) { }
 
@@ -27,13 +26,7 @@ export class EntryComponent implements OnInit {
   getEntries(page: number) {
     this.entries = [];
     this.entriesService.getEntries(0).subscribe(
-      data => {
-        this.entries = data,
-        this.entries.forEach(function(entry){  
-          this.getImageByUserID(entry.user.idUser);
-          entry.user.image = this.imageToShow;
-         })
-      }
+      entries => this.entries = entries
     );
   }
   

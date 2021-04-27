@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { EntryComponent } from './components/entry/entry.component';
+import { MainForumComponent } from './components/main-forum/main-forum.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EntryComponent } from './components/entry/entry.component';
     SettingsComponent,
     NewEntryComponent,
     SidenavComponent,
+    MainForumComponent,
   ],
   imports: [
     BrowserModule,
