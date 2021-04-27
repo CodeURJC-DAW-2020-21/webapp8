@@ -1,23 +1,32 @@
 <form *ngIf="!loginService.isLogged()" class="navbar-form navbar-right form-inline" role="search">
-
-	<div class="form-group">
-		<input #user type="text" class="form-control" name="username" placeholder="Username">
-	</div>
-
-	<div class="form-group">
-		<input #pass type="password" class="form-control" name="password" placeholder="Password">
-	</div>
-
-	<button type="submit" (click)="logIn($event, user.value, pass.value)" class="btn btn-default">Sign In</button>
-
+  <div class="row" placement="right-bottom">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-secondary" id="dropdownForm1" ngbDropdownToggle>Login</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="dropdown-menu dropdown-menu-right">
+          <form class="px-4 py-3">
+            <div class="form-group">
+              <label for="exampleDropdownFormEmail1">Nombre de Usuario</label>
+              <input #user type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label for="exampleDropdownFormPassword1">Contraseña</label>
+              <input #pass type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <button ngbDropdownItem type="submit" (click)="logIn($event, user.value, pass.value)" class="btn btn-default">Entrar</button>
+          </form>
+          <div class="dropdown-divider"></div>
+          <button ngbDropdownItem>¿Eres nuevo? Regristate</button>
+          <button ngbDropdownItem>He olvidado mi contraseña</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
 
 <div *ngIf="loginService.isLogged()" class="nav navbar-nav navbar-right">
 
 	<ul class="nav navbar-nav">
-		<div class="navbar-nav mr-auto">
-			<a class="navbar-brand" href="/">Current user: {{loginService.currentUser().name}}</a>
-		</div>
 		<li>
 			<button class="btn btn-default navbar-btn" (click)="logOut()" type="button">Log Out</button>
 		</li>
