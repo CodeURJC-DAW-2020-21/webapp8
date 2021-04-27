@@ -8,7 +8,7 @@ import { UserlistComponent } from './components/userlist/userlist.component';
 import { ErrorComponent} from './components/error/error.component';
 
 const routes: Routes = [
-  { path: 'criptocurrencies', component: CryptocurrencyComponent },
+  { path: 'cryptocurrencies', component: CryptocurrencyComponent },
   { path: 'userslist', component: UserlistComponent },
   { path: 'userslist2', redirectTo: 'userslist', pathMatch: 'full' },
   { path: 'newEntry', component: NewEntryComponent },
