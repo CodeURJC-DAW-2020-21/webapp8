@@ -15,6 +15,8 @@ import { CommentComponent } from './components/comment/comment.component';
 import { EntryComponent } from './components/entry/entry.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainForumComponent } from './components/main-forum/main-forum.component';
+import {RouterModule} from '@angular/router';
+import {routing} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { MainForumComponent } from './components/main-forum/main-forum.component
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    RouterModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
