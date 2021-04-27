@@ -1,18 +1,10 @@
 import {HttpClient} from '@angular/common/http';
 import {Component} from '@angular/core';
 
-// interface Entry {
-//   description: string;
-//   user: string;
-//   title: string;
-//   date: Date;
-//   comments: Comment[];
-// }
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent {

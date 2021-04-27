@@ -14,6 +14,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { EntryComponent } from './components/entry/entry.component';
 import { LoginComponent } from './components/login/login.component';
+import { MainForumComponent } from './components/main-forum/main-forum.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoginComponent } from './components/login/login.component';
     NewEntryComponent,
     SidenavComponent,
     LoginComponent
+    MainForumComponent,
   ],
   imports: [
     BrowserModule,

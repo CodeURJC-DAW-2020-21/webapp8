@@ -1,1 +1,33 @@
-<p>new-entry works!</p>
+<button class="btn btn-info col-5 btn-sm align-right" type="button"
+                                    data-toggle="modal" (click)="triggerModal(modalData)" data-target="#threadModal">
+                                NEW DISCUSSION
+                            </button>
+                            <ng-template #modalData let-modal>
+                                <div class="modal-header d-flex align-items-center bg-primary text-white">
+                                    <h6 class="modal-title mb-0">Nueva Entrada
+                                    </h6>
+                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="title">Título</label>
+                                        <input type="text" class="form-control" id="title" name="title" placeholder="Introduzca un título" autofocus=""/>
+                                    </div>
+                                    <textarea class="form-control summernote" style="display: none;"></textarea>
+                                    <div class="form-group">
+                                        <label for="description">Descripción</label>
+                                        <textarea class="form-control" id="description" name="description" placeholder="Introduzca una descripción" rows="3"></textarea>
+                                    </div>
+                                    <div class="custom-file form-control-sm mt-3" style="max-width: 300px;">
+                                        <input type="file" class="custom-file-input" multiple=""/>
+                                        <label class="custom-file-label" for="customFile">Archivos</label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal" (click)="modal.dismiss('Cross click')">Cancelar</button>
+                                    <input type="submit" class="btn btn-primary" value="Publicar"/>
+                                    <input type="hidden" name="_csrf" value=""/>
+                                </div>
+                            </ng-template>
