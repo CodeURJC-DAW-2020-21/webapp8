@@ -11,7 +11,7 @@ import { UsersService } from '../../services/users.service';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor(public loginService: LoginService, usersService: UsersService) { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit(): void {
   }
