@@ -1,0 +1,52 @@
+
+<div class="container-fluid">
+  <h1 class="mt-4">Listado de Usuarios</h1>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Usuarios
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                          <th>Nombre</th>
+                          <th>Apellido</th>
+                          <th>Nickname</th>
+                          <th>Email</th>
+                          <th>Fecha de registro</th>
+                          <th>Control Usuario</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Nickname</th>
+                        <th>Email</th>
+                        <th>Fecha de registro</th>
+                        <th>Control Usuario</th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <input type="hidden" value="{{user.idUser}}" id="idUser" name="idUser">
+                            <td>{{user.firstname}}</td>
+                            <td>{{user.surname}}</td>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.registrationDate}}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteUserById(user.idUser)">ELIMINAR</button>
+                                <input type="hidden" name="_csrf" value=""/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
