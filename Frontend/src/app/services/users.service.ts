@@ -9,9 +9,9 @@ const BASE_URL = 'api/users/';
 @Injectable({ providedIn: 'root' })
 export class UsersService {
 
-  constructor(private httpClient: HttpClient) { }
-  
   users: UserModel[] = [];
+  constructor(private httpClient: HttpClient) { }
+
   getUsers(): Observable<UserModel[]>{
     return this.httpClient.get(BASE_URL).pipe() as Observable<UserModel[]>;
   }
@@ -22,5 +22,10 @@ export class UsersService {
   getImageByUserID(idUser: number): Observable<Blob>{
     let url = idUser + '/image';
     return this.httpClient.get(BASE_URL +  url, {responseType: "blob"}).pipe() as Observable<Blob>;
+  }
+
+  deleteUserById(idUser: number): Observable<any> {
+    let url = idUser;
+    return this.httpClient.delete(BASE_URL + url).pipe() as Observable<any>;
   }
 }
