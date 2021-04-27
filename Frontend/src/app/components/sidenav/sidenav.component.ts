@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  show: boolean;
-
   constructor(public loginService: LoginService) { }
 
   ngOnInit(): void {

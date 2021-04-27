@@ -27,8 +27,8 @@ import { MainForumComponent } from './components/main-forum/main-forum.component
     SettingsComponent,
     NewEntryComponent,
     SidenavComponent,
-    LoginComponent
-    MainForumComponent,
+    LoginComponent,
+    MainForumComponent
   ],
   imports: [
     BrowserModule,
