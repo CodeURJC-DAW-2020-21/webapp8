@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainForumComponent } from './components/main-forum/main-forum.component';
 import {RouterModule} from '@angular/router';
 import {routing} from './app-routing.module';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {routing} from './app-routing.module';
     NewEntryComponent,
     SidenavComponent,
     LoginComponent,
-    MainForumComponent
+    MainForumComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
