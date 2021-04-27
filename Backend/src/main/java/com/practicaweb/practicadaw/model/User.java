@@ -59,6 +59,7 @@ public class User {
     @JsonView(Entries.class)
     private List<Entry> entries;
     @ElementCollection(fetch = FetchType.EAGER)
+    @JsonView(Basic.class)
     private List<String> roles;
 
 

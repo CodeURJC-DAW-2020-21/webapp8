@@ -20,18 +20,24 @@
           </div>
           Criptomonedas favoritas
         </a>
-
-        <a class="nav-link" href="/users">
-          <div class="sb-nav-link-icon mr-3">
-            <img src="assets/images/userGroup.svg" alt="UserIcon" width="22">
-          </div>
-          Listado de usuarios
-        </a>
+        <div *ngIf="loginService.isAdmin()">
+            <a class="nav-link" href="/users">
+              <div class="sb-nav-link-icon mr-3">
+                <img src="assets/images/userGroup.svg" alt="UserIcon" width="22">
+              </div>
+              Listado de usuarios
+            </a>
+        </div>
       </div>
     </div>
     <div class="sb-sidenav-footer">
       <div class="small">Logged in as:</div>
-      Invitado
+      <div *ngIf="loginService.isLogged()">
+        {{loginService.currentUser().name}}
+      </div>
+      <div *ngIf="!loginService.isLogged()">
+        Invitado
+      </div>
     </div>
   </nav>
 </div>
