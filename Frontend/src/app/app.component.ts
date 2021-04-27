@@ -25,7 +25,7 @@ export class AppComponent {
 
   getEntries(page: number) {
     this.entries = [];
-    let url = "/api/entries/?numOfPage=" + page;
+    let url = "/api/entries/?numOfPage=" + page.toString() + "";
     this.httpClient.get(url).subscribe(
       response => {
         let data: any = response;
@@ -36,5 +36,4 @@ export class AppComponent {
       }
     )
   }
-
 }

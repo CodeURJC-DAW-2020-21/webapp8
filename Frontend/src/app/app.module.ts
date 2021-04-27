@@ -24,7 +24,7 @@ import { EntryComponent } from './components/entry/entry.component';
     CryptocurrencyComponent,
     SettingsComponent,
     NewEntryComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

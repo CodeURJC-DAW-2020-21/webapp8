@@ -68,9 +68,42 @@ public class EntryRestController {
                     content = @Content
             )
     })
-    @JsonView(UserEntry.class)
+    @JsonView(Entry.Basic.class)
     @GetMapping("/")
     public ResponseEntity<Collection<Entry>> getEntries(@Parameter(description = "number of the page you want to get") @RequestParam(defaultValue = "0") int numOfPage){
+        page = PageRequest.of(numOfPage, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());
+        Page<Entry> entries = entryService.selectPageable(page);
+        if (!entries.isEmpty()){
+            return ResponseEntity.ok(entries.getContent());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Operation(summary = "Get a list of entries using a number of page.")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Entry found",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = UserEntry.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid number of page supplied",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Entry not found",
+                    content = @Content
+            )
+    })
+    @JsonView(UserEntry.class)
+    @GetMapping("/entry/users/")
+    public ResponseEntity<Collection<Entry>> getEntriesWithUser(@Parameter(description = "number of the page you want to get") @RequestParam(defaultValue = "0") int numOfPage){
         page = PageRequest.of(numOfPage, DEFAULT_SIZE_PAGE, Sort.by("registrationDate").descending());
         Page<Entry> entries = entryService.selectPageable(page);
         if (!entries.isEmpty()){

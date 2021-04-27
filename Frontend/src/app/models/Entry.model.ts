@@ -2,8 +2,8 @@ import { UserModel } from "./User.model";
 
 export class EntryModel {
     idEntry: number;
-    title: String;
-    description: String;
-    //registrationDate: LocalDateTime;
+    title: string;
+    description: string;
+    registrationDate: Date;
     user: UserModel;
 }

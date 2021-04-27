@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-11">
                 <div class="media forum-item" *ngFor = "let entry of entries">
-                    <a><img src="{{entry.image}}" class="rounded-circle"
+                    <a><img [src]="getImageByUserID(entry.user.idUser)" class="rounded-circle"
                             width="50" height="50" alt="User"/>
                         <small class="d-block text-center text-muted">{{entry.user.firstname}}</small></a>
                     <div class="media-body ml-3">
