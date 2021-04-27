@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { EntryComponent } from './components/entry/entry.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EntryComponent } from './components/entry/entry.component';
     SettingsComponent,
     NewEntryComponent,
     SidenavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

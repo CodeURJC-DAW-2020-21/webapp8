@@ -29,11 +29,12 @@ export class AppComponent {
     this.httpClient.get(url).subscribe(
       response => {
         let data: any = response;
+        // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < data.length; i++) {
           let entryTitle = data[i].title;
           this.entries.push(entryTitle);
         }
       }
-    )
+    );
   }
 }

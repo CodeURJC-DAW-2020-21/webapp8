@@ -8,4 +8,6 @@ export class UserModel {
     firstname: string;
     email: string;
     image?: any;
+    roles: string[];
+    resgistrationDate: Date;
 }
