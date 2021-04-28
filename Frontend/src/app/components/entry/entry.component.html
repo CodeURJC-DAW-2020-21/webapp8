@@ -7,7 +7,7 @@
                             width="50" height="50" alt="User"/>
                         <small class="d-block text-center text-muted">{{entry.user.firstname}}</small></a>
                     <div class="media-body ml-3">
-                        <h6><a href="#" class="text-body">{{entry.title}}</a></h6>
+                        <h6><a routerLink="#" class="text-body">{{entry.title}}</a></h6>
                         <form method="post" action="/newComment"
                               modelAttribute="comment">
                             <input type="hidden" value="{{entry.idEntry}}" name="idEntry">
@@ -28,7 +28,7 @@
                             </div>
                         </form>
                         <a class="small text-muted" data-toggle="collapse"
-                           href="#commentsBox{{entry.idEntry}}">Comentarios</a>
+                           routerLink="#commentsBox{{entry.idEntry}}">Comentarios</a>
                         <div class="collapse" id="commentsBox{{entry.idEntry}}">
                             <div class="card card-body">
                                 <app-comment></app-comment>
