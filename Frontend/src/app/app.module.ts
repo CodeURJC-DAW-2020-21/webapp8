@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { routing } from './app-routing.module';
 import { ErrorComponent } from './components/error/error.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FavCryptoComponent } from './components/fav-crypto/fav-crypto.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RegisterComponent } from './components/register/register.component';
     UserlistComponent,
     ErrorComponent,
     MainForumComponent,
-    RegisterComponent
+    RegisterComponent,
+    FavCryptoComponent
   ],
   imports: [
     BrowserModule,
