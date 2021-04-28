@@ -1,8 +1,8 @@
+import { UsersService } from './../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { UserModel } from 'src/app/models/User.model';
 import { LoginService } from 'src/app/services/login.service';
-import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-settings',

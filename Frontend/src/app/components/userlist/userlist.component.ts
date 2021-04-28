@@ -1,21 +1,27 @@
 import { UserModel } from 'src/app/models/User.model';
 import { UsersService } from './../../services/users.service';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-userlist',
   templateUrl: './userlist.component.html',
   styleUrls: ['./userlist.component.css']
 })
-export class UserlistComponent implements OnInit {
+export class UserlistComponent implements OnInit, OnChanges {
 
   users: UserModel[];
   value: any;
 
-  constructor(public usersService: UsersService, private router: Router) { }
+  constructor(public usersService: UsersService, private router: Router, activatedRoute: ActivatedRoute) {
+    this.getUsers();
+  }
 
   ngOnInit(): void {
+    this.getUsers();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.getUsers();
   }
 

@@ -24,11 +24,11 @@
                         </td>
                         <td class="align-middle" *ngIf="loginService.isLogged()">
                             <a (click)= "changeImage(cryptocurrency)">
-                                <img [src] = "getUrlImage(cryptocurrency)" width="20" height="20"> 
+                                <img [src] = "getUrlImage(cryptocurrency)" width="20" height="20">
                             </a>
                         </td>
                         <td class="align-middle" *ngIf="!loginService.isLogged()">
-                            <a>Registrate makina</a> 
+                            <a>Registrate makina</a>
                         </td>
                     </tr>
             </table>
@@ -42,4 +42,4 @@
         </div>
     </div>
   </div>
-</div>
+
