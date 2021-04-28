@@ -1,40 +1,46 @@
-<button class="btn btn-info btn-sm container-fluid" type="button"
-                                    data-toggle="modal" (click)="triggerModal(modalData)" data-target="#threadModal">
-                                ¿No tienes una cuenta? Regístrate
-                            </button>
-                            <ng-template #modalData let-modal>
-                                <div class="modal-header d-flex align-items-center bg-primary text-white">
-                                    <h6 class="modal-title mb-0">Registro
-                                    </h6>
-                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                      <label for="title">Nombre</label>
-                                      <input #firstname type="text" class="form-control" placeholder="Introduzca su nombre" autofocus=""/>
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="description">Apellido</label>
-                                      <input #surname type="text" class="form-control" placeholder="Introduzca su apellido" autofocus=""/>
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="description">Correo electrónico</label>
-                                      <input #email type="text" class="form-control" id="title" name="title" placeholder="Introduzca su correo electrónico" autofocus=""/>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="description">Nombre de usuario</label>
-                                    <input #name type="text" class="form-control" id="title" name="title" placeholder="Introduzca su nombre de usuario" autofocus=""/>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="description">Contraseña</label>
-                                    <input #encodedPassword type="password" class="form-control" id="title" name="title" placeholder="Introduzca su contraseña" autofocus=""/>
-                                </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light" data-dismiss="modal" (click)="modal.dismiss('Cross click')">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary" (click)="createUser($event, firstname.value, surname.value, email.value, name.value, encodedPassword.value)">Publicar</button>
-                                    <input type="hidden" name="_csrf" value=""/>
-                                </div>
-                            </ng-template>
+<button class="btn btn-info container-fluid" type="button"
+        data-toggle="modal" (click)="triggerModal(modalData)" data-target="#threadModal">
+  ¿No tienes una cuenta? Regístrate
+</button>
+<ng-template #modalData let-modal>
+  <div class="modal-header d-flex align-items-center bg-primary text-white">
+    <h6 class="modal-title mb-0">Registro
+    </h6>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="title">Nombre</label>
+      <input #firstname type="text" class="form-control" placeholder="Introduzca su nombre" autofocus=""/>
+    </div>
+    <div class="form-group">
+      <label for="description">Apellido</label>
+      <input #surname type="text" class="form-control" placeholder="Introduzca su apellido" autofocus=""/>
+    </div>
+    <div class="form-group">
+      <label for="description">Correo electrónico</label>
+      <input #email type="text" class="form-control" id="title" name="title"
+             placeholder="Introduzca su correo electrónico" autofocus=""/>
+    </div>
+    <div class="form-group">
+      <label for="description">Nombre de usuario</label>
+      <input #name type="text" class="form-control" id="title" name="title"
+             placeholder="Introduzca su nombre de usuario" autofocus=""/>
+    </div>
+    <div class="form-group">
+      <label for="description">Contraseña</label>
+      <input #encodedPassword type="password" class="form-control" id="title" name="title"
+             placeholder="Introduzca su contraseña" autofocus=""/>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" data-dismiss="modal" (click)="modal.dismiss('Cross click')">Cancelar
+    </button>
+    <button type="submit" class="btn btn-primary"
+            (click)="createUser($event, firstname.value, surname.value, email.value, name.value, encodedPassword.value);modal.dismiss()">Registrarse
+    </button>
+    <input type="hidden" name="_csrf" value=""/>
+  </div>
+</ng-template>
