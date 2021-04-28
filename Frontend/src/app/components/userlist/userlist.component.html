@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
-  <h1 class="mt-4">Listado de Usuarios</h1>
-    <div class="card mb-4">
+  <h1 class="mt-3 tituloPrincipal text-center">Listado de usuarios</h1>
+    <div class="card mb-4" style="margin-top: 20px">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
             Usuarios
@@ -19,16 +19,6 @@
                           <th>Control Usuario</th>
                       </tr>
                     </thead>
-                    <tfoot>
-                      <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Nickname</th>
-                        <th>Email</th>
-                        <th>Fecha de registro</th>
-                        <th>Control Usuario</th>
-                      </tr>
-                    </tfoot>
                     <tbody>
                         <tr *ngFor="let user of users">
                             <input type="hidden" value="{{user.idUser}}" id="idUser" name="idUser">
@@ -38,7 +28,7 @@
                             <td>{{user.email}}</td>
                             <td>{{user.registrationDate}}</td>
                             <td>
-                                <button class="btn btn-danger" (click)="deleteUserById(user.idUser)">ELIMINAR</button>
+                                <button class="btn btn-danger" (click)="deleteUserById(user.idUser)" routerLink="/main">ELIMINAR</button>
                                 <input type="hidden" name="_csrf" value=""/>
                             </td>
                         </tr>
