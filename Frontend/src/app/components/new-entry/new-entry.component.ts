@@ -1,3 +1,4 @@
+import { EntriesService } from './../../services/entries.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,7 +11,7 @@ export class NewEntryComponent implements OnInit {
 
   closeModal: string;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, public entriesService: EntriesService) {}
 
   ngOnInit(): void {
   }
@@ -31,5 +32,13 @@ export class NewEntryComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  createEntry(event: any, title: string, description: string, ){
+    event.preventDefault();
+    this.entriesService.postEntry(title, description).subscribe(
+      response => console.log(response),
+      error => console.log(error)
+    );
   }
 }

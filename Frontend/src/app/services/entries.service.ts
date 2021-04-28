@@ -1,3 +1,4 @@
+import { LoginService } from './login.service';
 import { map } from 'rxjs/operators'
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -11,8 +12,8 @@ const BASE_URL = "/api/entries/";
 @Injectable({ providedIn: 'root' })
 export class EntriesService {
 
-  constructor(private httpClient: HttpClient) { }
-  
+  constructor(private httpClient: HttpClient, public loginService: LoginService) { }
+
   getEntries(page: number): Observable<EntryModel[]>{
     let url = "entry/users/" + "?numOfPage=" + page.toString() + "";
     return this.httpClient.get(BASE_URL + url).pipe() as Observable<EntryModel[]>;
@@ -26,5 +27,10 @@ export class EntriesService {
   getCommentsByIdEntry(idEntry: number): Observable<EntryModel[]>{
     let url = idEntry + "/comments";
     return this.httpClient.get(BASE_URL + url).pipe() as Observable<EntryModel[]>;
+  }
+
+  postEntry(title: string, description: string): Observable<EntryModel> {
+    let url = this.loginService.currentUser().idUser;
+    return this.httpClient.post(BASE_URL + url, {title, description}).pipe() as Observable<EntryModel>;
   }
 }
