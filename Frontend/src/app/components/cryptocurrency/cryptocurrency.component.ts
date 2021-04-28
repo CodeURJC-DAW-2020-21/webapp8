@@ -25,6 +25,6 @@ export class CryptocurrencyComponent implements OnInit {
   }
 
   getUrlImage(path: string): string{
-    return "assets/" + path;
+    return 'assets/' + path;
   }
 }
