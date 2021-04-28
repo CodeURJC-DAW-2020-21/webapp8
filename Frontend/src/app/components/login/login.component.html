@@ -1,10 +1,11 @@
+<!--suppress XmlInvalidId -->
 <form *ngIf="!loginService.isLogged()" class="navbar-form navbar-right form-inline" role="search">
   <div class="row" placement="right-bottom">
     <div class="col">
       <div ngbDropdown class="d-inline-block">
         <button class="btn btn-light btn-outline-secondary" id="dropdownForm1" ngbDropdownToggle>Login</button>
         <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="dropdown-menu dropdown-menu-right">
-          <form class="px-4 py-3">
+          <form class="px-4 py-3" style="margin-bottom: -15px">
             <div class="form-group">
               <label for="exampleDropdownFormEmail1">Nombre de Usuario</label>
               <input #user type="text" class="form-control" name="username" placeholder="Username">
@@ -13,11 +14,11 @@
               <label for="exampleDropdownFormPassword1">Contraseña</label>
               <input #pass type="password" class="form-control" name="password" placeholder="Password">
             </div>
-            <button ngbDropdownItem type="submit" (click)="logIn($event, user.value, pass.value)" class="btn btn-default">Entrar</button>
+            <button type="submit" (click)="logIn($event, user.value, pass.value)" class="btn btn-success mt-2 mb-0" style="margin-left: 177px">Entrar</button>
           </form>
           <div class="dropdown-divider"></div>
-          <app-register>¿Eres nuevo? Regístrate</app-register>
-          <button ngbDropdownItem>He olvidado mi contraseña</button>
+          <app-register></app-register>
+          <button ngbDropdownItem class="text-center">He olvidado mi contraseña</button>
         </div>
       </div>
     </div>
@@ -28,7 +29,7 @@
 
 	<ul class="nav navbar-nav">
 		<li>
-			<button class="btn btn-default btn-danger navbar-btn" (click)="loginService.logOut()" type="button">Log Out</button>
+			<button class="btn btn-default btn-danger navbar-btn" (click)="loginService.logOut()" type="button" routerLink="/main">Log Out</button>
 		</li>
 	</ul>
 
