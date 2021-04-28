@@ -1,48 +1,37 @@
-<div id="layoutSidenav_content">
-  <main>
-    <div class="card container-fluid" style="width: 70rem;">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-12"></div>
+<br>
+<div class="card container-fluid" style="width: 70rem;">
+  <div class="card-body">
+    <form class="px- 4 py-3">
+      <div class="form-group">
+        <div class="col-12">
+          <div class="text-center">
+            <img class="rounded-circle" width="200" height="200" [src]="usersService.getImageByUserID(loginService.currentUser())" alt="User">
+          </div>
         </div>
-        <form action="/update_user" method="post" modelAttribute="user" enctype="multipart/form-data">
-          <div class="row">
-            <div class="col-12">
-              <div class="text-center"><img class="rounded-circle" width="300" height="300" [src]="getImageByUserID(loginService.currentUser().idUser)" alt="User">
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-2"><p><b>IMAGEN:</b></p></div>
-            <div class="col-10"><input type="file" name="imageFile" accept=".jpg, .jpeg, .jfif"/></div>
-          </div>
-          <div class="row">
-            <div class="col-2 col-form-label"><p><b>NOMBRE:</b></p></div>
-            <div class="col-10"><input type="text" class="form-control" value="{{loginService.currentUser().firstname}}" id="firstname" name="firstname"
-                                       autofocus=""/></div>
-          </div>
-          <div class="row">
-            <div class="col-2 col-form-label"><p><b>APELLIDO:</b></p></div>
-            <div class="col-10"><input type="text" class="form-control" value="{{loginService.currentUser().surname}}" id="surname" name="surname"
-                                       autofocus=""/></div>
-          </div>
-          <div class="row">
-            <div class="col-2 col-form-label"><p><b>ALIAS:</b></p></div>
-            <div class="col-10"><input type="text" class="form-control" value="{{loginService.currentUser().name}}" id="userName" name="userName"
-                                       maxlength="100" readonly/></div>
-          </div>
-          <div class="row">
-            <div class="col-2 col-form-label"><p><b>CORREO:</b></p></div>
-            <div class="col-10"><input type="text" class="form-control" id="email" value="{{loginService.currentUser().email}}" name="email"
-                                       maxlength="100" autofocus="" readonly/></div>
-          </div>
-          <div class="row pt-3">
-            <div class="col"><input type="submit" class="float-right btn btn-primary" value="Guardar cambios"/> <input
-              type="hidden" name="_csrf" value=""/></div>
-          </div>
-        </form>
       </div>
-    </div>
-  </main>
+      <div class="form-group">
+        <label class="ml-3" for="name0"><b>IMAGEN:</b></label>
+        <div class="col-10"><input type="file" name="imageFile" accept=".jpg, .jpeg, .jfif"/></div>
+      </div>
+      <div class="form-group">
+        <label class="ml-3" for="name1"><b>NOMBRE:</b></label>
+        <div class="col-auto"><input #firstname type="text" class="form-control" name="username" [value]="loginService.currentUser().firstname"/></div>
+      </div>
+      <div class="form-group">
+        <label class="ml-3" for="surname1"><b>APELLIDO:</b></label>
+        <div class="col-auto"><input #surname type="text" class="form-control" value="{{loginService.currentUser().surname}}" name="surname"/></div>
+      </div>
+      <div class="form-group">
+        <label class="ml-3" for="alias"><b>ALIAS:</b></label>
+        <div class="col-auto"><input #alias type="text" class="form-control" value="{{loginService.currentUser().name}}" name="alias" maxlength="100" readonly/></div>
+      </div>
+      <div class="form-group">
+        <label class="ml-3" for="mail"><b>CORREO:</b></label>
+        <div class="col-auto"><input #email type="text" class="form-control" id="email" value="{{loginService.currentUser().email}}" name="email" maxlength="100" readonly/></div>
+      </div>
+      <div class="form-group">
+        <div class="col"><input type="button" class="float-right btn btn-primary" value="Guardar cambios"/></div>
+      </div>
+    </form>
+  </div>
 </div>

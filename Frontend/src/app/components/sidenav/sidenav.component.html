@@ -2,7 +2,7 @@
   <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
     <div class="sb-sidenav-menu mx-2">
       <div class="nav mt-4 mx-2">
-        <a class="nav-link" routerLink="/main">
+        <a class="nav-link" routerLink="/">
           <div class="sb-nav-link-icon mr-3">
             <img src="assets/images/blockchainB-W.svg" alt="LogoB-W" width="22">
           </div>
@@ -15,7 +15,7 @@
           Todas las criptomonedas
         </a>
         <div *ngIf="loginService.isLogged()">
-          <a class="nav-link" href="/favorite_cryptocurrencies">
+          <a class="nav-link" routerLink="/favCryptos">
             <div class="sb-nav-link-icon mr-3">
               <img src="assets/images/favoriteB-W.svg" alt="CryptoB-W" width="22">
             </div>
@@ -23,7 +23,7 @@
           </a>
         </div>
         <div *ngIf="loginService.isAdmin()">
-            <a class="nav-link" href="/users">
+            <a class="nav-link" routerLink="/userslist">
               <div class="sb-nav-link-icon mr-3">
                 <img src="assets/images/userGroup.svg" alt="UserIcon" width="22">
               </div>

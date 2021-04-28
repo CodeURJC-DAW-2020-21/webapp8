@@ -11,12 +11,8 @@ import { UsersService } from '../../services/users.service';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor(public loginService: LoginService, usersService: UsersService) { }
+  constructor(public loginService: LoginService, public usersService: UsersService) { }
 
   ngOnInit(): void {
-  }
-
-  getImageByUserID(idUser: number){
-    return "/api/users/" + idUser + "/image";
   }
 }

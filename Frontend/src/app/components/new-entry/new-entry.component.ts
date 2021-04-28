@@ -9,7 +9,7 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class NewEntryComponent implements OnInit {
 
   closeModal: string;
-  
+
   constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class NewEntryComponent implements OnInit {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
   }
-  
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

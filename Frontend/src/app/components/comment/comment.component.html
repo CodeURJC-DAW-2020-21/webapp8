@@ -1,1 +1,18 @@
-<p>comment works!</p>
+<div *ngIf="isNotEmpty(comments)">
+    <div >
+        <div class="card card-body" *ngFor = "let comment of comments">
+            <div class="media forum-item row">
+                <div class="">
+                    <a><img [src]="usersService.getImageByUserID(comment.user)" class="rounded-circle"
+                        width="50" height="50" alt="User"/>
+                    <small class="d-block text-center text-muted">{{comment.user.firstname}}</small></a>
+                </div>              
+                <div class="ml-3 mt-3">
+                    <p class="text-secondary">
+                        {{comment.descriptionComment}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

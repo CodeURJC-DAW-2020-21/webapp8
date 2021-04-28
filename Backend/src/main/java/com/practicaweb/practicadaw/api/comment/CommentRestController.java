@@ -45,6 +45,7 @@ public class CommentRestController {
 
     interface Comments extends Comment.Basic{}
     interface CommentsUser extends Comment.Basic, Comment.CommentUser, User.Basic{}
+    interface UserComment extends Comment.CommentUser, User.Basic{}
 
     @Operation(summary = "Get a list of the comments.")
     @ApiResponses(value = {
@@ -126,13 +127,41 @@ public class CommentRestController {
             )
     })
     @JsonView(CommentsUser.class)
-    @GetMapping("/{id}/comment")
+    @GetMapping("/{id}/comments")
     public ResponseEntity<Comment> getUserComment(@PathVariable long id) {
         Optional<Comment> comment = commentService.findById(id);
 
         return comment.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @Operation(summary = "Get a user by an id comment.")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Comment found",
+                    content = {@Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = CommentRestController.CommentsUser.class)
+                    )}
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid id supplied",
+                    content = @Content
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Comment not found",
+                    content = @Content
+            )
+    })
+    @JsonView(UserComment.class)
+    @GetMapping("/{id}/commentUser")
+    public ResponseEntity<Comment> getUserByIdComment(@PathVariable long id) {
+        Optional<Comment> comment = commentService.findById(id);
+
+        return comment.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @Operation(summary = "Create a new Comment")
     @ApiResponses(value = {

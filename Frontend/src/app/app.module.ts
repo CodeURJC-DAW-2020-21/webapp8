@@ -15,9 +15,12 @@ import { CommentComponent } from './components/comment/comment.component';
 import { EntryComponent } from './components/entry/entry.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainForumComponent } from './components/main-forum/main-forum.component';
-import {RouterModule} from '@angular/router';
-import {routing} from './app-routing.module';
+import { UserlistComponent } from './components/userlist/userlist.component';
+import { RouterModule } from '@angular/router';
+import { routing } from './app-routing.module';
 import { ErrorComponent } from './components/error/error.component';
+import { RegisterComponent } from './components/register/register.component';
+import { FavCryptoComponent } from './components/fav-crypto/fav-crypto.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +34,11 @@ import { ErrorComponent } from './components/error/error.component';
     NewEntryComponent,
     SidenavComponent,
     LoginComponent,
+    UserlistComponent,
+    ErrorComponent,
     MainForumComponent,
-    ErrorComponent
+    RegisterComponent,
+    FavCryptoComponent
   ],
   imports: [
     BrowserModule,

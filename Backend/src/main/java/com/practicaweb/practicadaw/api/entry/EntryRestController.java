@@ -45,6 +45,7 @@ public class EntryRestController {
     }
 
     private interface EntryComments extends Entry.Basic, Entry.Comments, Comment.Basic{}
+    private interface Comments extends Entry.Comments, Comment.CommentUser, Comment.Basic, User.Basic{}
     private interface UserEntry extends Entry.Basic, Entry.EntryUser, User.Basic{}
 
     @Operation(summary = "Get a list of entries using a number of page.")
@@ -223,7 +224,7 @@ public class EntryRestController {
                     content = @Content
             )
     })
-    @JsonView(EntryComments.class)
+    @JsonView(Comments.class)
     @GetMapping("/{id}/comments")
     public ResponseEntity<Entry> getCommentsByIdEntry(@PathVariable long id){
         Optional<Entry> entry = entryService.findById(id);
