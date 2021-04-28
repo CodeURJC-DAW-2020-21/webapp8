@@ -37,6 +37,9 @@
         <div class="card text-center mt-3 mb-4">
             <div class="card-header">
                 Recomendaciones
+                <p *ngFor = 'let friend of friendsRecommended'>
+                    {{friend.firstname}}
+                </p>
             </div>
             <br>
         </div>

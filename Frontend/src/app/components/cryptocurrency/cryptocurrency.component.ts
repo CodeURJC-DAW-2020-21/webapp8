@@ -20,7 +20,12 @@ export class CryptocurrencyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCryptocurrencies();
+    this.getFriendsRecommended();
   }
+
+  // private.refresh(){
+  //   this.cryptocurrenciesService.getCryptocurrencies
+  // }
 
   getCryptocurrencies(){
     this.cryptocurrencies = [];
@@ -33,9 +38,12 @@ export class CryptocurrencyComponent implements OnInit {
     return "assets/" + cryptocurrency.image;
   }
 
-  changeImage(cryptocurrency2: CryptocurrencyModel){
+  changeImage(cryptocurrency2: CryptocurrencyModel, idUser: number){
     if(cryptocurrency2.image === "images/starEmpty.svg"){
       cryptocurrency2.image = "images/star.svg"
+      // this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2, idUser).subscribe(
+      //   result => this.refresh()
+      // );
     }
     else{
       cryptocurrency2.image = "images/starEmpty.svg"
@@ -44,7 +52,7 @@ export class CryptocurrencyComponent implements OnInit {
 
   getFriendsRecommended(){
     this.friendsRecommended = [];
-    this.cryptocurrenciesService.getFriendsRecommended().subscribe(
+    this.cryptocurrenciesService.getFriendsRecommended(2).subscribe(
       friendsRecommended => this.friendsRecommended = friendsRecommended
     );
 

@@ -135,9 +135,9 @@ public class CryptocurrencyRestController {
                     content = @Content
             )
     })
-    @DeleteMapping("/{id}/cryptocurrencies")
-    public ResponseEntity<Criptocurrency> deleteFavCrypto(@PathVariable long id, HttpServletRequest request){
-        Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(id);
+    @DeleteMapping("/{idUser}/cryptocurrencies")
+    public ResponseEntity<Criptocurrency> deleteFavCrypto(@PathVariable long idUser, HttpServletRequest request){
+        Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(idUser);
         Principal principal = request.getUserPrincipal();
         Optional<User> userOptional = userService.findByName(principal.getName());
         if (userOptional.isPresent()) {
@@ -170,10 +170,9 @@ public class CryptocurrencyRestController {
                     content = @Content
             )
     })
-    @GetMapping("/favCryptocurrency")
-    public Collection<Criptocurrency> getFavCryptocurrencies(HttpServletRequest request){
-        Principal principal = request.getUserPrincipal();
-        Optional<User> userOptional = userService.findByName(principal.getName());
+    @GetMapping("/{idUser}/favCryptocurrency")
+    public Collection<Criptocurrency> getFavCryptocurrencies(@PathVariable long idUser, HttpServletRequest request){
+        Optional<User> userOptional = userService.findById(idUser);
         User user = userOptional.get();
         return user.getCriptocurrencies();
     }
