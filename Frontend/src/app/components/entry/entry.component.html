@@ -28,7 +28,7 @@
                             </div>
                         </form>
                         <a class="btn text-muted" (click)="collapse.toggle()">Comentarios</a>
-                        <div class="collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                        <div class="collapse" #collapse="ngbCollapse" ngbCollapse="isCollapsed">
                             <app-comment [idEntry]="entry.idEntry"></app-comment>
                         </div>
                     </div>

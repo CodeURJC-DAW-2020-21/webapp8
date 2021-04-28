@@ -38,4 +38,8 @@ export class EntryComponent implements OnInit {
     );
     return this.user;
   }
+  // collapseDiv(id: number): void{
+  //   let elem = document.getElementById('divToCollapse' + id);
+  //   elem.setAttribute('ngbCollapse', "false");
+  // }
 }
