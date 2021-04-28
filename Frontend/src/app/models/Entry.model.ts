@@ -1,3 +1,4 @@
+import { CommentModel } from './Comment.model';
 import { UserModel } from './User.model';
 
 export class EntryModel {
@@ -5,5 +6,6 @@ export class EntryModel {
     title: string;
     description: string;
     registrationDate: Date;
+    comment: CommentModel[];
     user: UserModel;
 }

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-11">
                 <div class="media forum-item" *ngFor = "let entry of entries">
-                    <a><img [src]="getImageByUserID(entry.user.idUser)" class="rounded-circle"
+                    <a><img [src]="usersService.getImageByUserID(entry.user)" class="rounded-circle"
                             width="50" height="50" alt="User"/>
                         <small class="d-block text-center text-muted">{{entry.user.firstname}}</small></a>
                     <div class="media-body ml-3">
@@ -20,19 +20,16 @@
                                            name="descriptionComment"
                                            placeholder="Responder">
                                 </div>
-                                <div class="col-3">
+                                <div class="col-3 mt-1">
                                     <input type="submit" class="btn-primary"
                                            value="Publicar">
                                 </div>
                                 <input type="hidden" name="_csrf" value=""/>
                             </div>
                         </form>
-                        <a class="small text-muted" data-toggle="collapse"
-                           routerLink="#commentsBox{{entry.idEntry}}">Comentarios</a>
-                        <div class="collapse" id="commentsBox{{entry.idEntry}}">
-                            <div class="card card-body">
-                                <app-comment></app-comment>
-                            </div>
+                        <button class="btn btn-link small text-muted" (click)="collapse.toggle()">Comentarios</button>
+                        <div class="collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                            <app-comment [idEntry]="entry.idEntry"></app-comment>
                         </div>
                     </div>
                 </div>

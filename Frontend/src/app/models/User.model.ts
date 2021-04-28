@@ -1,8 +1,8 @@
 import { Byte } from "@angular/compiler/src/util";
 
 export class UserModel {
-    idUser: number;
-    encodedPassword: string;
+    idUser?: number;
+    encodedPassword?: string;
     name: string;
     surname: string;
     firstname: string;
