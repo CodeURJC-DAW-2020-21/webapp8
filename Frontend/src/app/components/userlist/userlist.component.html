@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                       <tr>
                           <th>Nombre</th>
@@ -22,12 +22,12 @@
                     <tbody>
                         <tr *ngFor="let user of users">
                             <input type="hidden" value="{{user.idUser}}" id="idUser" name="idUser">
-                            <td>{{user.firstname}}</td>
-                            <td>{{user.surname}}</td>
-                            <td>{{user.name}}</td>
-                            <td>{{user.email}}</td>
-                            <td>{{user.registrationDate}}</td>
-                            <td>
+                            <td class="align-middle">{{user.firstname}}</td>
+                            <td class="align-middle">{{user.surname}}</td>
+                            <td class="align-middle">{{user.name}}</td>
+                            <td class="align-middle">{{user.email}}</td>
+                            <td class="align-middle">{{user.registrationDate}}</td>
+                            <td class="align-middle">
                                 <button class="btn btn-danger" (click)="deleteUserById(user.idUser)" routerLink="/main">ELIMINAR</button>
                                 <input type="hidden" name="_csrf" value=""/>
                             </td>
