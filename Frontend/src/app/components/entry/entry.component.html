@@ -27,7 +27,7 @@
                                 <input type="hidden" name="_csrf" value=""/>
                             </div>
                         </form>
-                        <button class="btn btn-link small text-muted" (click)="collapse.toggle()">Comentarios</button>
+                        <a class="btn text-muted" (click)="collapse.toggle()">Comentarios</a>
                         <div class="collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
                             <app-comment [idEntry]="entry.idEntry"></app-comment>
                         </div>

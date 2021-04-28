@@ -1,7 +1,9 @@
-<button class="btn btn-info container-fluid" type="button"
-        data-toggle="modal" (click)="triggerModal(modalData)" data-target="#threadModal">
-  ¿No tienes una cuenta? Regístrate
+<div class="d-flex flex-row justify-content-center align-items-center">
+  <button class="btn btn-info" type="button"
+  data-toggle="modal" (click)="triggerModal(modalData)" data-target="#threadModal">
+¿No tienes una cuenta? Regístrate
 </button>
+</div>
 <ng-template #modalData let-modal>
   <div class="modal-header d-flex align-items-center bg-primary text-white">
     <h6 class="modal-title mb-0">Registro
