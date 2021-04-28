@@ -21,6 +21,7 @@ import { routing } from './app-routing.module';
 import { ErrorComponent } from './components/error/error.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FavCryptoComponent } from './components/fav-crypto/fav-crypto.component';
+import { NewCommentComponent } from './components/new-comment/new-comment.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FavCryptoComponent } from './components/fav-crypto/fav-crypto.component
     ErrorComponent,
     MainForumComponent,
     RegisterComponent,
-    FavCryptoComponent
+    FavCryptoComponent,
+    NewCommentComponent
   ],
   imports: [
     BrowserModule,

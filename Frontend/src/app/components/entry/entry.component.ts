@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output } from '@angular/core';
 import { EntryModel } from 'src/app/models/Entry.model';
 import { UserModel } from 'src/app/models/User.model';
 import { EntriesService } from '../../services/entries.service'
@@ -9,7 +9,7 @@ import { UsersService } from '../../services/users.service'
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.css']
 })
-export class EntryComponent implements OnInit {
+export class EntryComponent implements OnInit, OnChanges {
 
   entries: EntryModel[];
   user: UserModel;
@@ -21,7 +21,12 @@ export class EntryComponent implements OnInit {
 
   ngOnInit(): void {
     this.isCollapsed = true;
-    this.getEntries(2);
+    this.getEntries(0);
+  }
+
+  ngOnChanges(): void {
+    this.isCollapsed = true;
+    this.getEntries(0);
   }
 
   getEntries(page: number): void {
@@ -30,7 +35,7 @@ export class EntryComponent implements OnInit {
       entries => this.entries = entries
     );
   }
-  
+
   getUserByIdEntry(idEntry: number): UserModel {
     this.user = null;
     this.entriesService.getUserByIdEntry(idEntry).subscribe(

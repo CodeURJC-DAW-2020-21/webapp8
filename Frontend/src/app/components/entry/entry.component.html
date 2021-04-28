@@ -14,18 +14,7 @@
                             <p class="text-secondary">
                                 {{entry.description}}
                             </p>
-                            <div class="row">
-                                <div class="col-9">
-                                    <input type="text" class="form-control"
-                                           name="descriptionComment"
-                                           placeholder="Responder">
-                                </div>
-                                <div class="col-3 mt-1">
-                                    <input type="submit" class="btn-primary"
-                                           value="Publicar">
-                                </div>
-                                <input type="hidden" name="_csrf" value=""/>
-                            </div>
+                            <app-new-comment [idEntry]="entry.idEntry"></app-new-comment>
                         </form>
                         <a class="btn text-muted" (click)="collapse.toggle()">Comentarios</a>
                         <div class="collapse" #collapse="ngbCollapse" ngbCollapse="isCollapsed">

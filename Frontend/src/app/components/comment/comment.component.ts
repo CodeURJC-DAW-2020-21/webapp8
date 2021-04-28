@@ -50,10 +50,12 @@ export class CommentComponent implements OnInit {
     this.commentsService.getUserByIdComment(id).subscribe(
       response => {
         let data: any = response;
-        this.commentWuser.user = data.user;  
-        return this.commentWuser;    
+        this.commentWuser.user = data.user;
+        return this.commentWuser;
       }
     );
-    return this.commentWuser;   
+    return this.commentWuser;
   }
+
+
 }

@@ -13,4 +13,8 @@ export class CommentsService {
         let url = idComment + "/commentUser";
         return this.httpClient.get(BASE_URL + url).pipe() as Observable<CommentModel>;
       }
+
+    postComment(descriptionComment: string, idEntry: number): Observable<CommentModel> {
+      return this.httpClient.post(BASE_URL, {descriptionComment, idEntry}).pipe() as Observable<CommentModel>;
+    }
 }
