@@ -28,4 +28,8 @@ export class UsersService {
     let url = idUser;
     return this.httpClient.delete(BASE_URL + url).pipe() as Observable<any>;
   }
+
+  createUser(firstname: string, surname: string, email: string, name: string, encodedPassword: string): Observable<UserModel> {
+    return this.httpClient.post(BASE_URL, {firstname, surname, email, name, encodedPassword}).pipe() as Observable<UserModel>;
+  }
 }

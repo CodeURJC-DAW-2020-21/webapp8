@@ -52,7 +52,7 @@ export class LoginService {
     }
 
     isLogged() {
-        return this.logged;
+      return this.logged;
     }
 
     isAdmin() {

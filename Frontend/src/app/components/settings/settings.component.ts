@@ -17,6 +17,6 @@ export class SettingsComponent implements OnInit {
   }
 
   getImageByUserID(idUser: number){
-    return "/api/users/" + idUser + "/image";
+    return '/api/users/' + idUser + '/image';
   }
 }
