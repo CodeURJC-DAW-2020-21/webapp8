@@ -242,16 +242,20 @@ public class EntryRestController {
                     )}
             )
     })
-    @PostMapping("/")
-    public ResponseEntity<Entry> createEntry(@RequestBody EntryDTO entryDTO, HttpServletRequest request){
-        Principal principal = request.getUserPrincipal();
-        User user = userService.findByName(principal.getName()).orElseThrow();
-        Entry entry = modelMapper.map(entryDTO, Entry.class);
-        entry.setUser(user);
-        entry.setRegistrationDate(LocalDateTime.now());
-        entryService.save(entry);
-        URI location = fromCurrentRequest().path("/{id}").buildAndExpand(entry.getIdEntry()).toUri();
-        return ResponseEntity.created(location).build();
+    @PostMapping("/{idUser}")
+    public ResponseEntity<Entry> createEntry(@RequestBody EntryDTO entryDTO, HttpServletRequest request, @PathVariable long idUser){
+        Optional<User> userOptional = userService.findById(idUser);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            Entry entry = modelMapper.map(entryDTO, Entry.class);
+            entry.setUser(user);
+            entry.setRegistrationDate(LocalDateTime.now());
+            entryService.save(entry);
+            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(entry.getIdEntry()).toUri();
+            return ResponseEntity.created(location).build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 

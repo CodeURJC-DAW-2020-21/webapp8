@@ -1,0 +1,24 @@
+<button ngbDropdownItem class="text-center" data-toggle="modal" (click)="triggerModal(modalData)" data-target="#threadModal">He olvidado mi contraseña</button>
+<ng-template #modalData let-modal>
+                <div class="modal-header d-flex align-items-center bg-primary text-white">
+                    <h6 class="modal-title mb-0">Recuperar contraseña</h6>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="small mb-3 text-muted">Introduce una nueva contraseña apropiada.</div>
+                        <div class="form-group">
+                            <label class="small mb-1" for="password">Nueva contraseña</label>
+                            <input class="form-control py-4" id="password" name="password" type="password" placeholder="introducir nueva contraseña" />
+                        </div>
+                        <div class="form-group">
+                            <label class="small mb-1" for="confirmPassword">Confirmar contraseña</label>
+                            <input class="form-control py-4" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirmar nueva contraseña"/>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Restaurar contraseña</button>
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                </div>
+</ng-template>

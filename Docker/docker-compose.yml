@@ -7,7 +7,7 @@ services:
     image: practicadaw/webapp
     ports:
       - "8443:8443"
-    container_name: webapp8
+    container_name: webapp
     restart: always
     links:
       - "db"

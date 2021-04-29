@@ -8,6 +8,7 @@ public class UserDTO {
     public interface Update{}
     public interface ForgottenPassword{}
 
+    @JsonView(Update.class)
     private String idUser;
     private String encodedPassword;
     private String name;

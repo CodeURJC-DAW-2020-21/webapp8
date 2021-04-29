@@ -1,17 +1,15 @@
-import { EntriesService } from './../../services/entries.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-new-entry',
-  templateUrl: './new-entry.component.html',
-  styleUrls: ['./new-entry.component.css']
+  selector: 'app-forgot-pass',
+  templateUrl: './forgot-pass.component.html',
+  styleUrls: ['./forgot-pass.component.css']
 })
-export class NewEntryComponent implements OnInit {
+export class ForgotPassComponent implements OnInit {
 
   closeModal: string;
-
-  constructor(private modalService: NgbModal, public entriesService: EntriesService) {}
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
@@ -32,13 +30,5 @@ export class NewEntryComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
-  }
-
-  createEntry(event: any, title: string, description: string){
-    event.preventDefault();
-    this.entriesService.postEntry(title, description).subscribe(
-      response => console.log(response),
-      error => console.log(error)
-    );
   }
 }

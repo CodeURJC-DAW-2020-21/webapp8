@@ -22,6 +22,8 @@ import { ErrorComponent } from './components/error/error.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FavCryptoComponent } from './components/fav-crypto/fav-crypto.component';
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { SendEmailComponent } from './components/send-email/send-email.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { NewCommentComponent } from './components/new-comment/new-comment.compon
     MainForumComponent,
     RegisterComponent,
     FavCryptoComponent,
-    NewCommentComponent
+    NewCommentComponent,
+    ForgotPassComponent,
+    SendEmailComponent
   ],
   imports: [
     BrowserModule,
