@@ -25,9 +25,10 @@ export class CryptocurrencyComponent implements OnInit {
     this.getFavCryptocurrencies();
   }
 
-  // private.refresh(){
-  //   this.cryptocurrenciesService.getCryptocurrencies
-  // }
+  refresh(): void {
+    this.getFavCryptocurrencies();
+    this.getCryptocurrencies();
+  }
 
   getCryptocurrencies(){
     this.cryptocurrencies = [];
@@ -45,19 +46,20 @@ export class CryptocurrencyComponent implements OnInit {
 
   changeImage(cryptocurrency2: CryptocurrencyModel, idUser: number){
     if(cryptocurrency2.image === "images/starEmpty.svg"){
-          this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2).subscribe(
-            response => console.log(response),
-            error => console.log(error)
-          );
+      this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2).subscribe(
+        response => console.log(response),
+        error => console.log(error)
+      );
+      this.refresh();
     }
     else{
-      this.cryptocurrencies.forEach(function(crypto){
-          // this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2).subscribe( DELETE en vez de POST
-          //   response => console.log(response),
-          //   error => console.log(error)
-          // );
-      });
+      this.cryptocurrenciesService.deleteFavCryptocurrency(cryptocurrency2).subscribe( 
+        response => console.log(response),
+        error => console.log(error)
+      );
+      this.refresh();
     }
+    this.refresh();
   }
 
   isAdded(cryptocurrencyAdded:CryptocurrencyModel): boolean{
