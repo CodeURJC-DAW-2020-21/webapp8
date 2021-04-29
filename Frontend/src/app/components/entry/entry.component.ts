@@ -46,14 +46,14 @@ export class EntryComponent implements OnInit {
         let data: any = response;
         let sizePage = data.length;
         if (sizePage === 5){
-          this.showBtn = '';
+          this.entriesService.showBtn = '';
         } else {
-          this.showBtn = 'display: none';
+          this.entriesService.showBtn = 'display: none';
         }
         for (var i = 0; i < sizePage; i++) {
           let newEntry = data[i];
           if (newEntry.idEntry === 1){
-            this.showBtn = 'display: none';
+            this.entriesService.showBtn = 'display: none';
           }
           this.entriesService.pushEntry(newEntry);
         }

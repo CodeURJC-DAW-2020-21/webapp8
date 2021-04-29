@@ -13,11 +13,13 @@ const BASE_URL = "/api/entries/";
 export class EntriesService {
 
   public entries: EntryModel[] = [];
+  public showBtn: string = '';
 
   constructor(private httpClient: HttpClient, public loginService: LoginService) { }
 
   getEntries(page: number): void{
     this.entries = []
+    this.showBtn = '';
     this.getEntriesFromApi(page).subscribe(
       response => {
         let data: any = response;
