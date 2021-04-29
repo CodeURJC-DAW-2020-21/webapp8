@@ -24,7 +24,7 @@ import { FavCryptoComponent } from './components/fav-crypto/fav-crypto.component
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { SendEmailComponent } from './components/send-email/send-email.component';
-import { FriendsComponent } from './friends/friends.component';
+import { FriendsComponent } from './components/friends/friends.component';
 
 @NgModule({
   declarations: [
