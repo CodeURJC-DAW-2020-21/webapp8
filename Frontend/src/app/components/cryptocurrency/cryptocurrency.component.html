@@ -24,7 +24,12 @@
                         </td>
                         <td class="align-middle" *ngIf="loginService.isLogged()">
                             <a (click)= "changeImage(cryptocurrency)">
-                                <img [src] = "getUrlImage(cryptocurrency)" width="20" height="20">
+                                <div *ngIf = "isAdded(cryptocurrency)">
+                                    <img src = "assets/images/star.svg" width="20" height="20">
+                                </div>
+                                <div *ngIf = "!isAdded(cryptocurrency)">
+                                    <img src = "assets/images/starEmpty.svg" width="20" height="20">
+                                </div>
                             </a>
                         </td>
                         <td class="align-middle" *ngIf="!loginService.isLogged()">

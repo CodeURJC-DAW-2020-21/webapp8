@@ -3,6 +3,7 @@ package com.practicaweb.practicadaw.api;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaweb.practicadaw.Service.CriptocurrencyService;
 import com.practicaweb.practicadaw.Service.UserService;
+import com.practicaweb.practicadaw.api.user.UserDTO;
 import com.practicaweb.practicadaw.api.user.UserRestController;
 import com.practicaweb.practicadaw.model.Criptocurrency;
 import com.practicaweb.practicadaw.model.Entry;
@@ -96,7 +97,7 @@ public class CryptocurrencyRestController {
                     content = @Content
             )
     })
-    @PostMapping("/{id}/cryptocurrencies")
+    @PostMapping("/{id}/addCryptocurrencies")
     public ResponseEntity<Criptocurrency> addFavCrypto(@PathVariable long id, HttpServletRequest request){
         Principal principal = request.getUserPrincipal();
         Optional<User> userOptional = userService.findByName(principal.getName());
@@ -170,11 +171,30 @@ public class CryptocurrencyRestController {
                     content = @Content
             )
     })
-    @GetMapping("/{idUser}/favCryptocurrency")
-    public Collection<Criptocurrency> getFavCryptocurrencies(@PathVariable long idUser, HttpServletRequest request){
-        Optional<User> userOptional = userService.findById(idUser);
+//    @GetMapping("/{idUser}/favCryptocurrency")
+    @GetMapping("favCryptocurrency")
+//    public Collection<Criptocurrency> getFavCryptocurrencies(@PathVariable long idUser, HttpServletRequest request){
+    public Collection<Criptocurrency> getFavCryptocurrencies(HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
         User user = userOptional.get();
         return user.getCriptocurrencies();
+    }
+
+    @PatchMapping("{idCrypto}")
+    public ResponseEntity<Criptocurrency> updateCryptocurrency(long idCrypto){
+        Optional<Criptocurrency> cryptoOptional = criptocurrencyService.findById(idCrypto);
+        if(cryptoOptional.isPresent()){
+            Criptocurrency crypto = cryptoOptional.get();
+            if(crypto.getImage().equals("images/starEmpty.svg")){
+                crypto.setImage("images/star.svg");
+            }else{
+                crypto.setImage("images/starEmpty.svg");
+            }
+            return ResponseEntity.ok().build();
+        }else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     /*@Operation(summary = "Delete a cryptocurrency by its id.")

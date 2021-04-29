@@ -3,6 +3,7 @@ import { CryptocurrencyModel } from 'src/app/models/Cryptocurrency.model';
 import { UserModel } from 'src/app/models/User.model';
 import { LoginService } from 'src/app/services/login.service';
 import { CryptocurrenciesService } from '../../services/cryptocurrencies.service'
+import {FavCryptocurrenciesService} from '../../services/favCrypto.service';
 
 
 @Component({
@@ -13,14 +14,15 @@ import { CryptocurrenciesService } from '../../services/cryptocurrencies.service
 export class CryptocurrencyComponent implements OnInit {
 
   cryptocurrencies: CryptocurrencyModel[];
+  cryptocurrenciesFav: CryptocurrencyModel[];
   friendsRecommended: UserModel[];
-  // image: string = "images/starEmpty.svg";
 
-  constructor(private cryptocurrenciesService: CryptocurrenciesService, public loginService: LoginService) { }
+  constructor(private cryptocurrenciesService: CryptocurrenciesService, public loginService: LoginService, private favCryptocurrenciesService: FavCryptocurrenciesService) { }
 
   ngOnInit(): void {
     this.getCryptocurrencies();
     this.getFriendsRecommended();
+    this.getFavCryptocurrencies();
   }
 
   // private.refresh(){
@@ -34,20 +36,38 @@ export class CryptocurrencyComponent implements OnInit {
     );
   }
 
-  getUrlImage(cryptocurrency: CryptocurrencyModel): string{
-    return "assets/" + cryptocurrency.image;
+  getFavCryptocurrencies(){
+    this.cryptocurrenciesFav = [];
+    this.favCryptocurrenciesService.getCryptocurrencies().subscribe(
+      cryptocurrenciesFav => this.cryptocurrenciesFav = cryptocurrenciesFav
+    )
   }
 
   changeImage(cryptocurrency2: CryptocurrencyModel, idUser: number){
     if(cryptocurrency2.image === "images/starEmpty.svg"){
-      cryptocurrency2.image = "images/star.svg"
-      // this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2, idUser).subscribe(
-      //   result => this.refresh()
-      // );
+          this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2).subscribe(
+            response => console.log(response),
+            error => console.log(error)
+          );
     }
     else{
-      cryptocurrency2.image = "images/starEmpty.svg"
+      this.cryptocurrencies.forEach(function(crypto){
+          // this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2).subscribe( DELETE en vez de POST
+          //   response => console.log(response),
+          //   error => console.log(error)
+          // );
+      });
     }
+  }
+
+  isAdded(cryptocurrencyAdded:CryptocurrencyModel): boolean{
+    let added: boolean
+    this.cryptocurrenciesFav.forEach(function(favCryptocurrency){
+      if(favCryptocurrency.nameCripto===cryptocurrencyAdded.nameCripto){
+        added = true;
+      }
+    });
+    return added;
   }
 
   getFriendsRecommended(){

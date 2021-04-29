@@ -19,7 +19,11 @@ export class CryptocurrenciesService{
         return this.httpClient.get('/api/users/'+idUser+'/recommended').pipe() as Observable<UserModel[]>;
     }
 
-    postFavCryptocurrency(cryptocurrency: CryptocurrencyModel, idUser: number){
-        return this.httpClient.post(BASE_URL + idUser +'/favCryptocurrency', cryptocurrency).pipe() as Observable<UserModel[]>;
+    postFavCryptocurrency(cryptocurrency: CryptocurrencyModel){
+        return this.httpClient.post(BASE_URL + cryptocurrency.idCripto +'/addCryptocurrencies', cryptocurrency.idCripto).pipe() as Observable<CryptocurrencyModel[]>;
     }
+
+    // putCryptocurrencies(cryptocurrency: CryptocurrencyModel){
+    //     return this.httpClient.put(BASE_URL,)
+    // }
 }
