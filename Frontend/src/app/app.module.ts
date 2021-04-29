@@ -47,7 +47,7 @@ import { ChartsComponent } from './components/charts/charts.component';
     NewCommentComponent,
     ForgotPassComponent,
     SendEmailComponent,
-    FriendsComponent
+    FriendsComponent,
     NewCommentComponent,
     ChartsComponent
   ],

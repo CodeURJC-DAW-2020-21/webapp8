@@ -15,8 +15,8 @@ export class CryptocurrenciesService{
         return this.httpClient.get(BASE_URL).pipe() as Observable<CryptocurrencyModel[]>;
     }
 
-    getFriendsRecommended(idUser: number): Observable<UserModel[]>{
-        return this.httpClient.get('/api/users/'+idUser+'/recommended').pipe() as Observable<UserModel[]>;
+    getFriendsRecommended(): Observable<UserModel[]>{
+        return this.httpClient.get('/api/users/recommended').pipe() as Observable<UserModel[]>;
     }
 
     postFavCryptocurrency(cryptocurrency: CryptocurrencyModel){

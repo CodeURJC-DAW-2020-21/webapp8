@@ -520,9 +520,10 @@ public class UserRestController {
         }
     }
     @JsonView(UserCryptocurrencies.class)
-    @GetMapping("/{idUser}/recommended")
-    public ResponseEntity<Collection<User>> recommendedCryptos(@PathVariable long idUser) {
-        Optional<User> userOptional = userService.findById(idUser);
+    @GetMapping("/recommended")
+    public ResponseEntity<Collection<User>> recommendedCryptos(HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        Optional<User> userOptional = userService.findByName(principal.getName());
         if(userOptional.isPresent()) {
             User user = userOptional.get();
             List<Criptocurrency> usercriptocurrencies = user.getCriptocurrencies();
