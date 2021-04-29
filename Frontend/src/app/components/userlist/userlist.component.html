@@ -28,7 +28,7 @@
                             <td class="align-middle">{{user.email}}</td>
                             <td class="align-middle">{{user.registrationDate}}</td>
                             <td class="align-middle">
-                                <button class="btn btn-danger" (click)="deleteUserById(user.idUser)" >ELIMINAR</button>
+                                <button class="btn btn-danger" (click)="refresh(user.idUser)">ELIMINAR</button>
                                 <input type="hidden" name="_csrf" value=""/>
                             </td>
                         </tr>

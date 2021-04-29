@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './userlist.component.html',
   styleUrls: ['./userlist.component.css']
 })
-export class UserlistComponent implements OnInit, OnChanges {
+export class UserlistComponent implements OnInit {
 
   users: UserModel[];
   value: any;
@@ -21,8 +21,19 @@ export class UserlistComponent implements OnInit, OnChanges {
     this.getUsers();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.getUsers();
+  refresh(idUser: number){
+    if(idUser !== 1){
+      this.deleteUserById(idUser);
+      let newUsers: UserModel[] = this.users;
+      this.users.forEach(function(user){
+        if (user.idUser === idUser){
+          let index = newUsers.indexOf(user);
+          newUsers.splice(index, 1);
+        }
+      });
+    } else {
+      alert("No puedes eliminar al admin.")
+    }
   }
 
   getUsers(){
@@ -34,9 +45,8 @@ export class UserlistComponent implements OnInit, OnChanges {
 
   deleteUserById(idUser: number) {
     this.usersService.deleteUserById(idUser).subscribe(
-      _ => this.router.navigate(['/userslist2']),
+      response => console.log(response),
       error => console.error(error)
     );
   }
-
 }

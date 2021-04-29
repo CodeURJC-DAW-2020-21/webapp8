@@ -43,4 +43,15 @@ export class UsersService {
     let url = "password"
     return this.httpClient.post(BASE_URL + url, {email}).pipe() as Observable<Response>;
   }
+
+  patchUser(firstname: string, surname: string): Observable<UserModel> {
+    return this.httpClient.patch(BASE_URL, {firstname, surname}).pipe() as Observable<UserModel>;
+  }
+
+  postImage(idUser: number, type: string, image: File): Observable<File>{
+    const formData = new FormData();
+    formData.append(type, image);
+    let url = idUser + '/image';
+    return this.httpClient.post(BASE_URL + url, formData).pipe() as Observable<File>;
+  }
 }

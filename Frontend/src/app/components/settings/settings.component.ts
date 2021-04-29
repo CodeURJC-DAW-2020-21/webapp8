@@ -11,8 +11,28 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class SettingsComponent implements OnInit {
 
+  user: UserModel;
+
   constructor(public loginService: LoginService, public usersService: UsersService) { }
 
   ngOnInit(): void {
   }
+
+  updateUser(event: any, firstname: string, surname: string) {
+    event.preventDefault();
+    this.usersService.patchUser(firstname, surname).subscribe(
+      user => this.user = user,
+      error => console.log(error)
+    );
+
+  }
+
+  updateImage(event: any, idUser: number, type: string, image: File) {
+    event.preventDefault();
+    this.usersService.postImage(idUser, type, image).subscribe(
+      response => console.log(response),
+      error => console.log(error)
+    );
+  }
+
 }
