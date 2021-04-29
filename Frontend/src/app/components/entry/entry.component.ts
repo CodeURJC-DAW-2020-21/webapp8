@@ -16,12 +16,16 @@ export class EntryComponent implements OnInit, OnChanges {
   image: Blob;
   isImageLoading: boolean;
   public isCollapsed;
+  public pageToFind: number;
+  public showBtn: string;
 
   constructor(private entriesService: EntriesService, private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.isCollapsed = true;
-    this.getEntries(0);
+    this.pageToFind = 0;
+    this.getEntries(this.pageToFind);
+    this.showBtn = '';
   }
 
   ngOnChanges(): void {
@@ -43,8 +47,27 @@ export class EntryComponent implements OnInit, OnChanges {
     );
     return this.user;
   }
-  // collapseDiv(id: number): void{
-  //   let elem = document.getElementById('divToCollapse' + id);
-  //   elem.setAttribute('ngbCollapse', "false");
-  // }
+
+  ajaxGetMore(page) {
+    this.pageToFind = page + 1;
+    this.entriesService.getEntries(this.pageToFind).subscribe(
+      response => {
+        let data: any = response;
+        let sizePage = data.length;
+        if (sizePage === 5){
+          this.showBtn = '';
+        } else {
+          this.showBtn = 'display: none';
+        }
+        for (var i = 0; i < sizePage; i++) {
+          let newEntry = data[i];
+          if (newEntry.idEntry === 1){
+            this.showBtn = 'display: none';
+          }
+          this.entries.push(newEntry);
+        }
+      },
+      error => console.log(error) //this.showBtn = 'display: none'        
+    );
+  }
 }

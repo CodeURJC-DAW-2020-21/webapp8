@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CryptocurrenciesService} from '../../services/favCrypto.service';
+import {FavCryptocurrenciesService} from '../../services/favCrypto.service';
 import {CryptocurrencyModel} from '../../models/Cryptocurrency.model';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-fav-crypto',
@@ -11,7 +12,7 @@ export class FavCryptoComponent implements OnInit {
 
   favCryptocurrencies: CryptocurrencyModel[];
 
-  constructor(private favcryptocurrenciesService: CryptocurrenciesService) { }
+  constructor(private favcryptocurrenciesService: FavCryptocurrenciesService, public loginService: LoginService) { }
 
   ngOnInit(): void {
     this.getCryptocurrencies();

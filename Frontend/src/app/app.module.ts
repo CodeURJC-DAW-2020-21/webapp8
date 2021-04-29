@@ -22,6 +22,9 @@ import { ErrorComponent } from './components/error/error.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FavCryptoComponent } from './components/fav-crypto/fav-crypto.component';
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { SendEmailComponent } from './components/send-email/send-email.component';
+import { FriendsComponent } from './components/friends/friends.component';
 import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
@@ -41,6 +44,10 @@ import { ChartsComponent } from './components/charts/charts.component';
     MainForumComponent,
     RegisterComponent,
     FavCryptoComponent,
+    NewCommentComponent,
+    ForgotPassComponent,
+    SendEmailComponent,
+    FriendsComponent
     NewCommentComponent,
     ChartsComponent
   ],
