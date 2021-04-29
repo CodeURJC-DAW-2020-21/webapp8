@@ -1,4 +1,5 @@
 import { Byte } from "@angular/compiler/src/util";
+import { CryptocurrencyModel } from "./Cryptocurrency.model";
 
 export class UserModel {
     idUser?: number;
@@ -10,4 +11,5 @@ export class UserModel {
     image?: any;
     roles: string[];
     registrationDate: Date;
+    criptocurrencies: CryptocurrencyModel[];
 }

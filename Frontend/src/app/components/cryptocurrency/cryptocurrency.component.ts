@@ -16,6 +16,7 @@ export class CryptocurrencyComponent implements OnInit {
   cryptocurrencies: CryptocurrencyModel[];
   cryptocurrenciesFav: CryptocurrencyModel[];
   friendsRecommended: UserModel[];
+  recommendedCryptocurrencies: CryptocurrencyModel[];
 
   constructor(private cryptocurrenciesService: CryptocurrenciesService, public loginService: LoginService, private favCryptocurrenciesService: FavCryptocurrenciesService) { }
 
@@ -45,7 +46,7 @@ export class CryptocurrencyComponent implements OnInit {
   }
 
   changeImage(cryptocurrency2: CryptocurrencyModel, idUser: number){
-    if(cryptocurrency2.image === "images/starEmpty.svg"){
+    if(!this.isAdded(cryptocurrency2)){
       this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2).subscribe(
         response => console.log(response),
         error => console.log(error)
@@ -74,9 +75,15 @@ export class CryptocurrencyComponent implements OnInit {
 
   getFriendsRecommended(){
     this.friendsRecommended = [];
-    this.cryptocurrenciesService.getFriendsRecommended(2).subscribe(
+    this.cryptocurrenciesService.getFriendsRecommended().subscribe(
       friendsRecommended => this.friendsRecommended = friendsRecommended
     );
-
   }
+
+  // getRecommendedCryptocurrencies(){
+  //   this.friendsRecommended.forEach(function(friend){
+
+  //   })
+    
+  // }
 }

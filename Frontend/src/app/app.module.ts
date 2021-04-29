@@ -25,6 +25,7 @@ import { NewCommentComponent } from './components/new-comment/new-comment.compon
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { SendEmailComponent } from './components/send-email/send-email.component';
 import { FriendsComponent } from './components/friends/friends.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import { FriendsComponent } from './components/friends/friends.component';
     NewCommentComponent,
     ForgotPassComponent,
     SendEmailComponent,
-    FriendsComponent
+    FriendsComponent,
+    NewCommentComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,

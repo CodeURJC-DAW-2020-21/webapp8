@@ -42,9 +42,14 @@
         <div class="card text-center mt-3 mb-4">
             <div class="card-header">
                 Recomendaciones
-                <p *ngFor = 'let friend of friendsRecommended'>
-                    {{friend.firstname}}
-                </p>
+                <div *ngFor = 'let friend of friendsRecommended'>
+                    <div *ngIf = '!(friend.firstname===loginService.currentUser().firstname)'>
+                        {{friend.firstname}}
+                        <br>
+                        <p>{{friend.criptocurrencies[0].nameCripto}}</p>
+                        <a (click)= "changeImage(friend.criptocurrencies[0])"><img src= "assets/images/starEmpty.svg" width="20" height="20" alt=""></a>
+                    </div>
+                </div>
             </div>
             <br>
         </div>

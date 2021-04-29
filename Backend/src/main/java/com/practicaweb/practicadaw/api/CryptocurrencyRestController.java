@@ -107,7 +107,7 @@ public class CryptocurrencyRestController {
             Criptocurrency crypto = cryptoOptional.get();
             if(!user.getCriptocurrencies().contains(crypto)){
                 user.addCript(crypto);
-                crypto.setImage("images/star.svg");
+//                crypto.setImage("images/star.svg");
             }
             userService.save(user);
             return ResponseEntity.ok().build();
@@ -146,7 +146,7 @@ public class CryptocurrencyRestController {
             Criptocurrency crypto = cryptoOptional.get();
             if (user.getCriptocurrencies().contains(crypto)){
                 user.removeCript(crypto);
-                crypto.setImage("images/starEmpty.svg");
+//                crypto.setImage("images/starEmpty.svg");
             }
             userService.save(user);
             return ResponseEntity.ok().build();
