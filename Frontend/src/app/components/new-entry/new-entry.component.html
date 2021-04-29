@@ -1,12 +1,9 @@
-<!--suppress ALL -->
-<button class="btn btn-info col-5 btn-sm align-right" type="button"
-        data-toggle="modal" (click)="triggerModal(modalData)" data-target="#threadModal">
+<button class="btn btn-info col-5 btn-sm mt-4 align-right" type="button" data-toggle="modal" (click)="triggerModal(modalData)" data-target="#threadModal">
   NEW DISCUSSION
 </button>
 <ng-template #modalData let-modal>
   <div class="modal-header d-flex align-items-center bg-primary text-white">
-    <h6 class="modal-title mb-0">Nueva Entrada
-    </h6>
+    <h6 class="modal-title mb-0">Nueva Entrada</h6>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">×</span>
     </button>
@@ -19,8 +16,7 @@
     <textarea class="form-control summernote" style="display: none;"></textarea>
     <div class="form-group">
       <label for="description">Descripción</label>
-      <textarea #description class="form-control" id="description" name="description" placeholder="Introduzca una descripción"
-                rows="3"></textarea>
+      <textarea #description class="form-control" id="description" name="description" placeholder="Introduzca una descripción" rows="3"></textarea>
     </div>
     <div class="custom-file form-control-sm mt-3" style="max-width: 300px;">
       <input type="file" class="custom-file-input" multiple=""/>

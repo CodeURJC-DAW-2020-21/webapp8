@@ -9,9 +9,8 @@ import { UsersService } from '../../services/users.service'
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.css']
 })
-export class EntryComponent implements OnInit, OnChanges {
+export class EntryComponent implements OnInit {
 
-  entries: EntryModel[];
   user: UserModel;
   image: Blob;
   isImageLoading: boolean;
@@ -19,7 +18,7 @@ export class EntryComponent implements OnInit, OnChanges {
   public pageToFind: number;
   public showBtn: string;
 
-  constructor(private entriesService: EntriesService, private usersService: UsersService) { }
+  constructor(public entriesService: EntriesService, private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.isCollapsed = true;
@@ -28,16 +27,8 @@ export class EntryComponent implements OnInit, OnChanges {
     this.showBtn = '';
   }
 
-  ngOnChanges(): void {
-    this.isCollapsed = true;
-    this.getEntries(0);
-  }
-
   getEntries(page: number): void {
-    this.entries = [];
-    this.entriesService.getEntries(page).subscribe(
-      entries => this.entries = entries
-    );
+    this.entriesService.getEntries(page);
   }
 
   getUserByIdEntry(idEntry: number): UserModel {
@@ -50,7 +41,7 @@ export class EntryComponent implements OnInit, OnChanges {
 
   ajaxGetMore(page) {
     this.pageToFind = page + 1;
-    this.entriesService.getEntries(this.pageToFind).subscribe(
+    this.entriesService.getEntriesFromApi(this.pageToFind).subscribe(
       response => {
         let data: any = response;
         let sizePage = data.length;
@@ -64,7 +55,7 @@ export class EntryComponent implements OnInit, OnChanges {
           if (newEntry.idEntry === 1){
             this.showBtn = 'display: none';
           }
-          this.entries.push(newEntry);
+          this.entriesService.pushEntry(newEntry);
         }
       },
       error => console.log(error) //this.showBtn = 'display: none'        

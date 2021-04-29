@@ -37,7 +37,9 @@ export class NewEntryComponent implements OnInit {
   createEntry(event: any, title: string, description: string){
     event.preventDefault();
     this.entriesService.postEntry(title, description).subscribe(
-      response => console.log(response),
+      response => {
+        this.entriesService.getEntries(0);
+      },
       error => console.log(error)
     );
   }
