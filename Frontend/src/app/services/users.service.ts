@@ -38,4 +38,9 @@ export class UsersService {
   createUser(firstname: string, surname: string, email: string, name: string, encodedPassword: string): Observable<UserModel> {
     return this.httpClient.post(BASE_URL, {firstname, surname, email, name, encodedPassword}).pipe() as Observable<UserModel>;
   }
+
+  sendEmail(email: string): Observable<Response> {
+    let url = "password"
+    return this.httpClient.post(BASE_URL + url, {email}).pipe() as Observable<Response>;
+  }
 }

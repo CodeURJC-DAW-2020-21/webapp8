@@ -1,17 +1,16 @@
-import { EntriesService } from './../../services/entries.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UsersService } from './../../services/users.service';
 
 @Component({
-  selector: 'app-new-entry',
-  templateUrl: './new-entry.component.html',
-  styleUrls: ['./new-entry.component.css']
+  selector: 'app-send-email',
+  templateUrl: './send-email.component.html',
+  styleUrls: ['./send-email.component.css']
 })
-export class NewEntryComponent implements OnInit {
+export class SendEmailComponent implements OnInit {
 
   closeModal: string;
-
-  constructor(private modalService: NgbModal, public entriesService: EntriesService) {}
+  constructor(private modalService: NgbModal, public usersService: UsersService) { }
 
   ngOnInit(): void {
   }
@@ -34,11 +33,11 @@ export class NewEntryComponent implements OnInit {
     }
   }
 
-  createEntry(event: any, title: string, description: string){
+  sendEmail(event: any, email: string){
     event.preventDefault();
-    this.entriesService.postEntry(title, description).subscribe(
+    this.usersService.sendEmail(email).subscribe(
       response => console.log(response),
-      error => console.log(error)
+      error => alert("error")
     );
   }
 }
