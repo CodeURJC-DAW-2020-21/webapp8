@@ -18,4 +18,8 @@ export class CryptocurrenciesService{
     getFriendsRecommended(): Observable<UserModel[]>{
         return this.httpClient.get('/api/users/recommended').pipe() as Observable<UserModel[]>;
     }
+
+    getChartData(): Observable<string>{
+      return this.httpClient.get('/api/graphs/').pipe() as Observable<string>;
+    }
 }
