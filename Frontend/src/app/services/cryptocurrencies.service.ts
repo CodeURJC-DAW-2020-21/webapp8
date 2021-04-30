@@ -30,7 +30,7 @@ export class CryptocurrenciesService{
     //     return this.httpClient.put(BASE_URL,)
     // }
 
-    getChartData(): Observable<string>{
-      return this.httpClient.get('/api/graphs/').pipe() as Observable<string>;
+    getChartData(): Observable<number[]>{
+      return this.httpClient.get('/api/graphs/').pipe() as Observable<number[]>;
     }
 }

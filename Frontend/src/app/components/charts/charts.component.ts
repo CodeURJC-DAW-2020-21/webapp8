@@ -1,5 +1,5 @@
-
 import { AfterViewInit, Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { catchError, retry } from 'rxjs/operators';
 import * as Chart from 'chart.js';
 import { CryptocurrenciesService } from 'src/app/services/cryptocurrencies.service';
 
@@ -12,24 +12,24 @@ export class ChartsComponent implements OnInit {
 
   @ViewChild('lineCanvas') lineCanvas: ElementRef;
   lineChart: any;
-
-  data: string;
+  data: number[];
+  arrayaux: number[] = [];
 
   constructor(public cryptocurrenciesService: CryptocurrenciesService) { }
 
-  ngAfterViewInit(): void {
-    this.lineChartMethod();
-  }
-
   ngOnInit(): void {
     this.getChartData();
+  }
+
+  ngAfterViewInit(): void {
+    this.lineChartMethod();
   }
 
   lineChartMethod() {
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
       type: 'line',
       data: {
-        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
         datasets: [
           {
             label: 'GRAFICA',
@@ -50,7 +50,7 @@ export class ChartsComponent implements OnInit {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [this.data.toString()],
+            data: this.arrayaux,
             spanGaps: false,
           }
         ]
@@ -60,9 +60,16 @@ export class ChartsComponent implements OnInit {
 
   getChartData(){
     this.cryptocurrenciesService.getChartData().subscribe(
-      data => this.data = data,
-      error => console.log(error)
-    )
+      response => {
+        // tslint:disable-next-line: prefer-for-of
+        for (let i: number = 0; i < response.length; i++) {
+          this.arrayaux.push(response[i]);
+        }
+      },
+      error =>{
+        console.log(error);
+      },
+    );
   }
 
 }

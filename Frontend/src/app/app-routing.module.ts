@@ -1,3 +1,4 @@
+import { ChartsComponent } from './components/charts/charts.component';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NewEntryComponent } from './components/new-entry/new-entry.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'userslist2', redirectTo: 'userslist', pathMatch: 'full' },
   { path: 'newEntry', component: NewEntryComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'bitcoin', component:  ChartsComponent},
   { path: 'favCryptos', component: FavCryptoComponent },
   { path: '', component: MainForumComponent },
   { path: '**', component:  ErrorComponent}
