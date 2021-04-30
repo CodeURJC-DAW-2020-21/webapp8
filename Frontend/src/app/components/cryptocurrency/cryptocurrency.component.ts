@@ -45,7 +45,7 @@ export class CryptocurrencyComponent implements OnInit {
     )
   }
 
-  changeImage(cryptocurrency2: CryptocurrencyModel, idUser: number){
+  changeImage(cryptocurrency2: CryptocurrencyModel){
     if(!this.isAdded(cryptocurrency2)){
       this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2).subscribe(
         response => console.log(response),
@@ -54,7 +54,7 @@ export class CryptocurrencyComponent implements OnInit {
       this.refresh();
     }
     else{
-      this.cryptocurrenciesService.deleteFavCryptocurrency(cryptocurrency2).subscribe( 
+      this.cryptocurrenciesService.deleteFavCryptocurrency(cryptocurrency2).subscribe(
         response => console.log(response),
         error => console.log(error)
       );
@@ -84,6 +84,6 @@ export class CryptocurrencyComponent implements OnInit {
   //   this.friendsRecommended.forEach(function(friend){
 
   //   })
-    
+
   // }
 }
