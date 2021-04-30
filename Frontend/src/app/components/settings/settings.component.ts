@@ -1,8 +1,8 @@
 import { UsersService } from './../../services/users.service';
 import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
 import { UserModel } from 'src/app/models/User.model';
 import { LoginService } from 'src/app/services/login.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-settings',
@@ -12,8 +12,11 @@ import { LoginService } from 'src/app/services/login.service';
 export class SettingsComponent implements OnInit {
 
   user: UserModel;
+  form: FormGroup;
 
-  constructor(public loginService: LoginService, public usersService: UsersService) { }
+  constructor(public loginService: LoginService, public usersService: UsersService, public fb: FormBuilder) {
+    this.form = this.fb.group({image: [null]});
+  }
 
   ngOnInit(): void {
   }
@@ -27,12 +30,21 @@ export class SettingsComponent implements OnInit {
 
   }
 
-  updateImage(event: any, idUser: number, type: string, image: File) {
-    event.preventDefault();
-    this.usersService.postImage(idUser, type, image).subscribe(
-      response => console.log(response),
-      error => console.log(error)
-    );
-  }
+  upload(event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({
+      image: file
+    });
+    this.form.get('image').updateValueAndValidity();
+ }
 
+ submit() {
+  const formData: any = new FormData();
+  formData.append('image', this.form.get('image').value);
+
+  this.usersService.postImage(this.loginService.currentUser().idUser, formData).subscribe(
+    response => console.log(response),
+    error => console.log(error)
+  );
+  }
 }

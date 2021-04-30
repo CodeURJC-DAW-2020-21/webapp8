@@ -632,6 +632,7 @@ public class UserRestController {
         if (userOptional.isPresent()){
             User user = userOptional.get();
             userService.updateUserImage(user, image);
+            userService.save(user);
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();

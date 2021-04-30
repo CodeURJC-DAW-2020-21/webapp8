@@ -1,4 +1,3 @@
-import { map } from 'rxjs/operators'
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -48,10 +47,8 @@ export class UsersService {
     return this.httpClient.patch(BASE_URL, {firstname, surname}).pipe() as Observable<UserModel>;
   }
 
-  postImage(idUser: number, type: string, image: File): Observable<File>{
-    const formData = new FormData();
-    formData.append(type, image);
-    let url = idUser + '/image';
-    return this.httpClient.post(BASE_URL + url, formData).pipe() as Observable<File>;
+  postImage(idUser: number, formData: FormData): Observable<any>{
+    let url = idUser + '/image/';
+    return this.httpClient.post(BASE_URL + url, formData).pipe() as Observable<any>;
   }
 }
