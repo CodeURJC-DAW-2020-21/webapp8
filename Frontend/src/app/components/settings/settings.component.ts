@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UsersService } from './../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from 'src/app/models/User.model';
@@ -19,6 +20,18 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUser();
+  }
+
+  reLoad(){
+    window.location.reload();
+  }
+
+  getUser() {
+    this.usersService.getUserById(this.loginService.currentUser().idUser).subscribe(
+      user => this.user = user,
+      error => console.log(error)
+    );
   }
 
   updateUser(event: any, firstname: string, surname: string) {
@@ -27,7 +40,6 @@ export class SettingsComponent implements OnInit {
       user => this.user = user,
       error => console.log(error)
     );
-
   }
 
   upload(event) {

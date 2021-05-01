@@ -14,6 +14,11 @@ export class UsersService {
   getUsers(): Observable<UserModel[]>{
     return this.httpClient.get(BASE_URL).pipe() as Observable<UserModel[]>;
   }
+
+  getUserById(idUser: number): Observable<UserModel> {
+    return this.httpClient.get(BASE_URL + idUser).pipe() as Observable<UserModel>;
+  }
+
   getUserByIdEntries(idEntry: number): Observable<UserModel>{
     let url = idEntry + '/entries/users';
     return this.httpClient.get(BASE_URL + url).pipe() as Observable<UserModel>;
