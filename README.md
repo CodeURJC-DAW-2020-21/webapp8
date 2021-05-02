@@ -224,3 +224,25 @@ We have also dockerized and published ForoCoin thanks to docker.
 | RestSecurityConfig.java | Cryptocurrency.java               | Comment.java                        | Dockerfile               | Entry.java              |
 | docker_image.sh         | User.java                         | UserRestController.java             | RestSecurityConfig.java  | UserRestController.java |
 | User.java               | RestSecurityConfig.java           | Readme                              | EntryRestController.java | RestSecurityConfig.java |
+
+## PHASE 4
+
+###HOW TO BUILD THE ANGULAR APP
+
+In order to do the following instructions you need to have installed Docker and Docker-Compose.
+
+- To build the Angular application, first the user must clone the repository via the command: ```git clone https://github.com/CodeURJC-DAW-2020-21/webapp8.git```.
+- Second you have to change directory to the Docker directory. To do so use the command cd ```cd webapp8/Docker/```. 
+- Then build the Angular application and the backend using the command ```bash docker_image.sh```.
+- Finally, to execute the Docker image use the command ```sudo docker-compose up```. 
+- And that's it, to use the Angular application just introduce the following url in your browser: ```https://localhost:8443/new```.
+
+
+### Files
+| Marcos                  | Adrián L.                         | Adrián S.                           | Óscar                        | Ángel                   |
+|:-----------------------:|:---------------------------------:|:-----------------------------------:|:----------------------------:|:-----------------------:|
+| userlist.component.ts   | cryptocurrency.component.html     | charts.component.ts                 | error.component.ts           | entry.component.ts      |
+| register.component.ts   | cryptocurrency.component.ts       | charts.component.html               | chart.component.ts           | comment.component.ts    |
+| new-entry.component.ts  | cryptocurrencies.service.ts       | settings.component.ts               | favCrypto.service.ts         | send-email.component.ts |
+| docker_image.sh         | friends.component.html            | settings.component.html             | header.component.html        | entries.service.ts      |
+| user.service.ts         | friends.component.ts              | main-forum.component.html           | footer.component.html        | new-comment.component.ts|
