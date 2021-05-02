@@ -13,7 +13,7 @@ export class ChartsComponent implements OnInit {
   @ViewChild('lineCanvas') lineCanvas: ElementRef;
   lineChart: any;
   data: number[];
-  arrayaux: number[] = [];
+  array: number[] = [];
 
   constructor(public cryptocurrenciesService: CryptocurrenciesService) { }
 
@@ -50,7 +50,7 @@ export class ChartsComponent implements OnInit {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: this.arrayaux,
+            data: this.array,
             spanGaps: false,
           }
         ]
@@ -63,7 +63,7 @@ export class ChartsComponent implements OnInit {
       response => {
         // tslint:disable-next-line: prefer-for-of
         for (let i: number = 0; i < response.length; i++) {
-          this.arrayaux.push(response[i]);
+          this.array.push(response[i]);
         }
       },
       error =>{

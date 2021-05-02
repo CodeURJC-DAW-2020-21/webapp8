@@ -12,12 +12,10 @@ export class NewCommentComponent implements OnInit {
 
   @Input()
   idEntry: number;
-  response: any;
 
   constructor(public commentsService: CommentsService, private entriesService: EntriesService)  { }
 
   ngOnInit(): void {
-    // this.response.headers.lazyInit.Scopes[0].headers;
   }
 
   createComment(event: any, descriptionComment: string) {
