@@ -3,6 +3,7 @@ cd ../Backend/src/main/resources/static/
 rm -r new/
 mkdir new
 cd ../../../../../Frontend/
+npm install
 ng build --prod --base-href="/new/"
 cp -r dist/FrontEndAngular/* ../Backend/src/main/resources/static/new/
 cd ../Backend
