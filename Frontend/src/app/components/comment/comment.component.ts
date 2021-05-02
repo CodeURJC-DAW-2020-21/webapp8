@@ -56,6 +56,4 @@ export class CommentComponent implements OnInit {
     );
     return this.commentWuser;
   }
-
-
 }
