@@ -23,7 +23,7 @@ export class CommentComponent implements OnInit {
     this.getCommentsByIdEntry(this.idEntry);
   }
 
-  getCommentsByIdEntry(idEntry: number): void {
+  public getCommentsByIdEntry(idEntry: number): void {
     this.comments = [];
     this.entriesService.getCommentsByIdEntry(idEntry).subscribe(
       response => {

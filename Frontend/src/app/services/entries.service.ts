@@ -14,10 +14,12 @@ export class EntriesService {
 
   public entries: EntryModel[] = [];
   public showBtn: string = '';
+  public pageToFind: number = 0;
 
   constructor(private httpClient: HttpClient, public loginService: LoginService) { }
 
   getEntries(page: number): void{
+    this.pageToFind = page;
     this.entries = []
     this.showBtn = '';
     this.getEntriesFromApi(page).subscribe(

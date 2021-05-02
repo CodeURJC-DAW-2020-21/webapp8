@@ -15,19 +15,19 @@ export class EntryComponent implements OnInit {
   image: Blob;
   isImageLoading: boolean;
   public isCollapsed;
-  public pageToFind: number;
   public showBtn: string;
 
   constructor(public entriesService: EntriesService, private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.isCollapsed = true;
-    this.pageToFind = 0;
-    this.getEntries(this.pageToFind);
+    this.entriesService.pageToFind = 0;
+    this.getEntries(this.entriesService.pageToFind);
     this.showBtn = '';
   }
 
   getEntries(page: number): void {
+    this.entriesService.pageToFind = page;
     this.entriesService.getEntries(page);
   }
 
@@ -40,8 +40,8 @@ export class EntryComponent implements OnInit {
   }
 
   ajaxGetMore(page) {
-    this.pageToFind = page + 1;
-    this.entriesService.getEntriesFromApi(this.pageToFind).subscribe(
+    this.entriesService.pageToFind = page + 1;
+    this.entriesService.getEntriesFromApi(this.entriesService.pageToFind).subscribe(
       response => {
         let data: any = response;
         let sizePage = data.length;

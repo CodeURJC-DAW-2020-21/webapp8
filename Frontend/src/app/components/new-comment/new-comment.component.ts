@@ -1,5 +1,7 @@
 import { CommentsService } from 'src/app/services/comment.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { CommentComponent } from '../comment/comment.component';
+import { EntriesService } from 'src/app/services/entries.service';
 
 @Component({
   selector: 'app-new-comment',
@@ -11,7 +13,7 @@ export class NewCommentComponent implements OnInit {
   @Input()
   idEntry: number;
 
-  constructor(public commentsService: CommentsService) { }
+  constructor(public commentsService: CommentsService, private entriesService: EntriesService)  { }
 
   ngOnInit(): void {
   }
@@ -19,7 +21,10 @@ export class NewCommentComponent implements OnInit {
   createComment(event: any, descriptionComment: string) {
     event.preventDefault();
     this.commentsService.postComment(descriptionComment, this.idEntry).subscribe(
-      response => console.log(response),
+      response => {
+        let data: any = response;
+        this.entriesService.getEntries(0);
+      },
       error => console.log(error)
     );
   }

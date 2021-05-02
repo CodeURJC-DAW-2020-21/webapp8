@@ -14,7 +14,8 @@ export class CommentsService {
         return this.httpClient.get(BASE_URL + url).pipe() as Observable<CommentModel>;
       }
 
-    postComment(descriptionComment: string, idEntry: number): Observable<CommentModel> {
-      return this.httpClient.post(BASE_URL, {descriptionComment, idEntry}).pipe() as Observable<CommentModel>;
+    postComment(descriptionComment: string, idEntry: number): Observable<any> {
+      let aux = this.httpClient.post(BASE_URL, {descriptionComment, idEntry}, {observe: 'response'}).pipe() as Observable<any>;
+      return aux;
     }
 }
