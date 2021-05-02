@@ -1,6 +1,7 @@
 import { EntriesService } from './../../services/entries.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-new-entry',
@@ -11,7 +12,7 @@ export class NewEntryComponent implements OnInit {
 
   closeModal: string;
 
-  constructor(private modalService: NgbModal, public entriesService: EntriesService) {}
+  constructor(private modalService: NgbModal, public entriesService: EntriesService, public loginService: LoginService) {}
 
   ngOnInit(): void {
   }

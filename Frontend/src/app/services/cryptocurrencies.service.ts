@@ -26,9 +26,6 @@ export class CryptocurrenciesService{
     deleteFavCryptocurrency(cryptocurrency: CryptocurrencyModel){
         return this.httpClient.delete(BASE_URL + cryptocurrency.idCripto + '/cryptocurrencies').pipe() as Observable<CryptocurrencyModel[]>;
     }
-    // putCryptocurrencies(cryptocurrency: CryptocurrencyModel){
-    //     return this.httpClient.put(BASE_URL,)
-    // }
 
     getChartData(): Observable<number[]>{
       return this.httpClient.get('/api/graphs/').pipe() as Observable<number[]>;
