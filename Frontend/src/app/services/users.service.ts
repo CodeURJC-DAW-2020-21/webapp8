@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserModel } from '../models/User.model';
 
-const BASE_URL = 'api/users/';
+const BASE_URL = '/api/users/';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
