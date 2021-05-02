@@ -227,7 +227,7 @@ We have also dockerized and published ForoCoin thanks to docker.
 
 ## PHASE 4
 
-###HOW TO BUILD THE ANGULAR APP
+### HOW TO BUILD THE ANGULAR APP
 
 In order to do the following instructions you need to have installed Docker and Docker-Compose.
 
@@ -237,6 +237,17 @@ In order to do the following instructions you need to have installed Docker and 
 - Finally, to execute the Docker image use the command ```sudo docker-compose up```. 
 - And that's it, to use the Angular application just introduce the following url in your browser: ```https://localhost:8443/new```.
 
+### Participation
+In this fourth phase we have implemented a new Angular frontend. Now our app is accesible via the traditional MVC Spring-Boot application and trough our Angular interface. 
+We have also dockerized and published ForoCoin with both designs thanks to docker.
+
+| Marcos Rodríguez | Adrián López | Adrián Sierra | Ángel Domínguez | Óscar Ramadán |
+|:----------------:|:------------:|:-------------:|:---------------:|:-------------:|
+| [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/1d4733b395040122f4fd24b4458a2a2c96620c17) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/bbee3c5de0dbc85c4f3ef4331694bf81cc9b1856) | [Commit1](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/3dcac55398deff92b171b907108aff85fa2ef875) | [Commit1]() |[Commit1]()  |
+| [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/82aa7b5745828be8009fba261138588408d4953b) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/8dc74f1ef068dd57b9bb4bdaac017ed3702f0f60) | [Commit2](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/eb9315132efb9bac26ad6c5aa285255b33066d46) | [Commit2]() |[Commit2]()  |
+| [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/cbb8fe596a48a0bac2360367a7c78c392eea5a13) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/780ac9588503ee348fca28bfe9cc758380e52cec) | [Commit3](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/c2b28562c83ef83a010dbc832c21aafd7efb4b76) | [Commit3]() |[Commit3]()  |
+| [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/b48d684463f3f4dffc04c3dac63e655baa707228) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/29a06c3f5741de5d74de033f86b6ea14283cbd0a) | [Commit4](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/60495547fd023073171f64419a8d5b36778e20ac) | [Commit4]() |[Commit4]()  |
+| [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/384ea4aced81aa3adc0c65150fb9e0ba63a5cc57) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/f2e4507fb76dc068b77f162ef5ca1df8ec54dfea) | [Commit5](https://github.com/CodeURJC-DAW-2020-21/webapp8/commit/eb7fc61edd10c1e593e8971aa8f4e9de7e31e89c) | [Commit5]() |[Commit5]()  |
 
 ### Files
 | Marcos                  | Adrián L.                         | Adrián S.                           | Óscar                        | Ángel                   |
@@ -246,3 +257,6 @@ In order to do the following instructions you need to have installed Docker and 
 | new-entry.component.ts  | cryptocurrencies.service.ts       | settings.component.ts               | favCrypto.service.ts         | send-email.component.ts |
 | docker_image.sh         | friends.component.html            | settings.component.html             | header.component.html        | entries.service.ts      |
 | user.service.ts         | friends.component.ts              | main-forum.component.html           | footer.component.html        | new-comment.component.ts|
+
+
+
