@@ -259,4 +259,6 @@ We have also dockerized and published ForoCoin with both designs thanks to docke
 | user.service.ts         | friends.component.ts              | main-forum.component.html           | footer.component.html        | new-comment.component.ts|
 
 
+### SPA class diagram and templates
 
+![UML Diagram](/Phase4Images/UML.png)
