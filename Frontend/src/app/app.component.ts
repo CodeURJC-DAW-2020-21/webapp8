@@ -10,23 +10,8 @@ import {Component} from '@angular/core';
 export class AppComponent {
 
   entries: string[] = [];
+  public isContentCollapsed;
 
   constructor(private httpClient: HttpClient) {
-
-  }
-
-  getEntries(page: number) {
-    this.entries = [];
-    let url = "/api/entries/?numOfPage=" + page.toString() + "";
-    this.httpClient.get(url).subscribe(
-      response => {
-        let data: any = response;
-        // tslint:disable-next-line: prefer-for-of
-        for (let i = 0; i < data.length; i++) {
-          let entryTitle = data[i].title;
-          this.entries.push(entryTitle);
-        }
-      }
-    );
   }
 }
