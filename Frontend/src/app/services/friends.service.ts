@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserModel } from '../models/User.model';
 
-const BASE_URL = '/api/users/friends'
+const BASE_URL = '/api/users/'
 
 @Injectable({ providedIn: 'root' })
 export class FriendsService{
@@ -14,10 +14,10 @@ export class FriendsService{
     }
 
     postFriend(idUser){
-        return this.httpClient.post(BASE_URL + "/" + idUser, idUser).pipe() as Observable<UserModel[]>;
+        return this.httpClient.post(BASE_URL + "friends/" + idUser, idUser).pipe() as Observable<UserModel[]>;
     }
-
+  
     deleteFriend(idUser){
-        return this.httpClient.delete(BASE_URL + "/" + idUser).pipe() as Observable<UserModel[]>;
+        return this.httpClient.delete(BASE_URL + "friends/" + idUser).pipe() as Observable<UserModel[]>;
     }
 }

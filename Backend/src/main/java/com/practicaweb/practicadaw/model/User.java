@@ -53,7 +53,7 @@ public class User {
     @JsonView(Cryptocurrencies.class)
     private List<Criptocurrency> criptocurrencies;
     @ManyToMany
-    @JsonView(Friends.class)
+    @JsonView({Friends.class, Basic.class})
     private List<User> friends;
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, orphanRemoval=true)
     @JsonView(Entries.class)

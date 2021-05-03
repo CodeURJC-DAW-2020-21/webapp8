@@ -12,4 +12,5 @@ export class UserModel {
     roles: string[];
     registrationDate: Date;
     criptocurrencies: CryptocurrencyModel[];
+    friends: UserModel[];
 }

@@ -286,10 +286,9 @@ public class UserRestController {
     })
     @JsonView(UserFriends.class)
     @GetMapping("/{id}/friends")
-    public ResponseEntity<User> getUserByIdFriends(@Parameter(description = "Id of the user you're looking for.") @PathVariable long id){
+    public ResponseEntity<Collection<User>> getUserByIdFriends(@Parameter(description = "Id of the user you're looking for.") @PathVariable long id){
         Optional<User> user = userService.findById(id);
-
-        return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return ResponseEntity.ok(user.get().getFriends());
     }
 
     @Operation(summary = "Add a friend by its id.")
@@ -322,9 +321,7 @@ public class UserRestController {
         if (userOptional.isPresent() && userFriendOptional.isPresent()){
             User user = userOptional.get();
             User userFriend = userFriendOptional.get();
-            List<User> friendsList = new ArrayList<>();
-            friendsList.add(userFriend);
-            user.setFriends(friendsList);
+            user.addFriend(userFriend);
             userService.save(user);
             return ResponseEntity.ok().build();
         } else {

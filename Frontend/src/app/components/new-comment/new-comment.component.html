@@ -6,6 +6,9 @@
   </div>
   <div class="col-3 mt-1">
     <button class="btn-primary" type="submit" (click)="createComment($event, descriptionComment.value); descriptionComment.value=''">Publicar</button>
+    <div style = "float: right">
+      <app-friends [userEntry]="entry.user"></app-friends>
+    </div>
   </div>
   <input type="hidden" name="_csrf" value=""/>
 </div>

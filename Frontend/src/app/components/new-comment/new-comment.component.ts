@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommentComponent } from '../comment/comment.component';
 import { EntriesService } from 'src/app/services/entries.service';
 import { LoginService } from 'src/app/services/login.service';
+import { EntryModel } from 'src/app/models/Entry.model';
 
 @Component({
   selector: 'app-new-comment',
@@ -12,7 +13,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class NewCommentComponent implements OnInit {
 
   @Input()
-  idEntry: number;
+  entry: EntryModel;
 
   constructor(public commentsService: CommentsService, private entriesService: EntriesService, private loginService: LoginService)  { }
 
@@ -23,7 +24,7 @@ export class NewCommentComponent implements OnInit {
     if (this.loginService.isLogged()){
       if (descriptionComment){
         event.preventDefault();
-        this.commentsService.postComment(descriptionComment, this.idEntry).subscribe(
+        this.commentsService.postComment(descriptionComment, this.entry.idEntry).subscribe(
           response => {
             let data: any = response;
             this.entriesService.getEntries(0);

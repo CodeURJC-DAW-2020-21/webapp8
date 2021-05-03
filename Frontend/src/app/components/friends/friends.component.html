@@ -1,1 +1,6 @@
-<p>friends works!</p>
+<div *ngIf="loginService.isLogged()">
+    <div *ngIf="isUser()">
+        <button *ngIf="isFriendAdded()" (click) = "addOrDeleteFriend()">Eliminar amigo</button>
+        <button *ngIf="!isFriendAdded()" (click) = "addOrDeleteFriend()">Agregar amigo</button>
+    </div>
+</div>

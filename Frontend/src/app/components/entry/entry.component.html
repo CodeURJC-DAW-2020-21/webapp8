@@ -14,7 +14,7 @@
                             <p class="text-secondary">
                                 {{entry.description}}
                             </p>
-                            <app-new-comment [idEntry]="entry.idEntry"></app-new-comment>
+                            <app-new-comment [entry]="entry"></app-new-comment>
                         </form>
                         <a class="btn text-muted" (click)="collapse.toggle()">Comentarios</a>
                         <div class="collapse" #collapse="ngbCollapse" ngbCollapse="isCollapsed">
