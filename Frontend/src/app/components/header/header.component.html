@@ -5,6 +5,8 @@
     <app-login></app-login>
     <div *ngIf="loginService.isLogged()">
       <li ngbDropdown class="d-inline-block">
+        <a class="btn btn-light btn-outline-secondary ml-2" id="dropdownBasic1" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle><i class="fas fa-user fa-fw"></i></a>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu dropdown-menu-right">
           <a ngbDropdownItem routerLink="/settings">Mi cuenta</a>
         </div>
