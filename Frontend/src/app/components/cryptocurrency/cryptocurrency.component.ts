@@ -48,19 +48,16 @@ export class CryptocurrencyComponent implements OnInit {
   changeImage(cryptocurrency2: CryptocurrencyModel){
     if(!this.isAdded(cryptocurrency2)){
       this.cryptocurrenciesService.postFavCryptocurrency(cryptocurrency2).subscribe(
-        response => console.log(response),
+        response => this.refresh(),
         error => console.log(error)
       );
-      this.refresh();
     }
     else{
       this.cryptocurrenciesService.deleteFavCryptocurrency(cryptocurrency2).subscribe(
-        response => console.log(response),
+        response => this.refresh(),
         error => console.log(error)
       );
-      this.refresh();
     }
-    this.refresh();
   }
 
   isAdded(cryptocurrencyAdded:CryptocurrencyModel): boolean{
