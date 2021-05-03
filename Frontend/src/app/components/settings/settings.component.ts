@@ -35,11 +35,17 @@ export class SettingsComponent implements OnInit {
   }
 
   updateUser(event: any, firstname: string, surname: string) {
-    event.preventDefault();
-    this.usersService.patchUser(firstname, surname).subscribe(
+    const okResponse = window.confirm('¿Estas seguro de que deseas guardar los cambios?');
+    if (okResponse){
+      event.preventDefault();
+      this.usersService.patchUser(firstname, surname).subscribe(
       user => this.user = user,
       error => console.log(error)
     );
+      window.location.reload();
+    } else {
+
+    }
   }
 
   upload(event) {
